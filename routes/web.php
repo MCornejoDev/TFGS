@@ -18,3 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*Crear personaje*/
+
+Route::get('crear', function () {
+    return view('crearpersonaje');
+});
+
+Route::get('/crear',[
+    'as'=>'crear',
+    'uses'=> 'CrearPersonajeController@index'
+]);
+
+Route::post('crear',[
+    'as'=>'registrar',
+    'uses'=> 'CrearPersonajeController@registrar'
+]);
