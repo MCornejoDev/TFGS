@@ -42,8 +42,13 @@
 <br/>
 
 @else
-<div class="sesion">
-<h1 style="text-align:center !important; font-weigth:bold !important;">Debe iniciar sesión</h1>
+<style>
+
+</style>
+
+<div style="" >
+    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+</div>
 </div>
 
 @endauth
