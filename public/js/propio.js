@@ -13,8 +13,10 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
+    alert("helo");
     document.getElementById("nextBtn").innerHTML = "Crear";
     document.getElementById("nextBtn").className = "form-group";
+    document.getElementById('crearV').setAttribute("disabled","");
   } else {
     document.getElementById("nextBtn").innerHTML = "Siguiente";
   }

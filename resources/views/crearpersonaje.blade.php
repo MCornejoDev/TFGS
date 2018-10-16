@@ -137,8 +137,6 @@ button:hover {
     }
 }
 
-
-
 </style>
 
 <form method="POST" action="{{route('registrar')}}">
@@ -148,9 +146,10 @@ button:hover {
     <span class="step">1</span>
     <span class="step">2</span>
     <span class="step">3</span>
-    <span class="step">4</span>
-    <span class="step">5</span>
   </div>
+  <div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
+        <button class="btn btn-primary btn-block" id="crearV" type="submit" disabled>Crear personaje</button>
+    </div>
   <div class="container tab">
   <h1>Datos del personaje</h1>
     <div class="row">
@@ -211,6 +210,20 @@ button:hover {
   <h1>Nivel y habilidades</h1>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="text" placeholder="Habilidad 1"  name="habilidad1">
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="text" placeholder="Habilidad 2"  name="habilidad2">
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="text" placeholder="Habilidad 3"  name="habilidad3">
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="text" placeholder="Habilidad 4"  name="habilidad4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
       </div>
     </div>
@@ -220,9 +233,9 @@ button:hover {
     <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
   </div>
   <div style="overflow:auto;">
-    <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+    <div>
+      <button style="float:left;"type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
+      <button style="float:right;" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
     </div>
   </div>
 </form>
