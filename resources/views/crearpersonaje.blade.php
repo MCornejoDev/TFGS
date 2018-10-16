@@ -57,12 +57,12 @@ button:hover {
 
 /* Make circles that indicate the steps of the form: */
 .step {
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
   margin: 0 2px;
   background-color: #bbbbbb;
   border: none;
-  border-radius: 50%;
+  border-radius: 100%;
   display: inline-block;
   opacity: 0.5;
 }
@@ -73,7 +73,7 @@ button:hover {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #4CAF50;
+  background-color: #dfb351;
 }
 .hijos
 {
@@ -142,19 +142,20 @@ button:hover {
 </style>
 
 <form method="POST" action="{{route('registrar')}}">
-    {!! csrf_field() !!}
-    <div class="form-group" >
-
-    </div>
-    <div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
-        <button class="btn btn-primary btn-block"  type="submit">Crear personaje</button>
-    </div>
-    
-  <!-- One "tab" for each step in the form: -->
+    {!! csrf_field() !!}  
+   <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;">
+    <span class="step">1</span>
+    <span class="step">2</span>
+    <span class="step">3</span>
+    <span class="step">4</span>
+    <span class="step">5</span>
+  </div>
   <div class="container tab">
+  <h1>Datos del personaje</h1>
     <div class="row">
       <div class="col-sm-12 text-center">
-          <select name="raza" class="hijos">
+          <select name="raza" class="hijos" style="padding:5px !important; ">
             <option disabled selected value> -- Eliga una raza -- </option>
             <option value="Humanos">Humanos</option>
             <option value="Elfos">Elfos</option>
@@ -190,42 +191,39 @@ button:hover {
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input type="radio" name="sexo" value="masculino"> Masculino<br>
-        <input type="radio" name="sexo" value="femenino"> Femenino<br>
+          <input type="radio" name="sexo" value="masculino"> Masculino<br>
+          <input type="radio" name="sexo" value="femenino"> Femenino<br>
         </div>
     </div>
-        <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p> -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <textarea class="hijos" name="personalidad" placeholder="Personalidad" id="personalidad" cols="28" rows="5"></textarea>
+        </div>
+    </div>
+        <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+        
+    <div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
+        <button class="btn btn-primary btn-block"  type="submit">Crear personaje</button>
+    </div>
+         -->
+  </div>
+  <div class="container tab">
+  <h1>Nivel y habilidades</h1>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
+      </div>
+    </div>
   </div>
   <div class="tab">Contact Info:
     <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
     <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
   </div>
-  <div class="tab">Birthday:
-    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-    <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
-  </div>
-  <div class="tab">Login Info:
-    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-  </div>
   <div style="overflow:auto;">
     <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
     </div>
-  </div>
-  <div class="tab">Login Info:
-    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-  </div>
-  <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step">1</span>
-    <span class="step">2</span>
-    <span class="step">3</span>
-    <span class="step">4</span>
-    <span class="step">5</span>
   </div>
 </form>
 <script src="{{asset('js/propio.js')}}"></script>

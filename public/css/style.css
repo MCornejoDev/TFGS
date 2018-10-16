@@ -1,3 +1,7 @@
+*{
+    font-weight: bold !important;
+}
+
 .sesion{
     background: url('../img/background2.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
