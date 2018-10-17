@@ -10,6 +10,8 @@ class CrearPersonaje extends Model
     protected $table = 'personajes';
 
     protected $fillable = ['raza','nombrePersonaje','apodo','altura','edad','peso','sexo',
-    'personalidad','habilidad1','habilidad2','habilidad3','nivel','fuerza','destreza','constitucion'
+    'personalidad','habilidad1','habilidad2','habilidad3','habilidad4','nivel','fuerza','destreza','constitucion'
     ,'inteligencia','sabiduria','carisma','objetos'];
+
+    public $timestamps = false;
 }

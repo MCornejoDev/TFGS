@@ -23,6 +23,9 @@ function showTab(n) {
   } else {
     
     document.getElementById("nextBtn").innerHTML = "Siguiente";
+    document.getElementById("nextBtn").style.display = "block";
+    document.getElementById("divCrear").removeAttribute("poner");
+    document.getElementById('divCrear').setAttribute('class',"quitar");
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
@@ -49,18 +52,25 @@ function nextPrev(n) {
 }
 
 function validateForm() {
+  var escudo = document.getElementById('escudo');
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
+    // If a field is empty...ç
+    if (escudo.value == "")
+    {
+      valid = true;
+    }
+    else{
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+      }
     }
   }
   // If the valid status is true, mark the step as finished and valid:
@@ -81,6 +91,9 @@ function fixStepIndicator(n) {
 }
 
 function annadirArmas(clase){
+  var escudo = document.getElementById('escudo');
+  escudo.disabled = true;
+  escudo.setAttribute('value','');
   var select = document.getElementById('selectArma');
   if(select.hasChildNodes())
   {
@@ -166,6 +179,7 @@ function habilitarEscudo(arma)
 {
   //Armas que no pueden usar el escudo :Mandoble,Hacha,Arco,Ballesta,Cuchillos,Baston,Pico,Puñales.
   var escudo = document.getElementById('escudo');
+  escudo.disabled = true;
   if(arma == 'Espada' || arma == 'Cetro' || arma == 'Varita') 
   {
       escudo.disabled = false;
@@ -173,6 +187,14 @@ function habilitarEscudo(arma)
   else{
     escudo.disabled = true;
   }
-  
-  
 }
+
+function tipoArmadura(clase){
+  //Guerrero,Barbaro,Paladin ->Armadura de maya Pesada
+
+  //Explorador,Bardo,Pícaro -> Cuero Medio o Pesado
+
+  //Clérigo,Druida,Mago,Hechicero,Monje -> Armadura de Tela
+}
+
+

@@ -38,9 +38,6 @@ class CreateCambiosTable extends Migration
             $table->integer('sabiduria');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('carisma');//Valor máximo de la columna de nivel es 2 números (99)
             $table->string('objetos',100);    
-            $table->string('arma',70);
-            $table->string('armadura',70);
-            $table->string('escudo',70)->nullable();
             
         });
     }

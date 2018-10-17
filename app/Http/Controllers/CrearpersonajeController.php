@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\CrearPersonaje;
 use App\RegistraClase;
 use App\RegistraCambios;
+use Carbon\Carbon;
 
 class CrearpersonajeController extends Controller
 {
@@ -15,7 +16,7 @@ class CrearpersonajeController extends Controller
 
     function registrar(Request $request){
         $inputs = $request->all();
-        //dd($inputs);
+      
         $crear = CrearPersonaje::create([
             'raza'=>$inputs['raza'],
             'nombrePersonaje'=>$inputs['nombrePersonaje'],
@@ -38,6 +39,50 @@ class CrearpersonajeController extends Controller
             'carisma'=>$inputs['carisma'],
             'objetos'=>$inputs['objetos']
         ]);
+
+        $escudo;
+        if(!isset($inputs['escudo']))
+        {
+            $escudo = "";
+            $clase = RegistraClase::create([
+                'idPersonaje'=>$crear->id,
+                'tipo'=>$inputs['clase'],
+                'arma'=>$inputs['arma'],
+                'armadura'=>'asasas',
+                'escudo'=>$escudo
+            ]);
+        }
+        else
+        {
+            $clase = RegistraClase::create([
+                'idPersonaje'=>$crear->id,
+                'tipo'=>$inputs['clase'],
+                'arma'=>$inputs['arma'],
+                'armadura'=>'asasas',
+                'escudo'=>$inputs['escudo']
+            ]);
+        }
         
+        $idUsuario = \Auth::user()->id;
+        date_default_timezone_get('Europe/Madrid');
+        $fecha = date('Y-m-d H:i:s');
+        //dd($fecha);
+       
+        $cambios = RegistraCambios::create([
+            'nickPartida'=>$inputs['nickPartida'],
+            'fecha'=>$fecha,
+            'idUsuario'=>$idUsuario,
+            'idPersonaje'=>$crear->id,
+            'estado'=>'creado',
+            'nivel'=>$inputs['nivel'],
+            'fuerza'=>$inputs['fuerza'],
+            'destreza'=>$inputs['destreza'],
+            'constitucion'=>$inputs['constitucion'],
+            'inteligencia'=>$inputs['inteligencia'],
+            'sabiduria'=>$inputs['sabiduria'],
+            'carisma'=>$inputs['carisma'],
+            'objetos'=>$inputs['objetos']
+        ]);
+     
     }
 }

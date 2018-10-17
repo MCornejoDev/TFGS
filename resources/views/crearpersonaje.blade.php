@@ -196,8 +196,8 @@ button:hover {
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <input type="radio" name="sexo" value="masculino"> Masculino<br>
-          <input type="radio" name="sexo" value="femenino"> Femenino<br>
+          <input type="radio" name="sexo" value="M"> Masculino<br>
+          <input type="radio" name="sexo" value="F"> Femenino<br>
         </div>
     </div>
     <div class="row">
@@ -252,8 +252,9 @@ button:hover {
           </select>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input type="checkbox" name="escudo" id="escudo" disabled> Escudo
+        <input type="text" name="escudo" placeholder="Escribe el tipo de escudo" id="escudo" style="text-align:center !important;" disabled>
       </div>
+      
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="text" placeholder="Habilidad 1"  name="habilidad1">
       </div>

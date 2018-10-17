@@ -15,11 +15,11 @@ class CreateClassTable extends Migration
     {
         Schema::create('clase', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('iDPersonaje')->unsigned();//El id que hace referencia al usuario de la tabla personaje
-            $table->foreign('iDPersonaje')
+            $table->integer('idPersonaje')->unsigned();
+            $table->foreign('idPersonaje')
               ->references('id')
               ->on('personajes')
-              ->onDelete('cascade');
+              ->onDelete('cascade');//Hace referencia al id de la tabla personaje
             $table->string('tipo',50);
             $table->string('arma',70);
             $table->string('armadura',70);

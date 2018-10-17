@@ -8,5 +8,6 @@ class RegistraClase extends Model
 {
     // 
     protected $table = 'clase';
-    protected $fillable = ['iDPersonaje','tipo','arma','armadura','escudo'];
+    protected $fillable = ['idPersonaje','tipo','arma','armadura','escudo'];
+    public $timestamps = false;
 }
