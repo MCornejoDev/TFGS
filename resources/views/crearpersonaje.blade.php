@@ -148,14 +148,14 @@ button:hover {
     <span class="step">3</span>
   </div>
   <div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
-        <button class="btn btn-primary btn-block" id="crearV" type="submit" disabled>Crear personaje</button>
+        <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear personaje</button>
     </div>
   <div class="container tab">
   <h1>Datos del personaje</h1>
     <div class="row">
       <div class="col-sm-12 text-center">
           <select name="raza" class="hijos" style="padding:5px !important; ">
-            <option disabled selected value> -- Eliga una raza -- </option>
+            <option disabled selected value> -- Elija una raza -- </option>
             <option value="Humanos">Humanos</option>
             <option value="Elfos">Elfos</option>
             <option value="SemiElfos">SemiElfos</option>
@@ -207,8 +207,47 @@ button:hover {
          -->
   </div>
   <div class="container tab">
-  <h1>Nivel y habilidades</h1>
-    <div class="row">
+   <h1>Clase y equipamiento</h1>
+   <div class="row">
+     <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+         <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
+     </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value)'>
+            <option disabled selected value> -- Elija una clase -- </option>
+            <option value="Barbaro">Barbaro</option>--
+            <option value="Bardo">Bardo</option>
+            <option value="Clérigo">Clérigo</option>-
+            <option value="Druida">Druida</option>-
+            <option value="Explorador">Explorador</option>
+            <option value="Guerrero">Guerrero</option>--
+            <option value="Hechicero">Hechicero</option>-
+            <option value="Mago">Mago</option>-
+            <option value="Monje">Monje</option>-
+            <option value="Paladín">Paladín</option>--
+            <option value="Pícaro">Pícaro</option>
+          </select>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <select name="arma" class="hijos" id="selectArma" style="padding:5px !important;" disabled onchange='habilitarEscudo(this.value)'>
+            <option disabled selected> -- Elija un arma-- </option>
+            <!--<option value="Espadas">Espadas</option>
+            <option value="Hachas">Hachas</option>
+            <option value="Mazas">Mazas</option>
+            <option value="Mandoble">Mandoble</option>
+            <option value="Bastones">Bastones</option>
+            <option value="Cetro">Cetro</option>
+            <option value="Varitas">Varitas</option>
+            <option value="Arcos">Arcos</option>
+            <option value="Cuchillos">Cuchillos</option>
+            <option value="Puñales">Puñales</option>
+            <option value="Pico">Pico</option>
+            <option value="Ballestas">Ballestas</option>-->
+          </select>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input type="checkbox" name="escudo" id="escudo" disabled> Escudo
+      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="text" placeholder="Habilidad 1"  name="habilidad1">
       </div>
@@ -221,17 +260,43 @@ button:hover {
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="text" placeholder="Habilidad 4"  name="habilidad4">
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
+  </div>
+  </div>
+
+<div class="container tab">
+  <h1>Características y objetos</h1>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="fuerza" name="fuerza" id="">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="destreza" name="destreza" id="">
+        </div>
       </div>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="constitución" name="constitución" id="">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" id="">
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="sabiduria" name="sabiduria" id="">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="carisma" name="carisma" id="">
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <textarea class="hijos" name="objetos" placeholder="objetos" id="objetos" cols="28" rows="5"></textarea>
+      </div>    
     </div>
-  </div>
-  <div class="tab">Contact Info:
-    <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-    <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
-  </div>
+</div>
+
+
   <div style="overflow:auto;">
     <div>
       <button style="float:left;"type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
