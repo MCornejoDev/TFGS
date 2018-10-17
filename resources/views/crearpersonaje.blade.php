@@ -137,6 +137,14 @@ button:hover {
     }
 }
 
+.quitar{
+  display:none !important;
+}
+
+.poner{
+  display:block  !important;
+}
+
 </style>
 
 <form method="POST" action="{{route('registrar')}}">
@@ -147,9 +155,7 @@ button:hover {
     <span class="step">2</span>
     <span class="step">3</span>
   </div>
-  <div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
-        <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear personaje</button>
-    </div>
+  
   <div class="container tab">
   <h1>Datos del personaje</h1>
     <div class="row">
@@ -275,7 +281,7 @@ button:hover {
       </div>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="constitución" name="constitución" id="">
+            <input class="hijos" type="number" placeholder="constitución" name="constitucion" id="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
             <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" id="">
@@ -290,9 +296,14 @@ button:hover {
         </div>
       </div>
     <div class="row">
-      <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <textarea class="hijos" name="objetos" placeholder="objetos" id="objetos" cols="28" rows="5"></textarea>
       </div>    
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <input class="hijos" type="text" placeholder="Nombre de la partida"  name="nickPartida">
+      </div>
     </div>
 </div>
 
@@ -301,6 +312,9 @@ button:hover {
     <div>
       <button style="float:left;"type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
       <button style="float:right;" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+      <div class="form-group quitar" id="divCrear" style="width:200px !important; margin:auto !important;padding-bottom: 15px; float:right !important;">
+          <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear personaje</button>
+      </div>
     </div>
   </div>
 </form>

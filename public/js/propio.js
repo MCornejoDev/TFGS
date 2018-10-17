@@ -13,9 +13,9 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-   var crear = document.getElementById("nextBtn");
-   crear.innerHTML = "Crear personaje";
-   crear.className = "form-group";
+   document.getElementById("nextBtn").style.display = "none";
+   document.getElementById("divCrear").removeAttribute("quitar");
+   document.getElementById('divCrear').setAttribute('class',"poner");
     /*<div class="form-group" style="width:200px !important; margin:auto !important;padding-bottom: 15px;" >
         <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear personaje</button>
     </div*/
