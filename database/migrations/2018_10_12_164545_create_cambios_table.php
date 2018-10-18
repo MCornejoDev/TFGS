@@ -30,6 +30,7 @@ class CreateCambiosTable extends Migration
             $table->string('estado');
 
             //Modificaciones que el usuario puede hacer y quedarán registradas
+            $table->integer('edad');//Valor máximo de la columna edad es 3 números (999)
             $table->integer('nivel');//Valor máximo de la columna de nivel es 3 números (200)
             $table->integer('fuerza');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('destreza');//Valor máximo de la columna de nivel es 2 números (99)

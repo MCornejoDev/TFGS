@@ -20,11 +20,15 @@ class MostrarPersonajeController extends Controller
 
     public function mostrarTodos(){
         //$personajes = RegistraCambios::all();
+        //$personajesSinCambios = CrearPersonaje::paginate(4)->all();
+        $personajesSinCambios = CrearPersonaje::all();
+        $clases = RegistraClase::all();
         
-        $personajes = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
+        //dd($personajesSinCambios);
+       /* $personajes = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
         (SELECT * FROM cambios AS c2 WHERE c1.idPersonaje = c2.idPersonaje AND c1.fecha < c2.fecha)');
-        dd($personajes);
+        dd($personajes);*/
         
-        return view('mostrartodospersonajes', compact('personajes'));
+        return view('mostrartodospersonajes', compact('personajesSinCambios','clases'));
     }
 }

@@ -76,6 +76,7 @@ class CrearpersonajeController extends Controller
             'idPersonaje'=>$crear->id,
             'estado'=>'creado',
             'nivel'=>$inputs['nivel'],
+            'edad'=>$inputs['edad'],
             'fuerza'=>$inputs['fuerza'],
             'destreza'=>$inputs['destreza'],
             'constitucion'=>$inputs['constitucion'],
