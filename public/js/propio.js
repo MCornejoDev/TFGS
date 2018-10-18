@@ -60,18 +60,27 @@ function validateForm() {
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // If a field is empty...ç
-    if (escudo.value == "")
-    {
-      valid = true;
+    // if (escudo.value == "")
+    // {
+    //   valid = true;
+    // }
+    // else{
+    if(y[i].id == 'escudo'){
+      if(escudo.value=="")
+      {
+        valid = true;
+      }
     }
-    else{
-      if (y[i].value == "") {
+    else
+    {
+      if (y[i].value == "") 
+      {
         // add an "invalid" class to the field:
         y[i].className += " invalid";
         // and set the current valid status to false
         valid = false;
       }
-    }
+    }  
   }
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
@@ -189,12 +198,44 @@ function habilitarEscudo(arma)
   }
 }
 
-function tipoArmadura(clase){
-  //Guerrero,Barbaro,Paladin ->Armadura de maya Pesada
+function tipoArmadura(clase)
+{
+  var documentoDondeAnnadir = document.getElementById('armadura');
+  if(documentoDondeAnnadir.hasChildNodes())
+  {
+    while(documentoDondeAnnadir.childNodes.length != 0)
+    {
+      documentoDondeAnnadir.removeChild(documentoDondeAnnadir.firstChild);
+    }
+  }
+  var input = document.createElement('input');
+  input.setAttribute('type','hidden');
+  if(clase == 'Guerrero' || clase == 'Barbaro' || clase == 'Paladin')
+  {
+  //Guerrero,Barbaro,Paladin ->Armadura de malla pesada
+  input.setAttribute('name','armadura');
+  input.setAttribute('value','Armadura de malla pesada');
+  
+  }
+  else{
+    if(clase == 'Explorador' || clase == 'Bardo' || clase == 'Pícaro'){
+      //Explorador,Bardo,Pícaro -> Cuero Medio o Pesado
+      input.setAttribute('name','armadura');
+      input.setAttribute('value','Cuero medio o pesado');
+  
+    }
+    else
+    {
+      if(clase == 'Clérigo' || clase == 'Druida' || clase == 'Mago' || clase == 'Hechicero' || clase == 'Monje')
+      {
+        //Clérigo,Druida,Mago,Hechicero,Monje -> Armadura de Tela
+        input.setAttribute('name','armadura');
+        input.setAttribute('value','Armadura de tela');
+      }
+    }
+  }
 
-  //Explorador,Bardo,Pícaro -> Cuero Medio o Pesado
-
-  //Clérigo,Druida,Mago,Hechicero,Monje -> Armadura de Tela
+  documentoDondeAnnadir.appendChild(input);
 }
 
 

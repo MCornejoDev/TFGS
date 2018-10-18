@@ -18,9 +18,9 @@ class CreatePersonajeTable extends Migration
             $table->string('raza',20);
             $table->string('nombrePersonaje',50);
             $table->string('apodo',25);
-            $table->decimal('altura',3);
+            $table->string('altura',10);
             $table->integer('edad');//Valor máximo de la columna edad es 3 números (999)
-            $table->decimal('peso',5,1);
+            $table->string('peso',10);
             $table->char('sexo',1);
             $table->text('personalidad');
             $table->string('habilidad1',100);

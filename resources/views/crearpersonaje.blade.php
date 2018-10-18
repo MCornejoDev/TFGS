@@ -41,7 +41,7 @@ button {
   background-color: #4CAF50;
   color: #ffffff;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 10px;
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
@@ -162,14 +162,14 @@ button:hover {
       <div class="col-sm-12 text-center">
           <select name="raza" class="hijos" style="padding:5px !important; ">
             <option disabled selected value> -- Elija una raza -- </option>
-            <option value="Humanos">Humanos</option>
-            <option value="Elfos">Elfos</option>
-            <option value="SemiElfos">SemiElfos</option>
-            <option value="Orcos">Orcos</option>
-            <option value="SemiOrcos">SemiOrcos</option>
-            <option value="Enanos">Enanos</option>
-            <option value="Gnomos">Gnomos</option>
-            <option value="Medianos">Medianos</option>
+            <option value="Humano">Humano</option>
+            <option value="Elfo">Elfo</option>
+            <option value="SemiElfo">SemiElfo</option>
+            <option value="Orco">Orco</option>
+            <option value="SemiOrco">SemiOrco</option>
+            <option value="Enano">Enano</option>
+            <option value="Gnomo">Gnomo</option>
+            <option value="Mediano">Mediano</option>
           </select>
       </div>
     </div>
@@ -185,20 +185,20 @@ button:hover {
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <input class="hijos" type="text" placeholder="Altura del personaje"  name="altura">
+          <input class="hijos" type="text" placeholder="Altura personaje en metros"  name="altura">
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <input class="hijos" type="number" placeholder="Edad" name="edad" min="1" max="110">
-          <input class="hijos hijosv2" type="number" placeholder="Peso" name="peso" min="1" max="110">
+          <input class="hijos hijosv2" type="text" placeholder="Peso en kg" name="peso">
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <input type="radio" name="sexo" value="M"> Masculino<br>
-          <input type="radio" name="sexo" value="F"> Femenino<br>
-        </div>
+    <div class="row">    
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <input type="radio" name="sexo" value="F"> Femenino<br>
+            <input type="radio" name="sexo" value="M"> Masculino<br>
+          </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
@@ -219,7 +219,7 @@ button:hover {
          <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value)'>
+          <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>
             <option disabled selected value> -- Elija una clase -- </option>
             <option value="Barbaro">Barbaro</option>--
             <option value="Bardo">Bardo</option>
@@ -251,6 +251,11 @@ button:hover {
             <option value="Ballestas">Ballestas</option>-->
           </select>
       </div>
+
+      <div id="armadura">
+      
+      </div>
+
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input type="text" name="escudo" placeholder="Escribe el tipo de escudo" id="escudo" style="text-align:center !important;" disabled>
       </div>
@@ -270,7 +275,7 @@ button:hover {
   </div>
   </div>
 
-<div class="container tab">
+  <div class="container tab">
   <h1>Características y objetos</h1>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
@@ -298,16 +303,15 @@ button:hover {
       </div>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <textarea class="hijos" name="objetos" placeholder="objetos" id="objetos" cols="28" rows="5"></textarea>
+        <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
       </div>    
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="text" placeholder="Nombre de la partida"  name="nickPartida">
       </div>
     </div>
-</div>
-
+  </div>
 
   <div style="overflow:auto;">
     <div>

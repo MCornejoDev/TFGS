@@ -25,7 +25,8 @@
                                 <button><a href="{{route('crear')}}">Crear un personaje</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
-                                <h1>Crear personajes</h1>
+                                <h1>Mostrar personajes</h1>
+                                <button><a href="{{route('mostrarTodos')}}">Mostrar personajes</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                                 <h1>Crear personajes</h1>

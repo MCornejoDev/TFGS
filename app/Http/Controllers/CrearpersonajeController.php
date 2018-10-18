@@ -7,6 +7,7 @@ use App\CrearPersonaje;
 use App\RegistraClase;
 use App\RegistraCambios;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class CrearpersonajeController extends Controller
 {
@@ -48,7 +49,7 @@ class CrearpersonajeController extends Controller
                 'idPersonaje'=>$crear->id,
                 'tipo'=>$inputs['clase'],
                 'arma'=>$inputs['arma'],
-                'armadura'=>'asasas',
+                'armadura'=>$inputs['armadura'],
                 'escudo'=>$escudo
             ]);
         }
@@ -58,7 +59,7 @@ class CrearpersonajeController extends Controller
                 'idPersonaje'=>$crear->id,
                 'tipo'=>$inputs['clase'],
                 'arma'=>$inputs['arma'],
-                'armadura'=>'asasas',
+                'armadura'=>$inputs['armadura'],
                 'escudo'=>$inputs['escudo']
             ]);
         }
@@ -83,6 +84,7 @@ class CrearpersonajeController extends Controller
             'carisma'=>$inputs['carisma'],
             'objetos'=>$inputs['objetos']
         ]);
-     
+            
+        return redirect()->route('home');
     }
 }

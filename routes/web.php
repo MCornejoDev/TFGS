@@ -34,3 +34,15 @@ Route::post('crear',[
     'as'=>'registrar',
     'uses'=> 'CrearPersonajeController@registrar'
 ]);
+
+/*Ver personajes*/
+
+Route::get('personajes',[
+    'as'=>'mostrarTodos',
+    'uses'=>'MostrarPersonajeController@mostrarTodos'
+]);
+
+Route::get('personaje/{id}',[
+    'as'=>'mostrar',
+    'uses'=>'MostrarPersonajeController@mostrar'
+]);
