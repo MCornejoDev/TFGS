@@ -216,8 +216,7 @@ button:hover {
    <h1>Clase y equipamiento</h1>
    <div class="row">
      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-     <label>Nivel</label>
-         0 <input class="hijos" type="range" placeholder="Nivel" name="nivel" min="0" max="100" step="1">100
+         <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>
