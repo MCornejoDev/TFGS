@@ -14,8 +14,10 @@ class MostrarPersonajeController extends Controller
     public function mostrar($id)
     {
         $personaje = CrearPersonaje::where('id', $id)->first();
-        
-        return view('personaje', compact('personaje'));
+        $personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
+        (SELECT * FROM cambios AS c2 WHERE c1.idPersonaje = c2.idPersonaje AND c1.fecha < c2.fecha) AND c1.idPersonaje = ' . $id);
+        //dd($personajes);
+        return view('personaje', compact('personaje','personajesC'));
     }
 
     public function mostrarTodos(){
