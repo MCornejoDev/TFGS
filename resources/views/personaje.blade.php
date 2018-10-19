@@ -13,6 +13,19 @@
         $minCarisma = $personaje->carisma;
     ?>
 @endforeach
+<?php
+$Sexo = "";
+    if($personajes->sexo = 'F')
+    {
+        $Sexo = "Femenino";
+    }
+    else{
+        if($personajes->sexo = 'M')
+        {
+            $Sexo= "Masculino";
+        }
+    }
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 col-md-2 col-lg-4 text-center">
@@ -20,7 +33,14 @@
         </div>
         <div class="col-sm-8 col-md-10 col-lg-8 text-center">
             <h3>Información sobre el personaje</h3>
-            
+            <div class="row">
+               <div class="col-sm-12 col-md-12 col-lg-12">
+                    <label>Raza: {{$personajes->raza}}</label>
+                    <label>Apodo: {{$personajes->apodo}}</label>
+                    <label>Edad: {{$personajes->edad}}</label>
+                    <label>Sexo: <?php echo $Sexo?></label>
+               </div>
+            </div>
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
                     <label>Fuerza:  </label><br/>

@@ -162,14 +162,14 @@ button:hover {
       <div class="col-sm-12 text-center">
           <select name="raza" class="hijos" style="padding:5px !important; ">
             <option disabled selected value> -- Elija una raza -- </option>
-            <option value="Humano">Humano</option>
-            <option value="Elfo">Elfo</option>
-            <option value="SemiElfo">Semi-Elfo</option>
-            <option value="Orco">Orco</option>
-            <option value="SemiOrco">Semi-Orco</option>
-            <option value="Enano">Enano</option>
+            <option value="Humano">Humano/a</option>
+            <option value="Elfo">Elfo/a</option>
+            <option value="SemiElfo">Semi-Elfo/a</option>
+            <option value="Orco">Orco/a</option>
+            <option value="SemiOrco">Semi-Orco/a</option>
+            <option value="Enano">Enano/a</option>
             <option value="Gnomo">Gnomo</option>
-            <option value="Mediano">Mediano</option>
+            <option value="Mediano">Mediano/a</option>
           </select>
       </div>
     </div>
@@ -216,7 +216,8 @@ button:hover {
    <h1>Clase y equipamiento</h1>
    <div class="row">
      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-         <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
+     <label>Nivel</label>
+         0 <input class="hijos" type="range" placeholder="Nivel" name="nivel" min="0" max="100" step="1">100
      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>
