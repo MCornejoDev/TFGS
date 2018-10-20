@@ -46,3 +46,10 @@ Route::get('personaje/{id}',[
     'as'=>'mostrar',
     'uses'=>'MostrarPersonajeController@mostrar'
 ]);
+
+/*Descargar mapas*/
+
+Route::get('mapas',[
+    'as'=>'mapas',
+    'uses'=>'MostrarMapasController@mostrar'
+]);

@@ -37,7 +37,7 @@
                 <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-8 col-md-8 col-lg-8" style="text-align:left !important;">
+                            <div class="col-sm-8 col-md-8 col-lg-8 " style="text-align:left !important;">
                             Nombre : {{ $personaje->nombrePersonaje}}<br/>
                             Raza : {{ $personaje->raza }}<br/>
                             Apodo : {{ $personaje->apodo }}<br/>
@@ -61,7 +61,7 @@
         </div> 
         
     @endforeach
-    {{ $personajesSinCambios->links() }}
+     <div class="col-sm-12 col-md-12 col-lg-12 text-center paginador"> {{ $personajesSinCambios->links() }}</div>    
     </div>
 </div>
 

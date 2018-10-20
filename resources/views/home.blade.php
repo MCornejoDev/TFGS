@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                     
-                                <button><a href="{{route('mostrarTodos')}}">Descargar mapas</a></button>
+                                <button><a href="{{route('mapas')}}">Descargar mapas</a></button>
                             </div>
                         </div>
                     </div>

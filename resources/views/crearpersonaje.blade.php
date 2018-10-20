@@ -15,7 +15,7 @@
   min-width: 300px;
 }
 
-h1 {
+h3 {
   text-align: center;
 }
 
@@ -157,7 +157,7 @@ button:hover {
   </div>
   
   <div class="container tab">
-  <h1>Datos del personaje</h1>
+  <h3>Datos del personaje</h3>
     <div class="row">
       <div class="col-sm-12 text-center">
           <select name="raza" class="hijos" style="padding:5px !important; ">
@@ -196,13 +196,14 @@ button:hover {
     </div>
     <div class="row">    
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <div> Sexo del personaje : <br/></div>
             <input type="radio" name="sexo" value="F"> Femenino<br>
             <input type="radio" name="sexo" value="M"> Masculino<br>
           </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <textarea class="hijos" name="personalidad" placeholder="Personalidad" id="personalidad" cols="28" rows="5"></textarea>
+          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad de su personaje" id="personalidad" cols="28" rows="5"></textarea>
         </div>
     </div>
         <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
@@ -213,7 +214,7 @@ button:hover {
          -->
   </div>
   <div class="container tab">
-   <h1>Clase y equipamiento</h1>
+   <h3>Clase y equipamiento</h3>
    <div class="row">
      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
          <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
@@ -276,7 +277,7 @@ button:hover {
   </div>
 
   <div class="container tab">
-  <h1>Características y objetos</h1>
+  <h3>Características y objetos</h3>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
             <input class="hijos" type="number" placeholder="fuerza" name="fuerza" id="">
