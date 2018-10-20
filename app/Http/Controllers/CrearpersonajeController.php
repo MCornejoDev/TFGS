@@ -18,10 +18,10 @@ class CrearpersonajeController extends Controller
     function registrar(Request $request){
         $inputs = $request->all();
         $raza="";
-        
         if($inputs['sexo'] == 'F')
         {
-            $razaFemenino = ['Humana','Elfa','Semi-Elfa','Orca','Semi-Orca','Enana','Gnoma','Mediana'];
+            $razaFemenino = ['Humana','Elfa','SemiElfa','Orca','Semi-Orca','Enana','Gnoma','Mediana'];
+
             switch ($inputs['raza']) {
                 case 'Humano':
                         $raza = $razaFemenino[0];
@@ -29,7 +29,7 @@ class CrearpersonajeController extends Controller
                 case 'Elfo':
                         $raza = $razaFemenino[1];
                     break;
-                case 'Semi-Elfo':
+                case 'SemiElfo':
                         $raza = $razaFemenino[2];
                     break;
                 case 'Orco':

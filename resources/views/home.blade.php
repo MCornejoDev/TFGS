@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
+                <div class="card-body text-center">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -28,21 +28,21 @@
 
                     Iniciaste Sesión
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row text-center">
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
-                                <h1>Crear personajes</h1>
+                        
                                 <button><a href="{{route('crear')}}">Crear un personaje</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
-                                <h1>Mostrar personajes</h1>
+                                
                                 <button><a href="{{route('mostrarTodos')}}">Mostrar personajes</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
-                                <h1>Moneda/dados</h1>
-                                <button><a href="{{route('mostrarTodos')}}">Jugar</a></button>
+        
+                                <button><a href="{{route('mostrarTodos')}}">Usar herramientas</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
-                                <h1>Descargar mapas</h1>
+                    
                                 <button><a href="{{route('mostrarTodos')}}">Descargar mapas</a></button>
                             </div>
                         </div>

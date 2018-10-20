@@ -25,22 +25,35 @@ $Sexo = "";
             $Sexo= "Masculino";
         }
     }
+    $tipoRaza = "img/".$personajes->raza.".jpg";
+    $bonito = "año";
+    if($personaje->edad > 1){
+        $bonito = "años";
+    }
+   
+    
 ?>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-4 col-md-2 col-lg-4 text-center">
-            <h3>Imagén</h3>
+    <div class="row" >
+        <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
+            <h3>Imagen</h3>
+            <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
+            <p>
+                {{$personajes->personalidad}}
+            </p>
         </div>
-        <div class="col-sm-8 col-md-10 col-lg-8 text-center">
+        <div class="col-sm-8 col-md-9 col-lg-8 text-center">
             <h3>Información sobre el personaje</h3>
             <div class="row">
                <div class="col-sm-12 col-md-12 col-lg-12">
                     <label>Raza: {{$personajes->raza}}</label>
                     <label>Apodo: {{$personajes->apodo}}</label>
-                    <label>Edad: {{$personajes->edad}}</label>
+                    <label>Edad: {{$personajes->edad}} <?php echo $bonito?></label>
                     <label>Sexo: <?php echo $Sexo?></label>
                </div>
             </div>
+            <form method="POST" action="{{}}">
+            {!! csrf_field() !!} 
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
                     <label>Fuerza:  </label><br/>
@@ -69,7 +82,7 @@ $Sexo = "";
                     <input type="number" name="carisma" id="carisma" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
                 </div>
             </div>
-            
+            </form>
         </div>
     </div>
 </div>

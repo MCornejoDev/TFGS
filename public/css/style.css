@@ -25,4 +25,25 @@
     font-weight: bold !important;
 }
 
+.card
+{
+    background-color:#ffffff3b !important;
+}
 
+.tipo{
+    height:112px !important;
+}
+
+.card-img-top{
+    height:237px !important;
+}
+
+.imagenPersonaje{
+    margin-top:3% !important;
+}
+
+.page-item{
+    margin-top:50px !important;
+    font-weight: bold !important;
+    font-size: 5% !important;
+}

@@ -23,7 +23,7 @@ class MostrarPersonajeController extends Controller
     public function mostrarTodos(){
         //$personajes = RegistraCambios::all();
         //$personajesSinCambios = CrearPersonaje::paginate(4)->all();
-        $personajesSinCambios = CrearPersonaje::all();
+        $personajesSinCambios = CrearPersonaje::paginate(3);
         $clases = RegistraClase::all();
         
         //dd($personajesSinCambios);

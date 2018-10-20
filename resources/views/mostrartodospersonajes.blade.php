@@ -13,18 +13,6 @@
     font-weight: bold !important;
 }
 
-.card
-{
-    background-color:#ffffff3b !important;
-}
-
-.tipo{
-    height:112px !important;
-}
-
-.card-img-top{
-    height:237px !important;
-}
 
 </style>
 
@@ -67,16 +55,15 @@
                             </div>
                         </div>
                     </div>
-                    <button><a href="{{ route('mostrar',$personaje->id) }}">Modificar</a></button>
+                    <button><a href="{{ route('mostrar',$personaje->id) }}">Ver toda la información</a></button>
+                    <button><a href="{{ route('mostrar',$personaje->id) }}">Eliminar</a></button>
             </div> <br/> 
         </div> 
-       
+        
     @endforeach
+    {{ $personajesSinCambios->links() }}
     </div>
 </div>
-
-
-
 
 @else
 <style>

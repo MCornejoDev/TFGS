@@ -164,7 +164,7 @@ button:hover {
             <option disabled selected value> -- Elija una raza -- </option>
             <option value="Humano">Humano/a</option>
             <option value="Elfo">Elfo/a</option>
-            <option value="SemiElfo">Semi-Elfo/a</option>
+            <option value="SemiElfo">SemiElfo/a</option>
             <option value="Orco">Orco/a</option>
             <option value="SemiOrco">Semi-Orco/a</option>
             <option value="Enano">Enano/a</option>
