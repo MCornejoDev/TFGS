@@ -54,4 +54,33 @@ class MostrarPersonajeController extends Controller
         
         //return back();
     }
+
+    public function modificar(Request $request)
+    {
+        $inputs = $request->all();
+        $idUsuario = \Auth::user()->id;
+        date_default_timezone_get('Europe/Madrid');
+        $fecha = date('Y-m-d H:i:s');
+        
+        $cambios = RegistraCambios::create([
+            'nickPartida'=>$inputs['nickPartida'],
+            'fecha'=>$fecha,
+            'idUsuario'=>$idUsuario,
+            'idPersonaje'=>$inputs['idPersonaje'],
+            'estado'=>'modificacion',
+            'nivel'=>$inputs['nivel'],
+            'edad'=>$inputs['edad'],
+            'fuerza'=>$inputs['fuerza'],
+            'destreza'=>$inputs['destreza'],
+            'constitucion'=>$inputs['constitucion'],
+            'inteligencia'=>$inputs['inteligencia'],
+            'sabiduria'=>$inputs['sabiduria'],
+            'carisma'=>$inputs['carisma'],
+            'objetos'=>$inputs['objetos']
+        ]);
+
+        Session::flash('message','El personaje fue modificado.');
+        
+        return back();
+    }
 }

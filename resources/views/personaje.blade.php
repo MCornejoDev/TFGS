@@ -11,6 +11,11 @@
         $minInteligencia = $personaje->inteligencia;
         $minSabiduria = $personaje->sabiduria; 
         $minCarisma = $personaje->carisma;
+        $idPersonaje = $personaje->idPersonaje;
+        $edad = $personaje->edad;
+        $nickPartida = $personaje->nickPartida;
+        $nivel = $personaje->nivel;
+        $objetos = $personaje->objetos;
     ?>
 @endforeach
 <?php
@@ -33,6 +38,12 @@ $Sexo = "";
    
     
 ?>
+@if(Session::has('message'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{Session::get('message')}}
+    </div>
+    @endif
 <div class="container-fluid">
     <div class="row" >
         <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
@@ -44,16 +55,20 @@ $Sexo = "";
                <div class="col-sm-12 col-md-12 col-lg-12">
                     <label>Raza: {{$personajes->raza}}</label><br/>
                     <label>Apodo: {{$personajes->apodo}}</label><br/>
-                    <label>Edad: {{$personajes->edad}} <?php echo $bonito?></label><br/>
-                    <label>Sexo: <?php echo $Sexo?></label>
+                    <label>Edad: <?php echo ($edad . " " . $bonito) ?></label><br/>
+                    <label>Sexo: <?php echo $Sexo?></label><br/>
+                    <label>Nick de la partida : {{$personaje->nickPartida}}</label>
                </div>
             </div>
         </div>
         <div class="col-sm-8 col-md-9 col-lg-8 text-center">
             <h3>Información sobre el personaje</h3>
             
-            <form method="POST" action="{{}}">
+            <form method="POST" action="{{route('modificar',<?php echo $idPersonaje?>)}}">
             {!! csrf_field() !!} 
+            <input type="hidden" name="idPersonaje" value="<?php echo $idPersonaje?>">
+            <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
+            <input type="hidden" name="nivel" value="<?php echo $nivel?>">
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
                     <label>Fuerza:  </label><br/>
@@ -81,6 +96,18 @@ $Sexo = "";
                     <label>Carisma:  </label><br/>
                     <input type="number" name="carisma" id="carisma" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
                 </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label>Edad:  </label><br/>
+                    <input type="number" name="edad" id="edad" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>">
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label>Nivel:  </label><br/>
+                    <input type="number" name="nivel" id="nivel" placeholder="Nivel min (<?php echo $nivel?>)" min="<?php echo $nivel?>">
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                    <label>Objetos:  </label><br/>
+                    <textarea name="objetos"  id="objetos" cols="28" rows="5"><?php echo $objetos?></textarea>
+                </div> 
                 <div class="form-group"  style="width:140px !important; margin:auto !important; float:right !important;">
                  <button class="btn btn-primary btn-block"  type="submit">Modificar</button>
                 </div>

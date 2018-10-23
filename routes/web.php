@@ -47,6 +47,13 @@ Route::get('personaje/{id}',[
     'uses'=>'MostrarPersonajeController@mostrar'
 ]);
 
+/*Modificar personaje*/
+
+Route::post('personaje/{id}',[
+    'as'=>'modificar',
+    'uses'=>'MostrarPersonajeController@modificar'
+]);
+
 /*Eliminar personajes*/
 
 Route::get('personaje/eliminar/{id}',[
