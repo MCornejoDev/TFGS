@@ -38,8 +38,15 @@
     height:237px !important;
 }
 
-.imagenPersonaje{
+/*.imagenPersonaje{
     margin-top:3% !important;
+}*/
+
+.imagenPersonaje > img{
+    height: 237px ;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px !important;
 }
 
 .paginador{

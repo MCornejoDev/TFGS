@@ -20,7 +20,7 @@ class CrearpersonajeController extends Controller
         $raza="";
         if($inputs['sexo'] == 'F')
         {
-            $razaFemenino = ['Humana','Elfa','SemiElfa','Orca','Semi-Orca','Enana','Gnoma','Mediana'];
+            $razaFemenino = ['Humana','Elfa','SemiElfa','Orca','SemiOrca','Enana','Gnoma','Mediana'];
 
             switch ($inputs['raza']) {
                 case 'Humano':

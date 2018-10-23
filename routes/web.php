@@ -47,6 +47,13 @@ Route::get('personaje/{id}',[
     'uses'=>'MostrarPersonajeController@mostrar'
 ]);
 
+/*Eliminar personajes*/
+
+Route::get('personaje/eliminar/{id}',[
+    'as'=>'eliminar',
+    'uses'=>'MostrarPersonajeController@eliminarPersonaje'
+]);
+
 /*Descargar mapas*/
 
 Route::get('mapas',[

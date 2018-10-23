@@ -36,22 +36,22 @@ $Sexo = "";
 <div class="container-fluid">
     <div class="row" >
         <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
-            <h3>Imagen</h3>
             <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
             <p>
                 {{$personajes->personalidad}}
             </p>
-        </div>
-        <div class="col-sm-8 col-md-9 col-lg-8 text-center">
-            <h3>Información sobre el personaje</h3>
             <div class="row">
                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <label>Raza: {{$personajes->raza}}</label>
-                    <label>Apodo: {{$personajes->apodo}}</label>
-                    <label>Edad: {{$personajes->edad}} <?php echo $bonito?></label>
+                    <label>Raza: {{$personajes->raza}}</label><br/>
+                    <label>Apodo: {{$personajes->apodo}}</label><br/>
+                    <label>Edad: {{$personajes->edad}} <?php echo $bonito?></label><br/>
                     <label>Sexo: <?php echo $Sexo?></label>
                </div>
             </div>
+        </div>
+        <div class="col-sm-8 col-md-9 col-lg-8 text-center">
+            <h3>Información sobre el personaje</h3>
+            
             <form method="POST" action="{{}}">
             {!! csrf_field() !!} 
             <div class="row">
@@ -80,6 +80,9 @@ $Sexo = "";
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Carisma:  </label><br/>
                     <input type="number" name="carisma" id="carisma" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
+                </div>
+                <div class="form-group"  style="width:140px !important; margin:auto !important; float:right !important;">
+                 <button class="btn btn-primary btn-block"  type="submit">Modificar</button>
                 </div>
             </div>
             </form>

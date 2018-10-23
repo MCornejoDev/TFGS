@@ -13,11 +13,17 @@
     font-weight: bold !important;
 }
 
-
 </style>
 
+    @if(Session::has('message'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{Session::get('message')}}
+    </div>
+    @endif
 <div class="container">
     <div class="row">
+   
     @foreach ($personajesSinCambios as $personaje)
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
             <div class="card" style="width: 18rem;">
@@ -37,8 +43,9 @@
                 <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
                     <div class="card-body">
                         <div class="row">
+                            
+                            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:left !important;"> Nombre : {{ $personaje->nombrePersonaje}}</div>
                             <div class="col-sm-8 col-md-8 col-lg-8 " style="text-align:left !important;">
-                            Nombre : {{ $personaje->nombrePersonaje}}<br/>
                             Raza : {{ $personaje->raza }}<br/>
                             Apodo : {{ $personaje->apodo }}<br/>
                             Edad : {{ $personaje->edad }} <?php echo $bonito?><br/>
@@ -56,7 +63,7 @@
                         </div>
                     </div>
                     <button><a href="{{ route('mostrar',$personaje->id) }}">Ver toda la información</a></button>
-                    <button><a href="{{ route('mostrar',$personaje->id) }}">Eliminar</a></button>
+                    <button><a href="{{ route('eliminar',$personaje->id) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a></button>
             </div> <br/> 
         </div> 
         
