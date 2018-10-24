@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
         
-                                <button><a href="{{route('mostrarTodos')}}">Usar herramientas</a></button>
+                                <button><a href="{{route('herramientas')}}">Usar herramientas</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                     

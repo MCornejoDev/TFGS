@@ -48,11 +48,13 @@ $Sexo = "";
     <div class="row" >
         <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
             <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
-            <p>
-                {{$personajes->personalidad}}
-            </p>
+            <div class="estiloSombreado">
+                <p>
+                    {{$personajes->personalidad}}
+                </p>
+            </div>
             <div class="row">
-               <div class="col-sm-12 col-md-12 col-lg-12">
+               <div class="col-sm-12 col-md-12 col-lg-12 ">
                     <label>Raza: {{$personajes->raza}}</label><br/>
                     <label>Apodo: {{$personajes->apodo}}</label><br/>
                     <label>Edad: <?php echo ($edad . " " . $bonito) ?></label><br/>
@@ -72,51 +74,52 @@ $Sexo = "";
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
                     <label>Fuerza:  </label><br/>
-                    <input type="number" name="fuerza" id="fuerza" placeholder="Fuerza min (<?php echo $minFuerza ?>)" min="<?php echo $minFuerza?>">
+                    <input type="number" name="fuerza" id="fuerza"  value="<?php echo $minFuerza?>" placeholder="Fuerza min (<?php echo $minFuerza ?>)" min="<?php echo $minFuerza?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Destreza:  </label><br/>
-                    <input type="number" name="destreza" id="destreza" placeholder="Destreza min (<?php echo $minDestreza ?>)" min="<?php echo $minDestreza?>">
+                    <input type="number" name="destreza" id="destreza"  value="<?php echo $minDestreza?>" placeholder="Destreza min (<?php echo $minDestreza ?>)" min="<?php echo $minDestreza?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Constitución:  </label><br/>
-                    <input type="number" name="constitucion" id="constitucion" placeholder="Constitución min (<?php echo $minConstitucion?>)" min="<?php echo $minConstitucion?>">
+                    <input type="number" name="constitucion" id="constitucion"  value="<?php echo $minConstitucion?>" placeholder="Constitución min (<?php echo $minConstitucion?>)" min="<?php echo $minConstitucion?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Inteligencia:  </label><br/>
-                    <input type="number" name="inteligencia" id="inteligencia" placeholder="Inteligencia min (<?php echo $minInteligencia ?>)" min="<?php echo $minInteligencia?>">
+                    <input type="number" name="inteligencia" id="inteligencia"  value="<?php echo $minInteligencia?>" placeholder="Inteligencia min (<?php echo $minInteligencia ?>)" min="<?php echo $minInteligencia?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Sabiduría:  </label><br/>
-                    <input type="number" name="sabiduria" id="sabiduria" placeholder="Sabiduria min (<?php echo $minSabiduria ?>)" min="<?php echo $minSabiduria?>">
+                    <input type="number" name="sabiduria" id="sabiduria"  value="<?php echo $minSabiduria?>" placeholder="Sabiduria min (<?php echo $minSabiduria ?>)" min="<?php echo $minSabiduria?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Carisma:  </label><br/>
-                    <input type="number" name="carisma" id="carisma" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
+                    <input type="number" name="carisma" id="carisma"  value="<?php echo $minCarisma?>" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Edad:  </label><br/>
-                    <input type="number" name="edad" id="edad" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>">
+                    <input type="number" name="edad" id="edad"  value="<?php echo $edad?>" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Nivel:  </label><br/>
-                    <input type="number" name="nivel" id="nivel" placeholder="Nivel min (<?php echo $nivel?>)" min="<?php echo $nivel?>">
+                    <input type="number" name="nivel" id="nivel" value="<?php echo $nivel?>" placeholder="Nivel min (<?php echo $nivel?>)" min="<?php echo $nivel?>">
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 text-center">
                     <label>Objetos:  </label><br/>
                     <textarea name="objetos"  id="objetos" cols="28" rows="5"><?php echo $objetos?></textarea>
-                </div> 
+                </div>    
                 <div class="form-group"  style="width:140px !important; margin:auto !important; float:right !important;">
-                 <button class="btn btn-primary btn-block"  type="submit">Modificar</button>
+                    <button class="btn btn-primary btn-block"  type="submit">Modificar</button>
                 </div>
             </div>
-            </form>
         </div>
+        </form>
+        <button style="width:140px !important; margin:auto !important; float:right !important; margin-top:15px !important;" class="btn btn-primary btn-block">
+            <a style=" color:white !important;" href="{{ route('mostrarTodos')}}">Volver</a>
+        </button>
     </div>
-</div>
-
 @else
 <style>
 

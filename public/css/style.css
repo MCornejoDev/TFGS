@@ -31,7 +31,8 @@
 }
 
 .tipo{
-    height:112px !important;
+    height:103px !important;
+    width:53px !important;
 }
 
 .card-img-top{
@@ -63,4 +64,8 @@ ul.pagination{
     padding-top:5px !important; 
     padding-right: 3px !important;
     padding-left: 3px !important;
+}
+
+div.estiloSombreado{
+    background-color: #ffffff3b !important;
 }

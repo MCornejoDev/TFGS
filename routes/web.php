@@ -67,3 +67,15 @@ Route::get('mapas',[
     'as'=>'mapas',
     'uses'=>'MostrarMapasController@mostrar'
 ]);
+
+/*Herramientas y estadisticas*/ 
+
+Route::get('herramientas',[
+    'as'=>'herramientas',
+    'uses'=>'HerramientasController@herramienta'
+]);
+
+Route::get('estadisticas',[
+    'as'=>'estadisticas',
+    'uses'=>'HerramientasController@estadisticas'
+]);

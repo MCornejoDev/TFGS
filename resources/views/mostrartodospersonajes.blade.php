@@ -40,19 +40,20 @@
                 <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:left !important;"> Nombre : {{ $personaje->nombrePersonaje}}</div>
-                            <div class="col-sm-8 col-md-8 col-lg-8 " style="text-align:left !important;">
+                            <div class="col-sm-7 col-md-7 col-lg-7" style="text-align:left !important;"> 
+                            Nombre : {{ $personaje->nombrePersonaje}}<br/>
                             Raza : {{ $personaje->raza }}<br/>
                             Apodo : {{ $personaje->apodo }}<br/>
                             Sexo : <?php echo $bonito2?> 
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4">
-                            <!--@foreach($clases as $clase)
-                                @if($clase->idPersonaje == $personaje->id )
-                                   <?php $tipo = "img/".$clase->tipo . ".png";?>
+                            <div class="col-sm-5 col-md-5 col-lg-5">
+                            @foreach($clases as $clase)
+                                @if($clase->idPersonaje == $personaje->id )   
+                                    <?php $tipo = "img/".$clase->tipo . ".png";?>
+                                    <label>{{$clase->tipo}}</label>
                                     <img class="card-img tipo" src="{{asset($tipo)}}" alt="<?php echo $clase->tipo?>"><br/>
                                 @endif
-                            @endforeach-->
+                            @endforeach
                             </div>
                         </div>
                     </div>
