@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\CrearPersonaje;
 use App\RegistraClase;
 use App\RegistraCambios;
+use App\RegistraPartida;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+Use Session;
+Use Redirect;
 
 class CrearpersonajeController extends Controller
 {
@@ -61,6 +64,7 @@ class CrearpersonajeController extends Controller
                 'habilidad2'=> $inputs['habilidad2'],
                 'habilidad3'=> $inputs['habilidad3'],
                 'habilidad4'=> $inputs['habilidad4'],
+                'vida'=> '30',/*Recuerda crear el input para la vida*/
                 'nivel'=>$inputs['nivel'],
                 'fuerza'=>$inputs['fuerza'],
                 'destreza'=>$inputs['destreza'],
@@ -89,6 +93,7 @@ class CrearpersonajeController extends Controller
                     'habilidad2'=> $inputs['habilidad2'],
                     'habilidad3'=> $inputs['habilidad3'],
                     'habilidad4'=> $inputs['habilidad4'],
+                    'vida'=> '30',/*Recuerda crear el input para la vida*/
                     'nivel'=>$inputs['nivel'],
                     'fuerza'=>$inputs['fuerza'],
                     'destreza'=>$inputs['destreza'],
@@ -124,18 +129,24 @@ class CrearpersonajeController extends Controller
                 'escudo'=>$inputs['escudo']
             ]);
         }
-        
         $idUsuario = \Auth::user()->id;
         date_default_timezone_get('Europe/Madrid');
         $fecha = date('Y-m-d H:i:s');
         //dd($fecha);
-       
-        $cambios = RegistraCambios::create([
+        
+        $partida = RegistraPartida::create([
             'nickPartida'=>$inputs['nickPartida'],
-            'fecha'=>$fecha,
             'idUsuario'=>$idUsuario,
             'idPersonaje'=>$crear->id,
+            'fechaCreacion'=>$fecha,
+            'comentarios'=>'pruebas'
+        ]);
+     
+        $cambios = RegistraCambios::create([
+            'fecha'=>$fecha, 
+            'idPartida'=>$partida->id,   
             'estado'=>'creado',
+            'vida'=> '30',/*Recuerda crear el input para la vida*/
             'nivel'=>$inputs['nivel'],
             'edad'=>$inputs['edad'],
             'fuerza'=>$inputs['fuerza'],
@@ -146,7 +157,7 @@ class CrearpersonajeController extends Controller
             'carisma'=>$inputs['carisma'],
             'objetos'=>$inputs['objetos']
         ]);
-            
-        return redirect()->route('home');
+        Session::flash('message','La partida fue creada.');    
+        return Redirect::to('/home');
     }
 }

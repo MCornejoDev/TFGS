@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\CrearPersonaje;
 use App\RegistraClase;
 use App\RegistraCambios;
+use App\RegistraPartida;
 use Illuminate\Support\Facades\DB;
 Use Session;
 Use Redirect;
@@ -15,12 +16,12 @@ class MostrarPersonajeController extends Controller
     //
     public function mostrar($id)
     {
-        
+        $partidas = RegistraPartida::where('id', $id)->first();
         $personajes = CrearPersonaje::where('id', $id)->first();
         $personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
-        (SELECT * FROM cambios AS c2 WHERE c1.idPersonaje = c2.idPersonaje AND c1.fecha < c2.fecha) AND c1.idPersonaje = ' . $id);
+        (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha < c2.fecha)');
         //dd($personajes);
-        return view('personaje', compact('personajes','personajesC'));
+        return view('personaje', compact('personajes','personajesC','partidas'));
     }
 
     public function mostrarTodos(){
@@ -63,11 +64,11 @@ class MostrarPersonajeController extends Controller
         $fecha = date('Y-m-d H:i:s');
         
         $cambios = RegistraCambios::create([
+            'idPartida'=>$inputs['idPartida'],
             'nickPartida'=>$inputs['nickPartida'],
             'fecha'=>$fecha,
-            'idUsuario'=>$idUsuario,
-            'idPersonaje'=>$inputs['idPersonaje'],
             'estado'=>'modificacion',
+            'vida'=>'30',
             'nivel'=>$inputs['nivel'],
             'edad'=>$inputs['edad'],
             'fuerza'=>$inputs['fuerza'],

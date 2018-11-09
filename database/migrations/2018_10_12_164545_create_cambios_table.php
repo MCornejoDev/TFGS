@@ -14,22 +14,16 @@ class CreateCambiosTable extends Migration
     public function up()
     {
         Schema::create('cambios', function (Blueprint $table) {
-            $table->string('nickPartida',100);
+            $table->increments('id');
+            $table->integer('idPartida')->unsigned();
+            $table->foreign('idPartida')
+              ->references('id')
+              ->on('partidas')
+              ->onDelete('cascade');
             $table->timestamp('fecha');
-            $table->primary(['nickPartida', 'fecha']);
-            $table->integer('idUsuario')->unsigned();
-            $table->foreign('idUsuario')
-              ->references('id')
-              ->on('users')
-              ->onDelete('cascade');
-            $table->integer('idPersonaje')->unsigned();
-            $table->foreign('idPersonaje')
-              ->references('id')
-              ->on('personajes')
-              ->onDelete('cascade');
             $table->string('estado');
-
             //Modificaciones que el usuario puede hacer y quedarán registradas
+            $table->integer('vida');//Valor máximo de la columna de nivel es 4 números (9999)
             $table->integer('edad');//Valor máximo de la columna edad es 3 números (999)
             $table->integer('nivel');//Valor máximo de la columna de nivel es 3 números (200)
             $table->integer('fuerza');//Valor máximo de la columna de nivel es 2 números (99)
@@ -38,7 +32,7 @@ class CreateCambiosTable extends Migration
             $table->integer('inteligencia');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('sabiduria');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('carisma');//Valor máximo de la columna de nivel es 2 números (99)
-            $table->string('objetos',100);    
+            $table->string('objetos',40);    
             
         });
     }

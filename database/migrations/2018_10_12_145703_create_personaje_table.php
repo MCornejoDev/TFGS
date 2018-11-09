@@ -23,10 +23,11 @@ class CreatePersonajeTable extends Migration
             $table->string('peso',10);
             $table->char('sexo',1);
             $table->text('personalidad');
-            $table->string('habilidad1',100);
-            $table->string('habilidad2',100);
-            $table->string('habilidad3',100);
-            $table->string('habilidad4',100);
+            $table->string('habilidad1',30);
+            $table->string('habilidad2',30);
+            $table->string('habilidad3',30);
+            $table->string('habilidad4',30);
+            $table->integer('vida');//Valor máximo de la columna de nivel es 4 números (9999)
             $table->integer('nivel');//Valor máximo de la columna de nivel es 3 números (200)
             $table->integer('fuerza');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('destreza');//Valor máximo de la columna de nivel es 2 números (99)
@@ -34,7 +35,7 @@ class CreatePersonajeTable extends Migration
             $table->integer('inteligencia');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('sabiduria');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('carisma');//Valor máximo de la columna de nivel es 2 números (99)
-            $table->string('objetos',100);
+            $table->string('objetos',40);
         });
     }
 

@@ -3,6 +3,14 @@
 @section('content')
 @if (Route::has('login'))
 @auth
+
+<?php
+    $nickPartida = $partidas->nickPartida;
+    $idPartida = $partidas->id;
+    $idPersonaje = $partidas->idPersonaje;
+?>
+
+<!--Personajes con los cambios-->
 @foreach($personajesC as $personaje)
     <?php
         $minFuerza = $personaje->fuerza;
@@ -11,9 +19,9 @@
         $minInteligencia = $personaje->inteligencia;
         $minSabiduria = $personaje->sabiduria; 
         $minCarisma = $personaje->carisma;
-        $idPersonaje = $personaje->idPersonaje;
+        //$idPersonaje = $personaje->idPersonaje;
         $edad = $personaje->edad;
-        $nickPartida = $personaje->nickPartida;
+        //$nickPartida = $personaje->nickPartida;
         $nivel = $personaje->nivel;
         $objetos = $personaje->objetos;
     ?>
@@ -45,10 +53,10 @@ $Sexo = "";
     </div>
     @endif
 <div class="container-fluid">
-    <div class="row" >
+    <div class="row estiloSombreado" >
         <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
             <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
-            <div class="estiloSombreado">
+            <div >
                 <p>
                     {{$personajes->personalidad}}
                 </p>
@@ -59,7 +67,7 @@ $Sexo = "";
                     <label>Apodo: {{$personajes->apodo}}</label><br/>
                     <label>Edad: <?php echo ($edad . " " . $bonito) ?></label><br/>
                     <label>Sexo: <?php echo $Sexo?></label><br/>
-                    <label>Nick de la partida : {{$personaje->nickPartida}}</label>
+                    <label>Nick de la partida : {{$partidas->nickPartida}}</label>
                </div>
             </div>
         </div>
@@ -68,7 +76,7 @@ $Sexo = "";
             
             <form method="POST" action="{{route('modificar',<?php echo $idPersonaje?>)}}">
             {!! csrf_field() !!} 
-            <input type="hidden" name="idPersonaje" value="<?php echo $idPersonaje?>">
+            <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
             <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
             <input type="hidden" name="nivel" value="<?php echo $nivel?>">
             <div class="row">
@@ -120,6 +128,11 @@ $Sexo = "";
             <a style=" color:white !important;" href="{{ route('mostrarTodos')}}">Volver</a>
         </button>
     </div>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>-->
+    <script>
+        var edad = '{{$edad}}';
+        console.log( "Soy js " + edad);
+    </script>
 @else
 <style>
 

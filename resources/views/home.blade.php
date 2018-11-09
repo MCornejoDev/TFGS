@@ -4,6 +4,12 @@
 
 @if (Route::has('login'))
 @auth
+@if(Session::has('message'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{Session::get('message')}}
+    </div>
+@endif
 <div class="container-fluid text-center"> 
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -31,19 +37,19 @@
                         <div class="row text-center">
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                         
-                                <button><a href="{{route('crear')}}">Crear un personaje</a></button>
+                                <button><a href="{{route('crear')}}">Nueva Partida</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                                 
-                                <button><a href="{{route('mostrarTodos')}}">Mostrar personajes</a></button>
+                                <button><a href="{{route('mostrarTodos')}}">Mostrar Partidas</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
         
-                                <button><a href="{{route('herramientas')}}">Usar herramientas</a></button>
+                                <button><a href="{{route('herramientas')}}">Herramientas</a></button>
                             </div>
                             <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
                     
-                                <button><a href="{{route('mapas')}}">Descargar mapas</a></button>
+                                <button><a href="{{route('mapas')}}">Mapas</a></button>
                             </div>
                         </div>
                     </div>

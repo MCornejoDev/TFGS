@@ -15,8 +15,8 @@ class CreateMapasTable extends Migration
     {
         Schema::create('mapas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',100);
-            $table->string('enlace',200);
+            $table->string('nombre',20);
+            $table->string('enlace',50);
             $table->char('extension', 4);
         });
     }

@@ -20,10 +20,10 @@ class CreateClassTable extends Migration
               ->references('id')
               ->on('personajes')
               ->onDelete('cascade');//Hace referencia al id de la tabla personaje
-            $table->string('tipo',50);
-            $table->string('arma',70);
-            $table->string('armadura',70);
-            $table->string('escudo',70)->nullable();
+            $table->string('tipo',30);
+            $table->string('arma',30);
+            $table->string('armadura',30);
+            $table->string('escudo',30)->nullable();
         });
     }
 

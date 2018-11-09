@@ -8,7 +8,7 @@ class RegistraCambios extends Model
 {
     //
     protected $table = 'cambios';
-    protected $fillable = ['nickPartida','fecha','idUsuario','idPersonaje','estado','edad','nivel','fuerza',
+    protected $fillable = ['fecha','idPartida','estado','vida','edad','nivel','fuerza',
     'destreza','constitucion','inteligencia','sabiduria','carisma','objetos'];
     public $timestamps = false;
 }
