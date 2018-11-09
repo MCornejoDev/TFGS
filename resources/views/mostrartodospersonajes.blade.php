@@ -23,47 +23,56 @@
     @endif
 <div class="container">
     <div class="row">
- 
-    @foreach ($personajesSinCambios as $personaje)
+        @foreach ($partidas as $partida)
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-            <div class="card" style="width: 18rem;">
-                <!--Para elegir foto de la raza y poner bonito años-->
-                <?php  
-                    $tipoRaza = "img/".$personaje->raza.".jpg";
-                    
-                    $bonito2 = "Femenino";
-                    if($personaje->sexo == 'M'){
-                        $bonito2="Masculino";
-                    }
-                ?>
+                <div class="card" style="width: 18rem;">
+                   Partida : {{$partida->nickPartida}}
+                   @foreach($arrayTotal as $personaje)
+                   <?php 
+                   $idPersonaje= $personaje['idPersonaje'];
+                   $iDPartida = $partida->id;
+                    if($idPersonaje == $iDPartida)
+                    {
 
-                <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
+                        $raza = $personaje['raza']; 
+                        $sexo = $personaje['sexo'];
+                        $nombrePersonaje = $personaje['nombrePersonaje'];
+                        $apodo = $personaje['apodo'];
+                        $tipo = $personaje['tipo'];
+                        $tipoRaza = "img/".$raza.".jpg";
+                        $tipoClase = "img/".$tipo.".png";
+                        $bonito2 = "Femenino";
+                        if($sexo== 'M'){
+                            $bonito2="Masculino";
+                        }
+            
+                   ?> 
+                    <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">         
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-7 col-md-7 col-lg-7" style="text-align:left !important;"> 
-                            Nombre : {{ $personaje->nombrePersonaje}}<br/>
-                            Raza : {{ $personaje->raza }}<br/>
-                            Apodo : {{ $personaje->apodo }}<br/>
-                            Sexo : <?php echo $bonito2?> 
-                            </div>
-                            <div class="col-sm-5 col-md-5 col-lg-5">
-                            @foreach($clases as $clase)
-                                @if($clase->idPersonaje == $personaje->id )   
-                                    <?php $tipo = "img/".$clase->tipo . ".png";?>
-                                    <label>{{$clase->tipo}}</label>
-                                    <img class="card-img tipo" src="{{asset($tipo)}}" alt="<?php echo $clase->tipo?>"><br/>
-                                @endif
-                            @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <button><a href="{{ route('mostrar',$personaje->id) }}">Ver toda la información</a></button>
-                    <button><a href="{{ route('eliminar',$personaje->id) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a></button>
-            </div> <br/> 
-        </div> 
-        
-    @endforeach
-     <div class="col-sm-12 col-md-12 col-lg-12 text-center paginador"> {{ $personajesSinCambios->links() }}</div>    
+                             <div class="row">
+                                 <div class="col-sm-7 col-md-7 col-lg-7" style="text-align:left !important;"> 
+                                 Nombre : {{ $nombrePersonaje}}<br/>
+                                 Raza : {{ $raza }}<br/>
+                                 Apodo : {{  $apodo  }}<br/>
+                                 Sexo : <?php echo $bonito2?> 
+                                 </div>
+                                 <div class="col-sm-5 col-md-5 col-lg-5">
+                                         <label>{{ $tipo}}</label>
+                                         <img class="card-img tipo" src="{{asset($tipoClase)}}" alt="<?php echo $tipoClase?>"><br/>
+                                 </div>
+                             </div>
+                         </div>
+                         <button><a href="{{ route('mostrar', $idPersonaje) }}">Ver toda la información</a></button>
+                         <button><a href="{{ route('eliminar', $idPersonaje) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a></button>
+                   <?php
+                    }
+                   ?>
+                   @endforeach
+                </div> <br/> 
+            </div> 
+        @endforeach  
+
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center paginador"> {{ $partidas->links() }}</div> 
     </div>
 </div>
 

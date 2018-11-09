@@ -10,6 +10,9 @@ use App\RegistraPartida;
 use Illuminate\Support\Facades\DB;
 Use Session;
 Use Redirect;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MostrarPersonajeController extends Controller
 {
@@ -27,15 +30,67 @@ class MostrarPersonajeController extends Controller
     public function mostrarTodos(){
         //$personajes = RegistraCambios::all();
         //$personajesSinCambios = CrearPersonaje::paginate(4)->all();
-        $personajesSinCambios = CrearPersonaje::paginate(3);
-        $clases = RegistraClase::all();
+        //$personajesSinCambios = CrearPersonaje::paginate(3);
+        //$clases = RegistraClase::all();
+
+        $idUsuario = \Auth::user()->id;
         
-        //dd($personajesSinCambios);
-       /* $personajes = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
-        (SELECT * FROM cambios AS c2 WHERE c1.idPersonaje = c2.idPersonaje AND c1.fecha < c2.fecha)');
-        dd($personajes);*/
+        $partidas = RegistraPartida::where('idUsuario','=',$idUsuario)->paginate(3);
         
-        return view('mostrartodospersonajes', compact('personajesSinCambios','clases'));
+        $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario);
+        $personajesPaginate;
+        $clasesPaginate;
+        $contador = 0;
+       
+        foreach ($idPersonajesDelUsuario as $idPerson) {
+            $personaje = DB::select('SELECT * FROM personajes WHERE id = ' . $idPerson->idPersonaje); 
+            $personajesPaginate[$contador] = $personaje;
+            $clase = DB::select('SELECT tipo,arma,armadura,escudo FROM clase WHERE idPersonaje = ' . $idPerson->idPersonaje);
+            $clasesPaginate[$contador] = $clase;
+            $contador++;
+        }
+
+        #region Manipulacion de datos para la vista
+
+        $arrayTotal = array();
+        $contador = 0;
+   
+        foreach ($personajesPaginate as $total) {
+            
+            foreach($total as $tF)
+            {
+                $arrayTotal[$contador]['idPersonaje'] = $tF->id;
+                $arrayTotal[$contador]['raza'] = $tF->raza;
+                $arrayTotal[$contador]['nombrePersonaje'] = $tF->nombrePersonaje;
+                $arrayTotal[$contador]['apodo'] = $tF->apodo;
+                $arrayTotal[$contador]['altura'] = $tF->altura;
+                $arrayTotal[$contador]['edad'] = $tF->edad;
+                $arrayTotal[$contador]['peso'] = $tF->peso;
+                $arrayTotal[$contador]['sexo'] = $tF->sexo;
+            }
+            
+            $contador++;
+         }
+
+         $contador = 0;
+
+         foreach ($clasesPaginate as $total) {
+            
+            foreach($total as $tF)
+            {
+                $arrayTotal[$contador]['tipo'] = $tF->tipo;
+                $arrayTotal[$contador]['arma'] = $tF->arma;
+                $arrayTotal[$contador]['armadura'] = $tF->armadura;
+                $arrayTotal[$contador]['escudo'] = $tF->escudo;     
+            }
+            
+            $contador++;
+         }
+
+        //dd($arrayTotal);
+        #endregion
+
+        return view('mostrartodospersonajes', compact('arrayTotal','partidas'));
     }
 
     public function eliminarPersonaje($id)
@@ -43,8 +98,19 @@ class MostrarPersonajeController extends Controller
         $idEliminar = CrearPersonaje::findOrFail($id);
         $idEliminar->delete();
         Session::flash('message','El personaje fue eliminado.');
+        $idUsuario = \Auth::user()->id;
+        $contador = 0;
+        $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario);
+       
+       
+        foreach ($idPersonajesDelUsuario as $idPerson) {
+            $personaje = DB::select('SELECT * FROM personajes WHERE id = ' . $idPerson->idPersonaje); 
+            $personajesPaginate[$contador] = $personaje;
+            $contador++;
+        }
+
         $personajesSinCambios = CrearPersonaje::all();
-        if(count($personajesSinCambios) > 0 )
+        if(count($personajesPaginate) > 0 )
         {
            
             return Redirect::to('/personajes?page=1');
