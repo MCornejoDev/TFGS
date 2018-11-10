@@ -18,12 +18,11 @@
         $minConstitucion = $personaje->constitucion;
         $minInteligencia = $personaje->inteligencia;
         $minSabiduria = $personaje->sabiduria; 
-        $minCarisma = $personaje->carisma;
-        //$idPersonaje = $personaje->idPersonaje;
+        $minCarisma = $personaje->carisma;     
         $edad = $personaje->edad;
-        //$nickPartida = $personaje->nickPartida;
         $nivel = $personaje->nivel;
         $objetos = $personaje->objetos;
+        $minVida = $personajes->vida;
     ?>
 @endforeach
 <?php
@@ -79,7 +78,7 @@ $Sexo = "";
             <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
             <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
             <input type="hidden" name="nivel" value="<?php echo $nivel?>">
-            <div class="row">
+            <div class="row" >
                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
                     <label>Fuerza:  </label><br/>
                     <input type="number" name="fuerza" id="fuerza"  value="<?php echo $minFuerza?>" placeholder="Fuerza min (<?php echo $minFuerza ?>)" min="<?php echo $minFuerza?>">
@@ -113,6 +112,10 @@ $Sexo = "";
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <label>Nivel:  </label><br/>
                     <input type="number" name="nivel" id="nivel" value="<?php echo $nivel?>" placeholder="Nivel min (<?php echo $nivel?>)" min="<?php echo $nivel?>">
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
+                    <label>Vida:  </label><br/>
+                    <input type="number" name="vida" id="vida"  value="<?php echo $minVida?>" placeholder="Vida min (<?php echo $minVida ?>)" >
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 text-center">
                     <label>Objetos:  </label><br/>

@@ -145,6 +145,14 @@ button:hover {
   display:block  !important;
 }
 
+#crearV{
+    width: 120px !important;
+    height: 39px !important;
+    margin: auto !important;
+    padding-bottom: 15px;
+    float: right !important;
+}
+
 </style>
 
 <form method="POST" action="{{route('registrar')}}">
@@ -156,9 +164,14 @@ button:hover {
     <span class="step">3</span>
   </div>
   
-  <div class="container tab">
+  <div class="container tab ">
   <h3>Datos del personaje</h3>
-    <div class="row">
+    <div class="row estiloSombreado">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <input class="hijos" type="text" placeholder="Nombre de la partida"  name="nickPartida">
+      </div>
+    </div>
+    <div class="row estiloSombreado">
       <div class="col-sm-12 text-center">
           <select name="raza" class="hijos" style="padding:5px !important; ">
             <option disabled selected value> -- Elija una raza -- </option>
@@ -200,11 +213,6 @@ button:hover {
             <input type="radio" name="sexo" value="F"> Femenino<br>
             <input type="radio" name="sexo" value="M"> Masculino<br>
           </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad de su personaje" id="personalidad" cols="28" rows="5"></textarea>
-        </div>
     </div>
         <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
         
@@ -302,16 +310,14 @@ button:hover {
             <input class="hijos" type="number" placeholder="carisma" name="carisma" id="">
         </div>
       </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
-      </div>    
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input class="hijos" type="text" placeholder="Nombre de la partida"  name="nickPartida">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+          <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
+        </div>    
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad de su personaje" id="personalidad" cols="28" rows="5"></textarea>
+        </div>
       </div>
-    </div>
   </div>
 
   <div style="overflow:auto;">
@@ -319,7 +325,7 @@ button:hover {
       <button style="float:left;"type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
       <button style="float:right;" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
       <div class="form-group quitar" id="divCrear" style="width:200px !important; margin:auto !important;padding-bottom: 15px; float:right !important;">
-          <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear personaje</button>
+          <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear</button>
       </div>
     </div>
   </div>

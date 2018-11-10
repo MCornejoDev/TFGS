@@ -134,7 +134,7 @@ class MostrarPersonajeController extends Controller
             'nickPartida'=>$inputs['nickPartida'],
             'fecha'=>$fecha,
             'estado'=>'modificacion',
-            'vida'=>'30',
+            'vida'=>$inputs['vida'],
             'nivel'=>$inputs['nivel'],
             'edad'=>$inputs['edad'],
             'fuerza'=>$inputs['fuerza'],
