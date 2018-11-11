@@ -1,7 +1,7 @@
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
-
+var valid = true
 function showTab(n) {
   // This function will display the specified tab of the form...
   
@@ -55,7 +55,7 @@ function nextPrev(n) {
 function validateForm() {
   var escudo = document.getElementById('escudo');
   // This function deals with validation of the form fields
-  var tab, inputs, i, valid = true;
+  var tab, inputs, i;
   tab = document.getElementsByClassName("tab");
   inputs = tab[currentTab].getElementsByTagName("input");
   
@@ -75,6 +75,16 @@ function validateForm() {
     }
   }
   // A loop that checks every input field in the current tab:
+  var inputNickPartida = document.getElementById('nickPartida');
+  var existeNick = false;
+  for (let index = 0; index < arrayNombres.length; index++) {
+      if(arrayNombres[index]['nickPartida'] == inputNickPartida.value)
+      {
+        console.log("existe");
+        existeNick = true;
+        document.getElementById('nickPartida').setAttribute('class',inputNickPartida.className + " invalid");
+      }
+  }
   for (i = 0; i < inputs.length; i++) {
     // If a field is empty...ç
     // if (escudo.value == "")
@@ -82,20 +92,7 @@ function validateForm() {
     //   valid = true;
     // }
     // else{
-    if(inputs[i].id == 'nickPartida')
-    {
-      var resultado = false;
-      var nickPartida = document.getElementById('nickPartida').value;
-      comprobarNickPartida(nickPartida,function(respuesta){
-        console.log(respuesta);
-        if(respuesta == true)
-        {
-          resultado = true;
-          return resultado
-        }
-      })
-      console.log(resultado);
-    }
+
     if(inputs[i].id == 'escudo'){
       if(escudo.value=="")
       {
@@ -104,7 +101,6 @@ function validateForm() {
     }
     else
     {
-
       if (inputs[i].value == "") 
       {
         // add an "invalid" class to the field:
@@ -112,12 +108,23 @@ function validateForm() {
         // and set the current valid status to false
         valid = false;
       }
+      else{
+        if(existeNick == true)
+        {
+          valid = false;
+        }
+        else
+        {
+          valid = true;
+        }
+      }
     }  
   }
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
+ 
   return valid; // return the valid status
 }
 

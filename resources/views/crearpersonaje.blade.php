@@ -32,6 +32,7 @@ input.invalid {
   background-color: #ffdddd;
 }
 
+
 /* Hide all steps by default: */
 .tab {
   display: none;
@@ -155,7 +156,7 @@ button:hover {
 
 </style>
 
-<form method="POST" action="{{route('registrar')}}" name="formulario">
+<form method="POST" action="{{route('registrar')}}" id="formulario" name="formulario">
     {!! csrf_field() !!}  
    <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;">
@@ -335,40 +336,11 @@ button:hover {
     </div>
   </div>
 </form>
-<script src="{{asset('js/propio.js')}}"></script>
 <script>
-
-function comprobarNickPartida(nickPartida,callback)
-{     
-  var devolver = false;
-   $(document).ready(function(){
-      //Comprobación del nombre mediante Ajax
-      $.ajax({
-      url: "{{ route('comprobar') }}",
-      method: 'get',
-      dataType: 'json',
-      success: function(response) {
-        //Comprobar que el nick existe en el array o si el tamaño 
-        //del array es mas de uno para decirle al usuario que ya existe
-       
-        for (let index = 0; index < response.length; index++) 
-        { 
-          if(response[index]['nickPartida'] == nickPartida)
-          {
-            devolver = true;
-          }
-        }
-        return callback(devolver);
-      },
-      error: function() {
-        console.log("No se ha podido obtener la información");
-      }
-    });
-   })
-
-   return devolver;
-}
+ var arrayNombres = <?php echo(json_encode($response)); ?>
 </script>
+<script src="{{asset('js/propio.js')}}"></script>
+
 @else
 <style>
 

@@ -18,7 +18,10 @@ class CrearpersonajeController extends Controller
 {
     
     function index(){
-        return view('crearpersonaje');
+        $idUsuario = \Auth::user()->id;
+        $response= DB::select("SELECT nickPartida FROM partidas WHERE idUsuario = " . $idUsuario );
+        
+        return view('crearpersonaje',compact('response'));
     }
 
     function registrar(Request $request){
@@ -164,13 +167,11 @@ class CrearpersonajeController extends Controller
         return Redirect::to('/home');
     }
 
-    function comprobar()
+    /*function comprobar()
     {
-        
         $idUsuario = \Auth::user()->id;
         $response= DB::select("SELECT nickPartida FROM partidas WHERE idUsuario = " . $idUsuario );
-        
 
-        return Response::json($response);
-    }
+        return $response;
+    }*/
 }

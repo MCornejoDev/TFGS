@@ -35,10 +35,10 @@ Route::post('crear',[
     'uses'=> 'CrearPersonajeController@registrar'
 ]);
 
-Route::get('comprobar',[
+/*Route::get('comprobar',[
     'as'=>'comprobar',
     'uses'=> 'CrearPersonajeController@comprobar'
-]);
+]);*/
 
 /*Ver personajes*/
 
