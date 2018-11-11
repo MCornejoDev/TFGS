@@ -21,9 +21,21 @@ class MostrarPersonajeController extends Controller
     {
         $partidas = RegistraPartida::where('id', $id)->first();
         $personajes = CrearPersonaje::where('id', $id)->first();
-        $personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
-        (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha < c2.fecha)');
+        
+        $idPersonajeActual = DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $id);
+        $idP;
+        
+        foreach ($idPersonajeActual as $key => $value) {
+            foreach ($value as $key2 => $value2) {
+                $idP = $value2;
+            }
+        }
+        //dd($idP);
+        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $id . ' AND id = ' . $idP);
+        /*$personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
+        (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha > c2.fecha AND id = '. $idP .')');*/        
         //dd($personajes);
+        //dd($personajesC);
         return view('personaje', compact('personajes','personajesC','partidas'));
     }
 
@@ -129,7 +141,7 @@ class MostrarPersonajeController extends Controller
         $idUsuario = \Auth::user()->id;
         date_default_timezone_get('Europe/Madrid');
         $fecha = date('Y-m-d H:i:s');
-        dd($inputs);
+        
         $cambios = RegistraCambios::create([
             'idPartida'=>$inputs['idPartida'],
             'nickPartida'=>$inputs['nickPartida'],

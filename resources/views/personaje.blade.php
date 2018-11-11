@@ -22,19 +22,24 @@
         $edad = $personaje->edad;
         $nivel = $personaje->nivel;
         $objetos = $personaje->objetos;
-        $minVida = $personajes->vida;
+        $minVida = $personaje->vida;
+        
     ?>
 @endforeach
 <?php
+
 $Sexo = "";
-    if($personajes->sexo = 'F')
+
+    if($personajes->sexo == 'F')
     {
         $Sexo = "Femenino";
+       
     }
     else{
-        if($personajes->sexo = 'M')
+        if($personajes->sexo == 'M')
         {
             $Sexo= "Masculino";
+          
         }
     }
     $tipoRaza = "img/".$personajes->raza.".jpg";
