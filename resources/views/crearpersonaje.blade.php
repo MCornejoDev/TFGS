@@ -155,7 +155,7 @@ button:hover {
 
 </style>
 
-<form method="POST" action="{{route('registrar')}}">
+<form method="POST" action="{{route('registrar')}}" name="formulario">
     {!! csrf_field() !!}  
    <!-- Circles which indicates the steps of the form: -->
   <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;">
@@ -168,7 +168,7 @@ button:hover {
   <h3>Datos del personaje</h3>
     <div class="row estiloSombreado">
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input class="hijos" type="text" placeholder="Nombre de la partida"  name="nickPartida">
+        <input class="hijos" type="text" placeholder="Nombre de la partida" id="nickPartida" name="nickPartida">
       </div>
     </div>
     <div class="row estiloSombreado">
@@ -188,7 +188,7 @@ button:hover {
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-          <input class="hijos" type="text" placeholder="Nombre del personaje"  name="nombrePersonaje">
+          <input class="hijos" type="text" placeholder="Nombre del personaje"  value="" name="nombrePersonaje">
         </div>
     </div>
     <div class="row">
@@ -204,15 +204,20 @@ button:hover {
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <input class="hijos" type="number" placeholder="Edad" name="edad" min="1" max="110">
-          <input class="hijos hijosv2" type="text" placeholder="Peso en kg" name="peso">
+          <input class="hijos hijosv2" id="peso" type="text" placeholder="Peso en kg" name="peso">
         </div>
     </div>
     <div class="row">    
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <div> Sexo del personaje : <br/></div>
-            <input type="radio" name="sexo" value="F"> Femenino<br>
-            <input type="radio" name="sexo" value="M"> Masculino<br>
+            <input type="radio" id="sexo" name="sexo" value="F"> Femenino<br>
+            <input type="radio" id="sexo" name="sexo" value="M"> Masculino<br>
           </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <input class="hijos" type="text" placeholder="Vida del personaje"  name="vida">
+        </div>
     </div>
         <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
         
@@ -331,6 +336,39 @@ button:hover {
   </div>
 </form>
 <script src="{{asset('js/propio.js')}}"></script>
+<script>
+
+function comprobarNickPartida(nickPartida,callback)
+{     
+  var devolver = false;
+   $(document).ready(function(){
+      //Comprobación del nombre mediante Ajax
+      $.ajax({
+      url: "{{ route('comprobar') }}",
+      method: 'get',
+      dataType: 'json',
+      success: function(response) {
+        //Comprobar que el nick existe en el array o si el tamaño 
+        //del array es mas de uno para decirle al usuario que ya existe
+       
+        for (let index = 0; index < response.length; index++) 
+        { 
+          if(response[index]['nickPartida'] == nickPartida)
+          {
+            devolver = true;
+          }
+        }
+        return callback(devolver);
+      },
+      error: function() {
+        console.log("No se ha podido obtener la información");
+      }
+    });
+   })
+
+   return devolver;
+}
+</script>
 @else
 <style>
 

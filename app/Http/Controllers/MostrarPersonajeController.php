@@ -38,8 +38,8 @@ class MostrarPersonajeController extends Controller
         $partidas = RegistraPartida::where('idUsuario','=',$idUsuario)->paginate(3);
         
         $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario);
-        $personajesPaginate;
-        $clasesPaginate;
+        $personajesPaginate = array();
+        $clasesPaginate = array();
         $contador = 0;
        
         foreach ($idPersonajesDelUsuario as $idPerson) {
@@ -97,6 +97,8 @@ class MostrarPersonajeController extends Controller
     {
         $idEliminar = CrearPersonaje::findOrFail($id);
         $idEliminar->delete();
+        // $idEliminar = RegistraCambios::findOrFail($id);
+        // $idEliminar->delete();
         Session::flash('message','El personaje fue eliminado.');
         $idUsuario = \Auth::user()->id;
         $contador = 0;
@@ -111,8 +113,7 @@ class MostrarPersonajeController extends Controller
 
         $personajesSinCambios = CrearPersonaje::all();
         if(count($personajesPaginate) > 0 )
-        {
-           
+        { 
             return Redirect::to('/personajes?page=1');
         }
         else{
@@ -128,7 +129,7 @@ class MostrarPersonajeController extends Controller
         $idUsuario = \Auth::user()->id;
         date_default_timezone_get('Europe/Madrid');
         $fecha = date('Y-m-d H:i:s');
-        
+        dd($inputs);
         $cambios = RegistraCambios::create([
             'idPartida'=>$inputs['idPartida'],
             'nickPartida'=>$inputs['nickPartida'],

@@ -21,9 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /*Crear personaje*/
 
-Route::get('crear', function () {
-    return view('crearpersonaje');
-});
+// Route::get('crear', function () {
+//     return view('crearpersonaje');
+// });
 
 Route::get('/crear',[
     'as'=>'crear',
@@ -33,6 +33,11 @@ Route::get('/crear',[
 Route::post('crear',[
     'as'=>'registrar',
     'uses'=> 'CrearPersonajeController@registrar'
+]);
+
+Route::get('comprobar',[
+    'as'=>'comprobar',
+    'uses'=> 'CrearPersonajeController@comprobar'
 ]);
 
 /*Ver personajes*/

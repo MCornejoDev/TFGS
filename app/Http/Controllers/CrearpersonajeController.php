@@ -11,9 +11,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 Use Session;
 Use Redirect;
+use DB;
+use Response;
 
 class CrearpersonajeController extends Controller
 {
+    
     function index(){
         return view('crearpersonaje');
     }
@@ -64,7 +67,7 @@ class CrearpersonajeController extends Controller
                 'habilidad2'=> $inputs['habilidad2'],
                 'habilidad3'=> $inputs['habilidad3'],
                 'habilidad4'=> $inputs['habilidad4'],
-                'vida'=> '30',/*Recuerda crear el input para la vida*/
+                'vida'=>$inputs['vida'],/*Recuerda crear el input para la vida*/
                 'nivel'=>$inputs['nivel'],
                 'fuerza'=>$inputs['fuerza'],
                 'destreza'=>$inputs['destreza'],
@@ -93,7 +96,7 @@ class CrearpersonajeController extends Controller
                     'habilidad2'=> $inputs['habilidad2'],
                     'habilidad3'=> $inputs['habilidad3'],
                     'habilidad4'=> $inputs['habilidad4'],
-                    'vida'=> '30',/*Recuerda crear el input para la vida*/
+                    'vida'=> $inputs['vida'],/*Recuerda crear el input para la vida*/
                     'nivel'=>$inputs['nivel'],
                     'fuerza'=>$inputs['fuerza'],
                     'destreza'=>$inputs['destreza'],
@@ -146,7 +149,7 @@ class CrearpersonajeController extends Controller
             'fecha'=>$fecha, 
             'idPartida'=>$partida->id,   
             'estado'=>'creado',
-            'vida'=> '30',/*Recuerda crear el input para la vida*/
+            'vida'=> $inputs['vida'],/*Recuerda crear el input para la vida*/
             'nivel'=>$inputs['nivel'],
             'edad'=>$inputs['edad'],
             'fuerza'=>$inputs['fuerza'],
@@ -159,5 +162,15 @@ class CrearpersonajeController extends Controller
         ]);
         Session::flash('message','La partida fue creada.');    
         return Redirect::to('/home');
+    }
+
+    function comprobar()
+    {
+        
+        $idUsuario = \Auth::user()->id;
+        $response= DB::select("SELECT nickPartida FROM partidas WHERE idUsuario = " . $idUsuario );
+        
+
+        return Response::json($response);
     }
 }

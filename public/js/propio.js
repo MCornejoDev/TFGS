@@ -4,6 +4,7 @@ showTab(currentTab); // Display the crurrent tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
+  
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
@@ -54,18 +55,48 @@ function nextPrev(n) {
 function validateForm() {
   var escudo = document.getElementById('escudo');
   // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
+  var tab, inputs, i, valid = true;
+  tab = document.getElementsByClassName("tab");
+  inputs = tab[currentTab].getElementsByTagName("input");
+  
+  for (let index = 0; index < inputs.length; index++) {
+    if(inputs[index].id == 'peso')
+    {
+      inputs[index].removeAttribute('class'," invalid");
+      inputs[index].setAttribute("class","hijos hijosv2");
+    }
+    else
+    {
+      if(inputs[index].id != 'sexo')
+      {
+        inputs[index].removeAttribute('class'," invalid");
+        inputs[index].setAttribute("class","hijos");
+      }
+    }
+  }
   // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
+  for (i = 0; i < inputs.length; i++) {
     // If a field is empty...ç
     // if (escudo.value == "")
     // {
     //   valid = true;
     // }
     // else{
-    if(y[i].id == 'escudo'){
+    if(inputs[i].id == 'nickPartida')
+    {
+      var resultado = false;
+      var nickPartida = document.getElementById('nickPartida').value;
+      comprobarNickPartida(nickPartida,function(respuesta){
+        console.log(respuesta);
+        if(respuesta == true)
+        {
+          resultado = true;
+          return resultado
+        }
+      })
+      console.log(resultado);
+    }
+    if(inputs[i].id == 'escudo'){
       if(escudo.value=="")
       {
         valid = true;
@@ -73,10 +104,11 @@ function validateForm() {
     }
     else
     {
-      if (y[i].value == "") 
+
+      if (inputs[i].value == "") 
       {
         // add an "invalid" class to the field:
-        y[i].className += " invalid";
+        inputs[i].setAttribute('class',inputs[i].className + " invalid");
         // and set the current valid status to false
         valid = false;
       }
