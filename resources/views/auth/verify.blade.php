@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+*{
+    background: url('../img/background3.jpg') no-repeat center center fixed !important;
+    -webkit-background-size: cover  !important;
+    -moz-background-size: cover  !important;
+    -o-background-size: cover  !important;
+    background-size: cover  !important;
+    font-weight: bold !important;
+}
+.btn-primary,.btn-primary:hover,.btn-primary:active,.btn:focus,.btn,.btn:hover,.btn:active,.btn:focus,button{
+    background-color: inherit !important;
+    color:black !important;
+    font-weight: bold !important;
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

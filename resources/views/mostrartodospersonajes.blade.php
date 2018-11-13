@@ -3,24 +3,14 @@
 @section('content')
 @if (Route::has('login'))
 @auth
-<style>
-.sesion{
-    background: url('../img/background4.jpg') no-repeat center center fixed !important;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-weight: bold !important;
-}
 
-</style>
 
-    @if(Session::has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{Session::get('message')}}
-    </div>
-    @endif
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {{Session::get('message')}}
+</div>
+@endif
 <div class="container">
     <div class="row">
         @foreach ($partidas as $partida)
@@ -82,6 +72,7 @@
     </div>
 </div>
 
+@include('layouts.js2')
 @else
 <style>
 

@@ -3,14 +3,13 @@
 @section('content')
 <style>
 *{
-    background: url('../img/background3.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url('../img/background3.jpg') no-repeat center center fixed ;
+    -webkit-background-size: cover ;
+    -moz-background-size: cover ;
+    -o-background-size: cover ;
+    background-size: cover ;
     font-weight: bold !important;
 }
-
 .btn-primary,.btn-primary:hover,.btn-primary:active,.btn:focus,.btn,.btn:hover,.btn:active,.btn:focus,button{
     background-color: inherit !important;
     color:black !important;
