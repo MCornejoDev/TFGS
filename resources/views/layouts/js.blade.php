@@ -1,3 +1,3 @@
 <script>
-$('.sesion').removeClass("sesion").addClass("sinsesion");
+    document.getElementsByClassName('sesion').item(0).className = 'sinsesion'
 </script>

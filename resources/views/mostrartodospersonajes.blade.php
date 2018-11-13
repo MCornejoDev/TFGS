@@ -27,10 +27,15 @@
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
                 <div class="card" style="width: 18rem;">
                    Partida : {{$partida->nickPartida}}
+                   <?php
+                    
+                   ?>
                    @foreach($arrayTotal as $personaje)
                    <?php 
                    $idPersonaje= $personaje['idPersonaje'];
-                   $iDPartida = $partida->id;
+                   
+                   $iDPartida = $partida->idPersonaje;
+                  
                     if($idPersonaje == $iDPartida)
                     {
 
@@ -51,7 +56,7 @@
                     <div class="card-body">
                              <div class="row">
                                  <div class="col-sm-7 col-md-7 col-lg-7" style="text-align:left !important;"> 
-                                 Nombre : {{ $nombrePersonaje}}<br/>
+                                 Nombre : {{ $nombrePersonaje }}<br/>
                                  Raza : {{ $raza }}<br/>
                                  Apodo : {{  $apodo  }}<br/>
                                  Sexo : <?php echo $bonito2?> 
@@ -62,8 +67,9 @@
                                  </div>
                              </div>
                          </div>
-                         <button><a href="{{ route('mostrar', $idPersonaje) }}">Ver toda la información</a></button>
-                         <button><a href="{{ route('eliminar', $idPersonaje) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a></button>
+                         <a class="button4" href="{{ route('grafica', $idPersonaje) }}">Ver la grafica</a>
+                         <a class="button4" href="{{ route('mostrar', $idPersonaje) }}">Ver toda la información</a>
+                         <a class="button4" href="{{ route('eliminar', $idPersonaje) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
                    <?php
                     }
                    ?>

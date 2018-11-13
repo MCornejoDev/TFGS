@@ -17,25 +17,26 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class MostrarPersonajeController extends Controller
 {
     //
-    public function mostrar($id)
-    {
-        $partidas = RegistraPartida::where('id', $id)->first();
-        $personajes = CrearPersonaje::where('id', $id)->first();
+    public function mostrar($idPersonaje){
+        $partidas = RegistraPartida::where('idPersonaje', $idPersonaje)->first();
+        $personajes = CrearPersonaje::where('id', $idPersonaje)->first();
         
-        $idPersonajeActual = DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $id);
+        $idPersonajeActualConLaFechaMasReciente = 
+        DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $partidas->id);
         $idP;
         
-        foreach ($idPersonajeActual as $key => $value) {
+        foreach ($idPersonajeActualConLaFechaMasReciente as $key => $value) {
             foreach ($value as $key2 => $value2) {
                 $idP = $value2;
             }
         }
         //dd($idP);
-        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $id . ' AND id = ' . $idP);
+        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $partidas->id. ' AND id = ' . $idP);
         /*$personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
         (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha > c2.fecha AND id = '. $idP .')');*/        
         //dd($personajes);
         //dd($personajesC);
+        
         return view('personaje', compact('personajes','personajesC','partidas'));
     }
 
@@ -99,14 +100,13 @@ class MostrarPersonajeController extends Controller
             $contador++;
          }
 
-        //dd($arrayTotal);
+        
         #endregion
 
         return view('mostrartodospersonajes', compact('arrayTotal','partidas'));
     }
 
-    public function eliminarPersonaje($id)
-    {
+    public function eliminarPersonaje($id){
         $idEliminar = CrearPersonaje::findOrFail($id);
         $idEliminar->delete();
         // $idEliminar = RegistraCambios::findOrFail($id);
@@ -115,7 +115,7 @@ class MostrarPersonajeController extends Controller
         $idUsuario = \Auth::user()->id;
         $contador = 0;
         $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario);
-       
+        $personajesPaginate = array();
        
         foreach ($idPersonajesDelUsuario as $idPerson) {
             $personaje = DB::select('SELECT * FROM personajes WHERE id = ' . $idPerson->idPersonaje); 
@@ -135,8 +135,7 @@ class MostrarPersonajeController extends Controller
         //return back();
     }
 
-    public function modificar(Request $request)
-    {
+    public function modificar(Request $request){
         $inputs = $request->all();
         $idUsuario = \Auth::user()->id;
         date_default_timezone_get('Europe/Madrid');
@@ -162,5 +161,28 @@ class MostrarPersonajeController extends Controller
         Session::flash('message','El personaje fue modificado.');
         
         return back();
+    }
+
+    public function grafica($id)
+    {
+        $partidas = RegistraPartida::where('idPersonaje', $id)->first();
+        $personaje = CrearPersonaje::where('id', $id)->first();
+
+        $idPersonajeActual = DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $partidas->id);
+        $idP;
+        
+        foreach ($idPersonajeActual as $key => $value) {
+            foreach ($value as $key2 => $value2) {
+                $idP = $value2;
+            }
+        }
+      
+        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $partidas->id . ' AND id = ' . $idP);
+        /*$personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
+        (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha > c2.fecha AND id = '. $idP .')');*/        
+        //dd($personajes);
+        //dd($personajesC);
+        
+        return view('graficapersonaje', compact('personaje','personajesC','partidas'));
     }
 }

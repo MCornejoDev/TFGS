@@ -58,7 +58,9 @@ function validateForm() {
   var tab, inputs, i;
   tab = document.getElementsByClassName("tab");
   inputs = tab[currentTab].getElementsByTagName("input");
-  
+
+  //Bucle especial para darle las clases especificas a los inputs
+  // con id peso y sexo
   for (let index = 0; index < inputs.length; index++) {
     if(inputs[index].id == 'peso')
     {
@@ -74,24 +76,77 @@ function validateForm() {
       }
     }
   }
-  // A loop that checks every input field in the current tab:
+  
+  //Recorremos con un bucle el array 
+  //de nombres de partida que el usuario tiene.
   var inputNickPartida = document.getElementById('nickPartida');
   var existeNick = false;
   for (let index = 0; index < arrayNombres.length; index++) {
       if(arrayNombres[index]['nickPartida'] == inputNickPartida.value)
       {
-        console.log("existe");
         existeNick = true;
         document.getElementById('nickPartida').setAttribute('class',inputNickPartida.className + " invalid");
       }
   }
+
+  //#region //Comprobación de los selected
+  var selected = document.getElementsByTagName("select");
+  
+  if(currentTab == 0)
+  {
+    if(selected[0].value == "")
+    {
+      valid = false;
+      selected[0].style = "padding:5px !important; background:#ffdddd !important;";
+    }
+    else
+    {
+      valid = true;
+      selected[0].style = "padding:5px !important;";
+    }
+  }
+
+  if(currentTab == 1)
+  {
+    if(selected[1].value == "")
+    {
+      valid = false;
+      selected[1].style = "padding:5px !important; background:#ffdddd !important;";
+    }
+    else
+    {
+      selected[1].style = "padding:5px !important;";
+      selected[2].style = "padding:5px !important; background:#ffdddd !important;";
+      if(selected[2].value == "")
+      {
+        valid = false;
+        selected[2].style = "padding:5px !important; background:#ffdddd !important;";
+      }
+      else
+      {
+        valid = true;
+        selected[2].style = "padding:5px !important;";
+      }
+    }
+  }
+  //#endregion
+
+  //#region RadioButton
+  var sexo = document.getElementsByName('sexo');
+  var lsexo = document.getElementById('lsexo');
+  if(sexo[0].checked == false ||sexo[1].checked == false)
+  {
+    lsexo.innerText = "Seleccione un sexo";
+  }
+  else
+  {
+    lsexo.innerText = "Sexo seleccionado";
+  }
+  console.log(sexo);
+  //#endregion
+
+  //#region  // A loop that checks every input field in the current tab: // Un bucle que chequea los campos inputs en el actual formulario
   for (i = 0; i < inputs.length; i++) {
-    // If a field is empty...ç
-    // if (escudo.value == "")
-    // {
-    //   valid = true;
-    // }
-    // else{
 
     if(inputs[i].id == 'escudo'){
       if(escudo.value=="")
@@ -104,22 +159,37 @@ function validateForm() {
       if (inputs[i].value == "") 
       {
         // add an "invalid" class to the field:
+        // Añadimos una clase invalid al campo designado
         inputs[i].setAttribute('class',inputs[i].className + " invalid");
         // and set the current valid status to false
+        // y colocamos al actual estado de la variable valid a falso
         valid = false;
       }
       else{
-        if(existeNick == true)
+        //Comprobación del nick de partida que no esté vacío y el estilo de su label
+        if(nickPartida.value != "")
         {
-          valid = false;
+          if(existeNick == true)
+          {
+            valid = false;
+            document.getElementById('lnick').innerText = "Nick de partida ya existente";
+          }
+          else
+          {
+            valid = true;
+            document.getElementById('lnick').innerText = "Nick de partida disponible";
+          }
         }
         else
         {
-          valid = true;
+          valid = false;
+            document.getElementById('lnick').innerText = "Escribe un nick de partida";
         }
       }
     }  
   }
+  //#endregion
+
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
@@ -167,7 +237,7 @@ function annadirArmas(clase){
   var option = document.createElement('option');
   var textOption = document.createTextNode('--Elija un arma--');
   option.appendChild(textOption);
-  option.setAttribute('value','Elija un arma');
+  option.setAttribute('value',"");
   option.selected = 'selected';
   option.disabled = true;
   select.appendChild(option);
@@ -240,6 +310,7 @@ function habilitarEscudo(arma)
 function tipoArmadura(clase)
 {
   var documentoDondeAnnadir = document.getElementById('armadura');
+ 
   if(documentoDondeAnnadir.hasChildNodes())
   {
     while(documentoDondeAnnadir.childNodes.length != 0)
@@ -276,5 +347,3 @@ function tipoArmadura(clase)
 
   documentoDondeAnnadir.appendChild(input);
 }
-
-

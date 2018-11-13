@@ -82,7 +82,7 @@ button:hover {
   margin-bottom:10px !important;
 }
 
-@media screen and (max-width: 320px) {
+@media all and (max-width: 320px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -90,7 +90,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 375px) {
+@media all and (min-width: 375px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -98,7 +98,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 424px) {
+@media all and (min-width: 424px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -106,7 +106,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 427px) {
+@media all and (min-width: 427px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -114,7 +114,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -122,7 +122,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 1023px) {
+@media all and (min-width: 1023px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -130,7 +130,7 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 1439px) {
+@media all and (min-width: 1439px) {
   .hijosv2
     {
       max-width: 100% !important;
@@ -171,11 +171,14 @@ button:hover {
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
         <input class="hijos" type="text" placeholder="Nombre de la partida" id="nickPartida" name="nickPartida">
       </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <label id="lnick"></label>
+      </div>
     </div>
     <div class="row estiloSombreado">
       <div class="col-sm-12 text-center">
-          <select name="raza" class="hijos" style="padding:5px !important; ">
-            <option disabled selected value> -- Elija una raza -- </option>
+          <select id="selectRaza" name="raza" class="hijos" style="padding:5px !important; ">
+            <option disabled selected value=""> -- Elija una raza -- </option>
             <option value="Humano">Humano/a</option>
             <option value="Elfo">Elfo/a</option>
             <option value="SemiElfo">SemiElfo/a</option>
@@ -214,6 +217,9 @@ button:hover {
             <input type="radio" id="sexo" name="sexo" value="F"> Femenino<br>
             <input type="radio" id="sexo" name="sexo" value="M"> Masculino<br>
           </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <label id="lsexo"></label>
+          </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
@@ -235,7 +241,7 @@ button:hover {
      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>
-            <option disabled selected value> -- Elija una clase -- </option>
+            <option disabled selected value=""> -- Elija una clase -- </option>
             <option value="Barbaro">Barbaro</option>--
             <option value="Bardo">Bardo</option>
             <option value="Clérigo">Clérigo</option>-
@@ -251,7 +257,7 @@ button:hover {
       </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <select name="arma" class="hijos" id="selectArma" style="padding:5px !important;" disabled onchange='habilitarEscudo(this.value)'>
-            <option disabled selected> -- Elija un arma-- </option>
+            <option disabled selected value=""> -- Elija un arma-- </option>
             <!--<option value="Espadas">Espadas</option>
             <option value="Hachas">Hachas</option>
             <option value="Mazas">Mazas</option>
@@ -294,26 +300,26 @@ button:hover {
   <h3>Características y objetos</h3>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="fuerza" name="fuerza" id="">
+            <input class="hijos" type="number" placeholder="fuerza" name="fuerza" min="0" id="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="destreza" name="destreza" id="">
-        </div>
-      </div>
-      <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="constitución" name="constitucion" id="">
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" id="">
+            <input class="hijos" type="number" placeholder="destreza" name="destreza" min="0" id="">
         </div>
       </div>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="sabiduria" name="sabiduria" id="">
+            <input class="hijos" type="number" placeholder="constitución" name="constitucion" min="0" id="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-            <input class="hijos" type="number" placeholder="carisma" name="carisma" id="">
+            <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" min="0" id="">
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="sabiduria" name="sabiduria" min="0" id="">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+            <input class="hijos" type="number" placeholder="carisma" name="carisma" min="0" id="">
         </div>
       </div>
       <div class="row">
@@ -337,7 +343,7 @@ button:hover {
   </div>
 </form>
 <script>
- var arrayNombres = <?php echo(json_encode($response)); ?>
+ var arrayNombres = <?php echo(json_encode($response)); ?>;
 </script>
 <script src="{{asset('js/propio.js')}}"></script>
 

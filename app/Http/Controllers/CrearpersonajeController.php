@@ -20,7 +20,8 @@ class CrearpersonajeController extends Controller
     function index(){
         $idUsuario = \Auth::user()->id;
         $response= DB::select("SELECT nickPartida FROM partidas WHERE idUsuario = " . $idUsuario );
-        
+       
+
         return view('crearpersonaje',compact('response'));
     }
 
@@ -112,7 +113,8 @@ class CrearpersonajeController extends Controller
             }
         }
        
-
+        $armadura = $inputs['armadura'];
+        
         $escudo;
         if(!isset($inputs['escudo']))
         {

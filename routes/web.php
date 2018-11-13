@@ -52,6 +52,11 @@ Route::get('personaje/{id}',[
     'uses'=>'MostrarPersonajeController@mostrar'
 ]);
 
+Route::get('personaje/gráfica/{id}',[
+    'as'=> 'grafica',
+    'uses'=> 'MostrarPersonajeController@grafica'
+]);
+
 /*Modificar personaje*/
 
 Route::post('personaje/{id}',[

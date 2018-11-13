@@ -8,6 +8,7 @@
     $nickPartida = $partidas->nickPartida;
     $idPartida = $partidas->id;
     $idPersonaje = $partidas->idPersonaje;
+    
 ?>
 
 <!--Personajes con los cambios-->
@@ -44,7 +45,7 @@ $Sexo = "";
     }
     $tipoRaza = "img/".$personajes->raza.".jpg";
     $bonito = "año";
-    if($personaje->edad > 1){
+    if($personajes->edad > 1){
         $bonito = "años";
     }
    
@@ -136,11 +137,7 @@ $Sexo = "";
             <a style=" color:white !important;" href="{{ route('mostrarTodos')}}">Volver</a>
         </button>
     </div>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>-->
-    <script>
-        var edad = '{{$edad}}';
-        console.log( "Soy js " + edad);
-    </script>
+    
 @else
 <style>
 
