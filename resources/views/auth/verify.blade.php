@@ -3,7 +3,7 @@
 @section('content')
 <style>
 *{
-    background: url('../img/background3.jpg') no-repeat center center fixed !important;
+    
     -webkit-background-size: cover  !important;
     -moz-background-size: cover  !important;
     -o-background-size: cover  !important;
