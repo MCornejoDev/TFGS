@@ -10,7 +10,9 @@
       {{Session::get('message')}}
     </div>
 @endif
+<?php
 
+?>
 <!--Página principal después de iniciar sesión-->
 
 <div class="container-fluid">

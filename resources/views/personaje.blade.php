@@ -51,93 +51,145 @@ $Sexo = "";
    
     
 ?>
+<style>
+button
+{
+    background-color: #2a5483;
+	color:#fff;
+	border-top:0px solid #fff;
+	border-right:0px  solid #fff;
+	border-bottom:0px  solid #cecece;
+	border-left:0px  solid #cecece;
+	cursor:pointer;
+	font-weight:bold;
+	padding:0.2em 0;
+	outline:none !important;
+}
+/*a{
+    position: relative;
+    left: 15px;
+}*/
+input[type="number"].nivel
+{
+    text-align:center;  
+    
+}
+input[type="number"]{
+    width:50px !important;
+}
+input[type="number"]#vida{
+    width:100px !important;
+}
+@media screen and (max-width: 426px) 
+{
+    input[type="number"]
+    {
+        text-align:center;
+        
+    }
+}
+
+button.buttonPadding{
+    padding:0px !important;
+}
+
+</style>
 @if(Session::has('message'))
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       {{Session::get('message')}}
     </div>
     @endif
-<div class="container-fluid">
-    <div class="row estiloSombreado" >
-        <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje">
-            <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
-            <div >
-                <p>
-                    {{$personajes->personalidad}}
-                </p>
-            </div>
-            <div class="row">
-               <div class="col-sm-12 col-md-12 col-lg-12 ">
-                    <label>Raza: {{$personajes->raza}}</label><br/>
-                    <label>Apodo: {{$personajes->apodo}}</label><br/>
-                    <label>Edad: <?php echo ($edad . " " . $bonito) ?></label><br/>
-                    <label>Sexo: <?php echo $Sexo?></label><br/>
-                    <label>Nick de la partida : {{$partidas->nickPartida}}</label>
-               </div>
-            </div>
-        </div>
-        <div class="col-sm-8 col-md-9 col-lg-8 text-center">
-            <h3>Información sobre el personaje</h3>
-            
-            <form method="POST" action="{{route('modificar',<?php echo $idPersonaje?>)}}">
-            {!! csrf_field() !!} 
-            <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
-            <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
-            <input type="hidden" name="nivel" value="<?php echo $nivel?>">
-            <div class="row" >
-                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
-                    <label>Fuerza:  </label><br/>
-                    <input type="number" name="fuerza" id="fuerza"  value="<?php echo $minFuerza?>" placeholder="Fuerza min (<?php echo $minFuerza ?>)" min="<?php echo $minFuerza?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Destreza:  </label><br/>
-                    <input type="number" name="destreza" id="destreza"  value="<?php echo $minDestreza?>" placeholder="Destreza min (<?php echo $minDestreza ?>)" min="<?php echo $minDestreza?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Constitución:  </label><br/>
-                    <input type="number" name="constitucion" id="constitucion"  value="<?php echo $minConstitucion?>" placeholder="Constitución min (<?php echo $minConstitucion?>)" min="<?php echo $minConstitucion?>">
+<form method="POST" action="{{route('modificar',<?php echo $idPersonaje?>)}}" class="estiloSombreado">
+    {!! csrf_field() !!}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje" >
+                <label>Nick de la partida : {{$partidas->nickPartida}}</label><br/>
+                <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
+                <p>{{$personajes->personalidad}}</p>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <label>Raza: {{$personajes->raza}} ||</label>
+                        <label>Apodo: {{$personajes->apodo}}</label><br/>
+                        <label>Edad:  </label>
+                        <input class="nivel" type="number" name="edad" id="edad"  value="<?php echo $edad?>" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>"  max="110"> || </label>
+                        <label>Sexo: <?php echo $Sexo?></label><br/>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Inteligencia:  </label><br/>
-                    <input type="number" name="inteligencia" id="inteligencia"  value="<?php echo $minInteligencia?>" placeholder="Inteligencia min (<?php echo $minInteligencia ?>)" min="<?php echo $minInteligencia?>">
+            <div class="col-sm-8 col-md-9 col-lg-8 text-center">
+                <h3>Información sobre el personaje</h3>
+                <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
+                <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
+                <input type="hidden" name="nivel" value="<?php echo $nivel?>">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="margin-bottom:5px !important;">
+                            <label>Fuerza min (<?php echo $minFuerza ?>) :  </label>
+                            <input type="number" name="fuerza" id="fuerza"  value="<?php echo $minFuerza?>" min="<?php echo $minFuerza?>"> 
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Destreza min (<?php echo $minDestreza ?>) :  </label>
+                            <input type="number" name="destreza" id="destreza"  value="<?php echo $minDestreza?>" min="<?php echo $minDestreza?>">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Constitución min (<?php echo $minConstitucion?>) :  </label>
+                            <input type="number" name="constitucion" id="constitucion"  value="<?php echo $minConstitucion?>" min="<?php echo $minConstitucion?>">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Inteligencia min (<?php echo $minInteligencia ?>) :  </label>
+                            <input type="number" name="inteligencia" id="inteligencia"  value="<?php echo $minInteligencia?>"  min="<?php echo $minInteligencia?>">
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Sabiduria min (<?php echo $minSabiduria ?>) :  </label>
+                            <input type="number" name="sabiduria" id="sabiduria"  value="<?php echo $minSabiduria?>" min="<?php echo $minSabiduria?>">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Carisma min (<?php echo $minCarisma?>):  </label>
+                            <input type="number" name="carisma" id="carisma"  value="<?php echo $minCarisma?>" min="<?php echo $minCarisma?>">
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" style="margin-bottom:5px !important;">
+                            <label>Vida min (<?php echo $minVida ?>) :  </label>
+                            <input type="number" name="vida" id="vida"  value="<?php echo $minVida?>"  >
+                        </div>  
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label>Nivel min (<?php echo $nivel?>) :  </label>
+                            <input class="nivel" type="number" name="nivel" id="nivel" value="<?php echo $nivel?>" min="<?php echo $nivel?>" max="100">
+                        </div>  
+                    </div>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Sabiduría:  </label><br/>
-                    <input type="number" name="sabiduria" id="sabiduria"  value="<?php echo $minSabiduria?>" placeholder="Sabiduria min (<?php echo $minSabiduria ?>)" min="<?php echo $minSabiduria?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Carisma:  </label><br/>
-                    <input type="number" name="carisma" id="carisma"  value="<?php echo $minCarisma?>" placeholder="Carisma min (<?php echo $minCarisma?>)" min="<?php echo $minCarisma?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Edad:  </label><br/>
-                    <input type="number" name="edad" id="edad"  value="<?php echo $edad?>" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <label>Nivel:  </label><br/>
-                    <input type="number" name="nivel" id="nivel" value="<?php echo $nivel?>" placeholder="Nivel min (<?php echo $nivel?>)" min="<?php echo $nivel?>">
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom:5px !important;">
-                    <label>Vida:  </label><br/>
-                    <input type="number" name="vida" id="vida"  value="<?php echo $minVida?>" placeholder="Vida min (<?php echo $minVida ?>)" >
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-                    <label>Objetos:  </label><br/>
-                    <textarea name="objetos"  id="objetos" cols="28" rows="5"><?php echo $objetos?></textarea>
-                </div>    
-                <div class="form-group"  style="width:140px !important; margin:auto !important; float:right !important;">
-                    <button class="btn btn-primary btn-block"  type="submit">Modificar</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6" >
+                            <p>Habilidad 1 : {{$personajes->habilidad1}} </p>
+                            <p>Habilidad 2 : {{$personajes->habilidad2}} </p>
+                            <p>Habilidad 3 : {{$personajes->habilidad3}} </p>
+                            <p>Habilidad 4 : {{$personajes->habilidad4}} </p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                            <label>Objetos:  </label><br/>
+                            <textarea name="objetos"  id="objetos" cols="28" rows="5"><?php echo $objetos?></textarea>
+                        </div>    
+                    </div>
                 </div>
             </div>
-        </div>
-        </form>
-        <button style="width:140px !important; margin:auto !important; float:right !important; margin-top:15px !important;" class="btn btn-primary btn-block">
-            <a style=" color:white !important;" href="{{ route('mostrarTodos')}}">Volver</a>
-        </button>
+        </div> 
     </div>
-    
+    <div class="container-fluid" style="display:inline-block!important;">
+        <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
+        <div style="float:right !important;"  >
+            <a class="button4"><button class="buttonPadding" type="submit">Modificar</button></a>
+        </div> 
+    </div>        
+</form>
+           
 @else
 <style>
 

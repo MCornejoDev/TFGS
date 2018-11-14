@@ -42,7 +42,7 @@
 }
 
 .tipo{
-    height:103px !important;
+    height:90px !important;
     width:53px !important;
 }
 
@@ -78,6 +78,10 @@ ul.pagination{
 }
 
 div.estiloSombreado{
+    background-color: #ffffff3b !important;
+}
+
+form.estiloSombreado{
     background-color: #ffffff3b !important;
 }
 
@@ -140,3 +144,30 @@ a.button5:hover{
         margin:0.1em auto;   
     }
 } */
+/*Estilos de la vista gráfica*/
+
+ul>li{
+    list-style-type: none;
+    
+}
+
+
+@media screen and (min-width: 1023px) {
+  .ctamanno
+    {
+      max-width: 100% !important;
+      width:70% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1439px) {
+  .ctamanno
+    {
+      max-width: 100% !important;
+      width:65% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}

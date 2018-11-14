@@ -88,6 +88,7 @@ class HomeController extends Controller
          }
         
         shuffle($arrayTotal);
+        
 
         return view('home',compact('arrayTotal'));
     }

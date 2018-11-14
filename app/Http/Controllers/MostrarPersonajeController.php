@@ -168,16 +168,17 @@ class MostrarPersonajeController extends Controller
         $partidas = RegistraPartida::where('idPersonaje', $id)->first();
         $personaje = CrearPersonaje::where('id', $id)->first();
 
-        $idPersonajeActual = DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $partidas->id);
+        /*$idPersonajeActual = DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $partidas->id);
         $idP;
         
         foreach ($idPersonajeActual as $key => $value) {
             foreach ($value as $key2 => $value2) {
                 $idP = $value2;
             }
-        }
+        }*/
       
-        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $partidas->id . ' AND id = ' . $idP);
+        $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $partidas->id );/*. ' AND id = ' . $idP*/
+        
         /*$personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
         (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha > c2.fecha AND id = '. $idP .')');*/        
         //dd($personajes);

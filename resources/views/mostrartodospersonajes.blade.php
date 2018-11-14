@@ -45,19 +45,21 @@
                     <img class="card-img-top" src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">         
                     <div class="card-body">
                              <div class="row">
-                                 <div class="col-sm-7 col-md-7 col-lg-7" style="text-align:left !important;"> 
-                                 Nombre : {{ $nombrePersonaje }}<br/>
-                                 Raza : {{ $raza }}<br/>
-                                 Apodo : {{  $apodo  }}<br/>
-                                 Sexo : <?php echo $bonito2?> 
-                                 </div>
-                                 <div class="col-sm-5 col-md-5 col-lg-5">
-                                         <label>{{ $tipo}}</label>
-                                         <img class="card-img tipo" src="{{asset($tipoClase)}}" alt="<?php echo $tipoClase?>"><br/>
-                                 </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
+                                Nombre : {{ $nombrePersonaje }}<br/>
+                                Raza : {{ $raza }}<br/>
+                                Apodo : {{  $apodo  }}<br/>
+                                Sexo : <?php echo $bonito2?> 
+                                </div>
+                             </div>
+                             <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                <label>Clase : {{ $tipo}}</label><br/>     
+                                    <img class="card-img tipo" src="{{asset($tipoClase)}}" alt="<?php echo $tipoClase?>"><br/>
+                                </div>
                              </div>
                          </div>
-                         <a class="button4" href="{{ route('grafica', $idPersonaje) }}">Ver la grafica</a>
+                         <a class="button4" href="{{ route('grafica', $idPersonaje) }}">Ver historial</a>
                          <a class="button4" href="{{ route('mostrar', $idPersonaje) }}">Ver toda la información</a>
                          <a class="button4" href="{{ route('eliminar', $idPersonaje) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
                    <?php
