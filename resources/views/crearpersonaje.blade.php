@@ -51,7 +51,7 @@ button {
 
 button#nextBtn{
   position:relative !important;
-  left:10px !important;
+  right:15px !important;
 }
 
 button:hover {

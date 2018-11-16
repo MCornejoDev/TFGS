@@ -175,7 +175,7 @@ button.buttonPadding{
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                             <label>Objetos:  </label><br/>
-                            <textarea name="objetos"  id="objetos" cols="25" rows="5"><?php echo $objetos?></textarea>
+                            <textarea name="objetos"  id="objetos" cols="18" rows="5"><?php echo $objetos?></textarea>
                         </div>    
                     </div>
                 </div>

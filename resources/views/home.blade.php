@@ -76,6 +76,7 @@
     </div>
 </div>
 
+@if(count($arrayTotal)>0)
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <?php
@@ -134,7 +135,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+@endif
 <br/>
 
 @else
