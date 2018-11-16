@@ -28,7 +28,11 @@
     <!-- Material Design Bootstrap
     <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.2/css/mdb.min.css" rel="stylesheet">
+      <!-- JQuery 
     
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
 </head>
 <body class="sesion">
@@ -92,11 +96,7 @@
     </div>
 </body>
 
-    <!-- JQuery 
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>-->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  
     
     <!-- Bootstrap tooltips 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>-->

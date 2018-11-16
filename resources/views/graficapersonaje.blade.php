@@ -121,9 +121,12 @@ for (let index = 0; index < personajeCambiado.length; index++) {
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>-->
 @else
 
-<div style="" >
-    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+         <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+        </div>
+    </div>
 </div>
 
 @endauth

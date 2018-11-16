@@ -14,7 +14,30 @@
 
 ?>
 <!--Página principal después de iniciar sesión-->
+<style>
+.imgHome{
+    margin: 0 auto !important; 
+    height: 400px !important;
+    width: 400px !important;
+}
+@media screen and (max-width: 320px) {
+  .imgHome
+    {
+        margin: 0 auto !important; 
+        height: 300px !important;
+        width: 300px !important;
+    }
+}
 
+@media screen and (max-width: 376px) {
+  .imgHome
+    {
+        margin: 0 auto !important; 
+        height: 280px !important;
+        width: 280px !important;
+    }
+}
+</style>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-sm-8 col-sm-offset-4 col-md-8 col-lg-8">
@@ -52,44 +75,78 @@
     </div>
 </div>
 
-
-<!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <?php
+    for ($i=0; $i <  count($arrayTotal); $i++) { 
+    if($i==0)
+    {?>
+     <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>" class="active"></li>
+    <?php
+    } 
+    else{?>
+     <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>"></li>   
+    <?php }
+    } ?>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
-    </div>
+  <?php
+    for ($i=0; $i < count($arrayTotal); $i++) { 
+    if($i == 0)
+    {?>
+        <div class="carousel-item active">
+            <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
+            <div class="container imgHome">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 ">
+                        <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
+                        alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                    </div>
+                </div>  
+            </div>  
+            </a>
+        </div>
+    <?php 
+    }
+    else{?>
+        <div class="carousel-item">
+            <a href="{{ route('mostrar', $arrayTotal[1]['idPersonaje']) }}">
+            <div class="container imgHome">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 ">
+                        <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
+                        alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                    </div>
+                </div>  
+            </div>
+            <a>
+        </div> 
+   <?php }
+    } ?>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="color:black!important">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"  style="color:black!important">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>-->
+</div>
 
 <br/>
 
 @else
-<style>
 
-</style>
 
-<div style="" >
-    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+         <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+        </div>
+    </div>
 </div>
+
 </div>
 
 @endauth

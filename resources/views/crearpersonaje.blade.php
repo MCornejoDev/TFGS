@@ -46,6 +46,12 @@ button {
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
+  margin-top:18px !important;
+}
+
+button#nextBtn{
+  position:relative !important;
+  left:10px !important;
 }
 
 button:hover {
@@ -144,6 +150,7 @@ button:hover {
 
 .poner{
   display:block  !important;
+  
 }
 
 #crearV{
@@ -152,6 +159,7 @@ button:hover {
     margin: auto !important;
     padding-bottom: 15px;
     float: right !important;
+    
 }
 
 </style>
@@ -168,16 +176,16 @@ button:hover {
   
   <div class="container tab ">
   <h3>Datos del personaje</h3>
-    <div class="row estiloSombreado">
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <input class="hijos" type="text" placeholder="Nombre de la partida" id="nickPartida" name="nickPartida">
+    <div class="row ">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center  estiloSombreado">
+        <input class="hijos estiloSombreado" type="text" placeholder="Nombre de la partida" id="nickPartida" name="nickPartida">
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <label id="lnick"></label>
       </div>
     </div>
-    <div class="row estiloSombreado">
-      <div class="col-sm-12 text-center">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <select id="selectRaza" name="raza" class="hijos" style="padding:5px !important; ">
             <option disabled selected value=""> -- Elija una raza -- </option>
             <option value="Humano">Humano/a</option>
@@ -192,38 +200,38 @@ button:hover {
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <input class="hijos" type="text" placeholder="Nombre del personaje"  value="" name="nombrePersonaje">
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <input class="hijos" type="text" placeholder="Apodo del personaje"  name="apodo">
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <input class="hijos" type="text" placeholder="Altura personaje en metros"  name="altura">
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <input class="hijos" type="number" placeholder="Edad" name="edad" min="1" max="110">
           <input class="hijos hijosv2" id="peso" type="text" placeholder="Peso en kg" name="peso">
         </div>
     </div>
     <div class="row">    
-          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <div> Sexo del personaje : <br/></div>
             <input type="radio" id="sexo" name="sexo" value="F"> Femenino<br>
             <input type="radio" id="sexo" name="sexo" value="M"> Masculino<br>
           </div>
-          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
             <label id="lsexo"></label>
           </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <input class="hijos" type="text" placeholder="Vida del personaje"  name="vida">
         </div>
     </div>
@@ -237,10 +245,10 @@ button:hover {
   <div class="container tab">
    <h3>Clase y equipamiento</h3>
    <div class="row">
-     <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+     <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
          <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
      </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>
             <option disabled selected value=""> -- Elija una clase -- </option>
             <option value="Barbaro">Barbaro</option>--
@@ -256,7 +264,7 @@ button:hover {
             <option value="Pícaro">Pícaro</option>
           </select>
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
           <select name="arma" class="hijos" id="selectArma" style="padding:5px !important;" disabled onchange='habilitarEscudo(this.value)'>
             <option disabled selected value=""> -- Elija un arma-- </option>
             <!--<option value="Espadas">Espadas</option>
@@ -278,20 +286,20 @@ button:hover {
       
       </div>
 
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <input type="text" name="escudo" placeholder="Escribe el tipo de escudo" id="escudo" style="text-align:center !important;" disabled>
       </div>
       
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <input class="hijos" type="text" placeholder="Habilidad 1"  name="habilidad1">
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <input class="hijos" type="text" placeholder="Habilidad 2"  name="habilidad2">
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <input class="hijos" type="text" placeholder="Habilidad 3"  name="habilidad3">
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center estiloSombreado">
         <input class="hijos" type="text" placeholder="Habilidad 4"  name="habilidad4">
       </div>
   </div>
@@ -300,34 +308,34 @@ button:hover {
   <div class="container tab">
   <h3>Características y objetos</h3>
       <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="fuerza" name="fuerza" min="0" id="">
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="destreza" name="destreza" min="0" id="">
         </div>
       </div>
       <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="constitución" name="constitucion" min="0" id="">
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" min="0" id="">
         </div>
       </div>
       <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="sabiduria" name="sabiduria" min="0" id="">
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
             <input class="hijos" type="number" placeholder="carisma" name="carisma" min="0" id="">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
           <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
         </div>    
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
           <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad de su personaje" id="personalidad" cols="28" rows="5"></textarea>
         </div>
       </div>
@@ -349,13 +357,13 @@ button:hover {
 <script src="{{asset('js/propio.js')}}"></script>
 
 @else
-<style>
 
-</style>
-
-<div style="" >
-    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+         <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+        </div>
+    </div>
 </div>
 
 @endauth

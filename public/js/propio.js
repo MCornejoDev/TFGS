@@ -147,11 +147,27 @@ function validateForm() {
 
   //#region  // A loop that checks every input field in the current tab: // Un bucle que chequea los campos inputs en el actual formulario
   for (i = 0; i < inputs.length; i++) {
-
+    
     if(inputs[i].id == 'escudo'){
-      if(escudo.value=="")
+      if(escudo.disabled == false)
       {
-        valid = true;
+        console.log("entramos en desactivacion del input");
+        if(escudo.value == "")
+        {
+          valid = false;
+          escudo.removeAttribute('class'," hijos");
+          escudo.setAttribute("class"," invalid");
+        }
+      }
+      else
+      {
+        console.log("no entramos en desactivacion del input pero podemos permitir el paso en caso de vacio");
+        if(escudo.value == "")
+        {
+          valid = true;
+          escudo.removeAttribute('class'," invalid");
+          escudo.setAttribute("class","hijos");
+        }
       }
     }
     else

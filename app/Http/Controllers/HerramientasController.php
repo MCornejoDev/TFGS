@@ -11,9 +11,4 @@ class HerramientasController extends Controller
     {
         return view('herramientas');
     }
-    
-    public function estadistica()
-    {
-
-    }
 }

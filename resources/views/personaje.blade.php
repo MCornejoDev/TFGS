@@ -175,7 +175,7 @@ button.buttonPadding{
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                             <label>Objetos:  </label><br/>
-                            <textarea name="objetos"  id="objetos" cols="28" rows="5"><?php echo $objetos?></textarea>
+                            <textarea name="objetos"  id="objetos" cols="25" rows="5"><?php echo $objetos?></textarea>
                         </div>    
                     </div>
                 </div>
@@ -191,13 +191,13 @@ button.buttonPadding{
 </form>
            
 @else
-<style>
 
-</style>
-
-<div style="" >
-    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+         <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+        </div>
+    </div>
 </div>
 
 @endauth

@@ -15,7 +15,7 @@
     <div class="row">
         @foreach ($partidas as $partida)
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;margin:auto !important;">
                    Partida : {{$partida->nickPartida}}
                    <?php
                     
@@ -35,7 +35,7 @@
                         $apodo = $personaje['apodo'];
                         $tipo = $personaje['tipo'];
                         $tipoRaza = "img/".$raza.".jpg";
-                        $tipoClase = "img/".$tipo.".png";
+                        $tipoClase = "img/".$tipo."2.png";
                         $bonito2 = "Femenino";
                         if($sexo== 'M'){
                             $bonito2="Masculino";
@@ -76,13 +76,13 @@
 
 @include('layouts.js2')
 @else
-<style>
 
-</style>
-
-<div style="" >
-    <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" >
+         <h1 style="text-align:center !important; font-weight:bold !important; align-content: center;">Debe iniciar sesión o registrarse</h1>
+        </div>
+    </div>
 </div>
 
 @endauth
