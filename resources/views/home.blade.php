@@ -38,9 +38,10 @@
     }
 }
 </style>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-sm-8 col-sm-offset-4 col-md-8 col-lg-8">
+        <div class="col-sm-8 col-md-8 col-lg-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -54,16 +55,16 @@
                         Iniciaste Sesión
                         <div class="container-fluid">
                             <div class="row text-center">
-                                <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
+                                <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">
                                     <a class="button4" href="{{route('crear')}}">Nueva Partida</a>
                                 </div>
-                                <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">                  
+                                <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">                  
                                     <a class="button4"  href="{{route('mostrarTodos')}}">Mostrar Partidas</a>
                                 </div>
-                                <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
+                                <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">
                                     <a class="button4" href="{{route('herramientas')}}">Herramientas</a>
                                 </div>
-                                <div class="col-sm-2 col-sm-offset-2 col-md-3 col-lg-3">
+                                <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">
                                     <a class="button4" href="{{route('mapas')}}">Mapas</a>
                                 </div>
                             </div>
