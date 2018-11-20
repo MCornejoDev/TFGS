@@ -23,7 +23,7 @@
                         <input type="password" name="password" placeholder="Nueva Contraseña" value="" required>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <input type="password" name="password" placeholder="Repite la Contraseña" value="" required>
+                        <input type="password" name="passwordR" placeholder="Repite la Contraseña" value="" required>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <button type="submit" class="btn">

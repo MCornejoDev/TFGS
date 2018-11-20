@@ -40,9 +40,9 @@ class HerramientasController extends Controller
         $usuarioActual = $request->user;
         $puedo = true;
 
+        //Recorremos el array para encontrar si hay algún usuario igual que nuestro cambio
         for ($i=0; $i < count($arrayUsuarios) ; $i++) 
         { 
-            echo('posicion del array' . $i . "<br>");
             if($arrayUsuarios[$i]->user == $usuarioActual)
             {
                 echo($arrayUsuarios[$i]->user . " --> " .$usuarioActual  . "<br>");
@@ -50,24 +50,36 @@ class HerramientasController extends Controller
                 $i = count($arrayUsuarios);
             }
         }
-        $bonito = "";
-       if($puedo == true)
-       {
-        $usuarioAmodificar = User::find($idUsuario);
+
+       $bonito = "";
+       $usuarioAmodificar = User::find($idUsuario);
+       /*if($puedo == true)
+       {   
         $usuarioAmodificar->user = $usuarioActual;
         $usuarioAmodificar->save(); 
         $bonito = "El usuario ha sido modificado";
-        Session::flash('message','El usuario ha sido modificado');
-        return Redirect::to('/configuración');
        }
        else{
         $bonito = "El usuario no ha sido modificado";
         Session::flash('message','El usuario no ha sido modificado');
         return Redirect::to('/configuración');
-        
+       }*/
+
+       if($request->password == $request->passwordR)
+       {
+        $nuevaContrasenna =  Hash::make($request->password);
+        $usuarioAmodificar->password = $nuevaContrasenna;
+        $usuarioAmodificar->save();
+        Session::flash('message','Los datos han sido modificados correctamente');
+        return Redirect::to('/configuración');
        }
-        
+       else
+       {
+        $bonito = "Las contraseñas no son identicas";
+        Session::flash('message',$bonito);
+        return Redirect::to('/configuración');
+       }
+      
           
-       //return Redirect::to('/configuración')->withFlashMessage($bonito);;
     }
 }
