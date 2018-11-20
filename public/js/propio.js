@@ -1,4 +1,8 @@
-
+window.addEventListener("keypress", function(event){
+  if (event.keyCode == 13){
+      event.preventDefault();
+  }
+}, false);
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 var valid = true
@@ -134,7 +138,9 @@ function validateForm() {
   //#region RadioButton
   var sexo = document.getElementsByName('sexo');
   var lsexo = document.getElementById('lsexo');
-  if(sexo[0].checked == false ||sexo[1].checked == false)
+
+  
+  if(sexo[0].checked == false && sexo[1].checked == false)
   {
     lsexo.innerText = "Seleccione un sexo";
   }
@@ -142,7 +148,7 @@ function validateForm() {
   {
     lsexo.innerText = "Sexo seleccionado";
   }
-  console.log(sexo);
+  
   //#endregion
 
   //#region  // A loop that checks every input field in the current tab: // Un bucle que chequea los campos inputs en el actual formulario
@@ -336,7 +342,7 @@ function tipoArmadura(clase)
   }
   var input = document.createElement('input');
   input.setAttribute('type','hidden');
-  if(clase == 'Guerrero' || clase == 'Barbaro' || clase == 'Paladin')
+  if(clase == 'Guerrero' || clase == 'Barbaro' || clase == 'Paladín')
   {
   //Guerrero,Barbaro,Paladin ->Armadura de malla pesada
   input.setAttribute('name','armadura');
@@ -362,4 +368,5 @@ function tipoArmadura(clase)
   }
 
   documentoDondeAnnadir.appendChild(input);
+  console.log(documentoDondeAnnadir);
 }

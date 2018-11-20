@@ -96,32 +96,32 @@
     for ($i=0; $i < count($arrayTotal); $i++) { 
     if($i == 0)
     {?>
-        <div class="carousel-item active">
-            <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
+        <div class="carousel-item active">  
             <div class="container imgHome">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 ">
+                        <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
                         <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
                         alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                        </a>
                     </div>
                 </div>  
             </div>  
-            </a>
         </div>
     <?php 
     }
     else{?>
-        <div class="carousel-item">
-            <a href="{{ route('mostrar', $arrayTotal[1]['idPersonaje']) }}">
+        <div class="carousel-item">    
             <div class="container imgHome">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 ">
+                        <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
                         <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
                         alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                        <a>
                     </div>
                 </div>  
             </div>
-            <a>
         </div> 
    <?php }
     } ?>

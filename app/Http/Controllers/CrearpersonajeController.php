@@ -45,7 +45,7 @@ class CrearpersonajeController extends Controller
                 case 'Orco':
                         $raza = $razaFemenino[3];
                     break;
-                case 'Semi-Orco':
+                case 'SemiOrco':
                         $raza = $razaFemenino[4];
                     break;
                 case 'Enano':

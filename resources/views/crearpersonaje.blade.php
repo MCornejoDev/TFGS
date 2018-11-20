@@ -309,26 +309,26 @@ button:hover {
   <h3>Características y objetos</h3>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="fuerza" name="fuerza" min="0" id="">
+            <input class="hijos" type="number" placeholder="Fuerza" name="fuerza" min="0" id="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="destreza" name="destreza" min="0" id="">
-        </div>
-      </div>
-      <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="constitución" name="constitucion" min="0" id="">
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="inteligencia" name="inteligencia" min="0" id="">
+            <input class="hijos" type="number" placeholder="Destreza" name="destreza" min="0" id="">
         </div>
       </div>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="sabiduria" name="sabiduria" min="0" id="">
+            <input class="hijos" type="number" placeholder="Constitución" name="constitucion" min="0" id="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-            <input class="hijos" type="number" placeholder="carisma" name="carisma" min="0" id="">
+            <input class="hijos" type="number" placeholder="Inteligencia" name="inteligencia" min="0" id="">
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
+            <input class="hijos" type="number" placeholder="Sabiduría" name="sabiduria" min="0" id="">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
+            <input class="hijos" type="number" placeholder="Carisma" name="carisma" min="0" id="">
         </div>
       </div>
       <div class="row">
@@ -336,7 +336,7 @@ button:hover {
           <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
         </div>    
         <div class="col-sm-6 col-md-6 col-lg-6 text-center estiloSombreado">
-          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad de su personaje" id="personalidad" cols="28" rows="5"></textarea>
+          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad" id="personalidad" cols="28" rows="5"></textarea>
         </div>
       </div>
   </div>

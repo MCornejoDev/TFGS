@@ -85,7 +85,14 @@ Route::get('herramientas',[
     'uses'=>'HerramientasController@herramienta'
 ]);
 
-Route::get('estadisticas',[
-    'as'=>'estadisticas',
-    'uses'=>'HerramientasController@estadisticas'
+/*Configuración de cuentas*/
+
+Route::get('/configuración',[
+    'as'=>'configuracion',
+    'uses'=>'HerramientasController@configuracion'
+]);
+
+Route::post('actualizar',[
+    'as'=>'actualizar',
+    'uses'=>'HerramientasController@actualizar'
 ]);

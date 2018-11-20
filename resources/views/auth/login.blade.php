@@ -69,7 +69,7 @@
 
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-12 text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn ">
                                     {{ __('Iniciar Sesión') }}
                                 </button>
                             </div>

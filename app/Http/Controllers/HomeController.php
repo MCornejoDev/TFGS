@@ -37,11 +37,11 @@ class HomeController extends Controller
         
         $partidas = RegistraPartida::where('idUsuario','=',$idUsuario)->paginate(3);
         
-        $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario);
+        $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario . ' ORDER BY rand() LIMIT 3');
         $personajesPaginate = array();
         $clasesPaginate = array();
         $contador = 0;
-       
+
         foreach ($idPersonajesDelUsuario as $idPerson) {
             $personaje = DB::select('SELECT * FROM personajes WHERE id = ' . $idPerson->idPersonaje); 
             $personajesPaginate[$contador] = $personaje;
