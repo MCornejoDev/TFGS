@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>D&D</title>
 
     <!-- Scripts
@@ -20,6 +20,8 @@
     <!-- Font Awesome 
      <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
    
     <!-- Bootstrap core CSS 
      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">-->
@@ -33,6 +35,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    
+    <link rel="shortcut icon" href="{{{ asset('img/faviconD.png') }}}"> 
 
 </head>
 <body class="sesion">
@@ -67,7 +72,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->user }} <span class="caret"></span>
+                                 <i class="fa fa-user iconoUser" aria-hidden="true"></i> {{ Auth::user()->user }} <span class="caret"></span>
                                 </a>
                               
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -117,5 +122,9 @@
     
     <!--Prefix free-->
     <script src="{{asset('js/prefixfree.min.js')}}" type="text/javascript"></script>
+    <!--FontAwesome Script Rapido-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+   
     
 </html>

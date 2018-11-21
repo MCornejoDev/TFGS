@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'El email no existe.',
+    'failed' => 'Alguno de los datos es incorrecto',
     'throttle' => 'Demasiadas entradas. Porfavor intentelo de nuevo en :seconds segundos.',
 
 ];

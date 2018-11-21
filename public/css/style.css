@@ -144,6 +144,8 @@ a.button5:hover{
         margin:0.1em auto;   
     }
 } */
+
+
 /*Estilos de la vista gráfica*/
 
 ul>li{
@@ -174,6 +176,9 @@ ul>li{
 .ct-label{
     color:black !important;
 }
+
+/*Estilos de fontAwesome*/
+
 
 /*Estilos para las herramientas*/
 #dice {

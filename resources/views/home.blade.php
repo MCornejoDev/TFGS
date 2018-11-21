@@ -43,7 +43,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-8 col-md-8 col-lg-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header text-center">Escritorio</div>
 
                     <div class="card-body text-center">
                         @if (session('status'))
@@ -52,7 +52,7 @@
                             </div>
                         @endif
 
-                        Iniciaste Sesión
+                        
                         <div class="container-fluid">
                             <div class="row text-center">
                                 <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">
