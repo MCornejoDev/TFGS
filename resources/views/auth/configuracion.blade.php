@@ -12,13 +12,18 @@ input,div{
     margin-top: 20px;
     outline:none !important;
 }
-input:disabled{
+button:disabled,input:disabled{
     background: none !important;
     border: none !important;
     padding-left:0px !important;
     padding-right:0px !important;
     color:black !important;
 }
+
+button:disabled>a{
+    background-color:grey !important;
+}
+
 /*Estilos de los inputs desahabilitados*/
 </style>
 
@@ -30,8 +35,7 @@ input:disabled{
   {{Session::get('message')}}
 </div>
 @endif
-<form action="{{route('actualizar')}}" method="POST" id="formulario" name="formulario">
-{!! csrf_field() !!} 
+ 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -39,6 +43,8 @@ input:disabled{
                 <div class="card-header">Datos del usuario
                     <hr>
                     <div class="card-body">
+                    <form action="{{route('actualizar')}}" method="POST" id="formulario" name="formulario">
+                    {!! csrf_field() !!}
                         <div class="form-group row">
                             <label for="text" class="col-sm-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
                             <div class="col-md-6">
@@ -69,16 +75,26 @@ input:disabled{
                                        <a class="button4">Actualizar datos</a>
                                 </button>
                             </div> 
-                        </div>      
+                        </div>    
+                        </form> 
+                        
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                            Borrar usuario : <input type="checkbox" name="borrarUsuario" id="borrarUsuario">
+                            <button disabled ><a class="button4" href="Eliminar usuario">Eliminar usuario</a></button> 
+                        </div>                   
+
                     </div>
                 </div>  
             </div>
-            </div>
         </div>
-    </div>         
-</form>
+    </div>
+</div>    
 
- <a class="button4" disabled>Eliminar usuario</a>
+<script>
+
+    
+
+</script>
 
 @else
 

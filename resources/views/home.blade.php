@@ -76,65 +76,67 @@
     </div>
 </div>
 
-@if(count($arrayTotal)>0)
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <?php
-    for ($i=0; $i <  count($arrayTotal); $i++) { 
-    if($i==0)
-    {?>
-     <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>" class="active"></li>
-    <?php
-    } 
-    else{?>
-     <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>"></li>   
-    <?php }
-    } ?>
-  </ol>
-  <div class="carousel-inner">
-  <?php
-    for ($i=0; $i < count($arrayTotal); $i++) { 
-    if($i == 0)
-    {?>
-        <div class="carousel-item active">  
-            <div class="container imgHome">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 ">
-                        <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
-                        <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
-                        alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
-                        </a>
-                    </div>
-                </div>  
-            </div>  
-        </div>
-    <?php 
-    }
-    else{?>
-        <div class="carousel-item">    
-            <div class="container imgHome">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 ">
-                        <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
-                        <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
-                        alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
-                        <a>
-                    </div>
+@if(isset($arrayTotal))
+    @if(count($arrayTotal)>0)
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <?php
+        for ($i=0; $i <  count($arrayTotal); $i++) { 
+        if($i==0)
+        {?>
+         <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>" class="active"></li>
+        <?php
+        } 
+        else{?>
+         <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i?>"></li>   
+        <?php }
+        } ?>
+      </ol>
+      <div class="carousel-inner">
+      <?php
+        for ($i=0; $i < count($arrayTotal); $i++) { 
+        if($i == 0)
+        {?>
+            <div class="carousel-item active">  
+                <div class="container imgHome">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 ">
+                            <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
+                            <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
+                            alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                            </a>
+                        </div>
+                    </div>  
                 </div>  
             </div>
-        </div> 
-   <?php }
-    } ?>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="color:black!important">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"  style="color:black!important">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+        <?php 
+        }
+        else{?>
+            <div class="carousel-item">    
+                <div class="container imgHome">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 ">
+                            <a href="{{ route('mostrar', $arrayTotal[$i]['idPersonaje']) }}">
+                            <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
+                            alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
+                            <a>
+                        </div>
+                    </div>  
+                </div>
+            </div> 
+       <?php }
+        } ?>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="color:black!important">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"  style="color:black!important">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    @endif
 @endif
 <br/>
 
