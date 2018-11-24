@@ -165,10 +165,10 @@ button:hover {
 </style>
 
 <!--Formulario completo por pasos de crear el personaje-->
-<form method="POST" action="{{route('registrar')}}" id="formulario" name="formulario">
+<form method="POST" action="{{route('registrar')}}" id="formulario" name="formulario" >
     {!! csrf_field() !!}  
    <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;">
+  <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;" class="estiloSombreado">
     <span class="step">1</span>
     <span class="step">2</span>
     <span class="step">3</span>

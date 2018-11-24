@@ -5,7 +5,7 @@
 @if (Route::has('login'))
 @auth
 
-<div class="container text-center">
+<div class="container text-center estiloSombreado">
     <div class="row">
         <table class="table">
           <thead>
