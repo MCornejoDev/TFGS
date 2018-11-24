@@ -100,3 +100,8 @@ Route::post('actualizar',[
     'as'=>'actualizar',
     'uses'=>'HerramientasController@actualizar'
 ]);
+
+Route::get('configuracion/eliminar',[
+    'as'=>'eliminarCuenta',
+    'uses'=>'HerramientasController@eliminarCuenta'
+]);

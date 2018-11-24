@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 Use Session;
 Use Redirect;
+use Auth;
 
 class HerramientasController extends Controller
 {
@@ -78,8 +79,17 @@ class HerramientasController extends Controller
         $bonito = "Las contraseñas no son identicas";
         Session::flash('message',$bonito);
         return Redirect::to('/configuración');
-       }
-      
-          
+       }    
+    }
+
+    public function eliminarCuenta(){
+        $idUsuario = \Auth::user()->id;
+        
+        $idEliminar = User::findOrFail($idUsuario);
+        $idEliminar->delete();
+
+        Auth::logout();
+        
+        return Redirect::to('/');
     }
 }

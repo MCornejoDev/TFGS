@@ -24,6 +24,25 @@ button:disabled>a{
     background-color:grey !important;
 }
 
+#botonActivar{
+    background: none !important;
+    border: none !important;
+    padding-left:0px !important;
+    padding-right:0px !important;
+    color:black !important;
+}
+
+button.close{
+    display:none !important;
+}
+button.btn.btn-default{
+    border-radius: 30px !important;
+}
+
+button.btn.btn-primary{
+    border-radius: 30px !important;
+}
+
 /*Estilos de los inputs desahabilitados*/
 </style>
 
@@ -40,7 +59,7 @@ button:disabled>a{
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Datos del usuario
+                <div class="card-header text-center">Datos del usuario
                     <hr>
                     <div class="card-body">
                     <form action="{{route('actualizar')}}" method="POST" id="formulario" name="formulario">
@@ -80,7 +99,7 @@ button:disabled>a{
                         
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                             Borrar usuario : <input type="checkbox" name="borrarUsuario" id="borrarUsuario">
-                            <button disabled ><a class="button4" href="Eliminar usuario">Eliminar usuario</a></button> 
+                            <button disabled id="botonActivar"><a class="button4" onclick="seguro()">Eliminar usuario</a></button> 
                         </div>                   
 
                     </div>
@@ -92,9 +111,38 @@ button:disabled>a{
 
 <script>
 
-    
+function seguro()
+{
+    bootbox.confirm({
+    title: "¿Quieres eliminar la cuenta?",
+    message: "Esto no será reversible",
+    buttons: {
+        cancel: {
+            label: '<i class="fa fa-times"></i> Cancelar'
+        },
+        confirm: {
+            label: '<i class="fa fa-check"></i> Confirmar'
+        }
+    },
+    callback: function (result) 
+        {
+            if(result == true)
+            {
+                location.href = '{{route("eliminarCuenta")}}';
+            }
+        }
+    });
+}
+$('input[type="checkbox"]').on('change', function(e){
+    if (this.checked) {
+        $('#botonActivar').removeAttr("disabled");
+    } else {
+        $('#botonActivar').attr("disabled","disabled");
+    }
+});
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 @else
 
@@ -108,4 +156,5 @@ button:disabled>a{
 
 @endauth
 @endif
+
 @endsection

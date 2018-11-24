@@ -4,7 +4,21 @@
 @if (Route::has('login'))
 @auth
 
+<style>
 
+button.close{
+    display:none !important;
+}
+
+button.btn.btn-default{
+    border-radius: 30px !important;
+}
+
+button.btn.btn-primary{
+    border-radius: 30px !important;
+}
+
+</style>
 @if(Session::has('message'))
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -61,7 +75,7 @@
                          </div>
                          <a class="button4" href="{{ route('grafica', $idPersonaje) }}">Ver historial</a>
                          <a class="button4" href="{{ route('mostrar', $idPersonaje) }}">Ver toda la información</a>
-                         <a class="button4" href="{{ route('eliminar', $idPersonaje) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                         <a class="button4" onclick="seguro()">Eliminar</a>
                    <?php
                     }
                    ?>
@@ -73,7 +87,31 @@
         <div class="col-sm-12 col-md-12 col-lg-12 text-center paginador"> {{ $partidas->links() }}</div> 
     </div>
 </div>
-
+<script>
+function seguro()
+{
+    bootbox.confirm({
+    title: "¿Quieres eliminar el personaje?",
+    message: "Esto no será reversible",
+    buttons: {
+        cancel: {
+            label: '<i class="fa fa-times"></i> Cancelar'
+        },
+        confirm: {
+            label: '<i class="fa fa-check"></i> Confirmar'
+        }
+    },
+    callback: function (result) 
+        {
+            if(result == true)
+            {
+                location.href = '{{ route("eliminar", $idPersonaje) }}';
+            }
+        }
+    });
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 @include('layouts.js2')
 @else
 

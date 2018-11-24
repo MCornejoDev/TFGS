@@ -125,11 +125,11 @@ function dado(){
     $('#dice');
     setTimeout(function(){
       $('#platform').removeClass('playing').addClass('stop');
-      var number = Math.floor(Math.random() * 6) + 1;
+      var number = Math.floor(Math.random() * 4) + 1;
       var x = 0, y = 0, z = 50;
       switch(number){
           case 1:
-            x = 0; y = 20; z = -20;
+            x = 0; y = 20; z = 20;
             break;
           case 2:
             x = -100; y = -150; z = 10;
