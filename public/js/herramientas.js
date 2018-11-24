@@ -72,7 +72,18 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 		}	
 		break;
 		case 'moneda':{
-			console.log('moneda');
+			// $(ui_dado).append('<p id="result" style="margin-top:20px !important;"></p>');
+
+			$(ui_dado).append('<div id="platform"></div>')
+
+			var platform = document.getElementById('platform');
+
+			var array = ['<div class="delante"><div>Cara</div></div>','<div class="atras"><div>Cruz</div></div>']
+			var dice = $("<div id='dice' ></div>");   // Create with jQuery
+			for (let index = 0; index < array.length; index++) {
+				$(dice).append(array[index]);
+			}
+			$(platform).append(dice);
 		}
 		break;
 	}

@@ -207,8 +207,7 @@ for (let index = 0; index < personajeCambiado.length; index++) {
 }
 var ulD = document.getElementById('ulDelimitar');
 var caracteres = ['Vida','Sabiduría','Inteligencia','Constitución','Fuerza','Destreza','Carísma'];
-console.log(document.getElementById('ctchart'));
-console.log(chart['data']['series']);
+
 for (let index = 0; index < caracteres.length; index++) {
     // Crear nodo de tipo Element
     var li = document.createElement("li");

@@ -157,7 +157,6 @@ function validateForm() {
     if(inputs[i].id == 'escudo'){
       if(escudo.disabled == false)
       {
-        console.log("entramos en desactivacion del input");
         if(escudo.value == "")
         {
           valid = false;
@@ -167,7 +166,6 @@ function validateForm() {
       }
       else
       {
-        console.log("no entramos en desactivacion del input pero podemos permitir el paso en caso de vacio");
         if(escudo.value == "")
         {
           valid = true;
@@ -368,5 +366,4 @@ function tipoArmadura(clase)
   }
 
   documentoDondeAnnadir.appendChild(input);
-  console.log(documentoDondeAnnadir);
 }
