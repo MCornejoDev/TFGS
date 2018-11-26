@@ -181,7 +181,7 @@ button#crearV{
 button#nextBtn{
     display:inline-block;
     padding: 0.3em 1.2em;
-    margin:0 0.1em 0.1em 0 !important;
+    margin:17px 0.1em 0.1em 0 !important;
     border:0.16em solid rgba(255,255,255,0);
     border-radius:2em;
     box-sizing: border-box;

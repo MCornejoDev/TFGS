@@ -109,12 +109,13 @@ ul>li{
           <div class="ct-chart ct-perfect-fourth destiloSombreado" id="ctchart">
         </div>
         <div>
-          <ul id="ulDelimitar">       
+          <ul id="ulDelimitar" class="destiloSombreado">       
           </ul>
         </div>  
       </div>
     </div>
     <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
+    <a class="button4" href="{{ route('mostrar',$personaje->id)}}">Personaje</a>
   </div>
 </div>
 

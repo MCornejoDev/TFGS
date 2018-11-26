@@ -21,7 +21,6 @@ html, body {
 
 /*#region Dado 4 caras*/
 
-
 .wrap {
     width:150px;
     height:130px;
@@ -136,6 +135,38 @@ html, body {
         border-bottom-color:white;
     }
 }
+
+
+/*Region*/
+
+#numero , #numero2, #numero3, #numero4, #numero5, #numero6{
+    margin-top: 35px;
+    font-size: 25px !important;
+    color: darkblue ;
+}
+
+.color1{
+    box-shadow: inset 0 0 40px #000000 !important;
+    background-color: #CD7F32 !important;  
+    border-radius:15px !important;
+}
+
+.coverS{
+    background: none!important;
+    box-shadow: none !important;
+}
+
+#numero2{
+    transform: rotateZ(180deg);
+}
+
+#numero5{
+    transform: rotateZ(270deg);
+}
+#numero6{
+    transform: rotateZ(175deg);
+}
+
 
 /*#endregion*/
 
@@ -307,55 +338,88 @@ html, body {
 
 /*#region Dado 8 caras*/
 
-#ui_dado .cara1 {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 50px 86.6px 50px;
-    border-color: transparent transparent #ffffff transparent;
+
+#numero11 , #numero22, #numero33, #numero44, #numero55, #numero66{
+    margin-top: 35px;
+    font-size: 25px !important;
+    color:gold;
 }
 
-#ui_dado #dice .frente {
-    transform: translateZ(50px);
+.color2{
+    box-shadow: inset 0 0 40px #000000 !important;
+    background-color: blue!important;  
+    border-radius:15px !important;
 }
 
-#ui_dado .puntear{
-    position: absolute;
-    width: 23px;
-    height: 23px;
-    /*border-radius: 23px;
-    background: #444;
-    box-shadow: inset 5px 0 10px #000;*/
+.coverS2{
+    background: none!important;
+    box-shadow: none !important;
+    color: gold !important;
+    border-color: gold !important;
+    background-color: gold !important;
 }
 
-#ui_dado .puntear.centro{
-    margin: 43px 0 0 -11px;
+#numero22{
+    transform: rotateZ(180deg);
 }
 
-#ui_dado .cara2{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 86.6px 50px 0 50px;
-    border-color: #ffffff transparent transparent transparent;
+#numero55{
+    transform: rotateZ(270deg);
+}
+#numero66{
+    transform: rotateZ(175deg);
 }
 
-#ui_dado .puntear.centro2{
-    margin:-72px 0 0 -12px;
-    transform: rotate(175deg);
+/*#endregion*/
+
+/*#region Moneda*/
+
+@media screen and (max-width:426px){
+    .flip-box{
+        margin-top: 6em !important;
+    }
 }
 
-#ui_dado .cara3{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 86.6px 50px 0 50px;
-    border-color: #ffffff transparent transparent transparent;
-    transform: rotateY(-110deg) rotateX(-28deg) rotateZ(0deg)  translateY(-91px) translateX(-10px) translateZ(-35px) !important
+@media screen and (min-width:426px ) and ( max-width:1000px){
+    .flip-box{
+        margin-top: 8em !important;
+    }
 }
 
-#ui_dado .puntear.centro3{
-    margin:-72px 0 0 -12px;
+.flip-box{
+    margin: auto;
+    margin-top: 10em;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: #555;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 /*#endregion*/

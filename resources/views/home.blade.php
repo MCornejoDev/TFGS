@@ -37,6 +37,12 @@
         width: 280px !important;
     }
 }
+.carousel .carousel-control-next-icon{
+    background-image:url('img/flechaDer.png') !important;
+}
+.carousel .carousel-control-prev-icon{
+    background-image:url('img/flechaIzq.png') !important;
+}
 </style>
 
 <div class="container-fluid">

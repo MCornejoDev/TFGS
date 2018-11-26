@@ -1,7 +1,21 @@
 *{
     font-weight: bold !important;
-    font-family: cursive !important;
+    font-family: cursive !important; 
 }
+
+@media screen and (max-width: 426px) {
+     *{
+        font-family: cursive !important;
+        font-size: 1em !important;
+      }
+  }
+
+  @media screen and (max-width: 1006px) and (orientation: landscape) {
+    *{
+       font-family: cursive !important;
+       font-size: 1em !important;
+     }
+ }
 
 .sesion{
     background: url('../img/background2.jpg') no-repeat center center fixed !important;

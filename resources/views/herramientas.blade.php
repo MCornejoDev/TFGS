@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<!-- #region  Region dado 6caras-->
+<!-- #region  Region herramientas-->
 <div id="ui_dado">
        
        

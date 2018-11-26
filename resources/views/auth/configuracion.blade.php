@@ -43,6 +43,13 @@ button.btn.btn-primary{
     border-radius: 30px !important;
 }
 
+@media screen and (max-width:426px) {
+    #email{
+        text-align: center;
+    }
+  }
+
+
 /*Estilos de los inputs desahabilitados*/
 </style>
 
@@ -85,7 +92,7 @@ button.btn.btn-primary{
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                              <div class="col-md-6">
-                                <input type="text" class="form-control"  value="<?php echo($datosUsuario[0]->email)?>" disabled>
+                                <input type="text" class="form-control" id="email"  value="<?php echo($datosUsuario[0]->email)?>" disabled>
                             </div>
                         </div>
                         <div class="form-group row">

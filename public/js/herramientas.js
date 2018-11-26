@@ -14,18 +14,18 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 
 	switch(seleccionado){
 		case '4caras':{
-			$(ui_dado).append('<p id="result" style="margin-top:20px !important;"></p>');
-
-			$(ui_dado).append('<div id="platform" style="margin-top:-35px !important; margin-left:calc(50% - 100px) !important;"></div>')
+			$(ui_dado).append('<div id="platform"></div>')
 
 			var platform = document.getElementById('platform');
 
-      var array = ['<div class="wrap"><div class="rotor-x"><div class="rotor-y"><div class="rotor-z">',
-      '<div class="triangle face-1"><ul><li>1</li><li>2</li><li>3</li></ul></div>',
-      '<div class="triangle face-2"><ul><li>1</li><li>4</li><li>2</li></ul></div>',
-      '<div class="triangle face-3"></div>',
-      '<div class="triangle face-4"></div>','</div></div></div></div>']
-			var dice = $("<div id='dice' onclick='dado2()'></div>");   // Create with jQuery
+			var array = ['<div class="color1 side front"><div id="numero">10</div></div>',
+			'<div class="color1 side front inner"></div><div class="color1 side top"><div id="numero2">20</div></div></div>',
+			'<div class="color1 side top inner"></div><div class="color1 side right"><div id="numero3">30</div></div>',
+			'<div class="color1 side right inner"></div><div class="color1 side left"><div id="numero4">40</div></div>',
+			'<div class="color1 side left inner"></div><div class="color1 side bottom"><div id="numero5">50</div></div>',
+			'<div class="color1 side bottom inner"></div><div class="color1 side back"><div id="numero6">60</div></div>',
+			'<div class="color1 side back inner"></div><div class="coverS side cover x"></div><div class=" coverS side cover y"></div><div class="coverS side cover z"></div>']
+			var dice = $("<div id='dice' onclick='dado()'></div>");   // Create with jQuery
 			for (let index = 0; index < array.length; index++) {
 				$(dice).append(array[index]);
 			}
@@ -54,16 +54,19 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 		}	
 		break;
 		case '8caras':{
-			$(ui_dado).append('<p id="result" style="margin-top:20px !important;"></p>');
-
+			
 			$(ui_dado).append('<div id="platform"></div>')
 
 			var platform = document.getElementById('platform');
 
-			var array = ['<div class="cara1 frente"><div class="puntear centro">1</div></div>',
-		'<div class="cara2 frente"><div class="puntear centro2">2</div></div>',
-		'<div class="cara3 frente"><div class="puntear centro3">3</div></div>']
-			var dice = $("<div id='dice' onclick='dado2()'></div>");   // Create with jQuery
+			var array = ['<div class="color2 side front"><div id="numero11">5</div></div>',
+			'<div class="color2 side front inner"></div><div class="color2 side top"><div id="numero22">10</div></div></div>',
+			'<div class="color2 side top inner"></div><div class="color2 side right"><div id="numero33">15</div></div>',
+			'<div class="color2 side right inner"></div><div class="color2 side left"><div id="numero44">20</div></div>',
+			'<div class="color2 side left inner"></div><div class="color2 side bottom"><div id="numero55">25</div></div>',
+			'<div class="color2 side bottom inner"></div><div class="color2 side back"><div id="numero66">30</div></div>',
+			'<div class="color2 side back inner"></div><div class="coverS2 side cover x"></div><div class="coverS2 side cover y"></div><div class="coverS2 side cover z"></div>']
+			var dice = $("<div id='dice' onclick='dado()'></div>");   // Create with jQuery
 			for (let index = 0; index < array.length; index++) {
 				$(dice).append(array[index]);
 			}
@@ -74,12 +77,12 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 		case 'moneda':{
 			// $(ui_dado).append('<p id="result" style="margin-top:20px !important;"></p>');
 
-			$(ui_dado).append('<div id="platform"></div>')
+			$(ui_dado).append('<div id="platform2"></div>')
 
-			var platform = document.getElementById('platform');
-
-			var array = ['<div class="delante"><div>Cara</div></div>','<div class="atras"><div>Cruz</div></div>']
-			var dice = $("<div id='dice' ></div>");   // Create with jQuery
+      var platform = document.getElementById('platform2');
+      
+			var array = ["<div class='flip-box' onclick='girarMoneda()'><div class='flip-box-inner' ><div id='cara' class='flip-box-front'><img  src='../img/cara.png'/></div><div id='cruz' class='flip-box-back'><img src='../img/cruz.png'/></div></div></div>"]
+			var dice = $("<div ></div>");   // Create with jQuery
 			for (let index = 0; index < array.length; index++) {
 				$(dice).append(array[index]);
 			}
@@ -129,9 +132,10 @@ function dado(){
       $('#result').html(number);
       
     }, 1120);
-  };
+  }
 
-  function dado2(){
+function dado2()
+  {
     $('#platform').removeClass('stop').addClass('playing');
     $('#dice');
     setTimeout(function(){
@@ -170,4 +174,29 @@ function dado(){
       $('#result').html(number);
       
     }, 1120);
-  };
+}
+
+function girarMoneda()
+{
+  
+    setTimeout(function(){
+        var number = Math.floor(Math.random() * 2) + 1;
+        var y = 360;
+        console.log("entramos");
+        var girar = "";
+        if( number == 1)
+        {
+          y = 180;
+         
+        }
+        else{
+          if(number == 2)
+          {
+            y = 180;
+          }
+        }
+        $('.flip-box').css({
+          'transform': 'rotateY(' + y + 'deg); animation-duration: 3s;'
+        });
+    }, 1120);
+}

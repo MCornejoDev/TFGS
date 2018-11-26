@@ -105,7 +105,9 @@ function seguro()
         {
             if(result == true)
             {
+                <?php if(isset($idPersonaje)) { ?>
                 location.href = '{{ route("eliminar", $idPersonaje) }}';
+                <?php } ?>
             }
         }
     });

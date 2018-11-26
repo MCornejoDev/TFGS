@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+@media screen and (max-width:426px){
+  #desaparecer{
+    display:none !important;
+  }
+}
+</style>
 @if (Route::has('login'))
 @auth
 
@@ -10,19 +16,21 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Id</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Extensión</th>
+              <th id="desaparecer" scope="col">Extensión</th>
               <th scope="col">Enlace</th>
             </tr>
           </thead>
           <tbody>
           @foreach($mapas as $mapeado)
+          <?php
+              $nombre = $mapeado->nombre; 
+              $enlace = "img/" . $mapeado->enlace;
+              ?>
             <tr>
-              <th scope="row">{{$mapeado->id}}</th>
               <td>{{$mapeado->nombre}}</td>
-              <td>{{$mapeado->extension}}</td>
-              <td><button>{{$mapeado->enlace}}</button></td>
+              <td id="desaparecer">{{$mapeado->extension}}</td>
+              <td><a class="button4" href="{{asset($enlace)}}" download="<?php echo $nombre;?>">{{$mapeado->nombre}}</a></td>
             </tr>
           @endforeach
           </tbody>
