@@ -49,6 +49,26 @@ button.btn.btn-primary{
     }
   }
 
+@media screen and (max-width:1025px) {
+    #email{
+        text-align: center;
+    }
+  }
+
+
+@media screen and (max-width:426px) and (orientation:landscape){
+    #email{
+        text-align: center;
+    }
+  }
+
+@media screen and (max-width:1025px) and (orientation:landscape){
+    #email{
+        text-align: center;
+    }
+  }
+
+
 
 /*Estilos de los inputs desahabilitados*/
 </style>
