@@ -10,9 +10,10 @@
         <div class="col-sm-12 col-md-12 col-lg-12 text-left" >
             <select id="elegirHerramienta" name="herramienta" class="herramienta" >
 				<option disabled selected value=""> -- Elija la herramienta -- </option>
-				<option value="4caras">Dado de 4 caras</option>
-                <option value="6caras">Dado de 6 caras</option>
-                <option value="8caras">Dado de 8 caras</option>
+				<option value="6D">6D </option>
+                <option value="18D">18D </option>
+                <option value="30D">30D</option>
+                <option value="60D">60D</option>
                 <option value="moneda">Moneda</option>
             </select>
         </div>

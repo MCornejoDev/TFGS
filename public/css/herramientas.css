@@ -19,158 +19,7 @@ html, body {
     left: calc(50% - 40px);
 }*/
 
-/*#region Dado 4 caras*/
-
-.wrap {
-    width:150px;
-    height:130px;
-    /*margin:30% auto;*/
-    text-align:center;
-}
-.triangle {
-    position:absolute;
-    width: 0;
-    height: 0;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 130px solid white;
-    /* 129.903810568 */
-    transform-origin: 75px 0;
-    /* perspective: 150px; */
-    perspective-origin: 50% 50%;
-}
-.face-1 {
-    transform-origin: 75px 0;
-    transform: rotateY(0deg) rotateX(19.5deg);
-    /* animation: color1 2s infinite linear; */
-    animation-delay:0s;
-}
-
-.face-2 {
-    transform-origin: 75px 0;
-    transform: rotateY(120deg) rotateX(19.5deg);
-    /* animation: color1 2s infinite linear; */
-    animation-delay:1s;
-}
-.face-3 {
-    transform-origin: 75px 0;
-    transform: rotateY(240deg) rotateX(19.5deg);
-    /* animation: color1 2s infinite linear; */
-    animation-delay:0s;
-}
-.face-4 {
-    /* bottom face */
-    transform-origin: 0 0px;
-    transform: rotateX(90deg) translateY(-87px) translateZ(-122px);
-    /* animation: color1 2s infinite linear; */
-    animation-delay:1s;
-}
-
-
-.face-1 ul > li:nth-child(1),.face-2 ul > li:nth-child(1),.face-3 ul > li:nth-child(1),.face-4 ul > li:nth-child(1){
-    transform: translateX(-3px) translateY(12px);
-} 
-
-.face-1 ul > li:nth-child(2),.face-2 ul > li:nth-child(2),.face-3 ul > li:nth-child(2),.face-4 ul > li:nth-child(2){
-    transform:translateX(39px) translateY(69px) rotateZ(153deg);
-} 
-
-.face-1 ul > li:nth-child(3){
-    
-} 
-
-.rotor-x {
-    width:150px;
-    height:130px;
-    transform-origin:75px 65px;
-    transform-style: preserve-3d;
-    /* animation: spinX 6s infinite linear; */
-}
-.rotor-y {
-    width:150px;
-    height:130px;
-    transform-origin:75px 65px;
-    transform-style: preserve-3d;
-    /* animation: spinY 12s infinite linear; */
-}
-.rotor-z {
-    width:150px;
-    height:130px;
-    transform-origin:75px 65px;
-    transform-style: preserve-3d;
-    /* animation: spinZ 18s infinite linear; */
-}
-@keyframes spinX {
-    from {
-        transform: rotateY(0);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
-@keyframes spinY {
-    from {
-        transform: rotateY(0);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
-@keyframes spinZ {
-    from {
-        transform: rotateZ(0);
-    }
-    to {
-        transform: rotateZ(360deg);
-    }
-}
-@keyframes color1 {
-    0% {
-        border-bottom-color:white;
-    }
-    50% {
-        border-bottom-color: white;
-    }
-    100% {
-        border-bottom-color:white;
-    }
-}
-
-
-/*Region*/
-
-#numero , #numero2, #numero3, #numero4, #numero5, #numero6{
-    margin-top: 35px;
-    font-size: 25px !important;
-    color: darkblue ;
-}
-
-.color1{
-    box-shadow: inset 0 0 40px #000000 !important;
-    background-color: #CD7F32 !important;  
-    border-radius:15px !important;
-}
-
-.coverS{
-    background: none!important;
-    box-shadow: none !important;
-}
-
-#numero2{
-    transform: rotateZ(180deg);
-}
-
-#numero5{
-    transform: rotateZ(270deg);
-}
-#numero6{
-    transform: rotateZ(175deg);
-}
-
-
-/*#endregion*/
-
-/*#region Dado 6 caras*/ 
+/*#region 6D*/ 
 
 #ui_dado {
     margin: 0px auto;
@@ -336,8 +185,44 @@ html, body {
 }
 /*#endregion */ 
 
-/*#region Dado 8 caras*/
 
+/*#region 18D*/
+
+#numero111 , #numero222, #numero333, #numero444, #numero555, #numero666{
+    margin-top: 35px;
+    font-size: 25px !important;
+    color:black;
+}
+
+.color3{
+    box-shadow: inset 0 0 40px #000000 !important;
+    background-color: red !important;
+    border-radius:15px !important;
+}
+
+.coverS3{
+    background: none!important;
+    box-shadow: none !important;
+    color:  red !important;
+    border-color:  red !important;
+    background-color:  red !important;
+}
+
+#numero222{
+    transform: rotateZ(180deg);
+}
+
+#numero555{
+    transform: rotateZ(270deg);
+}
+#numero666{
+    transform: rotateZ(175deg);
+}
+
+/*#endregion*/
+
+
+/*#region 30D*/
 
 #numero11 , #numero22, #numero33, #numero44, #numero55, #numero66{
     margin-top: 35px;
@@ -369,6 +254,157 @@ html, body {
 #numero66{
     transform: rotateZ(175deg);
 }
+
+/*#endregion*/
+
+/*#region 60D*/
+
+.wrap {
+    width:150px;
+    height:130px;
+    /*margin:30% auto;*/
+    text-align:center;
+}
+.triangle {
+    position:absolute;
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 130px solid white;
+    /* 129.903810568 */
+    transform-origin: 75px 0;
+    /* perspective: 150px; */
+    perspective-origin: 50% 50%;
+}
+.face-1 {
+    transform-origin: 75px 0;
+    transform: rotateY(0deg) rotateX(19.5deg);
+    /* animation: color1 2s infinite linear; */
+    animation-delay:0s;
+}
+
+.face-2 {
+    transform-origin: 75px 0;
+    transform: rotateY(120deg) rotateX(19.5deg);
+    /* animation: color1 2s infinite linear; */
+    animation-delay:1s;
+}
+.face-3 {
+    transform-origin: 75px 0;
+    transform: rotateY(240deg) rotateX(19.5deg);
+    /* animation: color1 2s infinite linear; */
+    animation-delay:0s;
+}
+.face-4 {
+    /* bottom face */
+    transform-origin: 0 0px;
+    transform: rotateX(90deg) translateY(-87px) translateZ(-122px);
+    /* animation: color1 2s infinite linear; */
+    animation-delay:1s;
+}
+
+
+.face-1 ul > li:nth-child(1),.face-2 ul > li:nth-child(1),.face-3 ul > li:nth-child(1),.face-4 ul > li:nth-child(1){
+    transform: translateX(-3px) translateY(12px);
+} 
+
+.face-1 ul > li:nth-child(2),.face-2 ul > li:nth-child(2),.face-3 ul > li:nth-child(2),.face-4 ul > li:nth-child(2){
+    transform:translateX(39px) translateY(69px) rotateZ(153deg);
+} 
+
+.face-1 ul > li:nth-child(3){
+    
+} 
+
+.rotor-x {
+    width:150px;
+    height:130px;
+    transform-origin:75px 65px;
+    transform-style: preserve-3d;
+    /* animation: spinX 6s infinite linear; */
+}
+.rotor-y {
+    width:150px;
+    height:130px;
+    transform-origin:75px 65px;
+    transform-style: preserve-3d;
+    /* animation: spinY 12s infinite linear; */
+}
+.rotor-z {
+    width:150px;
+    height:130px;
+    transform-origin:75px 65px;
+    transform-style: preserve-3d;
+    /* animation: spinZ 18s infinite linear; */
+}
+@keyframes spinX {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+@keyframes spinY {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+@keyframes spinZ {
+    from {
+        transform: rotateZ(0);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes color1 {
+    0% {
+        border-bottom-color:white;
+    }
+    50% {
+        border-bottom-color: white;
+    }
+    100% {
+        border-bottom-color:white;
+    }
+}
+
+
+/*Region*/
+
+#numero , #numero2, #numero3, #numero4, #numero5, #numero6{
+    margin-top: 35px;
+    font-size: 25px !important;
+    color: white !important ;
+}
+
+.color1{
+    box-shadow: inset 0 0 40px #000000 !important;
+    background-color: purple !important;  
+    border-radius:15px !important;
+}
+
+.coverS{
+    background: none!important;
+    box-shadow: none !important;
+}
+
+#numero2{
+    transform: rotateZ(180deg);
+}
+
+#numero5{
+    transform: rotateZ(270deg);
+}
+#numero6{
+    transform: rotateZ(175deg);
+}
+
 
 /*#endregion*/
 

@@ -13,26 +13,8 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 	}
 
 	switch(seleccionado){
-		case '4caras':{
-			$(ui_dado).append('<div id="platform"></div>')
-
-			var platform = document.getElementById('platform');
-
-			var array = ['<div class="color1 side front"><div id="numero">10</div></div>',
-			'<div class="color1 side front inner"></div><div class="color1 side top"><div id="numero2">20</div></div></div>',
-			'<div class="color1 side top inner"></div><div class="color1 side right"><div id="numero3">30</div></div>',
-			'<div class="color1 side right inner"></div><div class="color1 side left"><div id="numero4">40</div></div>',
-			'<div class="color1 side left inner"></div><div class="color1 side bottom"><div id="numero5">50</div></div>',
-			'<div class="color1 side bottom inner"></div><div class="color1 side back"><div id="numero6">60</div></div>',
-			'<div class="color1 side back inner"></div><div class="coverS side cover x"></div><div class=" coverS side cover y"></div><div class="coverS side cover z"></div>']
-			var dice = $("<div id='dice' onclick='dado()'></div>");   // Create with jQuery
-			for (let index = 0; index < array.length; index++) {
-				$(dice).append(array[index]);
-			}
-			$(platform).append(dice);
-		}	
-		break;
-		case '6caras':{
+		
+		case '6D':{
 			// $(ui_dado).append('<p id="result" style="margin-top:20px !important;"></p>');
 
 			$(ui_dado).append('<div id="platform"></div>')
@@ -52,8 +34,29 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 			}
 			$(platform).append(dice);
 		}	
-		break;
-		case '8caras':{
+    break;
+    case '18D':{
+			
+			$(ui_dado).append('<div id="platform"></div>')
+
+			var platform = document.getElementById('platform');
+
+			var array = ['<div class="color3 side front"><div id="numero111">3</div></div>',
+			'<div class="color3 side front inner"></div><div class="color3 side top"><div id="numero222">6.</div></div></div>',
+			'<div class="color3 side top inner"></div><div class="color3 side right"><div id="numero333">.9</div></div>',
+			'<div class="color3 side right inner"></div><div class="color3 side left"><div id="numero444">12</div></div>',
+			'<div class="color3 side left inner"></div><div class="color3 side bottom"><div id="numero555">15</div></div>',
+			'<div class="color3 side bottom inner"></div><div class="color3 side back"><div id="numero666">18</div></div>',
+			'<div class="color3 side back inner"></div><div class="coverS3 side cover x"></div><div class="coverS3 side cover y"></div><div class="coverS3 side cover z"></div>']
+			var dice = $("<div id='dice' onclick='dado()'></div>");   // Create with jQuery
+			for (let index = 0; index < array.length; index++) {
+				$(dice).append(array[index]);
+			}
+			$(platform).append(dice);
+			
+		}	
+    break;
+		case '30D':{
 			
 			$(ui_dado).append('<div id="platform"></div>')
 
@@ -72,6 +75,25 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 			}
 			$(platform).append(dice);
 			
+		}	
+    break;
+    case '60D':{
+			$(ui_dado).append('<div id="platform"></div>')
+
+			var platform = document.getElementById('platform');
+
+			var array = ['<div class="color1 side front"><div id="numero">10</div></div>',
+			'<div class="color1 side front inner"></div><div class="color1 side top"><div id="numero2">20</div></div></div>',
+			'<div class="color1 side top inner"></div><div class="color1 side right"><div id="numero3">30</div></div>',
+			'<div class="color1 side right inner"></div><div class="color1 side left"><div id="numero4">40</div></div>',
+			'<div class="color1 side left inner"></div><div class="color1 side bottom"><div id="numero5">50</div></div>',
+			'<div class="color1 side bottom inner"></div><div class="color1 side back"><div id="numero6">60</div></div>',
+			'<div class="color1 side back inner"></div><div class="coverS side cover x"></div><div class=" coverS side cover y"></div><div class="coverS side cover z"></div>']
+			var dice = $("<div id='dice' onclick='dado()'></div>");   // Create with jQuery
+			for (let index = 0; index < array.length; index++) {
+				$(dice).append(array[index]);
+			}
+			$(platform).append(dice);
 		}	
 		break;
 		case 'moneda':{
