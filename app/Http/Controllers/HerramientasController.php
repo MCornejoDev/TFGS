@@ -54,7 +54,48 @@ class HerramientasController extends Controller
 
        $bonito = "";
        $usuarioAmodificar = User::find($idUsuario);
-       /*if($puedo == true)
+
+       if($puedo == true)
+       {
+          
+            $usuarioAmodificar->user = $usuarioActual;
+            $usuarioAmodificar->save();
+           
+            if($request->password == $request->passwordR)
+            {
+             $nuevaContrasenna =  Hash::make($request->password);
+             $usuarioAmodificar->password = $nuevaContrasenna;
+             $usuarioAmodificar->save();
+             Session::flash('message','La contraseña y el usuario han sido modificados correctamente');
+             return Redirect::to('/configuración');
+            }
+            else
+            {
+             $bonito = "Las contraseñas no son identicas pero el usuario ha sido modificado correctamente";
+             Session::flash('message',$bonito);
+             return Redirect::to('/configuración');
+            } 
+       }
+       else
+       {
+        
+            if($request->password == $request->passwordR)
+            {
+             $nuevaContrasenna =  Hash::make($request->password);
+             $usuarioAmodificar->password = $nuevaContrasenna;
+             $usuarioAmodificar->save();
+             Session::flash('message','La contraseña han sido modificados correctamente y el usuario no ha sido modificado porque ya existe');
+             return Redirect::to('/configuración');
+            }
+            else
+            {
+             $bonito = "Las contraseñas no son identicas y el usuario no ha sido modificado porque ya existe";
+             Session::flash('message',$bonito);
+             return Redirect::to('/configuración');
+            } 
+       }
+       /*
+       if($puedo == true)
        {   
         $usuarioAmodificar->user = $usuarioActual;
         $usuarioAmodificar->save(); 
@@ -62,9 +103,7 @@ class HerramientasController extends Controller
        }
        else{
         $bonito = "El usuario no ha sido modificado";
-        Session::flash('message','El usuario no ha sido modificado');
-        return Redirect::to('/configuración');
-       }*/
+       }
 
        if($request->password == $request->passwordR)
        {
@@ -80,6 +119,10 @@ class HerramientasController extends Controller
         Session::flash('message',$bonito);
         return Redirect::to('/configuración');
        }    
+
+       Session::flash('message',$bonito);
+       return Redirect::to('/configuración');*/
+       
     }
 
     public function eliminarCuenta(){

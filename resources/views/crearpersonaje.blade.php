@@ -216,7 +216,7 @@ button#prevBtn{
 <form method="POST" action="{{route('registrar')}}" id="formulario" name="formulario"  class="estiloSombreado">
     {!! csrf_field() !!}  
    <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important;" >
+  <div style="text-align:center; margin-top:5px !important; margin-bottom:10px !important; padding-top:9px !important;" >
     <span class="step">1</span>
     <span class="step">2</span>
     <span class="step">3</span>

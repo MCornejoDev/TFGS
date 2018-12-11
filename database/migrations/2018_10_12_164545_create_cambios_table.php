@@ -21,7 +21,7 @@ class CreateCambiosTable extends Migration
               ->on('partidas')
               ->onDelete('cascade');
             $table->timestamp('fecha');
-            $table->string('estado');
+            $table->string('estado',50);
             //Modificaciones que el usuario puede hacer y quedarán registradas
             $table->integer('vida');//Valor máximo de la columna de nivel es 4 números (9999)
             $table->integer('edad');//Valor máximo de la columna edad es 3 números (999)
@@ -32,7 +32,7 @@ class CreateCambiosTable extends Migration
             $table->integer('inteligencia');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('sabiduria');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('carisma');//Valor máximo de la columna de nivel es 2 números (99)
-            $table->string('objetos',40);    
+            $table->text('objetos');    
             
         });
     }

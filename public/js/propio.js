@@ -140,13 +140,15 @@ function validateForm() {
   var lsexo = document.getElementById('lsexo');
 
   
-  if(sexo[0].checked == false && sexo[1].checked == false)
+  if(sexo[0].checked == false || sexo[1].checked == false)
   {
     lsexo.innerText = "Seleccione un sexo";
+    valid = false;
   }
   else
   {
     lsexo.innerText = "Sexo seleccionado";
+    valid = true;
   }
   
   //#endregion

@@ -17,7 +17,7 @@ class CreatePersonajeTable extends Migration
             $table->increments('id');
             $table->string('raza',20);
             $table->string('nombrePersonaje',50);
-            $table->string('apodo',25);
+            $table->string('apodo',50);
             $table->string('altura',10);
             $table->integer('edad');//Valor máximo de la columna edad es 3 números (999)
             $table->string('peso',10);
@@ -35,7 +35,7 @@ class CreatePersonajeTable extends Migration
             $table->integer('inteligencia');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('sabiduria');//Valor máximo de la columna de nivel es 2 números (99)
             $table->integer('carisma');//Valor máximo de la columna de nivel es 2 números (99)
-            $table->string('objetos',40);
+            $table->text('objetos');
         });
     }
 

@@ -26,6 +26,9 @@
        
 </div>
 <!-- #endregion -->
+
+
+
 @else
 
 <div class="container">
@@ -38,5 +41,6 @@
 
 @endauth
 <script src="{{asset('js/herramientas.js')}}"></script>
+
 @endif
 @endsection

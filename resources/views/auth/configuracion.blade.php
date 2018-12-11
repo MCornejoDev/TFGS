@@ -94,7 +94,7 @@ button.btn.btn-primary{
                         <div class="form-group row">
                             <label for="text" class="col-sm-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
                             <div class="col-md-6">
-                                <input id="user" type="text" class="form-control" name="user" value="<?php echo($datosUsuario[0]->user) ?> " required autofocus>
+                                <input id="user" type="text" class="form-control" name="user" value="<?php echo($datosUsuario[0]->user)?>" required autofocus>
                             </div>
                         </div>
                         <div class="form-group row">

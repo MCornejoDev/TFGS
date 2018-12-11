@@ -103,12 +103,47 @@ $(document).on('change', '#elegirHerramienta', function(event) {
 
       var platform = document.getElementById('platform2');
       
-			var array = ["<div class='flip-box' onclick='girarMoneda()'><div class='flip-box-inner' ><div id='cara' class='flip-box-front'><img  src='../img/cara.png'/></div><div id='cruz' class='flip-box-back'><img src='../img/cruz.png'/></div></div></div>"]
+			/*var array = ["<div class='flip-box' onclick='girarMoneda()'><div class='flip-box-inner' ><div id='cara' class='flip-box-front'><img  src='../img/cara.png'/></div><div id='cruz' class='flip-box-back'><img src='../img/cruz.png'/></div></div></div>"]
 			var dice = $("<div ></div>");   // Create with jQuery
 			for (let index = 0; index < array.length; index++) {
 				$(dice).append(array[index]);
-			}
-			$(platform).append(dice);
+      }*/
+      
+      var dice = $("<div class='floor'><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div><div class='line'></div></div><div class='coin'><div class='edge'><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div><div class='segment'></div></div></div>"); 
+      var edge = $(".edge");
+      
+      for (let index = 0; index < 16; index++) {
+        var divSegment = document.createElement("div"); 
+        
+        $(divSegment).addClass("segment");
+        
+        $(edge).append(divSegment);
+      }
+      
+      $(platform).append(dice);
+
+      let flippin = false, doc = document;
+   
+      doc.querySelector('.coin').addEventListener('click', e => {
+      if(flippin) return false; flippin = true;
+      
+      //declare objects to animate, remove any existing anim
+      let objs = doc.querySelectorAll('.line, .coin');
+      objs.forEach((line) => line.classList.remove('anim'));
+      
+      //choose heads or tails
+      let winner = Math.random() > 0.5 ? '900deg' : '720deg';
+      doc.querySelector(':root').style.setProperty('--flips', winner)
+      
+      //apply animation and wait for completion
+      setTimeout(() => {
+        objs.forEach((line) => line.classList.add('anim'));
+        e.target.addEventListener('animationend', () => flippin = false);
+      });
+    });
+    
+    //click once on load for the thumbnail
+    setTimeout(() => doc.querySelector('.coin').click(), 750)
 		}
 		break;
 	}
@@ -195,30 +230,5 @@ function dado2()
       
       $('#result').html(number);
       
-    }, 1120);
-}
-
-function girarMoneda()
-{
-  
-    setTimeout(function(){
-        var number = Math.floor(Math.random() * 2) + 1;
-        var y = 360;
-        console.log("entramos");
-        var girar = "";
-        if( number == 1)
-        {
-          y = 180;
-         
-        }
-        else{
-          if(number == 2)
-          {
-            y = 180;
-          }
-        }
-        $('.flip-box').css({
-          'transform': 'rotateY(' + y + 'deg); animation-duration: 3s;'
-        });
     }, 1120);
 }
