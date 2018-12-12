@@ -7,10 +7,19 @@
     padding:0.75rem !important;
 }
 
+.modal-footer{
+    margin:auto !important;
+  }
+
 @media screen and (max-width: 426px) {
      *{
         font-family: cursive !important;
         font-size: 1em !important;
+      }
+
+      .modal-footer{
+        display: inline-block !important;
+        text-align: center !important;
       }
   }
 
@@ -32,10 +41,10 @@
 
 .sesion2{
     background: url('../img/background4.jpg') no-repeat center center fixed !important;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
     font-weight: bold !important;
 }
 

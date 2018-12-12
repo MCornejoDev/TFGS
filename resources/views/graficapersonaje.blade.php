@@ -100,6 +100,13 @@ ul>li{
   display: inline-block !important;
   margin-right:12px !important;
 }
+
+@media screen and (max-width:426px){
+  footer{
+    margin-top:2em !important;
+  }
+}
+
 </style>
 
 <div class="container">
@@ -114,10 +121,12 @@ ul>li{
         </div>  
       </div>
     </div>
-    <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
-    <a class="button4" href="{{ route('mostrar',$personaje->id)}}">Personaje</a>
   </div>
 </div>
+<footer >
+    <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
+    <a class="button4" href="{{ route('mostrar',$personaje->id)}}">Personaje</a>
+</footer>
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.css'/>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.js'></script> 

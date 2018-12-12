@@ -93,6 +93,40 @@ button.buttonPadding{
     padding:0px !important;
 }
 
+
+@media screen and (min-width:426px){
+    hr.desaparecer{
+        display:none !important;
+    }
+   
+}
+
+@media screen and (min-width:426px) and (max-width:769px){
+
+    .imagenPersonaje > img {
+        height: 237px;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px !important;
+    }
+
+    .foo{
+        margin-top:30px !important;
+        padding-bottom:25px !important;
+    }
+   
+}
+
+@media screen and (max-width:426px){
+    h3{
+        display:none !important;
+    }
+    .foo{
+        margin-top:30px !important;
+        padding-bottom:25px !important;
+    }
+}
+
 </style>
 @if(Session::has('message'))
     <div class="alert alert-success alert-dismissible" role="alert">
@@ -105,9 +139,10 @@ button.buttonPadding{
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje" >
-                <label>Nick de la partida : {{$partidas->nickPartida}}</label><br/>
+                <label>Nick de partida: {{$partidas->nickPartida}}</label><br/>
                 <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
                 <p>{{$personajes->personalidad}}</p>
+                <hr class="desaparecer">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <label>Raza: {{$personajes->raza}} ||</label>
@@ -123,6 +158,7 @@ button.buttonPadding{
                 <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
                 <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
                 <input type="hidden" name="nivel" value="<?php echo $nivel?>">
+                <hr class="desaparecer">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" style="margin-bottom:5px !important;">
@@ -165,6 +201,7 @@ button.buttonPadding{
                         </div>  
                     </div>
                 </div>
+                <hr class="desaparecer">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" >
@@ -173,7 +210,9 @@ button.buttonPadding{
                             <p>Habilidad 3 : {{$personajes->habilidad3}} </p>
                             <p>Habilidad 4 : {{$personajes->habilidad4}} </p>
                         </div>
+                       
                         <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                        <hr class="desaparecer">
                             <label>Objetos:  </label><br/>
                             <textarea name="objetos"  id="objetos" cols="18" rows="5"><?php echo $objetos?></textarea>
                         </div>    
@@ -182,7 +221,7 @@ button.buttonPadding{
             </div>
         </div> 
     </div>
-    <div class="container-fluid" style="display:inline-block!important;">
+    <div class="container-fluid foo" style="display:inline-block!important;" >
         <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
         <div style="float:right !important;"  >
             <a class="button4"><button class="buttonPadding" type="submit">Modificar</button></a>

@@ -144,10 +144,14 @@ function validateForm() {
   {
     lsexo.innerText = "Seleccione un sexo";
     valid = false;
+    sexo[0].setAttribute("class"," invalid");
+    sexo[1].setAttribute("class"," invalid");
   }
   else
   {
     lsexo.innerText = "Sexo seleccionado";
+    sexo[0].removeAttribute('class'," invalid");
+    sexo[1].removeAttribute('class'," invalid");
     valid = true;
   }
   
