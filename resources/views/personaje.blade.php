@@ -154,7 +154,7 @@ button.buttonPadding{
                 </div>
             </div>
             <div class="col-sm-8 col-md-9 col-lg-8 text-center">
-                <h3>Información sobre el personaje</h3>
+                <h3>Información del personaje</h3>
                 <input type="hidden" name="idPartida" value="<?php echo $idPartida?>">
                 <input type="hidden" name="nickPartida" value="<?php echo $nickPartida?>">
                 <input type="hidden" name="nivel" value="<?php echo $nivel?>">

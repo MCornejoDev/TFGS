@@ -210,6 +210,22 @@ button#prevBtn{
     outline:none !important;
 }
 
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
 </style>
 
 <!--Formulario completo por pasos de crear el personaje-->
@@ -249,22 +265,23 @@ button#prevBtn{
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-          <input class="hijos" type="text" placeholder="Nombre del personaje"  value="" name="nombrePersonaje">
+          <input class="hijos" type="text" placeholder="Nombre"  value="" name="nombrePersonaje">
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-          <input class="hijos" type="text" placeholder="Apodo del personaje"  name="apodo">
+          <input class="hijos" type="text" placeholder="Apodo"  name="apodo">
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-          <input class="hijos" type="text" placeholder="Altura personaje en metros"  name="altura">
+          <input class="hijos" type="text" placeholder="Altura en metros"  name="altura">
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-          <input class="hijos" type="number" placeholder="Edad" name="edad" min="1" max="110">
+          <label >Edad:</label>
+          <input class="hijos" type="number" placeholder="(1-110)" name="edad" min="1" max="110"><br>
           <input class="hijos hijosv2" id="peso" type="text" placeholder="Peso en kg" name="peso">
         </div>
     </div>
@@ -280,7 +297,7 @@ button#prevBtn{
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-          <input class="hijos" type="text" placeholder="Vida del personaje"  name="vida">
+          <input class="hijos" type="text" placeholder="Vida"  name="vida">
         </div>
     </div>
         <!-- <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
@@ -294,7 +311,8 @@ button#prevBtn{
    <h3>Clase y equipamiento</h3>
    <div class="row">
      <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
-         <input class="hijos" type="number" placeholder="Nivel" name="nivel" min="0" max="100">
+         <label >Nivel:</label>
+         <input class="hijos" type="number" placeholder="(1-100)" name="nivel" min="1" max="100">
      </div>
       <div class="col-sm-12 col-md-12 col-lg-12 text-center ">
           <select name="clase" class="hijos" style="padding:5px !important;" onchange='annadirArmas(this.value),tipoArmadura(this.value)'>

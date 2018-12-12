@@ -30,7 +30,7 @@ button.btn.btn-primary{
         @foreach ($partidas as $partida)
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
                 <div class="card" style="width: 18rem;margin:auto !important;">
-                   Partida : {{$partida->nickPartida}}
+                   {{$partida->nickPartida}}
                    <?php
                     
                    ?>

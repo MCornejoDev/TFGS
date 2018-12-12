@@ -1,6 +1,6 @@
 *{
     font-weight: bold !important;
-    font-family: cursive !important; 
+    
 }
 
 .card-body {
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 426px) {
      *{
-        font-family: cursive !important;
+        
         font-size: 1em !important;
       }
 
@@ -25,7 +25,7 @@
 
   @media screen and (max-width: 1006px) and (orientation: landscape) {
     *{
-       font-family: cursive !important;
+      
        font-size: 1em !important;
      }
  }
@@ -35,7 +35,7 @@
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;
     -o-background-size: cover !important;
-    background-size: cover !important;
+    background-size: cover ;
     font-weight: bold !important;
 }
 
@@ -44,7 +44,7 @@
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;
     -o-background-size: cover !important;
-    background-size: cover !important;
+    background-size: cover;
     font-weight: bold !important;
 }
 
@@ -54,7 +54,7 @@
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;
     -o-background-size: cover !important;
-    background-size: cover !important;
+    background-size: cover ;
     font-weight: bold !important;
 }
 
