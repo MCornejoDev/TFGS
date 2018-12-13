@@ -350,7 +350,7 @@ function tipoArmadura(clase)
   {
   //Guerrero,Barbaro,Paladin ->Armadura de malla pesada
   input.setAttribute('name','armadura');
-  input.setAttribute('value','D malla pesada');
+  input.setAttribute('value','De malla pesada');
   
   }
   else{

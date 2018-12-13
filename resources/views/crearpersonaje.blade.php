@@ -375,34 +375,34 @@ button#prevBtn{
   <h3>Características y objetos</h3>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Fuerza mínima 0" name="fuerza" min="0" id="">
+            <input class="hijos" type="number" placeholder="Fuerza mínima 0" name="fuerza" min="0" id="" required>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Destreza mínima 0" name="destreza" min="0" id="">
-        </div>
-      </div>
-      <div class="row ">
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Constitución mínima 0" name="constitucion" min="0" id="">
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Inteligencia mínima 0" name="inteligencia" min="0" id="">
+            <input class="hijos" type="number" placeholder="Destreza mínima 0" name="destreza" min="0" id="" required>
         </div>
       </div>
       <div class="row ">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Sabiduría mínima 0" name="sabiduria" min="0" id="">
+            <input class="hijos" type="number" placeholder="Constitución mínima 0" name="constitucion" min="0" id="" required>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-            <input class="hijos" type="number" placeholder="Carisma mínima 0" name="carisma" min="0" id="">
+            <input class="hijos" type="number" placeholder="Inteligencia mínima 0" name="inteligencia" min="0" id="" required>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
+            <input class="hijos" type="number" placeholder="Sabiduría mínima 0" name="sabiduria" min="0" id="" required>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
+            <input class="hijos" type="number" placeholder="Carisma mínima 0" name="carisma" min="0" id="" required>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-          <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5"></textarea>
+          <textarea class="hijos" name="objetos" placeholder="Incluir 4 objetos como máximo" id="objetos" cols="28" rows="5" required></textarea>
         </div>    
         <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
-          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad" id="personalidad" cols="28" rows="5"></textarea>
+          <textarea class="hijos" name="personalidad" placeholder="Haga un resumén de la personalidad" id="personalidad" cols="28" rows="5" required></textarea>
         </div>
       </div>
   </div>
@@ -412,7 +412,7 @@ button#prevBtn{
       <button style="float:left;"type="button" id="prevBtn" onclick="nextPrev(-1)">Atras</button>
       <button style="float:right;" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
       <div class="form-group quitar" id="divCrear" style="width:200px !important; margin:auto !important;padding-bottom: 15px; float:right !important;">
-          <button class="btn btn-primary btn-block" id="crearV" type="submit">Crear</button>
+          <button  id="crearV" type="submit">Crear</button>
       </div>
     </div>
   </div>
