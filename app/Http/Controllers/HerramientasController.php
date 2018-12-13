@@ -7,6 +7,8 @@ use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use App\RegistraPartida;
+use App\CrearPersonaje;
 Use Session;
 Use Redirect;
 use Auth;
@@ -128,9 +130,17 @@ class HerramientasController extends Controller
     public function eliminarCuenta(){
         $idUsuario = \Auth::user()->id;
         
+        $eliminartodo = DB::select("SELECT idPersonaje FROM partidas WHERE idUsuario = " . $idUsuario);
+        $unoAuno;
+        for ($i=0; $i < count($eliminartodo) ; $i++) { 
+             $unoAuno = RegistraPartida::findOrFail($eliminartodo[$i]->idPersonaje);
+             $unoAuno->delete();
+             $unoAuno = CrearPersonaje::findOrFail($eliminartodo[$i]->idPersonaje);
+             $unoAuno->delete();
+        }
+        
         $idEliminar = User::findOrFail($idUsuario);
         $idEliminar->delete();
-
         Auth::logout();
         
         return Redirect::to('/');
