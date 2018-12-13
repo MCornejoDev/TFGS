@@ -32,9 +32,22 @@
 
 .sesion{
     background: url('../img/background2.jpg') no-repeat center center fixed !important;
+    /*Chrome*/
     -webkit-background-size: cover !important;
+    -webkit-mask-position-x: center !important;
+    -webkit-mask-position-y: center !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat ;
+    -webkit-mask-origin: initial !important;
+    mask-origin: initial ;
+    -webkit-mask-clip: initial !important;
+    mask-clip: initial ;
+    /*Mozilla*/
     -moz-background-size: cover !important;
+
+    /*Opera*/
     -o-background-size: cover !important;
+
     background-size: cover ;
     font-weight: bold !important;
 }
@@ -81,12 +94,6 @@
     margin-top:3% !important;
 }*/
 
-.imagenPersonaje > img{
-    height: 237px ;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px !important;
-}
 
 .paginador{
     display: flex;

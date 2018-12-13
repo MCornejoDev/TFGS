@@ -102,6 +102,13 @@ ul>li{
 }
 
 @media screen and (max-width:426px){
+/* 
+  ul#ulDelimitar>li{
+    display: table !important;
+    text-align: center !important;
+    margin-left: 66px;
+  } */
+
   footer{
     margin-top:2em !important;
   }
@@ -112,11 +119,11 @@ ul>li{
 <div class="container">
   <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-        <div class="ctamanno">
-          <div class="ct-chart ct-perfect-fourth destiloSombreado" id="ctchart">
+        <div class="ctamanno destiloSombreado">
+          <div class="ct-chart ct-perfect-fourth" id="ctchart"> <!--class="destiloSombreado"-->  
         </div>
         <div>
-          <ul id="ulDelimitar" class="destiloSombreado">       
+          <ul id="ulDelimitar"> <!--class="destiloSombreado"-->         
           </ul>
         </div>  
       </div>

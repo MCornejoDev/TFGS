@@ -20,7 +20,7 @@ class MostrarPersonajeController extends Controller
     public function mostrar($idPersonaje){
         $partidas = RegistraPartida::where('idPersonaje', $idPersonaje)->first();
         $personajes = CrearPersonaje::where('id', $idPersonaje)->first();
-        
+        $clase = RegistraClase::where('idPersonaje',$idPersonaje)->first();
         $idPersonajeActualConLaFechaMasReciente = 
         DB::select('SELECT MAX(id) FROM cambios WHERE idPartida = ' . $partidas->id);
         $idP;
@@ -31,13 +31,14 @@ class MostrarPersonajeController extends Controller
             }
         }
         //dd($idP);
+        
         $personajesC = DB::select('SELECT * FROM cambios WHERE idPartida = ' . $partidas->id. ' AND id = ' . $idP);
         /*$personajesC = DB::select('SELECT * FROM cambios AS c1 WHERE NOT EXISTS
         (SELECT * FROM cambios AS c2 WHERE c1.idPartida = c2.idPartida AND c1.fecha > c2.fecha AND id = '. $idP .')');*/        
         //dd($personajes);
         //dd($personajesC);
         
-        return view('personaje', compact('personajes','personajesC','partidas'));
+        return view('personaje', compact('clase','personajes','personajesC','partidas'));
     }
 
     public function mostrarTodos(){

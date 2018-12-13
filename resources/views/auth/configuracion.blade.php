@@ -100,13 +100,13 @@ button.btn.btn-primary{
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
                              <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Nueva Contraseña"  value="" required>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Nueva Contraseña" minlength="6" value="" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Repite contraseña') }}</label>
                              <div class="col-md-6">
-                                <input id="passwordR" type="password" class="form-control" name="passwordR" placeholder="Repite la Contraseña" value="" required>
+                                <input id="passwordR" type="password" class="form-control" name="passwordR" placeholder="Repite la Contraseña" minlength="6" value="" required>
                             </div>
                         </div>
                         <div class="form-group row">

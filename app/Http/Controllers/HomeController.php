@@ -36,7 +36,7 @@ class HomeController extends Controller
         $idUsuario = \Auth::user()->id;
         
         $partidas = RegistraPartida::where('idUsuario','=',$idUsuario)->paginate(3);
-        
+        ;
         $idPersonajesDelUsuario = DB::select('SELECT idPersonaje FROM partidas WHERE idUsuario = ' . $idUsuario . ' ORDER BY rand() LIMIT 3');
         $personajesPaginate = array();
         $clasesPaginate = array();
@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         $arrayTotal = array();
         $contador = 0;
-   
+      
         foreach ($personajesPaginate as $total) {
             
             foreach($total as $tF)
@@ -67,6 +67,7 @@ class HomeController extends Controller
                 $arrayTotal[$contador]['edad'] = $tF->edad;
                 $arrayTotal[$contador]['peso'] = $tF->peso;
                 $arrayTotal[$contador]['sexo'] = $tF->sexo;
+                
             }
             
             $contador++;
@@ -86,10 +87,18 @@ class HomeController extends Controller
             
             $contador++;
          }
-        
+
+
         shuffle($arrayTotal);
         
-
+        // for ($i=0; $i < count($partidas) ; $i++) { 
+        //     for ($j=0; $j < count($arrayTotal) ; $j++) { 
+        //         if($partidas[$i]->idPersonaje == $arrayTotal[$j]['idPersonaje']){
+        //             $arrayTotal[$j]['nickPartida'] = $partidas[$i]->nickPartida;
+        //         }
+        //     }
+        // }
+        
         return view('home',compact('arrayTotal'));
     }
 }

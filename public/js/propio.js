@@ -350,14 +350,14 @@ function tipoArmadura(clase)
   {
   //Guerrero,Barbaro,Paladin ->Armadura de malla pesada
   input.setAttribute('name','armadura');
-  input.setAttribute('value','Armadura de malla pesada');
+  input.setAttribute('value','D malla pesada');
   
   }
   else{
     if(clase == 'Explorador' || clase == 'Bardo' || clase == 'Pícaro'){
       //Explorador,Bardo,Pícaro -> Cuero Medio o Pesado
       input.setAttribute('name','armadura');
-      input.setAttribute('value','Cuero medio o pesado');
+      input.setAttribute('value','De cuero');
   
     }
     else
@@ -366,7 +366,7 @@ function tipoArmadura(clase)
       {
         //Clérigo,Druida,Mago,Hechicero,Monje -> Armadura de Tela
         input.setAttribute('name','armadura');
-        input.setAttribute('value','Armadura de tela');
+        input.setAttribute('value','De tela');
       }
     }
   }

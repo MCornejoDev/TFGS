@@ -43,7 +43,17 @@
 .carousel .carousel-control-prev-icon{
     background-image:url('img/flechaIzq.png') !important;
 }
+
+.carousel-caption>h5
+{
+    color:black !important;
+    position: relative;
+    top: 30px;
+    background-color:#ffffff54 !important;
+}
+
 </style>
+
 
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -56,9 +66,7 @@
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
-                        @endif
-
-                        
+                        @endif                       
                         <div class="container-fluid">
                             <div class="row text-center">
                                 <div class="col-sm-6 col-md-offset-6 col-md-6 col-md-offset-6 col-lg-3">
@@ -111,6 +119,9 @@
                             <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
                             alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
                             </a>
+                            <div class="carousel-caption">
+                                <h5>Personaje: <?php echo($arrayTotal[$i]['nombrePersonaje'])?></h5>
+                            </div>
                         </div>
                     </div>  
                 </div>  
@@ -126,6 +137,9 @@
                             <img class="card-img " src="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>" 
                             alt="<?php echo("img/".$arrayTotal[$i]['raza'].".jpg") ?>">
                             <a>
+                            <div class="carousel-caption">
+                                <h5>Personaje: <?php echo($arrayTotal[$i]['nombrePersonaje'])?></h5>
+                            </div>
                         </div>
                     </div>  
                 </div>

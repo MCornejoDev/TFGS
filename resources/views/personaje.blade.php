@@ -5,6 +5,7 @@
 @auth
 
 <?php
+    
     $nickPartida = $partidas->nickPartida;
     $idPartida = $partidas->id;
     $idPersonaje = $partidas->idPersonaje;
@@ -98,7 +99,14 @@ button.buttonPadding{
     hr.desaparecer{
         display:none !important;
     }
+
+    
    
+}
+.imagenPersonaje > img{
+    border-radius: 50%;
+    width: 170px;
+    height: 170px !important;
 }
 
 @media screen and (min-width:426px) and (max-width:769px){
@@ -106,18 +114,29 @@ button.buttonPadding{
     .imagenPersonaje > img {
         height: 237px;
         border-radius: 50%;
-        width: 150px;
-        height: 150px !important;
+        width: 120px !important;
+        height: 120px !important;
     }
 
     .foo{
         margin-top:30px !important;
         padding-bottom:25px !important;
     }
+
+    label.desaparecer{
+        display:none !important;    
+    }
    
 }
 
 @media screen and (max-width:426px){
+    .imagenPersonaje > img {
+        height: 237px;
+        border-radius: 50%;
+        width: 120px !important;
+        height: 120px !important;
+    }
+
     h3{
         display:none !important;
     }
@@ -139,17 +158,38 @@ button.buttonPadding{
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 col-md-3 col-lg-4 text-center imagenPersonaje" >
-                <label>Nick de partida: {{$partidas->nickPartida}}</label><br/>
+                <!--<label>Nick de partida: {{$partidas->nickPartida}}</label>--><br/>
                 <img src="{{asset($tipoRaza)}}" alt="<?php echo $tipoRaza?>">
                 <p>{{$personajes->personalidad}}</p>
                 <hr class="desaparecer">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <label>Raza: {{$personajes->raza}} ||</label>
-                        <label>Apodo: {{$personajes->apodo}}</label><br/>
+                        <label>Apodo: {{$personajes->apodo}} <label class="desaparecer">||</label></label> 
+                        <label>Sexo: <?php echo $Sexo?></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <label>Nombre: {{$personajes->nombrePersonaje}} <label class="desaparecer">||</label></label>
+                        <label>Clase: <?php echo $clase->tipo?> </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <label>Edad:  </label>
-                        <input class="nivel" type="number" name="edad" id="edad"  value="<?php echo $edad?>" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>"  max="110"> || </label>
-                        <label>Sexo: <?php echo $Sexo?></label><br/>
+                        <input class="nivel" type="number" name="edad" id="edad"  value="<?php echo $edad?>" placeholder="Edad min (<?php echo $edad?>)" min="<?php echo $edad?>"  max="110"> <label class="desaparecer" >||</label> </label>
+                        <label>Armadura: <?php echo $clase->armadura?></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        
+                        <label>Arma: <?php echo $clase->arma?></label>  
+                        <label style="text-align:left !important;">
+                            <?php if($clase->escudo != "")
+                                        {echo (" || Escudo:" . $clase->escudo . " ");}
+                            ?><label class="desaparecer"> </label>
+                        </label>       
                     </div>
                 </div>
             </div>
@@ -223,6 +263,7 @@ button.buttonPadding{
     </div>
     <div class="container-fluid foo" style="display:inline-block!important;" >
         <a class="button4" href="{{ route('mostrarTodos')}}">Volver</a>
+        <a class="button4" href="{{ route('grafica', $idPersonaje) }}">Ver historial</a>
         <div style="float:right !important;"  >
             <a class="button4"><button class="buttonPadding" type="submit">Modificar</button></a>
         </div> 
