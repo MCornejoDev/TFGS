@@ -8,20 +8,20 @@
                 </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li><a>{{ __('header.games') }}</a></li>
-                <li><a>{{ __('header.characters') }}</a></li>
-                <li><a>{{ __('header.tools') }}</a></li>
-                <li><a>{{ __('header.maps') }}</a></li>
+                <li><a><x-heroicon-o-list-bullet class="w-6 h-6" />{{ __('header.games') }}</a></li>
+                <li><a><x-heroicon-o-users class="w-6 h-6" />{{ __('header.characters') }}</a></li>
+                <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
+                <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
             </ul>
         </div>
-        <x-logo :width="75" :height="50" />
+        <x-logo :width="40" :height="25" class="cursor-pointer" :redirectToHomePage="true" />
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a>{{ __('header.games') }}</a></li>
-            <li><a>{{ __('header.characters') }}</a></li>
-            <li><a>{{ __('header.tools') }}</a></li>
-            <li><a>{{ __('header.maps') }}</a></li>
+            <li><a><x-heroicon-o-list-bullet class="w-6 h-6" />{{ __('header.games') }}</a></li>
+            <li><a><x-heroicon-o-users class="w-6 h-6" />{{ __('header.characters') }}</a></li>
+            <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
+            <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
         </ul>
     </div>
     <div class="navbar-end">
@@ -34,12 +34,18 @@
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 <li>
-                    <a class="justify-between">
-                        {{ __('header.profile') }}
+                    <a x-on:click="switchTheme">
+                        <span x-show="theme=='light'" class="flex flex-row gap-2 items-center"><x-heroicon-s-sun
+                                class="w-6 h-6" />Light</span>
+                        <span x-show="theme=='dark'" class="flex flex-row gap-2 items-center"><x-heroicon-s-moon
+                                class="w-6 h-6" />
+                            Dark</span>
                     </a>
                 </li>
-                <li><a> {{ __('header.settings') }} </a></li>
-                <li><a wire:click='logout'>{{ __('header.logout') }}</a></li>
+                <li><a><x-heroicon-o-user class="w-6 h-6 hover:bg-transparent" />{{ __('header.profile') }}</a></li>
+                <li><a><x-heroicon-o-cog-6-tooth class="w-6 h-6" /> {{ __('header.settings') }}</a></li>
+                <li><a wire:click='logout'><x-heroicon-o-arrow-right-on-rectangle
+                            class="w-6 h-6" />{{ __('header.logout') }}</a></li>
             </ul>
         </div>
     </div>

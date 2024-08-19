@@ -1,5 +1,11 @@
-@props(['class' => '', 'width' => 0, 'height' => 0])
+@props(['class' => '', 'width' => 0, 'height' => 0, 'redirectToHomePage' => false])
 
 <div class="{{ $class }}">
-    <img src="http://picsum.photos/{{ $width }}/{{ $height }}" alt="random">
+    @if ($redirectToHomePage)
+        <img src="{{ asset('storage/images/favicon.png') }}" width="{{ $width }}" height="{{ $height }}"
+            alt="Logo" wire:click='redirectToHomePage'>
+    @else
+        <img src="{{ asset('storage/images/favicon.png') }}" width="{{ $width }}" height="{{ $height }}"
+            alt="Logo">
+    @endif
 </div>

@@ -8,6 +8,11 @@ use Livewire\Component;
 class Header extends Component
 {
 
+    public function redirectToHomePage()
+    {
+        redirect()->route('home');
+    }
+
     public function logout()
     {
         (new AuthenticatedSessionController())->destroy(request());
