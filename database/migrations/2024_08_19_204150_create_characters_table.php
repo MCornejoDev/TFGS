@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->increments('id'); // Auto-incrementing primary key
+            $table->foreignIdFor(\App\Models\User::class)->constrained(); // Relación con users
+            $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con games
             $table->string('race', 20); // Character's race with a maximum length of 20 characters
             $table->string('character_name', 50); // Character's name with a maximum length of 50 characters
             $table->string('nickname', 50); // Character's nickname with a maximum length of 50 characters

@@ -13,23 +13,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('character_histories', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(\App\Models\Game::class)->constrained();
-            $table->date('date');
-            $table->string('state', 50);
-
-            // The user can make changes to the character and they will be recorded
-            $table->unsignedTinyInteger('health'); // Character's health, max value 9999 (using unsignedSmallInteger for up to 4 digits)
-            $table->unsignedTinyInteger('age'); // Character's age, max value 255 (using unsignedTinyInteger for up to 3 digits)
-            $table->unsignedTinyInteger('level'); // Character's level, max value 200 (using unsignedSmallInteger for up to 3 digits)
-            $table->unsignedTinyInteger('strength'); // Character's strength, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('dexterity'); // Character's dexterity, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('constitution'); // Character's constitution, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('intelligence'); // Character's intelligence, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('wisdom'); // Character's wisdom, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('charisma'); // Character's charisma, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->text('items'); // Character's items description
-            $table->timestamps();
+            $table->id(); // Auto-incrementing primary keys
+            $table->foreignIdFor(\App\Models\Character::class)->constrained(); // Relación con characters
+            $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con Games
+            $table->string('change_type', 50); // Tipo de cambio (e.g., "Nivel", "Salud", "Item añadido", etc.)
+            $table->text('description')->nullable(); // Descripción del cambio
+            $table->unsignedSmallInteger('previous_value')->nullable(); // Valor antes del cambio
+            $table->unsignedSmallInteger('new_value')->nullable(); // Nuevo valor después del cambio
+            $table->timestamp('change_date')->useCurrent(); // Fecha y hora del cambio
+            $table->timestamps(); // created_at y updated_at
         });
     }
 
