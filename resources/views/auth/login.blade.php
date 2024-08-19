@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>{{ __('header.login') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 class="text-2xl font-bold mb-6">Iniciar Sesión</h2>
+        <h2 class="text-2xl font-bold mb-6">{{ __('header.login') }}</h2>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -51,7 +51,7 @@
             <div>
                 <button type="submit"
                     class="w-full px-4 py-2 bg-indigo-600 text-white font-bold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Iniciar Sesión
+                    {{ __('header.login') }}
                 </button>
             </div>
         </form>

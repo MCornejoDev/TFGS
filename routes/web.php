@@ -89,5 +89,5 @@ Route::group(['middleware' => 'auth'], function () {
     //     'uses' => 'HerramientasController@eliminarCuenta'
     // ]);
 
-    Route::get('logout', [AuthenticatedSessionController::class, 'destroy']);
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
