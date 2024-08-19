@@ -1,13 +1,17 @@
 <?php
 
-use App\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-Route::view('/', 'welcome')->name('home'); //FRONTEND
-Route::get('login', Login::class)->name('login');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+});
 
 // For admin middlewares
 Route::group(['middleware' => 'auth'], function () {
+    Route::view('/', 'welcome')->name('home');
+
     // Route::get('/crear', [
     //     'as' => 'crear',
     //     'uses' => 'CrearPersonajeController@index'
@@ -84,4 +88,6 @@ Route::group(['middleware' => 'auth'], function () {
     //     'as' => 'eliminarCuenta',
     //     'uses' => 'HerramientasController@eliminarCuenta'
     // ]);
+
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy']);
 });
