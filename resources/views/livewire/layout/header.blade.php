@@ -2,24 +2,26 @@
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                 </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 <li><a><x-heroicon-o-list-bullet class="w-6 h-6" />{{ __('header.games') }}</a></li>
-                <li><a><x-heroicon-o-users class="w-6 h-6" />{{ __('header.characters') }}</a></li>
+                <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
+                            class="w-6 h-6" />{{ __('header.characters') }}</a></li>
                 <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
                 <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
             </ul>
         </div>
         <x-logo :width="40" :height="25" class="cursor-pointer" :redirectToHomePage="true" />
     </div>
-    <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
+    <div class="hidden navbar-center lg:flex">
+        <ul class="px-1 menu menu-horizontal">
             <li><a><x-heroicon-o-list-bullet class="w-6 h-6" />{{ __('header.games') }}</a></li>
-            <li><a><x-heroicon-o-users class="w-6 h-6" />{{ __('header.characters') }}</a></li>
+            <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
+                        class="w-6 h-6" />{{ __('header.characters') }}</a></li>
             <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
             <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
         </ul>
@@ -35,9 +37,9 @@
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 <li>
                     <a x-on:click="switchTheme">
-                        <span x-show="theme=='light'" class="flex flex-row gap-2 items-center"><x-heroicon-s-sun
+                        <span x-show="theme=='light'" class="flex flex-row items-center gap-2"><x-heroicon-s-sun
                                 class="w-6 h-6" />Light</span>
-                        <span x-show="theme=='dark'" class="flex flex-row gap-2 items-center"><x-heroicon-s-moon
+                        <span x-show="theme=='dark'" class="flex flex-row items-center gap-2"><x-heroicon-s-moon
                                 class="w-6 h-6" />
                             Dark</span>
                     </a>

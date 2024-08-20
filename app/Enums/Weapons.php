@@ -62,7 +62,7 @@ class Weapons extends Enum
     public static function weaponByCharacterType(string $characterType): array
     {
         return match ($characterType) {
-            'cleric', 'sorcerer', 'wizard', 'monk', 'druid' => array('Staff', 'Scepter', 'Wand'),
+            'cleric', 'sorcerer', 'wizard', 'druid' => array('Staff', 'Scepter', 'Wand'),
             'barbarian', 'warrior', 'paladin' => array('Sword', 'Axe', 'Greatsword', 'Mace', 'Pickaxe', 'Double Swords'),
             'ranger', 'bard', 'rogue' => array('Bow', 'Crossbow'),
             'rogue' => array('Daggers', 'Knives'),

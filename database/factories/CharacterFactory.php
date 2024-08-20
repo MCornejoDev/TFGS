@@ -25,7 +25,7 @@ class CharacterFactory extends Factory
             'user_id' => User::inRandomOrder()->first()->id,
             'game_id' => Game::inRandomOrder()->first()->id,
             'race' => Races::getRandomValue(),
-            'character_name' => $this->faker->name,
+            'name' => $this->faker->name,
             'nickname' => $this->faker->name,
             'age' => $this->faker->numberBetween(1, 255),
             'height' => $this->faker->randomFloat(2, 1, 200),

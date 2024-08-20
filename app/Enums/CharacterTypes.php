@@ -8,7 +8,6 @@ use Spatie\Enum\Enum;
  * @method static self cleric()
  * @method static self sorcerer()
  * @method static self wizard()
- * @method static self monk()
  * @method static self druid()
  * @method static self barbarian()
  * @method static self warrior()
@@ -25,14 +24,13 @@ class CharacterTypes extends Enum
             'cleric' => 1,
             'sorcerer' => 2,
             'wizard' => 3,
-            'monk' => 4,
-            'druid' => 5,
-            'barbarian' => 6,
-            'warrior' => 7,
-            'paladin' => 8,
-            'ranger' => 9,
-            'bard' => 10,
-            'rogue' => 11,
+            'druid' => 4,
+            'barbarian' => 5,
+            'warrior' => 6,
+            'paladin' => 7,
+            'ranger' => 8,
+            'bard' => 9,
+            'rogue' => 10,
         ];
     }
 
@@ -42,7 +40,6 @@ class CharacterTypes extends Enum
             'cleric' => 'Cleric',
             'sorcerer' => 'Sorcerer',
             'wizard' => 'Wizard',
-            'monk' => 'Monk',
             'druid' => 'Druid',
             'barbarian' => 'Barbarian',
             'warrior' => 'Warrior',
@@ -51,6 +48,11 @@ class CharacterTypes extends Enum
             'bard' => 'Bard',
             'rogue' => 'Rogue',
         ];
+    }
+
+    public static function lowerCase(string $value): string
+    {
+        return strtolower(self::from($value)->label);
     }
 
     public static function getRandomValue(): int
