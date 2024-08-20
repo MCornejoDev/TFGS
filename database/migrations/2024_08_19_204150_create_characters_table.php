@@ -20,15 +20,17 @@ return new class extends Migration
             $table->enum('race', Races::toValues());
             $table->string('character_name', 50);
             $table->string('nickname', 50);
-            $table->unsignedTinyInteger('age');
-            $table->decimal('height', 5, 2);
-            $table->decimal('weight', 5, 2);
             $table->boolean('gender');
             $table->text('personality');
             $table->string('skill1', 30);
             $table->string('skill2', 30);
             $table->string('skill3', 30);
             $table->string('skill4', 30);
+
+            // Stats that can be changed
+            $table->unsignedTinyInteger('age');
+            $table->decimal('height', 5, 2);
+            $table->decimal('weight', 5, 2);
             $table->unsignedSmallInteger('health');
             $table->unsignedSmallInteger('level');
             $table->unsignedTinyInteger('strength');
