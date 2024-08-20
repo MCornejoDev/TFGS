@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\Armors;
+use App\Enums\CharacterTypes;
+use App\Enums\Weapons;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,10 @@ class CharacterTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type' => CharacterTypes::getRandomValue(),
+            'weapon' => Weapons::getRandomValue(),
+            'armor' => Armors::getRandomValue(),
+            'shield' => $this->faker->boolean,
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Races;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,31 +14,32 @@ return new class extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained(); // Relación con users
-            $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con games
-            $table->string('race', 20); // Character's race with a maximum length of 20 characters
-            $table->string('character_name', 50); // Character's name with a maximum length of 50 characters
-            $table->string('nickname', 50); // Character's nickname with a maximum length of 50 characters
-            $table->string('height', 10); // Character's height with a maximum length of 10 characters
-            $table->unsignedTinyInteger('age'); // Character's age, max value 255 (using unsignedTinyInteger for up to 3 digits)
-            $table->string('weight', 10); // Character's weight with a maximum length of 10 characters
-            $table->char('gender', 1); // Character's gender, 1 character
-            $table->text('personality'); // Character's personality description
-            $table->string('skill1', 30); // Character's first skill with a maximum length of 30 characters
-            $table->string('skill2', 30); // Character's second skill with a maximum length of 30 characters
-            $table->string('skill3', 30); // Character's third skill with a maximum length of 30 characters
-            $table->string('skill4', 30); // Character's fourth skill with a maximum length of 30 characters
-            $table->unsignedSmallInteger('health'); // Character's health, max value 9999 (using unsignedSmallInteger for up to 4 digits)
-            $table->unsignedSmallInteger('level'); // Character's level, max value 200 (using unsignedSmallInteger for up to 3 digits)
-            $table->unsignedTinyInteger('strength'); // Character's strength, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('dexterity'); // Character's dexterity, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('constitution'); // Character's constitution, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('intelligence'); // Character's intelligence, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('wisdom'); // Character's wisdom, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->unsignedTinyInteger('charisma'); // Character's charisma, max value 99 (using unsignedTinyInteger for up to 2 digits)
-            $table->text('items'); // Character's items description
+            $table->foreignIdFor(\App\Models\CharacterType::class)->constrained();
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->foreignIdFor(\App\Models\Game::class)->constrained();
+            $table->enum('race', Races::toValues());
+            $table->string('character_name', 50);
+            $table->string('nickname', 50);
+            $table->unsignedTinyInteger('age');
+            $table->decimal('height', 5, 2);
+            $table->decimal('weight', 5, 2);
+            $table->boolean('gender');
+            $table->text('personality');
+            $table->string('skill1', 30);
+            $table->string('skill2', 30);
+            $table->string('skill3', 30);
+            $table->string('skill4', 30);
+            $table->unsignedSmallInteger('health');
+            $table->unsignedSmallInteger('level');
+            $table->unsignedTinyInteger('strength');
+            $table->unsignedTinyInteger('dexterity');
+            $table->unsignedTinyInteger('constitution');
+            $table->unsignedTinyInteger('intelligence');
+            $table->unsignedTinyInteger('wisdom');
+            $table->unsignedTinyInteger('charisma');
+            $table->text('items');
 
-            $table->timestamps(); // Adds created_at and updated_at columns
+            $table->timestamps();
         });
     }
 

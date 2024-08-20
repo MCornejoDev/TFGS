@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->string('name', 20);
-            $table->string('link', 50);
+            $table->string('link');
             $table->char('extension', 4);
             $table->timestamps();
         });

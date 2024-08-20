@@ -16,7 +16,6 @@ return new class extends Migration
     {
         Schema::create('character_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Character::class)->constrained();
             $table->enum('type', CharacterTypes::toValues());
             $table->enum('weapon', Weapons::toValues());
             $table->enum('armor', Armors::toValues());

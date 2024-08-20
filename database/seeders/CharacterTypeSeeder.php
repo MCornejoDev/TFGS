@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CharacterType;
 use Illuminate\Database\Seeder;
 
 class CharacterTypeSeeder extends Seeder
@@ -12,6 +12,6 @@ class CharacterTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        CharacterType::factory()->count(10)->create();
     }
 }

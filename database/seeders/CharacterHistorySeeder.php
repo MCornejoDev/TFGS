@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CharacterHistory;
 use Illuminate\Database\Seeder;
 
 class CharacterHistorySeeder extends Seeder
@@ -12,6 +12,6 @@ class CharacterHistorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        CharacterHistory::factory()->count(10)->create();
     }
 }

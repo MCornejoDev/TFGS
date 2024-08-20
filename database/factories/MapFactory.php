@@ -17,7 +17,9 @@ class MapFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'link' => $this->faker->url,
+            'extension' => $this->faker->randomElement(['jpg', 'png', 'gif']),
         ];
     }
 }
