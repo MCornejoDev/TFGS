@@ -29,8 +29,17 @@ class Armors extends Enum
         ];
     }
 
-    public static function armorByCharacterType(string $characterType): array
+    public static function armorByCharacterType(string $characterType): string
     {
-        return [];
+        return match ($characterType) {
+            'barbarian', 'warrior', 'paladin' => 'Heavy Chain Mail',
+            'ranger', 'bard', 'rogue' => 'Medium or Heavy Leather Armor',
+            'cleric', 'sorcerer', 'wizard', 'monk', 'druid' => 'Cloth Armor',
+        };
+    }
+
+    public static function getRandomValue(): int
+    {
+        return self::toValues()[array_rand(self::toValues())];
     }
 }

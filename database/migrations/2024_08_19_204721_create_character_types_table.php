@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Character::class)->constrained();
             $table->enum('type', CharacterTypes::toValues());
             $table->enum('weapon', Weapons::toValues());
-            $table->string('armor', Armors::toValues());
+            $table->enum('armor', Armors::toValues());
             $table->boolean('shield')->default(false);
             $table->timestamps();
         });

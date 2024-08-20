@@ -69,4 +69,9 @@ class Weapons extends Enum
             default => "",
         };
     }
+
+    public static function getRandomValue(): int
+    {
+        return self::toValues()[array_rand(self::toValues())];
+    }
 }

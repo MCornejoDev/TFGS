@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('characters', function (Blueprint $table) {
-            $table->increments('id'); // Auto-incrementing primary key
+            $table->id();
             $table->foreignIdFor(\App\Models\User::class)->constrained(); // Relación con users
             $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con games
             $table->string('race', 20); // Character's race with a maximum length of 20 characters

@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('character_histories', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing primary keys
+            $table->id();
             $table->foreignIdFor(\App\Models\Character::class)->constrained(); // Relación con characters
             $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con Games
             $table->string('change_type', 50); // Tipo de cambio (e.g., "Nivel", "Salud", "Item añadido", etc.)
