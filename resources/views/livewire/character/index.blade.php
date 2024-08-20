@@ -9,9 +9,10 @@
                 <div class="items-center text-center card-body">
                     <h2 class="card-title">{{ $character->name }}</h2>
                     <p>{{ $character->nickname }}</p>
-                    <p class="text-sm">{{ $character->race }}</p>
+                    <p class="text-sm">{{ __('characters.races.' . Str::lower(Str::snake($character->race))) }}</p>
                     <p>{{ $character->gender }}</p>
-                    <p>{{ $character->characterType->type }}</p>
+                    <p>{{ __('characters.characters_types.' . Str::lower(Str::snake($character->characterType->type))) }}
+                    </p>
                     <p class="rounded-full "><img src="{{ $character->characterType->image }}" alt="Character Type"
                             class="w-16 h-16 rounded-full"></p>
                     </p>

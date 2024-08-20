@@ -38,6 +38,5 @@ class CharacterType extends Model
         return Attribute::make(
             get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->type) . '.png'),
         );
-        //return asset('storage/images/character_types/' . CharacterTypes::from($this->type)->label . '.png');
     }
 }
