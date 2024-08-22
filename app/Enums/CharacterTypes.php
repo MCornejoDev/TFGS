@@ -15,6 +15,7 @@ use Spatie\Enum\Enum;
  * @method static self ranger()
  * @method static self bard()
  * @method static self rogue()
+ * @method static self monk()
  */
 class CharacterTypes extends Enum
 {
@@ -31,6 +32,7 @@ class CharacterTypes extends Enum
             'ranger' => 8,
             'bard' => 9,
             'rogue' => 10,
+            'monk' => 11,
         ];
     }
 
@@ -47,7 +49,20 @@ class CharacterTypes extends Enum
             'ranger' => 'Ranger',
             'bard' => 'Bard',
             'rogue' => 'Rogue',
+            'monk' => 'Monk',
         ];
+    }
+
+    public static function withTranslations(): array
+    {
+        $values = self::values();
+        $translations = [];
+
+        foreach ($values as $key => $value) {
+            $translations[$value] = __('characters.characters_types.' . $key);
+        }
+
+        return $translations;
     }
 
     public static function lowerCase(string $value): string

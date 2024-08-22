@@ -3,10 +3,25 @@
 return [
     'characters' => 'Characters',
 
+    'empty' => 'No characters found',
+
     'actions' => [
         'history' => 'History',
         'information' => 'Information',
         'delete' => 'Delete'
+    ],
+
+    'filters' => [
+        'search' => 'Search',
+        'genders' => [
+            'select' => 'Select a gender',
+        ],
+        'races' => [
+            'select' => 'Select a race',
+        ],
+        'characters_types' => [
+            'select' => 'Select a character type',
+        ],
     ],
 
     'genders' => [
@@ -25,6 +40,7 @@ return [
         'ranger' => 'Ranger',
         'bard' => 'Bard',
         'rogue' => 'Rogue',
+        'monk' => 'Monk',
     ],
 
     'races' => [

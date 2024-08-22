@@ -24,7 +24,7 @@ class CharacterType extends Model
     protected function type(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => CharacterTypes::from($value)->label,
+            get: fn() => CharacterTypes::from($this->id)->label,
         );
     }
 
@@ -36,7 +36,7 @@ class CharacterType extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->type) . '.png'),
+            get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->id) . '.png'),
         );
     }
 }

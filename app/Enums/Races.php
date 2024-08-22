@@ -47,6 +47,18 @@ class Races extends Enum
         ];
     }
 
+    public static function withTranslations(): array
+    {
+        $values = self::values();
+        $translations = [];
+
+        foreach ($values as $key => $value) {
+            $translations[$value] = __('characters.races.' . $key);
+        }
+
+        return $translations;
+    }
+
     public static function getRandomValue(): int
     {
         return self::toValues()[array_rand(self::toValues())];

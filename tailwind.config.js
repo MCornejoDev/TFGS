@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,13 +9,12 @@ export default {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'secondary-200': '#FFEDB5', // Un amarillo pálido y suave
-                'secondary-400': '#FFC56B', // Un amarillo más cálido y vibrante
-                'secondary-500': '#FFB347', // Un tono de amarillo/naranja más estándar
-                'secondary-600': '#E89E3A', // Un amarillo/naranja más oscuro
-                'secondary-700': '#D07C28', // Un naranja más profundo
-                'secondary-800': '#B7651B', // Un tono naranja oscuro
-                'secondary-900': '#9C4E12', // Un tono marrón/naranja muy oscuro
+                primary: colors.indigo,
+                secondary: colors.gray,
+                positive: colors.emerald,
+                negative: colors.red,
+                warning: colors.amber,
+                info: colors.blue
             },
         },
     },

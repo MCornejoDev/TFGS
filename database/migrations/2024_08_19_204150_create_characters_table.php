@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('race', Races::toValues());
             $table->string('name', 50);
             $table->string('nickname', 50);
-            $table->boolean('gender');
+            $table->boolean('gender')->default(false); //false = male, true = female
             $table->text('personality');
             $table->string('skill1', 30);
             $table->string('skill2', 30);

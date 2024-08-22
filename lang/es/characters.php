@@ -3,10 +3,25 @@
 return [
     'characters' => 'Personajes',
 
+    'empty' => 'No se encontraron personajes',
+
     'actions' => [
         'history' => 'Historial',
         'information' => 'Información',
         'delete' => 'Borrar',
+    ],
+
+    'filters' => [
+        'search' => 'Buscar',
+        'genders' => [
+            'select' => 'Seleccione un género',
+        ],
+        'races' => [
+            'select' => 'Seleccione una raza',
+        ],
+        'characters_types' => [
+            'select' => 'Seleccione un tipo de personaje',
+        ],
     ],
 
     'genders' => [
@@ -25,6 +40,7 @@ return [
         'ranger' => 'Explorador',
         'bard' => 'Bardo',
         'rogue' => 'Pícaro',
+        'monk' => 'Monje',
     ],
 
     'races' => [
