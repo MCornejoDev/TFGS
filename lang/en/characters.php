@@ -12,7 +12,10 @@ return [
     ],
 
     'filters' => [
-        'search' => 'Search',
+        'title' => 'Filters',
+        'search' => [
+            'placeholder' => 'Search by name, nickname',
+        ],
         'genders' => [
             'select' => 'Select a gender',
         ],
@@ -22,6 +25,28 @@ return [
         'characters_types' => [
             'select' => 'Select a character type',
         ],
+        'actions' => [
+            'loading' => 'Loading...',
+            'clear' => 'Clear',
+        ],
+    ],
+
+    'actions' => [
+        'history' => [
+            'title' => 'History',
+        ],
+        'information' => [
+            'title' => 'Information',
+        ],
+        'delete' => [
+            'btn' => 'Delete',
+            'title' => 'Delete Character',
+            'description' => 'Are you sure you want to delete this character?',
+            'accept' => 'Yes, delete it',
+            'reject' => 'No, cancel',
+            'success' => 'Character deleted successfully',
+            'error' => 'Something went wrong, try again',
+        ],
     ],
 
     'genders' => [
@@ -30,6 +55,9 @@ return [
     ],
 
     'characters_types' => [
+        'title' => 'Character Types',
+        'image' => 'Character Type Image',
+
         'cleric' => 'Cleric',
         'sorcerer' => 'Sorcerer',
         'wizard' => 'Wizard',

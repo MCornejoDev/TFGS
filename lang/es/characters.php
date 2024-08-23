@@ -12,7 +12,10 @@ return [
     ],
 
     'filters' => [
-        'search' => 'Buscar',
+        'title' => 'Filtros',
+        'search' => [
+            'placeholder' => 'Buscar por nombre, apodo',
+        ],
         'genders' => [
             'select' => 'Seleccione un género',
         ],
@@ -22,6 +25,28 @@ return [
         'characters_types' => [
             'select' => 'Seleccione un tipo de personaje',
         ],
+        'actions' => [
+            'loading' => 'Cargando...',
+            'clear' => 'Limpiar',
+        ],
+    ],
+
+    'actions' => [
+        'history' => [
+            'title' => 'Historial',
+        ],
+        'information' => [
+            'title' => 'Información',
+        ],
+        'delete' => [
+            'btn' => 'Eliminar',
+            'title' => 'Eliminar Personaje',
+            'description' => '¿Estás seguro de que quieres eliminar este personaje?',
+            'accept' => 'Sí, eliminarlo',
+            'reject' => 'No, cancelar',
+            'success' => 'Personaje eliminado correctamente',
+            'error' => 'Algo salió mal, inténtalo de nuevo',
+        ],
     ],
 
     'genders' => [
@@ -30,6 +55,10 @@ return [
     ],
 
     'characters_types' => [
+        'title' => 'Tipos de Personaje',
+        'image' => 'Imagen de Tipo de Personaje',
+
+
         'cleric' => 'Clerigo',
         'sorcerer' => 'Hechicero',
         'wizard' => 'Mago',

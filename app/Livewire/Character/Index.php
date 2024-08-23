@@ -8,10 +8,11 @@ use App\Http\Services\CharacterService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
+use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use WithPagination;
+    use WithPagination, WireUiActions;
 
     public string $search = "";
 
@@ -55,6 +56,45 @@ class Index extends Component
     public function setFilter($key, $value)
     {
         $this->filters[$key] = $value;
+    }
+
+    public function clearFilters()
+    {
+        $this->search = "";
+        $this->filters = [
+            'race' => null,
+            'characterType' => null,
+            'gender' => null,
+        ];
+    }
+
+    public function confirm(int $id)
+    {
+        $this->dialog()->confirm([
+            'title' => __('characters.actions.delete.title'),
+            'description' => __('characters.actions.delete.description'),
+            'icon' => 'trash',
+            'accept' => [
+                'label' => __('characters.actions.delete.accept'),
+                'method' => 'remove',
+                'params' => $id,
+                'class' => 'bg-red-500 text-white hover:bg-red-600 hover:text-white',
+            ],
+            'reject' => [
+                'label' => __('characters.actions.delete.reject'),
+            ],
+        ]);
+    }
+
+    public function remove(int $id)
+    {
+        $result = CharacterService::remove($id);
+
+        if ($result) {
+            $this->dialog()->success(__('characters.actions.delete.success'));
+        } else {
+            $this->dialog()->error(__('characters.actions.delete.error'));
+        }
     }
 
     public function render()

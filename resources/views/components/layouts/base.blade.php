@@ -37,6 +37,7 @@
         </div>
     </div>
     @livewire('layout.footer')
+    <x-dialog z-index="z-50" blur="md" align="center" />
     @include('components.livewire.scripts')
 </body>
 

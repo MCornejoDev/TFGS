@@ -2,10 +2,10 @@
 
 namespace App\Http\Services;
 
-use App\Enums\CharacterTypes;
-use App\Enums\Races;
 use App\Models\Character;
+use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CharacterService
 {
@@ -31,5 +31,17 @@ class CharacterService
             });
 
         return $query->orderBy('id', 'desc')->paginate(8);
+    }
+
+    public static function remove(int $id): bool
+    {
+        try {
+            return Character::find($id)->delete();
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            Log::error($e->getTraceAsString());
+
+            return false;
+        }
     }
 }
