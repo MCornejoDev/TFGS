@@ -38,8 +38,7 @@ class CharacterService
         try {
             return Character::find($id)->delete();
         } catch (Exception $e) {
-            Log::error($e->getMessage());
-            Log::error($e->getTraceAsString());
+            error_log($e);
 
             return false;
         }
