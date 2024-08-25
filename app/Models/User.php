@@ -44,4 +44,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Definir la relación many-to-many con el modelo Game
+    public function games()
+    {
+        // Especificar la tabla pivote 'users_games'
+        return $this->belongsToMany(Game::class, 'users_games', 'user_id', 'game_id');
+    }
 }
