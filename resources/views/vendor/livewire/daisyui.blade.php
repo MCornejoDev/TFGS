@@ -7,15 +7,15 @@
                     {!! __('pagination.previous') !!}
                 </button>
             @else
-                <a href="{{ $paginator->previousPageUrl() }}" class="join-item btn">
+                <button wire:click="previousPage" wire:loading.attr="disabled" class="join-item btn">
                     {!! __('pagination.previous') !!}
-                </a>
+                </button>
             @endif
 
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" class="ml-3 join-item btn">
+                <button wire:click="nextPage" wire:loading.attr="disabled" class="ml-3 join-item btn">
                     {!! __('pagination.next') !!}
-                </a>
+                </button>
             @else
                 <button class="ml-3 cursor-default join-item btn" disabled>
                     {!! __('pagination.next') !!}
@@ -26,17 +26,17 @@
         {{-- Desktop Version --}}
         <div class="flex-col items-center justify-between hidden w-full gap-4 sm:flex">
             <div>
-                <span class="text-sm text-gray-700 dark:text-gray-400">
+                <span class="text-sm font-bold">
                     {!! __('pagination.showing') !!}
                     @if ($paginator->firstItem())
-                        <span class="font-medium">{{ $paginator->firstItem() }}</span>
+                        <span class="font-bold">{{ $paginator->firstItem() }}</span>
                         {!! __('pagination.to') !!}
-                        <span class="font-medium">{{ $paginator->lastItem() }}</span>
+                        <span class="font-bold">{{ $paginator->lastItem() }}</span>
                     @else
                         {{ $paginator->count() }}
                     @endif
                     {!! __('pagination.of') !!}
-                    <span class="font-medium">{{ $paginator->total() }}</span>
+                    <span class="font-bold">{{ $paginator->total() }}</span>
                     {!! __('pagination.results') !!}
                 </span>
             </div>
@@ -48,9 +48,9 @@
                         {!! __('pagination.previous') !!}
                     </button>
                 @else
-                    <a href="{{ $paginator->previousPageUrl() }}" class="join-item btn">
+                    <button wire:click="previousPage" wire:loading.attr="disabled" class="join-item btn">
                         {!! __('pagination.previous') !!}
-                    </a>
+                    </button>
                 @endif
 
                 {{-- Pagination Elements --}}
@@ -66,7 +66,9 @@
                             @if ($page == $paginator->currentPage())
                                 <button class="join-item btn btn-active">{{ $page }}</button>
                             @else
-                                <a href="{{ $url }}" class="join-item btn">{{ $page }}</a>
+                                <button wire:click="gotoPage({{ $page }})" class="join-item btn">
+                                    {{ $page }}
+                                </button>
                             @endif
                         @endforeach
                     @endif
@@ -74,9 +76,9 @@
 
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
-                    <a href="{{ $paginator->nextPageUrl() }}" class="join-item btn">
+                    <button wire:click="nextPage" wire:loading.attr="disabled" class="join-item btn">
                         {!! __('pagination.next') !!}
-                    </a>
+                    </button>
                 @else
                     <button class="cursor-default join-item btn" disabled>
                         {!! __('pagination.next') !!}
