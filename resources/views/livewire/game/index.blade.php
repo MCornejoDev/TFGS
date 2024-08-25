@@ -1,5 +1,4 @@
 <div class="space-y-4">
-
     <div class="overflow-x-auto">
         <table class="table text-center text-white">
             <thead>
