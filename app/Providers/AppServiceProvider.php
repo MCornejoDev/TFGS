@@ -18,8 +18,5 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        Paginator::defaultView('pagination::daisyui');
-    }
+    public function boot(): void {}
 }
