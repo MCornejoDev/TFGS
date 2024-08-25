@@ -65,10 +65,5 @@
             </div>
         @endforelse
     </div>
-    <div @class([
-        'md:absolute md:bottom-0 md:left-0 md:right-0 md:px-10 md:py-10' =>
-            $this->characters->count() <= 4,
-    ])>
-        {{ $this->characters->links() }}
-    </div>
+    <x-livewire.pagination :items="$this->characters" :count="4" />
 </div>

@@ -15,9 +15,15 @@ class UserGameSeeder extends Seeder
     public function run(): void
     {
         $userId = User::where('name', 'Test User')->first()->id;
-        DB::table('users_games')->insert([
-            'user_id' => $userId,
-            'game_id' => Game::inRandomOrder()->first()->id,
-        ]);
+        $games = Game::all();
+        $userGames = [];
+
+        foreach ($games as $game) {
+            $userGames[] = [
+                'user_id' => $userId,
+                'game_id' => $game->id,
+            ];
+        }
+        DB::table('users_games')->insert($userGames);
     }
 }

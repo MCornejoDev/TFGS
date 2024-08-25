@@ -16,6 +16,17 @@ class GameService
             $query->where('user_id', Auth::id());
         });
 
-        return $query->orderBy('id', 'desc')->paginate(8);
+        return $query->orderBy('id', 'desc')->paginate(10);
+    }
+
+    public static function remove(int $id): bool
+    {
+        try {
+            return Game::find($id)->delete();
+        } catch (Exception $e) {
+            error_log($e);
+
+            return false;
+        }
     }
 }
