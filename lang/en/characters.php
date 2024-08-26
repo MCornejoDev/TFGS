@@ -5,6 +5,15 @@ return [
 
     'empty' => 'No characters found',
 
+    'table' => [
+        'name' => 'Name',
+        'nickname' => 'Nickname',
+        'race' => 'Race',
+        'gender' => 'Gender',
+        'character_type' => 'Character Type',
+        'actions' => 'Actions',
+    ],
+
     'actions' => [
         'history' => 'History',
         'information' => 'Information',

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CharacterService
 {
-    public static function getCharacters(string $search = "", array $filters)
+    public static function getCharacters(string $search = "", array $filters, string $sortField = 'name', string $sortDirection = 'asc')
     {
         $query = Character::query();
 
@@ -29,7 +29,7 @@ class CharacterService
                 $query->where('gender', $filters['gender']);
             });
 
-        return $query->orderBy('id', 'desc')->paginate(8);
+        return $query->orderBy($sortField, $sortDirection)->paginate(8);
     }
 
     public static function remove(int $id): bool

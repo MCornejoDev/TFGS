@@ -5,6 +5,15 @@ return [
 
     'empty' => 'No se encontraron personajes',
 
+    'table' => [
+        'name' => 'Nombre',
+        'nickname' => 'Apodo',
+        'race' => 'Raza',
+        'gender' => 'Género',
+        'character_type' => 'Tipo de Personaje',
+        'action' => 'Acciones',
+    ],
+
     'actions' => [
         'history' => 'Historial',
         'information' => 'Información',

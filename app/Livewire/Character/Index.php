@@ -22,14 +22,24 @@ class Index extends Component
         'gender' => null,
     ];
 
+    public $sortField = 'name';
+    public $sortDirection = 'asc';
+
     protected $queryString = [
         'search' => ['except' => ''],
     ];
 
+    public function sortBy(string $field)
+    {
+        $this->sortField = $field;
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        $this->resetPage();
+    }
+
     #[Computed()]
     public function characters()
     {
-        return CharacterService::getCharacters($this->search, $this->filters);
+        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection);
     }
 
     #[Computed()]
@@ -56,6 +66,7 @@ class Index extends Component
     public function setFilter($key, $value)
     {
         $this->filters[$key] = $value;
+        $this->resetPage();
     }
 
     public function clearFilters()
@@ -66,6 +77,7 @@ class Index extends Component
             'characterType' => null,
             'gender' => null,
         ];
+        $this->resetPage();
     }
 
     public function confirm(int $id)
