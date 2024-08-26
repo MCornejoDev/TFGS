@@ -12,11 +12,21 @@ class Index extends Component
 {
     use WithPagination, WireUiActions;
 
+    public $search = '';
+    public $filters = [];
+    public $sortField = 'name';
+    public $sortDirection = 'asc';
 
     #[Computed()]
     public function games()
     {
-        return GameService::getGames();
+        return GameService::getGames($this->search, $this->filters, $this->sortField, $this->sortDirection);
+    }
+
+    public function sortBy(string $field)
+    {
+        $this->sortField = $field;
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
     }
 
     public function confirm(int $id)
