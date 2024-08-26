@@ -6,7 +6,6 @@
                 <option value="{{ $key }}">{{ $item }}</option>
             @endforeach
         </select>
-
     </div>
-    <x-mini-button x-on:click="clearFilter" negative icon="x-mark" flat />
+    <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter('{{ $filter }}')" />
 </div>

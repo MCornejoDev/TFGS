@@ -1,7 +1,8 @@
 <div class="space-y-4">
     <div class="space-y-4">
         <h1>{{ __('characters.filters.title') }}</h1>
-        <div class="grid gap-4 justify-items-center md:grid-cols-3 lg:grid-cols-6" x-data="filterForm()">
+        <div class="grid gap-4 justify-items-center md:grid-cols-3 lg:grid-cols-6" x-data="filterForm()"
+            x-ref="filterForm">
             <input type="text" placeholder="{{ __('characters.filters.search.placeholder') }}"
                 class="w-full max-w-xs input input-bordered" wire:model.live="search" />
             <x-livewire.select :data="$this->races" label="{{ __('characters.filters.races.select') }}" filter="race" />
