@@ -17,5 +17,8 @@ return [
     'password' => 'La contraseña proporcionada es incorrecta.',
     'throttle' => 'Demasiados intentos de inicio de sesión. Por favor, inténtelo de nuevo en :seconds segundos.',
 
-
+    'mail' => 'Correo Electrónico',
+    'pass' => 'Contraseña',
+    'remember' => 'Recordarme',
+    'forgot' => '¿Olvidaste tu contraseña?',
 ];

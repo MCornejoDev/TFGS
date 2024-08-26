@@ -27,9 +27,9 @@
 
             <!-- Email -->
             <div class="mb-4">
-                <label for="email" class="block text-sm font-medium">Correo Electrónico</label>
+                <label for="email" class="block text-sm font-medium">{{ __('auth.mail') }}</label>
                 <input id="email" name="email" type="email" required autofocus
-                    class="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     value="{{ old('email') }}" />
                 @error('email')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -38,9 +38,9 @@
 
             <!-- Password -->
             <div class="mb-6">
-                <label for="password" class="block text-sm font-medium">Contraseña</label>
+                <label for="password" class="block text-sm font-medium">{{ __('auth.pass') }}</label>
                 <input id="password" name="password" type="password" required
-                    class="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                 @error('password')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -51,7 +51,7 @@
                 <input id="remember_me" name="remember" type="checkbox"
                     class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
                 <label for="remember_me" class="block ml-2 text-sm ">
-                    Recordarme
+                    {{ __('auth.remember') }}
                 </label>
             </div>
 
@@ -68,8 +68,8 @@
         @if (Route::has('password.request'))
             <div class="mt-4 text-center">
                 <a href="{{ route('password.request') }}"
-                    class="text-sm font-medium text-indigo-600 hover:text-indigo-700">
-                    Olvidaste tu contraseña?
+                    class="text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+                    {{ __('auth.forgot') }}
                 </a>
             </div>
         @endif
