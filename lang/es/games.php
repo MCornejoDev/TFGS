@@ -9,6 +9,7 @@ return [
         'name' => 'Nombre',
         'date_start' => 'Fecha de inicio',
         'comments' => 'Comentarios',
+        'users' => 'Jugadores en la partida',
         'actions' => 'Acciones',
     ],
 

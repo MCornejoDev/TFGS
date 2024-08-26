@@ -1,8 +1,8 @@
 <div class="space-y-4">
     <div class="overflow-x-auto">
-        <table class="table text-center">
+        <table class="table text-center border border-base-content/30">
             <thead>
-                <tr x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
+                <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('games.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
                         <x-livewire.theading :label="__('games.table.name')" id="name" />
@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 @forelse ($this->games as $game)
-                    <tr>
+                    <tr class="border border-base-content/30">
                         <td class="flex items-center justify-center gap-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info />

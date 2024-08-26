@@ -9,6 +9,7 @@ return [
         'name' => 'Name',
         'date_start' => 'Date Start',
         'comments' => 'Comments',
+        'users' => 'Players in the game',
         'actions' => 'Actions',
     ],
 
