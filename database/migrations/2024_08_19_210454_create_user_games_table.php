@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('users_games', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained();
-            $table->foreignIdFor(\App\Models\Game::class)->constrained();
+            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Game::class)->constrained()->cascadeOnDelete();
             $table->unique(['user_id', 'game_id']);
         });
     }

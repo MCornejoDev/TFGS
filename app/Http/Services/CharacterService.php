@@ -37,7 +37,7 @@ class CharacterService
         try {
             return Character::find($id)->delete();
         } catch (Exception $e) {
-            error_log($e);
+            log_error($e);
 
             return false;
         }

@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('character_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Character::class)->constrained()->cascadeOnDelete(); // Relación con characters
-            $table->foreignIdFor(\App\Models\Game::class)->constrained(); // Relación con Games
+            $table->foreignIdFor(\App\Models\Game::class)->constrained()->cascadeOnDelete(); // Relación con Games
             $table->string('change_type', 50); // Tipo de cambio (e.g., "Nivel", "Salud", "Item añadido", etc.)
             $table->text('description')->nullable(); // Descripción del cambio
             $table->unsignedSmallInteger('previous_value')->nullable(); // Valor antes del cambio

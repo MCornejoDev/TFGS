@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Models\Game;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class GameService
 {
@@ -24,7 +25,7 @@ class GameService
         try {
             return Game::find($id)->delete();
         } catch (Exception $e) {
-            error_log($e);
+            log_error($e);
 
             return false;
         }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\CharacterType::class)->constrained();
             $table->foreignIdFor(\App\Models\User::class)->constrained();
-            $table->foreignIdFor(\App\Models\Game::class)->constrained();
+            $table->foreignIdFor(\App\Models\Game::class)->nullable()->constrained()->nullOnDelete();
             $table->enum('race', Races::toValues());
             $table->string('name', 50);
             $table->string('nickname', 50);
