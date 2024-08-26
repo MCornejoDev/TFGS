@@ -29,7 +29,7 @@
 
 <body>
     @livewire('layout.header')
-    {{-- @includeWhen(!request()->routeIs('home'), 'components.livewire.breadcrumbs') --}}
+    @includeWhen(!request()->routeIs('home'), 'components.livewire.breadcrumbs')
     <div
         class="relative flex flex-col min-h-screen pb-8 bg-center sm:flex sm:justify-center sm:items-center bg-dots selection:bg-indigo-500 selection:text-white">
         <div class="flex-grow w-full px-4 sm:px-6 lg:px-8">
