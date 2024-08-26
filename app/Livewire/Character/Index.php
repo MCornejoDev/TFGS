@@ -91,9 +91,17 @@ class Index extends Component
         $result = CharacterService::remove($id);
 
         if ($result) {
-            $this->dialog()->success(__('characters.actions.delete.success'));
+            $this->notification()->send([
+                'icon' => 'success',
+                'title' => __('characters.actions.delete.success.title'),
+                'description' => __('characters.actions.delete.success.description'),
+            ]);
         } else {
-            $this->dialog()->error(__('characters.actions.delete.error'));
+            $this->notification()->send([
+                'icon' => 'error',
+                'title' => __('characters.actions.delete.error.title'),
+                'description' => __('characters.actions.delete.error.description'),
+            ]);
         }
     }
 

@@ -44,8 +44,14 @@ return [
             'description' => 'Are you sure you want to delete this character?',
             'accept' => 'Yes, delete it',
             'reject' => 'No, cancel',
-            'success' => 'Character deleted successfully',
-            'error' => 'Something went wrong, try again',
+            'success' => [
+                'title' => 'Character deleted successfully',
+                'description' => 'The character has been deleted successfully',
+            ],
+            'error' => [
+                'title' => 'Something went wrong, try again',
+                'description' => 'The character could not be deleted',
+            ],
         ],
     ],
 

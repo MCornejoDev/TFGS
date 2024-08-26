@@ -44,8 +44,14 @@ return [
             'description' => '¿Estás seguro de que quieres eliminar este personaje?',
             'accept' => 'Sí, eliminarlo',
             'reject' => 'No, cancelar',
-            'success' => 'Personaje eliminado correctamente',
-            'error' => 'Algo salió mal, inténtalo de nuevo',
+            'success' => [
+                'title' => 'Personaje eliminado correctamente',
+                'description' => 'El personaje ha sido eliminado correctamente',
+            ],
+            'error' => [
+                'title' => 'Algo salió mal, inténtalo de nuevo',
+                'description' => 'El personaje no pudo ser eliminado',
+            ],
         ],
     ],
 
