@@ -36,6 +36,11 @@ class Index extends Component
         $this->resetPage();
     }
 
+    public function loadRecords()
+    {
+        return $this->characters;
+    }
+
     #[Computed()]
     public function characters()
     {
