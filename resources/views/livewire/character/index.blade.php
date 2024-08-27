@@ -56,7 +56,7 @@
                 </tr>
             </thead>
             <tbody wire:init="loadRecords">
-                <tr wire:loading wire:target="loadRecords">
+                <tr wire:loading wire:target="loadRecords" wire:loading.class="!table-row">
                     <td colspan="6" class="py-4 text-center">
                         <span class="w-5 mr-2 loading loading-spinner"></span>
                         <span>{{ __('characters.filters.actions.loading') }}</span>

@@ -1,5 +1,5 @@
 <div @class([
-    'md:absolute md:bottom-0 md:left-0 md:right-0 md:px-10 md:py-10' =>
+    'lg:absolute lg:bottom-0 lg:left-0 lg:right-0 lg:px-10 lg:py-10' =>
         $items->count() <= $count,
 ])>
     {{ $items->links('livewire::daisyui') }}
