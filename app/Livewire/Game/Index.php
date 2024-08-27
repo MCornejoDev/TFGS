@@ -22,6 +22,11 @@ class Index extends Component
         'search' => ['except' => ''],
     ];
 
+    public function loadRecords()
+    {
+        return $this->games;
+    }
+
     #[Computed()]
     public function games()
     {

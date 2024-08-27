@@ -16,9 +16,10 @@
                     <th class="font-bold text-md">{{ __('games.table.users') }}</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody wire:init="loadRecords">
+                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('games.filters.actions.loading')" />
                 @forelse ($this->games as $game)
-                    <tr class="border border-base-content/30">
+                    <tr class="border border-base-content/30" wire:loading.remove wire:target="loadRecords">
                         <td class="space-y-2 md:space-x-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info />
@@ -44,9 +45,9 @@
                         </td>
                     </tr>
                 @empty
-                    <div class="flex items-center justify-center">
-                        {{ __('games.empty') }}
-                    </div>
+                    <tr class="font-bold border border-base-content/30" wire:loading.remove wire:target="loadRecords">
+                        <td colspan="6" class="py-4 text-center">{{ __('games.empty') }}</td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>

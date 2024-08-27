@@ -13,6 +13,15 @@ return [
         'actions' => 'Actions',
     ],
 
+    'filters' => [
+        'title' => 'Filters',
+
+        'actions' => [
+            'loading' => 'Loading...',
+            'clear' => 'Clear',
+        ],
+    ],
+
     'actions' => [
         'delete' => [
             'title' => 'Delete Game',
