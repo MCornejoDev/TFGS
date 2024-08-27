@@ -16,6 +16,11 @@ class Index extends Component
     public $filters = [];
     public $sortField = 'name';
     public $sortDirection = 'asc';
+    public $playersToShow = 1;
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+    ];
 
     #[Computed()]
     public function games()

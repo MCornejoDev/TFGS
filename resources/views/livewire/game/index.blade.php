@@ -19,7 +19,7 @@
             <tbody>
                 @forelse ($this->games as $game)
                     <tr class="border border-base-content/30">
-                        <td class="flex items-center justify-center gap-2">
+                        <td class="space-y-2 md:space-x-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info />
                             <x-button icon="trash" rounded class="bg-base-100" negative
@@ -30,11 +30,16 @@
                         <td>{{ $game->comments }}</td>
                         <td>
                             <div class="flex items-center justify-center -space-x-4">
-                                @foreach ($game->users as $user)
-                                    <x-avatar src="{{ 'https://picsum.photos/200/300?random=' . $user->id }}" />
-                                    <x-avatar src="{{ 'https://picsum.photos/200/300?random=' . $user->id }}" />
-                                    <x-avatar src="{{ 'https://picsum.photos/200/300?random=' . $user->id }}" />
+                                @foreach ($game->users->take($this->playersToShow) as $user)
+                                    <x-avatar md src="{{ 'https://picsum.photos/200/300?random=' . $user->id }}" />
                                 @endforeach
+                                @if ($game->users->count() > $this->playersToShow)
+                                    <x-avatar md>
+                                        <x-slot name="label" class="!text-black !font-extrabold italic">
+                                            +{{ $game->users->count() - $this->playersToShow }}
+                                        </x-slot>
+                                    </x-avatar>
+                                @endif
                             </div>
                         </td>
                     </tr>

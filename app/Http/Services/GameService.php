@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class GameService
 {
-    public static function getGames(string $search = "", array $filters = [], string $sortBy = 'name', string $sort = 'asc')
+    public static function getGames(string $search = "", array $filters = [], string $sortField = 'name', string $sortDirection = 'asc')
     {
         $query = Game::query();
 
@@ -17,7 +17,7 @@ class GameService
             $query->where('user_id', Auth::id());
         });
 
-        return $query->orderBy($sortBy, $sort)->paginate(10);
+        return $query->orderBy($sortField, $sortDirection)->paginate(10);
     }
 
     public static function remove(int $id): bool
