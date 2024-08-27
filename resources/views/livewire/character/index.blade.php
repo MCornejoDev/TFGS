@@ -36,22 +36,22 @@
     <div class="space-y-4 overflow-x-auto">
         <table class="table text-center border border-base-content/30">
             <thead>
-                <tr class="border border-base-content/30">
+                <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('characters.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
-                        {{ __('characters.table.name') }}
+                        <x-livewire.theading :label="__('characters.table.name')" id="name" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('nickname')">
-                        {{ __('characters.table.nickname') }}
+                        <x-livewire.theading :label="__('characters.table.nickname')" id="nickname" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('race')">
-                        {{ __('characters.table.race') }}
+                        <x-livewire.theading :label="__('characters.table.race')" id="race" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('gender')">
-                        {{ __('characters.table.gender') }}
+                        <x-livewire.theading :label="__('characters.table.gender')" id="gender" />
                     </th>
-                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('characterType')">
-                        {{ __('characters.table.character_type') }}
+                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('character_type_id')">
+                        <x-livewire.theading :label="__('characters.table.character_type')" id="character_type_id" />
                     </th>
                 </tr>
             </thead>
