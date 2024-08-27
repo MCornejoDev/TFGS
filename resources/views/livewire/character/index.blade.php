@@ -13,12 +13,12 @@
                     <div class="flex flex-col gap-4">
                         <input type="text" placeholder="{{ __('characters.filters.search.placeholder') }}"
                             class="w-full input input-bordered" wire:model.live="search" />
-                        <x-livewire.select :data="$this->races" label="{{ __('characters.filters.races.select') }}"
+                        <x-livewire.filters.select :data="$this->races" label="{{ __('characters.filters.races.select') }}"
                             filter="race" />
-                        <x-livewire.select :data="$this->characterTypes"
+                        <x-livewire.filters.select :data="$this->characterTypes"
                             label="{{ __('characters.filters.characters_types.select') }}" filter="characterType" />
-                        <x-livewire.select :data="$this->genders" label="{{ __('characters.filters.genders.select') }}"
-                            filter="gender" />
+                        <x-livewire.filters.select :data="$this->genders"
+                            label="{{ __('characters.filters.genders.select') }}" filter="gender" />
 
                         <button type="button" class="w-full btn input-bordered md:w-auto" x-on:click="clearFilters">
                             <div x-show="loading" class="flex items-center gap-2">
@@ -39,29 +39,24 @@
                 <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('characters.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
-                        <x-livewire.theading :label="__('characters.table.name')" id="name" />
+                        <x-livewire.tables.theading :label="__('characters.table.name')" id="name" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('nickname')">
-                        <x-livewire.theading :label="__('characters.table.nickname')" id="nickname" />
+                        <x-livewire.tables.theading :label="__('characters.table.nickname')" id="nickname" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('race')">
-                        <x-livewire.theading :label="__('characters.table.race')" id="race" />
+                        <x-livewire.tables.theading :label="__('characters.table.race')" id="race" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('gender')">
-                        <x-livewire.theading :label="__('characters.table.gender')" id="gender" />
+                        <x-livewire.tables.theading :label="__('characters.table.gender')" id="gender" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('character_type_id')">
-                        <x-livewire.theading :label="__('characters.table.character_type')" id="character_type_id" />
+                        <x-livewire.tables.theading :label="__('characters.table.character_type')" id="character_type_id" />
                     </th>
                 </tr>
             </thead>
             <tbody wire:init="loadRecords">
-                <tr wire:loading wire:target="loadRecords" wire:loading.class="!table-row">
-                    <td colspan="6" class="py-4 text-center">
-                        <span class="w-5 mr-2 loading loading-spinner"></span>
-                        <span>{{ __('characters.filters.actions.loading') }}</span>
-                    </td>
-                </tr>
+                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('characters.filters.actions.loading')" />
 
                 @forelse ($this->characters as $character)
                     <tr class="border border-base-content/30" wire:loading.remove wire:target="loadRecords">

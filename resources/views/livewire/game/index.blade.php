@@ -5,13 +5,13 @@
                 <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('games.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
-                        <x-livewire.theading :label="__('games.table.name')" id="name" />
+                        <x-livewire.tables.theading :label="__('games.table.name')" id="name" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('date_start')">
-                        <x-livewire.theading :label="__('games.table.date_start')" id="date_start" />
+                        <x-livewire.tables.theading :label="__('games.table.date_start')" id="date_start" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('comments')">
-                        <x-livewire.theading :label="__('games.table.comments')" id="comments" />
+                        <x-livewire.tables.theading :label="__('games.table.comments')" id="comments" />
                     </th>
                     <th class="font-bold text-md">{{ __('games.table.users') }}</th>
                 </tr>
