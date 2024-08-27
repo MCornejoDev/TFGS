@@ -1,37 +1,7 @@
 <div class="space-y-4">
-    <div class="flex items-center justify-end">
-
-        <div x-data="{ open: false }" class="relative">
-            <button @click="open = !open" class="btn btn-primary">
-                {{ __('characters.filters.title') }}
-            </button>
-
-            <div x-show="open" @click.away="open = false"
-                class="absolute right-0 z-10 mt-2 border rounded shadow-lg w-72 bg-base-100 md:w-96 border-base-content/30">
-                <div class="p-4 space-y-4" x-data="filterForm()" x-ref="filterForm">
-                    <h1 class="font-bold">{{ __('characters.filters.title') }}</h1>
-                    <div class="flex flex-col gap-4">
-                        <input type="text" placeholder="{{ __('characters.filters.search.placeholder') }}"
-                            class="w-full input input-bordered" wire:model.live="search" />
-                        <x-livewire.filters.select :data="$this->races" label="{{ __('characters.filters.races.select') }}"
-                            filter="race" />
-                        <x-livewire.filters.select :data="$this->characterTypes"
-                            label="{{ __('characters.filters.characters_types.select') }}" filter="characterType" />
-                        <x-livewire.filters.select :data="$this->genders"
-                            label="{{ __('characters.filters.genders.select') }}" filter="gender" />
-
-                        <button type="button" class="w-full btn input-bordered md:w-auto" x-on:click="clearFilters">
-                            <div x-show="loading" class="flex items-center gap-2">
-                                <span class="w-5 loading loading-spinner"></span>
-                                <span>{{ __('characters.filters.actions.loading') }}</span>
-                            </div>
-                            <div x-show="!loading">{{ __('characters.filters.actions.clear') }}</div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-livewire.filters.index title="{{ __('characters.filters.title') }}" :filters="$this->allFilters()"
+        labelLoading="{{ __('characters.filters.actions.loading') }}"
+        labelClear="{{ __('characters.filters.actions.clear') }}" />
 
     <div class="space-y-4 overflow-x-auto">
         <table class="table text-center border border-base-content/30">

@@ -68,6 +68,35 @@ class Index extends Component
         ];
     }
 
+    #[Computed()]
+    public function allFilters()
+    {
+        return [
+            [
+                'type' => 'text',
+                'label' => __('characters.filters.search.placeholder'),
+            ],
+            [
+                'type' => 'select',
+                'data' => $this->races,
+                'label' => __('characters.filters.races.select'),
+                'filter' => 'race',
+            ],
+            [
+                'type' => 'select',
+                'data' => $this->characterTypes,
+                'label' => __('characters.filters.characters_types.select'),
+                'filter' => 'characterType',
+            ],
+            [
+                'type' => 'select',
+                'data' => $this->genders,
+                'label' => __('characters.filters.genders.select'),
+                'filter' => 'gender',
+            ]
+        ];
+    }
+
     public function setFilter($key, $value)
     {
         $this->filters[$key] = $value;
