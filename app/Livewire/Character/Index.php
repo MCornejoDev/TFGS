@@ -42,33 +42,6 @@ class Index extends Component
     }
 
     #[Computed()]
-    public function characters()
-    {
-        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection);
-    }
-
-    #[Computed()]
-    public function races()
-    {
-        return Races::withTranslations();
-    }
-
-    #[Computed()]
-    public function characterTypes()
-    {
-        return CharacterTypes::withTranslations();
-    }
-
-    #[Computed()]
-    public function genders()
-    {
-        return [
-            false => __('characters.genders.male'),
-            true => __('characters.genders.female'),
-        ];
-    }
-
-    #[Computed()]
     public function allFilters()
     {
         return [
@@ -106,12 +79,35 @@ class Index extends Component
     public function clearFilters()
     {
         $this->search = "";
-        $this->filters = [
-            'race' => null,
-            'characterType' => null,
-            'gender' => null,
-        ];
+        $this->reset();
         $this->resetPage();
+    }
+
+    #[Computed()]
+    public function characters()
+    {
+        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection);
+    }
+
+    #[Computed()]
+    public function races()
+    {
+        return Races::withTranslations();
+    }
+
+    #[Computed()]
+    public function characterTypes()
+    {
+        return CharacterTypes::withTranslations();
+    }
+
+    #[Computed()]
+    public function genders()
+    {
+        return [
+            false => __('characters.genders.male'),
+            true => __('characters.genders.female'),
+        ];
     }
 
     public function confirm(int $id)

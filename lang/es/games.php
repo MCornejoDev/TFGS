@@ -3,7 +3,7 @@
 return [
     'games' => 'Partidas',
 
-    'empty' => 'Sin partidas encontradas',
+    'empty' => 'No se encontraron partidas',
 
     'table' => [
         'name' => 'Nombre',
@@ -15,7 +15,13 @@ return [
 
     'filters' => [
         'title' => 'Filtros',
-
+        'search' => [
+            'placeholder' => 'Buscar por nombre, comentarios',
+        ],
+        'date_start' => [
+            'label' => 'Fecha de inicio',
+            'placeholder' => 'Fecha de inicio',
+        ],
         'actions' => [
             'loading' => 'Cargando...',
             'clear' => 'Limpiar',

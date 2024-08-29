@@ -13,7 +13,11 @@ class Index extends Component
     use WithPagination, WireUiActions;
 
     public $search = '';
-    public $filters = [];
+
+    public $filters = [
+        'date_start' => null,
+    ];
+
     public $sortField = 'name';
     public $sortDirection = 'asc';
     public $playersToShow = 1;
@@ -22,21 +26,51 @@ class Index extends Component
         'search' => ['except' => ''],
     ];
 
+    public function sortBy(string $field)
+    {
+        $this->sortField = $field;
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+    }
+
     public function loadRecords()
     {
         return $this->games;
     }
 
     #[Computed()]
+    public function allFilters()
+    {
+        return [
+            [
+                'type' => 'text',
+                'label' => __('games.filters.search.placeholder'),
+            ],
+            [
+                'type' => 'date',
+                'label' => __('games.filters.date_start.label'),
+                'placeholder' => __('games.filters.date_start.placeholder'),
+                'model' => 'date_start',
+            ]
+        ];
+    }
+
+    public function setFilter($key, $value)
+    {
+        $this->filters[$key] = $value;
+        $this->resetPage();
+    }
+
+    public function clearFilters()
+    {
+        $this->search = "";
+        $this->reset();
+        $this->resetPage();
+    }
+
+    #[Computed()]
     public function games()
     {
         return GameService::getGames($this->search, $this->filters, $this->sortField, $this->sortDirection);
-    }
-
-    public function sortBy(string $field)
-    {
-        $this->sortField = $field;
-        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
     }
 
     public function confirm(int $id)

@@ -15,7 +15,13 @@ return [
 
     'filters' => [
         'title' => 'Filters',
-
+        'search' => [
+            'placeholder' => 'Search by name, comments',
+        ],
+        'date_start' => [
+            'label' => 'Date Start',
+            'placeholder' => 'Date Start',
+        ],
         'actions' => [
             'loading' => 'Loading...',
             'clear' => 'Clear',

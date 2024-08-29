@@ -1,4 +1,7 @@
 <div class="space-y-4">
+    <x-livewire.filters.index title="{{ __('games.filters.title') }}" :filters="$this->allFilters()"
+        labelLoading="{{ __('games.filters.actions.loading') }}" labelClear="{{ __('games.filters.actions.clear') }}" />
+
     <div class="overflow-x-auto">
         <table class="table text-center border border-base-content/30">
             <thead>
