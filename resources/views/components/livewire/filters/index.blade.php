@@ -14,17 +14,25 @@
                     @foreach ($filters as $filter)
                         @switch($filter['type'])
                             @case('select')
-                                <x-livewire.filters.select :data="$filter['data']" label="{{ $filter['label'] }}"
+                                <x-livewire.filters.select :data="$filter['data']" label="{{ $filter['label'] ?? '' }}"
                                     filter="{{ $filter['filter'] }}" />
                             @break
 
+                            @case('date')
+                                <x-datetime-picker wire:model.live="filters.{{ $filter['model'] }}"
+                                    placeholder="{{ $filter['placeholder'] }}" class="font-bold text-base-content/30"
+                                    class="datePicker" />
+                            @break
+
                             @default
-                                <input type="text" placeholder="{{ $filter['label'] }}" class="w-full input input-bordered"
+                                <input type="text" placeholder="{{ $filter['label'] }}"
+                                    class="w-full input input-bordered placeholder:text-sm placeholder:font-bold"
                                     wire:model.live="search" />
                         @endswitch
                     @endforeach
 
-                    <button type="button" class="w-full btn input-bordered md:w-auto" x-on:click="clearFilters">
+                    <button type="button" class="w-full font-bold btn input-bordered md:w-auto"
+                        x-on:click="clearFilters">
                         <div x-show="loading" class="flex items-center gap-2">
                             <span class="w-5 loading loading-spinner"></span>
                             <span>{{ $labelLoading }}</span>
