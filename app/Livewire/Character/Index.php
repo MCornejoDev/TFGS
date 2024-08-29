@@ -147,6 +147,16 @@ class Index extends Component
         }
     }
 
+    public function openSidePanel(): void
+    {
+        $this->dispatch(
+            'openPanel',
+            title: __('characters.actions.create.title'),
+            component: 'character.create',
+            icon: 'user-plus',
+        );
+    }
+
     public function render()
     {
         return view('livewire.character.index');

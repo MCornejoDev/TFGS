@@ -1,7 +1,11 @@
 <div class="space-y-4">
-    <x-livewire.filters.index title="{{ __('characters.filters.title') }}" :filters="$this->allFilters()"
-        labelLoading="{{ __('characters.filters.actions.loading') }}"
-        labelClear="{{ __('characters.filters.actions.clear') }}" />
+    <div class="flex items-center justify-end gap-4">
+        <x-livewire.filters.index title="{{ __('characters.filters.title') }}" :filters="$this->allFilters()"
+            labelLoading="{{ __('characters.filters.actions.loading') }}"
+            labelClear="{{ __('characters.filters.actions.clear') }}" />
+        <x-button icon="user-plus" label="{{ __('characters.actions.create.btn') }}"
+            class="!btn !border-base-content/30 !outline-none" wire:click='openSidePanel' />
+    </div>
 
     <div class="space-y-4 overflow-x-auto">
         <table class="table text-center border border-base-content/30">
