@@ -15,6 +15,11 @@ class GameService
 
         $query->whereHas('users', function ($query) {
             $query->where('user_id', Auth::id());
+        })->when($search, function ($query) use ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('comments', 'like', '%' . $search . '%');
+            });
         });
 
         return $query->orderBy($sortField, $sortDirection)->paginate(10);
