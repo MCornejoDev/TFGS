@@ -47,6 +47,10 @@ return [
         'information' => [
             'title' => 'Information',
         ],
+        'create' => [
+            'btn' => 'Create',
+            'title' => 'Create Character',
+        ],
         'delete' => [
             'btn' => 'Delete',
             'title' => 'Delete Character',

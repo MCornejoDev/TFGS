@@ -14,7 +14,8 @@ export default {
                 positive: colors.emerald,
                 negative: colors.red,
                 warning: colors.amber,
-                info: colors.blue
+                info: colors.blue,
+                base: "oklch(var(--b3))",
             },
         },
     },
