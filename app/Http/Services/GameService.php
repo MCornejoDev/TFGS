@@ -20,6 +20,8 @@ class GameService
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('comments', 'like', '%' . $search . '%');
             });
+        })->when($filters['date_start'] ?? null, function ($query) use ($filters) {
+            $query->where('date_start', '>=', $filters['date_start']);
         });
 
         return $query->orderBy($sortField, $sortDirection)->paginate(10);
