@@ -60,5 +60,17 @@
                 });
             }
         }));
+
+        Alpine.data('form', () => ({
+            open: false,
+            options: [],
+            selected: null,
+            model: null,
+            handleSelect(option) {
+                this.selected = option;
+                this.open = false;
+                this.$wire.set(this.model, option.id);
+            },
+        }))
     });
 </script>

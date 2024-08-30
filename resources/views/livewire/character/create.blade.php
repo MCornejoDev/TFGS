@@ -1,20 +1,17 @@
 <div class="flex flex-col space-y-4">
-    <div>
-        <x-select label="Search a User" placeholder="Select some user" :options="$this->games" option-label="name"
-            option-value="id" option-description="comments" class="font-bold text-base-content/30" />
-    </div>
 
-    <div>
-        <select class="w-full font-bold rounded select input-bordered">
-            <option disabled selected>{{ __('characters.actions.create.select') }}</option>
-            @foreach ($this->characterTypes as $key => $item)
-                <option value="{{ $key }}" class="font-bold rounded">{{ $item }}</option>
-            @endforeach
-        </select>
-    </div>
+    <x-livewire.forms.select :items="$this->games" title="{{ __('characters.actions.create.select.game') }}" model="gameId"
+        optionId="id" optionLabel="name" optionDescription="comments" />
+
+    <x-livewire.forms.select :items="$this->characterTypes" title="{{ __('characters.actions.create.select.character_type') }}"
+        model="characterTypeId" optionId="id" optionLabel="name" optionDescription="description" />
+
+    <x-livewire.forms.select :items="$this->races" title="{{ __('characters.actions.create.select.race') }}" model="raceId"
+        optionId="id" optionLabel="name" optionDescription="description" />
 
     <div class="self-end">
-        <button class="btn">{{ __('characters.actions.create.btn') }}</button>
+        <button class="btn border-base-content/30"
+            wire:click='create'>{{ __('characters.actions.create.btn') }}</button>
 
     </div>
 </div>
