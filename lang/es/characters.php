@@ -50,6 +50,7 @@ return [
         'create' => [
             'title' => 'Crear Personaje',
             'btn' => 'Crear',
+            'select' => 'Seleccione un tipo de personaje',
         ],
         'delete' => [
             'btn' => 'Eliminar',

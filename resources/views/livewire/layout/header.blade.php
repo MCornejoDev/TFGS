@@ -40,10 +40,10 @@
                 <li>
                     <a x-on:click="switchTheme">
                         <span x-show="theme=='light'" class="flex flex-row items-center gap-2"><x-heroicon-s-sun
-                                class="w-6 h-6" />Light</span>
+                                class="w-6 h-6" />{{ __('auth.lightmode') }}</span>
                         <span x-show="theme=='dark'" class="flex flex-row items-center gap-2"><x-heroicon-s-moon
                                 class="w-6 h-6" />
-                            Dark</span>
+                            {{ __('auth.darkmode') }}</span>
                     </a>
                 </li>
                 <li><a><x-heroicon-o-user class="w-6 h-6 hover:bg-transparent" />{{ __('header.profile') }}</a></li>

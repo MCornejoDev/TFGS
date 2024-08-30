@@ -50,6 +50,7 @@ return [
         'create' => [
             'btn' => 'Create',
             'title' => 'Create Character',
+            'select' => 'Select a character type',
         ],
         'delete' => [
             'btn' => 'Delete',

@@ -21,4 +21,6 @@ return [
     'pass' => 'Contraseña',
     'remember' => 'Recordarme',
     'forgot' => '¿Olvidaste tu contraseña?',
+    'darkmode' => 'Modo oscuro',
+    'lightmode' => 'Modo claro',
 ];
