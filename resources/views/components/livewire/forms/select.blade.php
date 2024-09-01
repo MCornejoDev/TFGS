@@ -1,4 +1,4 @@
-@props(['items', 'title', 'model', 'optionId', 'optionLabel', 'optionDescription'])
+@props(['items', 'title', 'placeholder', 'model', 'optionId', 'optionLabel', 'optionDescription' => null])
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}'">
@@ -12,8 +12,7 @@ model = '{{ $model }}'">
             class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
             {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
             border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300 sm:text-sm">
-            <span
-                x-text="selected ? `${selected.{{ $optionLabel }}} - ${selected.{{ $optionDescription }}}` : '{{ $title }}'"
+            <span x-text="setText('{{ $optionLabel }}','{{ $optionDescription }}','{{ $placeholder }}')"
                 class="block truncate"></span>
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <x-icon name="chevron-down" class="w-5 h-5 text-base-content" x-show="open" />
@@ -41,7 +40,8 @@ model = '{{ $model }}'">
                                     'font-normal': !(selected && selected.id === option.id)
                                 }"
                                 class="block"></span>
-                            <span x-text="option.{{ $optionDescription }}" class="text-sm text-base-content"></span>
+                            <span x-text="setTextDescription(option.id, '{{ $optionDescription }}')"
+                                class="text-sm text-base-content"></span>
                         </div>
                     </li>
                 </template>

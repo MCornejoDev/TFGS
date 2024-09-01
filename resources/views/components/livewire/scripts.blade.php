@@ -71,6 +71,26 @@
                 this.open = false;
                 this.$wire.set(this.model, option.id);
             },
+            setText(optionLabel, optionDescription, placeholder) {
+
+                if (!this.selected) {
+                    return placeholder;
+                }
+
+                if (optionDescription !== '') {
+                    return this.selected[optionLabel] + ' - ' + this.selected[optionDescription];
+                }
+
+                return this.selected[optionLabel];
+            },
+            setTextDescription(id, optionDescription) {
+
+                if (optionDescription !== '') {
+                    return this.options.find(option => option.id === id)[optionDescription];
+                }
+
+                return '';
+            }
         }))
     });
 </script>
