@@ -66,6 +66,7 @@
             options: [],
             selected: null,
             model: null,
+            isDisabled: false,
             handleSelect(option) {
                 this.selected = option;
                 this.open = false;
@@ -90,6 +91,14 @@
                 }
 
                 return '';
+            },
+            setDisabled(isDisabled) {
+                this.isDisabled = isDisabled === '' ? false : true;
+            },
+            getDisabled(disabledBy) {
+                if (disabledBy) {
+                    return this.$wire.form[disabledBy] === null;
+                }
             }
         }))
     });

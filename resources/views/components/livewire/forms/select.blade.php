@@ -1,17 +1,29 @@
-@props(['items', 'title', 'placeholder', 'model', 'optionId', 'optionLabel', 'optionDescription' => null])
+@props([
+    'items',
+    'title',
+    'placeholder',
+    'model',
+    'optionId',
+    'optionLabel',
+    'optionDescription' => null,
+    'disabledBy' => null,
+])
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
-model = '{{ $model }}'">
+model = '{{ $model }}';
+setDisabled('{{ $disabledBy }}');">
     <label for="custom-select" class="block mb-2 text-sm font-medium text-base-content">
         {{ $title }}
     </label>
 
     <!-- Botón para abrir el dropdown -->
     <div class="relative">
-        <button @click="open = !open"
+        <button @click="open = !open" x-bind:disabled="getDisabled('{{ $disabledBy }}')"
+            x-bind:class="{ 'disabled:opacity-75 cursor-not-allowed': isDisabled }"
             class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
             {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
-            border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300 sm:text-sm">
+            border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
+            sm:text-sm">
             <span x-text="setText('{{ $optionLabel }}','{{ $optionDescription }}','{{ $placeholder }}')"
                 class="block truncate"></span>
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
