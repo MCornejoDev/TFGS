@@ -3,6 +3,7 @@
 namespace App\Enums;
 
 use Spatie\Enum\Enum;
+use Str;
 
 /**
  * @method static self staff()
@@ -62,12 +63,35 @@ class Weapons extends Enum
     public static function weaponByCharacterType(string $characterType): array
     {
         return match ($characterType) {
-            'cleric', 'sorcerer', 'wizard', 'druid' => array('Staff', 'Scepter', 'Wand'),
+            'cleric', 'sorcerer', 'wizard', 'druid', 'monk' => array('Staff', 'Scepter', 'Wand'),
             'barbarian', 'warrior', 'paladin' => array('Sword', 'Axe', 'Greatsword', 'Mace', 'Pickaxe', 'Double Swords'),
             'ranger', 'bard', 'rogue' => array('Bow', 'Crossbow'),
             'rogue' => array('Daggers', 'Knives'),
-            default => "",
+            default => [],
         };
+    }
+
+    public static function weaponByArray(array $characterType): array
+    {
+        $translations = [];
+
+        foreach ($characterType as $key => $value) {
+            $translations[$key] = __('characters.weapons.' . Str::snake(Str::lower($value)));
+        }
+        log_error($translations);
+        return $translations;
+    }
+
+    public static function withTranslations(): array
+    {
+        $values = self::values();
+        $translations = [];
+
+        foreach ($values as $key => $value) {
+            $translations[$value] = __('characters.weapons.' . $key);
+        }
+
+        return $translations;
     }
 
     public static function getRandomValue(): int

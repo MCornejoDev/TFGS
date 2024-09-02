@@ -34,7 +34,7 @@ class Armors extends Enum
         return match ($characterType) {
             'barbarian', 'warrior', 'paladin' => 'Heavy Chain Mail',
             'ranger', 'bard', 'rogue' => 'Medium or Heavy Leather Armor',
-            'cleric', 'sorcerer', 'wizard',  'druid' => 'Cloth Armor',
+            'cleric', 'sorcerer', 'wizard',  'druid', 'monk' => 'Cloth Armor',
         };
     }
 
