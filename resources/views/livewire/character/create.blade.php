@@ -32,10 +32,15 @@
         <x-livewire.forms.input :label="__('characters.actions.create.form.nickname')" :placeholder="__('characters.actions.create.form.placeholder.nickname')" model="form.nickname" />
     </div>
 
-
-    <div class="self-end">
-        <button class="btn border-base-content/30"
-            wire:click='create'>{{ __('characters.actions.create.btn') }}</button>
-
+    <div class="grid items-center grid-cols-2 gap-4">
+        @for ($i = 0; $i <= 3; $i++)
+            <x-livewire.forms.input :label="__('characters.actions.create.form.skill', ['number' => $i + 1])" :placeholder="__('characters.actions.create.form.placeholder.skill')" model="form.skills.{{ $i }}" />
+        @endfor
     </div>
+
+    <textarea class="placeholder:font-bold textarea textarea-bordered bg-base-300"
+        placeholder="{{ __('characters.actions.create.form.placeholder.personality') }}"
+        wire:model.live="form.personality"></textarea>
+
+    <x-livewire.forms.button :title="__('characters.actions.create.btn')" :action="'create'" />
 </div>
