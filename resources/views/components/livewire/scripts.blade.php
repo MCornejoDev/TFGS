@@ -67,12 +67,21 @@
             selected: null,
             model: null,
             isDisabled: false,
+            oldValue: null,
             handleSelect(option) {
                 this.selected = option;
                 this.open = false;
                 this.$wire.set(this.model, option.id);
             },
-            setText(optionLabel, optionDescription, placeholder) {
+            setText(optionLabel, optionDescription, placeholder, dependsOn) {
+
+                if (dependsOn != '') {
+                    if (this.oldValue === null || this.oldValue !== this.$wire.form[dependsOn]) {
+                        this.oldValue = this.$wire.form[dependsOn];
+                        this.selected = null;
+                        return placeholder;
+                    }
+                }
 
                 if (!this.selected) {
                     return placeholder;
@@ -92,12 +101,12 @@
 
                 return '';
             },
-            setDisabled(isDisabled) {
-                this.isDisabled = isDisabled === '' ? false : true;
+            setDisabled(dependsOn) {
+                this.isDisabled = dependsOn === '' ? false : true;
             },
-            getDisabled(disabledBy) {
-                if (disabledBy) {
-                    return this.$wire.form[disabledBy] === null;
+            getDisabled(dependsOn) {
+                if (dependsOn) {
+                    return this.$wire.form[dependsOn] === null;
                 }
             }
         }))

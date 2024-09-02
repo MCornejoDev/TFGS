@@ -50,7 +50,30 @@ return [
         'create' => [
             'title' => 'Crear Personaje',
             'btn' => 'Crear',
-            'select' => 'Seleccione un tipo de personaje',
+            'form' => [
+                'game' => 'Partida',
+                'character_type' => 'Tipo de Personaje',
+                'race' => 'Raza',
+                'gender' => 'Género',
+                'age' => 'Edad',
+                'name' => 'Nombre',
+                'nickname' => 'Apodo',
+                'weapon' => 'Arma',
+                'placeholder' => [
+                    'character_type' => 'Seleccione un tipo de personaje',
+                    'game' => 'Seleccione un juego',
+                    'race' => 'Seleccione una raza',
+                    'gender' => 'Seleccione un género',
+                    'weapon' => 'Seleccione una arma',
+                    'age' => 'Ingrese una edad',
+                    'name' => 'Ingrese un nombre',
+                    'nickname' => 'Ingrese un apodo',
+                ],
+                'label' => [
+                    'armor' => 'Armadura',
+                    'no-armor' => 'Sin armadura',
+                ]
+            ],
         ],
         'delete' => [
             'btn' => 'Eliminar',
@@ -111,6 +134,7 @@ return [
     ],
 
     'weapons' => [
+        'title' => 'Arma',
         'staff' => 'Bastón',
         'scepter' => 'Cetro',
         'wand' => 'Varita',

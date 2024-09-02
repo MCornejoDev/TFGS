@@ -65,7 +65,7 @@ class Weapons extends Enum
         return match ($characterType) {
             'cleric', 'sorcerer', 'wizard', 'druid', 'monk' => array('Staff', 'Scepter', 'Wand'),
             'barbarian', 'warrior', 'paladin' => array('Sword', 'Axe', 'Greatsword', 'Mace', 'Pickaxe', 'Double Swords'),
-            'ranger', 'bard', 'rogue' => array('Bow', 'Crossbow'),
+            'ranger', 'bard' => array('Bow', 'Crossbow'),
             'rogue' => array('Daggers', 'Knives'),
             default => [],
         };
@@ -78,7 +78,7 @@ class Weapons extends Enum
         foreach ($characterType as $key => $value) {
             $translations[$key] = __('characters.weapons.' . Str::snake(Str::lower($value)));
         }
-        log_error($translations);
+
         return $translations;
     }
 

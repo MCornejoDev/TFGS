@@ -189,6 +189,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'form.gameId' => 'partida',
+        'form.characterTypeId' => 'tipo de personaje',
+        'form.raceId' => 'raza',
+        'form.gender' => 'genero',
+        'form.age' => 'edad',
+        'form.name' => 'nombre',
+        'form.nickname' => 'apodo',
+        'form.weaponId' => 'arma',
+    ],
 
 ];

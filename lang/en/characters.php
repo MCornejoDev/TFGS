@@ -50,7 +50,30 @@ return [
         'create' => [
             'btn' => 'Create',
             'title' => 'Create Character',
-            'select' => 'Select a character type',
+            'form' => [
+                'game' => 'Game',
+                'character_type' => 'Character Type',
+                'race' => 'Race',
+                'gender' => 'Gender',
+                'age' => 'Age',
+                'name' => 'Name',
+                'nickname' => 'Nickname',
+                'weapon' => 'Weapon',
+                'placeholder' => [
+                    'character_type' => 'Select a character type',
+                    'game' => 'Select a game',
+                    'race' => 'Select a race',
+                    'gender' => 'Select a gender',
+                    'age' => 'Enter an age',
+                    'name' => 'Enter a name',
+                    'nickname' => 'Enter a nickname',
+                    'weapon' => 'Select a weapon',
+                ],
+                'label' => [
+                    'armor' => 'Armor',
+                    'no-armor' => 'No armor',
+                ]
+            ],
         ],
         'delete' => [
             'btn' => 'Delete',
