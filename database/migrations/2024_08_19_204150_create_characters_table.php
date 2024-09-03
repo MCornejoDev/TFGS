@@ -24,17 +24,17 @@ return new class extends Migration
             $table->text('personality');
             $table->json('skills');
             // Stats that can be changed
-            $table->unsignedTinyInteger('age');
-            $table->decimal('height', 5, 2);
-            $table->decimal('weight', 5, 2);
+            $table->unsignedSmallInteger('age');
+            $table->decimal('height', 7, 2);
+            $table->decimal('weight', 7, 2);
             $table->unsignedSmallInteger('health');
             $table->unsignedSmallInteger('level');
-            $table->unsignedTinyInteger('strength');
-            $table->unsignedTinyInteger('dexterity');
-            $table->unsignedTinyInteger('constitution');
-            $table->unsignedTinyInteger('intelligence');
-            $table->unsignedTinyInteger('wisdom');
-            $table->unsignedTinyInteger('charisma');
+            $table->unsignedSmallInteger('strength');
+            $table->unsignedSmallInteger('dexterity');
+            $table->unsignedSmallInteger('constitution');
+            $table->unsignedSmallInteger('intelligence');
+            $table->unsignedSmallInteger('wisdom');
+            $table->unsignedSmallInteger('charisma');
             $table->text('items');
 
             $table->timestamps();
