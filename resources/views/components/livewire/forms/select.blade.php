@@ -1,10 +1,10 @@
 @props([
-    'items',
-    'title',
-    'placeholder',
-    'model',
-    'optionId',
-    'optionLabel',
+    'items' => [],
+    'title' => null,
+    'placeholder' => null,
+    'model' => null,
+    'optionId' => null,
+    'optionLabel' => null,
     'optionDescription' => null,
     'dependsOn' => null,
 ])
