@@ -19,6 +19,7 @@ class Create extends Component
     use WireUiActions;
 
     public array $form = [
+        'gameId' => null,
         'characterTypeId' => null,
         'weaponId' => null,
         'raceId' => null,
@@ -136,7 +137,6 @@ class Create extends Component
 
     public function create()
     {
-        //sleep(5);
         $this->validate();
 
         $response = CharacterService::create($this->form);

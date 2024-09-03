@@ -73,6 +73,12 @@
                 this.open = false;
                 this.$wire.set(this.model, option.id);
             },
+            getValue() {
+                //Se trocea porque el modelo es un form.field, pero podría ser perfectamente un field directamente
+                //Aunque esto podría no ser necesario si encontramos la manera de usar el entangle
+                const value = this.model.split('.');
+                return this.$wire.form[value[value.length - 1]];
+            },
             setText(optionLabel, optionDescription, placeholder, dependsOn) {
 
                 if (dependsOn != '') {
@@ -83,7 +89,7 @@
                     }
                 }
 
-                if (!this.selected) {
+                if (this.getValue() === null) {
                     return placeholder;
                 }
 
