@@ -32,6 +32,38 @@ class CharacterService
         return $query->orderBy($sortField, $sortDirection)->paginate(8);
     }
 
+    public static function create(array $data): ?Character
+    {
+        try {
+            return Character::create([
+                'character_type_id' => $data['characterTypeId'],
+                'user_id' => Auth::id(),
+                'game_id' => $data['gameId'],
+                'race' => $data['raceId'],
+                'name' => $data['name'],
+                'nickname' => $data['nickname'],
+                'gender' => $data['gender'],
+                'personality' => $data['personality'],
+                'skills' => $data['skills'],
+                'age' => $data['age'],
+                'height' => $data['height'],
+                'weight' => $data['weight'],
+                'health' => $data['health'],
+                'level' => $data['level'],
+                'strength' => $data['strength'],
+                'dexterity' => $data['dexterity'],
+                'constitution' => $data['constitution'],
+                'intelligence' => $data['intelligence'],
+                'wisdom' => $data['wisdom'],
+                'charisma' => $data['charisma'],
+                'items' => $data['items'] ?? '',
+            ]);
+        } catch (Exception $e) {
+            log_error($e);
+            return null;
+        }
+    }
+
     public static function remove(int $id): bool
     {
         try {

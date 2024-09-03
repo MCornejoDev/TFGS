@@ -198,6 +198,16 @@ return [
         'form.name' => 'name',
         'form.nickname' => 'nickname',
         'form.weaponId' => 'weapon',
+        'form.strength' => 'strength',
+        'form.dexterity' => 'dexterity',
+        'form.constitution' => 'constitution',
+        'form.intelligence' => 'intelligence',
+        'form.wisdom' => 'wisdom',
+        'form.charisma' => 'charisma',
+        'form.height' => 'height',
+        'form.weight' => 'weight',
+        'form.health' => 'health',
+        'form.level' => 'level',
     ],
 
 ];

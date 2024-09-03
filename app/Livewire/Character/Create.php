@@ -6,17 +6,19 @@ use App\Enums\Armors;
 use App\Enums\CharacterTypes;
 use App\Enums\Races;
 use App\Enums\Weapons;
+use App\Http\Services\CharacterService;
 use App\Models\Character;
 use App\Models\Game;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Str;
+use WireUi\Traits\WireUiActions;
 
 class Create extends Component
 {
+    use WireUiActions;
 
     public array $form = [
-        'gameId' => null,
         'characterTypeId' => null,
         'weaponId' => null,
         'raceId' => null,
@@ -24,7 +26,48 @@ class Create extends Component
         'age' => null,
         'name' => null,
         'nickname' => null,
+        'personality' => '',
+        'skills' => [],
+        'strength' => null,
+        'dexterity' => null,
+        'constitution' => null,
+        'intelligence' => null,
+        'wisdom' => null,
+        'charisma' => null,
+        'height' => null,
+        'weight' => null,
+        'health' => null,
+        'level' => null,
     ];
+
+    public function rules()
+    {
+        return [
+            'form.gameId' => 'required',
+            'form.characterTypeId' => 'required',
+            'form.raceId' => 'required',
+            'form.gender' => 'required',
+            'form.age' => 'required|numeric',
+            'form.name' => 'required',
+            'form.nickname' => 'required',
+            'form.weaponId' => 'required',
+            'form.strength' => 'required|numeric',
+            'form.dexterity' => 'required|numeric',
+            'form.constitution' => 'required|numeric',
+            'form.intelligence' => 'required|numeric',
+            'form.wisdom' => 'required|numeric',
+            'form.charisma' => 'required|numeric',
+            'form.height' => 'required|numeric',
+            'form.weight' => 'required|numeric',
+            'form.health' => 'required|numeric',
+            'form.level' => 'required|numeric',
+        ];
+    }
+
+    public function mount()
+    {
+        $this->resetValidation();
+    }
 
     #[Computed()]
     public function games()
@@ -81,26 +124,39 @@ class Create extends Component
     #[Computed()]
     public function armor()
     {
-        return $this->form['characterTypeId'] ? Armors::armorByCharacterType(Str::lower(CharacterTypes::tryFrom($this->form['characterTypeId'])->label)) : "";
+        return $this->form['characterTypeId'] ? Armors::armorByCharacterType(Str::lower(CharacterTypes::tryFrom($this->form['characterTypeId'])->label)) : __('characters.actions.create.form.label.no-armor');
     }
 
-    public function updatedCharacterTypeId()
+    public function updatedForm($value, $key)
     {
-        $this->form['weaponId'] = null;
+        if ($key === 'characterTypeId') {
+            $this->form['weaponId'] = null;
+        }
     }
 
     public function create()
     {
-        $this->validate([
-            'form.gameId' => 'required',
-            'form.characterTypeId' => 'required',
-            'form.raceId' => 'required',
-            'form.gender' => 'required',
-            'form.age' => 'required|numeric',
-            'form.name' => 'required',
-            'form.nickname' => 'required',
-            'form.weaponId' => 'required',
-        ]);
+        //sleep(5);
+        $this->validate();
+
+        $response = CharacterService::create($this->form);
+
+        if ($response instanceof Character) {
+            $this->dispatch('closePanel');
+            $this->reset();
+            $this->resetValidation();
+            $this->notification()->send([
+                'icon' => 'success',
+                'title' => __('characters.actions.create.form.success.title'),
+                'description' => __('characters.actions.create.form.success.description'),
+            ]);
+        } else {
+            $this->notification()->send([
+                'icon' => 'error',
+                'title' => __('characters.actions.create.form.error.title'),
+                'description' => __('characters.actions.create.form.error.description'),
+            ]);
+        }
     }
 
     public function render()

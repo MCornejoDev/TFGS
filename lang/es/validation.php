@@ -198,6 +198,16 @@ return [
         'form.name' => 'nombre',
         'form.nickname' => 'apodo',
         'form.weaponId' => 'arma',
+        'form.strength' => 'fuerza',
+        'form.dexterity' => 'destreza',
+        'form.constitution' => 'constitución',
+        'form.intelligence' => 'inteligencia',
+        'form.wisdom' => 'sabiduría',
+        'form.charisma' => 'carisma',
+        'form.height' => 'altura',
+        'form.weight' => 'peso',
+        'form.health' => 'salud',
+        'form.level' => 'nivel',
     ],
 
 ];
