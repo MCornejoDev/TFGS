@@ -82,6 +82,7 @@ class Create extends Component
         return array_map(fn($key, $value) => [
             'id' => $key,
             'name' => $value,
+            'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
         ], CharacterTypes::toValues(), CharacterTypes::withTranslations());
     }
 

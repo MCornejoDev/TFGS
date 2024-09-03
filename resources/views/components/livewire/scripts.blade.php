@@ -68,38 +68,57 @@
             model: null,
             isDisabled: false,
             oldValue: null,
+            placeholder: null,
+            optionImage: null,
+            optionLabel: null,
+            optionDescription: null,
             handleSelect(option) {
                 this.selected = option;
                 this.open = false;
                 this.$wire.set(this.model, option.id);
             },
-            getValue() {
+            checkIfHasImage() {
+                return this.selected && this.selected.hasOwnProperty('image');
+            },
+            setImage() {
+                if (this.checkIfHasImage()) {
+                    return this.selected.image;
+                }
+            },
+            getValueFromModel() {
                 //Se trocea porque el modelo es un form.field, pero podría ser perfectamente un field directamente
                 //Aunque esto podría no ser necesario si encontramos la manera de usar el entangle
                 const value = this.model.split('.');
                 return this.$wire.form[value[value.length - 1]];
             },
-            setText(optionLabel, optionDescription, placeholder, dependsOn) {
-
-                if (dependsOn != '') {
-                    if (this.oldValue === null || this.oldValue !== this.$wire.form[dependsOn]) {
-                        this.oldValue = this.$wire.form[dependsOn];
-                        this.selected = null;
-                        return placeholder;
-                    }
-                }
-
-                if (this.getValue() === null) {
-                    return placeholder;
-                }
-
-                if (optionDescription !== '') {
-                    return this.selected[optionLabel] + ' - ' + this.selected[optionDescription];
-                }
-
-                return this.selected[optionLabel];
+            checkIfDependsOn(dependsOn) {
+                return dependsOn != '' && (this.oldValue === null || this.oldValue !== this.$wire
+                    .form[dependsOn]);
             },
-            setTextDescription(id, optionDescription) {
+            setLabel(dependsOn, optionLabel, optionDescription) {
+                if (this.checkIfDependsOn(dependsOn)) {
+                    this.oldValue = this.$wire.form[dependsOn];
+                    this.selected = null;
+                    return this.placeholder;
+                }
+
+                if (this.getValueFromModel() === null) {
+                    return this.placeholder;
+                }
+
+                return this.checkIfHasDescription(optionDescription) ? this.selected[optionLabel] +
+                    ' - ' :
+                    this.selected[optionLabel];
+            },
+            checkIfHasDescription(optionDescription) {
+                return this.selected && this.selected.hasOwnProperty(optionDescription);
+            },
+            setDescription(optionDescription) {
+                if (this.checkIfHasDescription(optionDescription)) {
+                    return this.selected[optionDescription];
+                }
+            },
+            getTextDescription(id, optionDescription) {
 
                 if (optionDescription !== '') {
                     return this.options.find(option => option.id === id)[optionDescription];

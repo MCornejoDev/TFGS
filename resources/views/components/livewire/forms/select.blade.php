@@ -11,7 +11,8 @@
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}';
-setDisabled('{{ $dependsOn }}');">
+setDisabled('{{ $dependsOn }}');
+placeholder = '{{ $placeholder }}';">
     <span class="block mb-2 text-sm font-medium text-base-content">
         {{ $title }}
     </span>
@@ -24,9 +25,13 @@ setDisabled('{{ $dependsOn }}');">
             {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
             border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
             sm:text-sm">
-            <span
-                x-text="setText('{{ $optionLabel }}','{{ $optionDescription }}','{{ $placeholder }}','{{ $dependsOn }}')"
-                class="block truncate"></span>
+            <div class="truncate flex flex-row items-center gap-1.5">
+                <img :src="setImage()" :alt="setImage()" class="w-6 h-6 rounded-full"
+                    x-show="checkIfHasImage" />
+                <span x-text="setLabel('{{ $dependsOn }}','{{ $optionLabel }}','{{ $optionDescription }}')"></span>
+                <span x-show="checkIfHasDescription('{{ $optionDescription }}')"
+                    x-text="setDescription('{{ $optionDescription }}')"></span>
+            </div>
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <x-icon name="chevron-down" class="w-5 h-5 text-base-content" x-show="open" />
                 <x-icon name="chevron-up" class="w-5 h-5 text-base-content" x-show="!open" />
@@ -46,14 +51,20 @@ setDisabled('{{ $dependsOn }}');">
                                 option.id)
                         }"
                         class="relative py-2 pl-3 cursor-pointer select-none pr-9 hover:text-base-content text-base-content">
-                        <div class="flex flex-col">
+                        <div
+                            :class="{
+                                'flex flex-col': !option.image,
+                                'flex flex-row items-center gap-1.5': option.image
+                            }">
+                            <img :src="option.image" :alt="option.image" class="w-6 h-6 rounded-full"
+                                x-show="option.image" />
                             <span x-text="option.{{ $optionLabel }}"
                                 :class="{
                                     'font-semibold': selected && selected.id === option.id,
                                     'font-normal': !(selected && selected.id === option.id)
                                 }"
                                 class="block"></span>
-                            <span x-text="setTextDescription(option.id, '{{ $optionDescription }}')"
+                            <span x-text="getTextDescription(option.id, '{{ $optionDescription }}')"
                                 class="text-sm text-base-content"></span>
                         </div>
                     </li>
