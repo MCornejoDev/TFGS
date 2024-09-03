@@ -25,6 +25,12 @@ final class SidePanel extends Component
         $this->icon = $icon;
     }
 
+    #[On('closePanel')]
+    public function closePanel(): void
+    {
+        $this->open = false;
+    }
+
     public function render(): ViewContract
     {
         return View::make(

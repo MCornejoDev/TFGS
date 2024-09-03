@@ -1,4 +1,4 @@
-<section x-data="{ open: @entangle('open') }" @keydown.window.escape="open = false" x-show="open" x-cloak class="relative z-60"
+<section x-data="{ open: @entangle('open') }" @keydown.window.escape="open = false" x-show="open" x-cloak class="relative z-50"
     aria-labelledby="slide-over-title" x-ref="dialog" aria-modal="true">
 
     <div x-show="open" x-cloak x-transition:enter="ease-in-out duration-500" x-transition:enter-start="opacity-0"
