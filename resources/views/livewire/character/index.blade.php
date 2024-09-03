@@ -27,10 +27,13 @@
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('character_type_id')">
                         <x-livewire.tables.theading :label="__('characters.table.character_type')" id="character_type_id" />
                     </th>
+                    <th class="font-bold cursor-pointer text-md">
+                        <x-livewire.tables.theading :label="__('characters.table.armor_weapon')" />
+                    </th>
                 </tr>
             </thead>
             <tbody wire:init="loadRecords">
-                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('characters.filters.actions.loading')" />
+                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('characters.filters.actions.loading')" :colspan="7" />
 
                 @forelse ($this->characters as $character)
                     <tr class="border border-base-content/30" wire:loading.remove wire:target="loadRecords">
