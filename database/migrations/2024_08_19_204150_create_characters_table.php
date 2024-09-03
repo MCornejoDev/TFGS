@@ -22,11 +22,7 @@ return new class extends Migration
             $table->string('nickname', 50);
             $table->boolean('gender')->default(false); //false = male, true = female
             $table->text('personality');
-            $table->string('skill1', 30);
-            $table->string('skill2', 30);
-            $table->string('skill3', 30);
-            $table->string('skill4', 30);
-
+            $table->json('skills');
             // Stats that can be changed
             $table->unsignedTinyInteger('age');
             $table->decimal('height', 5, 2);
