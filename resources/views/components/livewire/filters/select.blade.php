@@ -1,3 +1,9 @@
+@props([
+    'filter' => null,
+    'label' => null,
+    'data' => [],
+])
+
 <div class="flex items-center gap-2">
     <div class="flex items-center w-full max-w-xs gap-2">
         <select class="w-full max-w-xs font-bold rounded select input-bordered" data-filter="{{ $filter }}"

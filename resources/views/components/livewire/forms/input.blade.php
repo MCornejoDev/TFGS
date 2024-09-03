@@ -1,8 +1,17 @@
+@props([
+    'id' => uniqid(),
+    'label' => null,
+    'type' => null,
+    'placeholder' => null,
+    'model' => null,
+])
+
 <div>
-    <label for="" class="block mb-2 text-sm font-medium text-base-content">{{ $label }}</label>
+    <label for="input-{{ $id }}"
+        class="block mb-2 text-sm font-medium text-base-content">{{ $label }}</label>
     <input type="{{ $type ?? 'text' }}" placeholder="{{ $placeholder }}"
         class=" {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }} w-full input input-bordered placeholder:text-sm placeholder:font-bold"
-        wire:model="{{ $model }}" />
+        wire:model="{{ $model }}" id="input-{{ $id }}" />
     @error($model)
         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
     @enderror

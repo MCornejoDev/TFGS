@@ -1,3 +1,8 @@
+@props([
+    'title' => null,
+    'action' => null,
+])
+
 <div class="self-end">
     <button class="btn border-base-content/30" wire:loading.attr="disabled" wire:click="{{ $action }}">
         <div wire:loading.remove> {{ $title }}</div>

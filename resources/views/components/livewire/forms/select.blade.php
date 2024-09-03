@@ -12,9 +12,9 @@
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');">
-    <label for="custom-select" class="block mb-2 text-sm font-medium text-base-content">
+    <span class="block mb-2 text-sm font-medium text-base-content">
         {{ $title }}
-    </label>
+    </span>
 
     <!-- Botón para abrir el dropdown -->
     <div class="relative">

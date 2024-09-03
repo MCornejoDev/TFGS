@@ -1,3 +1,10 @@
+@props([
+    'title' => null,
+    'filters' => [],
+    'labelClear' => null,
+    'labelLoading' => null,
+])
+
 <div class="flex items-center justify-end">
 
     <div x-data="{ open: false }" class="relative">
