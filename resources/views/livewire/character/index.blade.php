@@ -45,7 +45,7 @@
                         </td>
                         <td>{{ $character->name }}</td>
                         <td>{{ $character->nickname }}</td>
-                        <td>{{ __('characters.races.' . Str::lower(Str::snake($character->race))) }}</td>
+                        <td>{{ __('characters.races.' . snake_lower($character->race)) }}</td>
                         <td>{{ $character->gender }}</td>
                         <td>
                             <x-livewire.labels.images :dataTip="__(

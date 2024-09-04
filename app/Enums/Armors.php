@@ -47,7 +47,7 @@ class Armors extends Enum
 
     public static function lowerCase(string $value): string
     {
-        return strtolower(Str::snake(self::from($value)->label));
+        return snake_lower(self::from($value)->label);
     }
 
     public static function getRandomValue(): int

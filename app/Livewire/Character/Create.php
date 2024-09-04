@@ -11,7 +11,6 @@ use App\Models\Character;
 use App\Models\Game;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
-use Str;
 use WireUi\Traits\WireUiActions;
 
 class Create extends Component
@@ -80,21 +79,25 @@ class Create extends Component
     #[Computed()]
     public function characterTypes()
     {
-        return array_map(fn($key, $value) => [
-            'id' => $key,
-            'name' => $value,
-            'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
-        ], CharacterTypes::toValues(), CharacterTypes::withTranslations());
+        return collect(CharacterTypes::withTranslations())->map(function ($value, $key) {
+            return [
+                'id' => $key,
+                'name' => $value,
+                'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
+            ];
+        })->sortBy('name')->values();
     }
 
     #[Computed()]
     public function races()
     {
-        return array_map(fn($key, $value) => [
-            'id' => $key,
-            'name' => $value,
-            'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
-        ], Races::toValues(), Races::withTranslations());
+        return collect(Races::withTranslations())->map(function ($value, $key) {
+            return [
+                'id' => $key,
+                'name' => $value,
+                'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
+            ];
+        })->sortBy('name')->values();
     }
 
     #[Computed()]
