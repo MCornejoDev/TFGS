@@ -59,10 +59,22 @@ class Character extends Model
      *
      * @return string
      */
-    protected function race(): Attribute
+    protected function raceLabel(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => Races::from($value)->label,
+            get: fn() => Races::from($this->race)->label,
+        );
+    }
+
+    /**
+     * Get the image of race.
+     *
+     * @return string
+     */
+    protected function raceImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => asset('storage/images/races/' . Races::lowerCase($this->race) . '.png'),
         );
     }
 

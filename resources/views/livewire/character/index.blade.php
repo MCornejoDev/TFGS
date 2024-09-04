@@ -27,7 +27,7 @@
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('character_type_id')">
                         <x-livewire.tables.theading :label="__('characters.table.character_type')" id="character_type_id" />
                     </th>
-                    <th class="font-bold cursor-pointer text-md">
+                    <th class="font-bold text-md">
                         <x-livewire.tables.theading :label="__('characters.table.armor_weapon')" />
                     </th>
                 </tr>
@@ -45,8 +45,11 @@
                         </td>
                         <td>{{ $character->name }}</td>
                         <td>{{ $character->nickname }}</td>
-                        <td>{{ __('characters.races.' . snake_lower($character->race)) }}</td>
+
                         <td>{{ $character->gender }}</td>
+                        <td>
+                            <x-livewire.labels.images :dataTip="__('characters.races.' . snake_lower($character->raceLabel))" :src="$character->raceImage" :alt="__('characters.races.image')" />
+                        </td>
                         <td>
                             <x-livewire.labels.images :dataTip="__(
                                 'characters.characters_types.' . snake_lower($character->characterType->type),
