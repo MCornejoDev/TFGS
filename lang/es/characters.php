@@ -11,6 +11,7 @@ return [
         'race' => 'Raza',
         'gender' => 'Género',
         'character_type' => 'Tipo de Personaje',
+        'armor_weapon' => 'Armadura / Arma',
         'action' => 'Acciones',
     ],
 
@@ -94,7 +95,6 @@ return [
                 ],
                 'label' => [
                     'armor' => 'Armadura',
-                    'no-armor' => 'Sin armadura',
                 ],
                 'success' => [
                     'title' => 'Personaje creado correctamente',
@@ -162,6 +162,7 @@ return [
         'heavy_chain_mail' => 'Armadura de Malla Pesada',
         'leather_armor' => 'Armadura de Cuero Medio o Pesada',
         'cloth_armor' => 'Armadura de Tela',
+        'no_armor' => 'Sin armadura',
     ],
 
     'weapons' => [

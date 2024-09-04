@@ -62,10 +62,12 @@ class Weapons extends Enum
 
     public static function weaponByCharacterType(string $characterType): array
     {
+
+        //TODO : REVISAR Y HACER LO MISMO QUE EN ARMORS
         return match ($characterType) {
-            'cleric', 'sorcerer', 'wizard', 'druid', 'monk' => array('Staff', 'Scepter', 'Wand'),
+            'cleric', 'sorcerer', 'wizard', 'druid', 'monk', 'bard' => array('Staff', 'Scepter', 'Wand'),
             'barbarian', 'warrior', 'paladin' => array('Sword', 'Axe', 'Greatsword', 'Mace', 'Pickaxe', 'Double Swords'),
-            'ranger', 'bard' => array('Bow', 'Crossbow'),
+            'ranger'  => array('Bow', 'Crossbow'),
             'rogue' => array('Daggers', 'Knives'),
             default => [],
         };
@@ -76,7 +78,7 @@ class Weapons extends Enum
         $translations = [];
 
         foreach ($characterType as $key => $value) {
-            $translations[$key] = __('characters.weapons.' . Str::snake(Str::lower($value)));
+            $translations[$key] = __('characters.weapons.' . snake_lower($value));
         }
 
         return $translations;
@@ -92,6 +94,11 @@ class Weapons extends Enum
         }
 
         return $translations;
+    }
+
+    public static function lowerCase(string $value): string
+    {
+        return strtolower(Str::snake(self::from($value)->label));
     }
 
     public static function getRandomValue(): int

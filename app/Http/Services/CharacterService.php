@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Models\Character;
+use App\Models\CharacterType;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,8 +36,16 @@ class CharacterService
     public static function create(array $data): ?Character
     {
         try {
+
+            $characterType = CharacterType::create([
+                'type' => $data['characterTypeId'],
+                'weapon' => $data['weaponId'],
+                'armor' => $data['armorId'],
+                'shield' => $data['shield'],
+            ]);
+
             return Character::create([
-                'character_type_id' => $data['characterTypeId'],
+                'character_type_id' => $characterType->id,
                 'user_id' => Auth::id(),
                 'game_id' => $data['gameId'],
                 'race' => $data['raceId'],

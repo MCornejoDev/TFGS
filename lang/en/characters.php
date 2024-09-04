@@ -11,6 +11,7 @@ return [
         'race' => 'Race',
         'gender' => 'Gender',
         'character_type' => 'Character Type',
+        'armor_weapon' => 'Armor / Weapon',
         'actions' => 'Actions',
     ],
 
@@ -94,7 +95,6 @@ return [
                 ],
                 'label' => [
                     'armor' => 'Armor',
-                    'no-armor' => 'No armor',
                 ],
                 'success' => [
                     'title' => 'Character created successfully',
@@ -146,6 +146,8 @@ return [
     ],
 
     'races' => [
+
+        'image' => 'Race Image',
         'human' => 'Human',
         'elf' => 'Elf',
         'dwarf' => 'Dwarf',
@@ -158,12 +160,17 @@ return [
     ],
 
     'armors' => [
+
+        'image' => 'Armor Image',
         'heavy_chain_mail' => 'Heavy Chain Mail',
         'leather_armor' => 'Medium or Heavy Leather Armor',
         'cloth_armor' => 'Cloth Armor',
+        'no_armor' => 'No armor',
     ],
 
     'weapons' => [
+
+        'image' => 'Weapon Image',
         'staff' => 'Staff',
         'scepter' => 'Scepter',
         'wand' => 'Wand',

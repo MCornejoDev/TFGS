@@ -22,6 +22,7 @@ class Create extends Component
         'gameId' => null,
         'characterTypeId' => null,
         'weaponId' => null,
+        'armorId' => null,
         'raceId' => null,
         'gender' => null,
         'age' => null,
@@ -92,6 +93,7 @@ class Create extends Component
         return array_map(fn($key, $value) => [
             'id' => $key,
             'name' => $value,
+            'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
         ], Races::toValues(), Races::withTranslations());
     }
 
@@ -118,7 +120,8 @@ class Create extends Component
         return collect($weaponsByCharacterType)->map(function ($weapon, $key) {
             return [
                 'id' => $key,
-                'name' => __('characters.weapons.' . Str::snake(Str::lower($weapon))),
+                'name' => __('characters.weapons.' . snake_lower($weapon)),
+                'image' => asset('storage/images/weapons/' . snake_lower($weapon) . '.png'),
             ];
         })->toArray();
     }
@@ -126,13 +129,20 @@ class Create extends Component
     #[Computed()]
     public function armor()
     {
-        return $this->form['characterTypeId'] ? Armors::armorByCharacterType(Str::lower(CharacterTypes::tryFrom($this->form['characterTypeId'])->label)) : __('characters.actions.create.form.label.no-armor');
+        return Armors::armorByCharacterType($this->form['characterTypeId']);
+    }
+
+    #[Computed()]
+    public function armorLabel()
+    {
+        return __('characters.armors.' . $this->armor->label);
     }
 
     public function updatedForm($value, $key)
     {
         if ($key === 'characterTypeId') {
             $this->form['weaponId'] = null;
+            $this->form['armorId'] = $this->armor->value;
         }
     }
 

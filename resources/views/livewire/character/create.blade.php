@@ -17,7 +17,7 @@
         <x-livewire.forms.select :items="$this->weapons" title="{{ __('characters.actions.create.form.weapon') }}"
             placeholder="{{ __('characters.actions.create.form.placeholder.weapon') }}" model="form.weaponId"
             optionId="id" optionLabel="name" dependsOn="characterTypeId" />
-        <x-livewire.forms.label :label="__('characters.actions.create.form.label.armor')" :value="$this->armor" />
+        <x-livewire.forms.label :label="__('characters.actions.create.form.label.armor')" :value="$this->armorLabel" />
     </div>
 
     <div class="grid items-center grid-cols-2 gap-4">
