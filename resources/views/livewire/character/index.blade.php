@@ -48,11 +48,13 @@
                         <td>{{ __('characters.races.' . Str::lower(Str::snake($character->race))) }}</td>
                         <td>{{ $character->gender }}</td>
                         <td>
-                            <p class="rounded-full tooltip"
-                                data-tip="{{ __('characters.characters_types.' . Str::lower(Str::snake($character->characterType->type))) }}">
-                                <img src="{{ $character->characterType->image }}"
-                                    alt="{{ __('characters.characters_types.image') }}" class="w-12 h-12 rounded-full">
-                            </p>
+                            <x-livewire.labels.images :dataTip="__(
+                                'characters.characters_types.' . snake_lower($character->characterType->type),
+                            )" :src="$character->characterType->image" :alt="__('characters.characters_types.image')" />
+                        </td>
+                        <td>
+                            <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($character->characterType->weaponLabel))" :src="$character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
+                            <x-livewire.labels.images :dataTip="__('characters.armors.' . snake_lower($character->characterType->armorLabel))" :src="$character->characterType->armorImage" :alt="__('characters.armors.image')" />
                         </td>
                     </tr>
                 @empty
