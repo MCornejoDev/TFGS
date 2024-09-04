@@ -3,8 +3,6 @@
 namespace App\Enums;
 
 use Spatie\Enum\Enum;
-use App\Enums\Races;
-use App\Models\Character;
 use Str;
 
 /**
