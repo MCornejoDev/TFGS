@@ -115,15 +115,14 @@ class Create extends Component
     #[Computed()]
     public function weapons()
     {
-        $weaponsByCharacterType = $this->form['characterTypeId'] ? Weapons::weaponByCharacterType(Str::lower(CharacterTypes::tryFrom($this->form['characterTypeId'])->label)) : [];
-
-        return collect($weaponsByCharacterType)->map(function ($weapon, $key) {
+        $weaponsByCharacterType = $this->form['characterTypeId'] ? Weapons::weaponByCharacterType($this->form['characterTypeId']) : [];
+        return collect($weaponsByCharacterType)->map(function ($weapon) {
             return [
-                'id' => $key,
-                'name' => __('characters.weapons.' . snake_lower($weapon)),
-                'image' => asset('storage/images/weapons/' . snake_lower($weapon) . '.png'),
+                'id' => $weapon->value,
+                'name' => __('characters.weapons.' . snake_lower($weapon->label)),
+                'image' => asset('storage/images/weapons/' . snake_lower($weapon->label) . '.png'),
             ];
-        })->toArray();
+        })->sortBy('name')->values();
     }
 
     #[Computed()]

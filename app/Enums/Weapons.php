@@ -65,11 +65,11 @@ class Weapons extends Enum
         return match ($characterType) {
             CharacterTypes::cleric()->value, CharacterTypes::sorcerer()->value,
             CharacterTypes::wizard()->value, CharacterTypes::druid()->value,
-            CharacterTypes::monk()->value, CharacterTypes::bard()->value => array('Staff', 'Scepter', 'Wand'),
+            CharacterTypes::monk()->value, CharacterTypes::bard()->value => array(self::staff(), self::scepter(), self::wand()),
             CharacterTypes::barbarian()->value, CharacterTypes::warrior()->value,
-            CharacterTypes::paladin()->value => array('Sword', 'Axe', 'Greatsword', 'Mace', 'Pickaxe', 'Double Swords'),
-            CharacterTypes::ranger()->value  => array('Bow', 'Crossbow'),
-            CharacterTypes::rogue()->value => array('Daggers', 'Knives'),
+            CharacterTypes::paladin()->value => array(self::sword(), self::axe(), self::greatsword(), self::mace(), self::pickaxe(), self::double_swords()),
+            CharacterTypes::ranger()->value  => array(self::bow(), self::crossbow()),
+            CharacterTypes::rogue()->value => array(self::daggers(), self::knives()),
             default => [],
         };
     }
