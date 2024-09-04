@@ -18,11 +18,11 @@
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('nickname')">
                         <x-livewire.tables.theading :label="__('characters.table.nickname')" id="nickname" />
                     </th>
-                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('race')">
-                        <x-livewire.tables.theading :label="__('characters.table.race')" id="race" />
-                    </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('gender')">
                         <x-livewire.tables.theading :label="__('characters.table.gender')" id="gender" />
+                    </th>
+                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('race')">
+                        <x-livewire.tables.theading :label="__('characters.table.race')" id="race" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('character_type_id')">
                         <x-livewire.tables.theading :label="__('characters.table.character_type')" id="character_type_id" />
@@ -52,12 +52,12 @@
                         </td>
                         <td>
                             <x-livewire.labels.images :dataTip="__(
-                                'characters.characters_types.' . snake_lower($character->characterType->type),
+                                'characters.characters_types.' . snake_lower($character->characterType->typeLabel),
                             )" :src="$character->characterType->image" :alt="__('characters.characters_types.image')" />
                         </td>
                         <td>
-                            <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($character->characterType->weaponLabel))" :src="$character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
                             <x-livewire.labels.images :dataTip="__('characters.armors.' . snake_lower($character->characterType->armorLabel))" :src="$character->characterType->armorImage" :alt="__('characters.armors.image')" />
+                            <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($character->characterType->weaponLabel))" :src="$character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
                         </td>
                     </tr>
                 @empty

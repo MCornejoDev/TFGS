@@ -23,10 +23,10 @@ class CharacterType extends Model
      *
      * @return string
      */
-    protected function type(): Attribute
+    protected function typeLabel(): Attribute
     {
         return Attribute::make(
-            get: fn() => CharacterTypes::from($this->id)->label,
+            get: fn() => CharacterTypes::from($this->type)->label,
         );
     }
 
@@ -38,7 +38,7 @@ class CharacterType extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->id) . '.png'),
+            get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->type) . '.png'),
         );
     }
 

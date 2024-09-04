@@ -19,10 +19,14 @@ class CharacterTypeFactory extends Factory
      */
     public function definition(): array
     {
+        $characterType = CharacterTypes::getRandomValue();
+        $weapon = Weapons::weaponByCharacterType($characterType);
+        $armor = Armors::armorByCharacterType($characterType);
+
         return [
-            'type' => CharacterTypes::getRandomValue(),
-            'weapon' => Weapons::getRandomValue(),
-            'armor' => Armors::getRandomValue(),
+            'type' => $characterType,
+            'weapon' => $weapon[array_rand($weapon)]->value,
+            'armor' => $armor->value,
             'shield' => $this->faker->boolean,
         ];
     }
