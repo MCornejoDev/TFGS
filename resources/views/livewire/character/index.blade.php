@@ -12,11 +12,11 @@
             <thead>
                 <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('characters.table.actions') }}</th>
+                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('level')">
+                        <x-livewire.tables.theading :label="__('characters.table.level')" id="level" />
+                    </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
                         <x-livewire.tables.theading :label="__('characters.table.name')" id="name" />
-                    </th>
-                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('nickname')">
-                        <x-livewire.tables.theading :label="__('characters.table.nickname')" id="nickname" />
                     </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('gender')">
                         <x-livewire.tables.theading :label="__('characters.table.gender')" id="gender" />
@@ -43,10 +43,19 @@
                             <x-button icon="trash" rounded class="bg-base-100" negative
                                 wire:click="confirm({{ $character->id }})" />
                         </td>
-                        <td>{{ $character->name }}</td>
-                        <td>{{ $character->nickname }}</td>
-
-                        <td>{{ $character->gender }}</td>
+                        <td class="font-bold">
+                            <x-avatar md>
+                                <x-slot name="label" class="!text-black !font-extrabold italic">
+                                    {{ $character->level }}
+                                </x-slot>
+                            </x-avatar>
+                        </td>
+                        <td class="font-bold">
+                            <div>{{ $character->name }}</div>
+                            <div class="text-xs cursor-pointer text-base-content/70 tooltip tooltip-left"
+                                data-tip="{{ __('characters.table.nickname') }}">({{ $character->nickname }})</div>
+                        </td>
+                        <td class="font-bold">{{ $character->gender }}</td>
                         <td>
                             <x-livewire.labels.images :dataTip="__('characters.races.' . snake_lower($character->raceLabel))" :src="$character->raceImage" :alt="__('characters.races.image')" />
                         </td>
