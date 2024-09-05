@@ -60,6 +60,17 @@ class Weapons extends Enum
         ];
     }
 
+    public static function showShield(?int $weaponId): bool
+    {
+        return match ($weaponId) {
+            self::sword()->value, self::axe()->value,
+            self::mace()->value, self::pickaxe()->value,
+            self::staff()->value, self::scepter()->value,
+            self::wand()->value => true,
+            default => false,
+        };
+    }
+
     public static function weaponByCharacterType(int $characterType): array
     {
         return match ($characterType) {

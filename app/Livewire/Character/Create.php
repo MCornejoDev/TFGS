@@ -17,11 +17,14 @@ class Create extends Component
 {
     use WireUiActions;
 
+    public bool $show = false;
+
     public array $form = [
         'gameId' => null,
         'characterTypeId' => null,
         'weaponId' => null,
         'armorId' => null,
+        'shield' => false,
         'raceId' => null,
         'gender' => null,
         'age' => null,
@@ -145,6 +148,12 @@ class Create extends Component
         if ($key === 'characterTypeId') {
             $this->form['weaponId'] = null;
             $this->form['armorId'] = $this->armor->value;
+            $this->show = Weapons::showShield($this->form['weaponId']);
+        }
+
+        if ($key === 'weaponId') {
+            $this->form['shield'] = false;
+            $this->show = Weapons::showShield($this->form['weaponId']);
         }
     }
 

@@ -6,6 +6,7 @@ return [
     'empty' => 'No characters found',
 
     'table' => [
+        'level' => 'Level',
         'name' => 'Name',
         'nickname' => 'Nickname',
         'race' => 'Race',
@@ -60,6 +61,7 @@ return [
                 'name' => 'Name',
                 'nickname' => 'Nickname',
                 'weapon' => 'Weapon',
+                'shield' => 'Shield',
                 'skill' => 'Skill :number',
                 'strength' => 'Strength',
                 'dexterity' => 'Dexterity',

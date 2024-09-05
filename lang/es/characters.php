@@ -6,6 +6,7 @@ return [
     'empty' => 'No se encontraron personajes',
 
     'table' => [
+        'level' => 'Nivel',
         'name' => 'Nombre',
         'nickname' => 'Apodo',
         'race' => 'Raza',
@@ -60,6 +61,7 @@ return [
                 'name' => 'Nombre',
                 'nickname' => 'Apodo',
                 'weapon' => 'Arma',
+                'shield' => 'Escudo',
                 'skill' => 'Habilidad :number',
                 'strength' => 'Fuerza',
                 'dexterity' => 'Destreza',

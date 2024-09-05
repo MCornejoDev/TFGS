@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col space-y-4" x-data="{ show: @entangle('show') }">
 
     <x-livewire.forms.select :items="$this->games" title="{{ __('characters.actions.create.form.game') }}"
         placeholder="{{ __('characters.actions.create.form.placeholder.game') }}" model="form.gameId" optionId="id"
@@ -14,9 +14,14 @@
     </div>
 
     <div class="grid items-center grid-cols-2 gap-4">
-        <x-livewire.forms.select :items="$this->weapons" title="{{ __('characters.actions.create.form.weapon') }}"
-            placeholder="{{ __('characters.actions.create.form.placeholder.weapon') }}" model="form.weaponId"
-            optionId="id" optionLabel="name" dependsOn="characterTypeId" />
+        <div>
+            <x-livewire.forms.select :items="$this->weapons" title="{{ __('characters.actions.create.form.weapon') }}"
+                placeholder="{{ __('characters.actions.create.form.placeholder.weapon') }}" model="form.weaponId"
+                optionId="id" optionLabel="name" dependsOn="characterTypeId" />
+            <div x-show="show" x-transition>
+                <x-livewire.forms.checkbox :label="__('characters.actions.create.form.shield')" model="form.shield" />
+            </div>
+        </div>
         <x-livewire.forms.label :label="__('characters.actions.create.form.label.armor')" :value="$this->armorLabel" />
     </div>
 

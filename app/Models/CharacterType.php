@@ -13,6 +13,13 @@ class CharacterType extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'type',
+        'weapon',
+        'armor',
+        'shield',
+    ];
+
     public function characters()
     {
         return $this->hasMany(Character::class);
