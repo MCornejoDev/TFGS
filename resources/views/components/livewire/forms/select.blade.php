@@ -44,7 +44,7 @@ api = '{{ $api }}';">
         <div x-show="open" @click.away="open = false"
             class="absolute z-10 w-full mt-1 border rounded-md shadow-lg bg-base-100 border-base-content/30 ">
             <!-- Campo de búsqueda -->
-            <div class="p-2">
+            <div class="p-2" x-show="options.length > 5">
                 <input type="text" x-model="searchQuery" placeholder="{{ __('filters.search') }}"
                     @input.debounce.500="fetchFilteredOptions('{{ $optionLabel }}')"
                     class="w-full px-3 py-2 text-sm font-bold border rounded-md text-base-content bg-base-30 input input-bordered placeholder:text-sm placeholder:font-bold">
@@ -69,17 +69,18 @@ api = '{{ $api }}';">
                             <span x-text="option.{{ $optionLabel }}"
                                 :class="{
                                     'font-semibold': selected && selected.id === option.id,
-                                    'font-normal': !(selected && selected.id === option.id)
+                                    'font-bold': !(selected && selected.id === option.id)
                                 }"
-                                class="block"></span>
+                                class="block "></span>
                             <span x-text="getTextDescription(option.id, '{{ $optionDescription }}')"
                                 class="text-sm text-base-content"></span>
                         </div>
                     </li>
                 </template>
-                <li x-show="!options.length" class="text-center text-base-content">
-                    <span class="block text-sm text-base-content">
+                <li x-show="!options.length" class="my-2 text-center text-base-content">
+                    <span class="flex flex-row items-center text-sm text-base-content gap-1.5 justify-center font-bold">
                         {{ __('filters.no_results') }}
+                        <x-icon name="exclamation-triangle" class="w-5 h-5 text-base-content" />
                     </span>
                 </li>
             </ul>
