@@ -7,12 +7,14 @@
     'optionLabel' => null,
     'optionDescription' => null,
     'dependsOn' => null,
+    'api' => null,
 ])
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');
-placeholder = '{{ $placeholder }}';">
+placeholder = '{{ $placeholder }}';
+api = '{{ $api }}';">
     <span class="block mb-2 text-sm font-medium text-base-content">
         {{ $title }}
     </span>
@@ -41,6 +43,12 @@ placeholder = '{{ $placeholder }}';">
         <!-- Opciones del dropdown -->
         <div x-show="open" @click.away="open = false"
             class="absolute z-10 w-full mt-1 border rounded-md shadow-lg bg-base-100 border-base-content/30 ">
+            <!-- Campo de búsqueda -->
+            <div class="p-2">
+                <input type="text" x-model="searchQuery" placeholder="{{ __('filters.search') }}"
+                    @input.debounce.500="fetchFilteredOptions('{{ $optionLabel }}')"
+                    class="w-full px-3 py-2 text-sm font-bold border rounded-md text-base-content bg-base-30 input input-bordered placeholder:text-sm placeholder:font-bold">
+            </div>
             <ul
                 class="py-1 overflow-auto rounded-md text-base-content max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                 <template x-for="(option, index) in options" :key="option.id + '-' + index">
@@ -69,6 +77,11 @@ placeholder = '{{ $placeholder }}';">
                         </div>
                     </li>
                 </template>
+                <li x-show="!options.length" class="text-center text-base-content">
+                    <span class="block text-sm text-base-content">
+                        {{ __('filters.no_results') }}
+                    </span>
+                </li>
             </ul>
         </div>
     </div>

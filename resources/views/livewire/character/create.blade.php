@@ -7,7 +7,7 @@
     <div class="grid items-center grid-cols-2 gap-4">
         <x-livewire.forms.select :items="$this->races" title="{{ __('characters.actions.create.form.race') }}"
             placeholder="{{ __('characters.actions.create.form.placeholder.race') }}" model="form.raceId" optionId="id"
-            optionLabel="name" />
+            optionLabel="name" api="{{ route('races') }}" />
         <x-livewire.forms.select :items="$this->characterTypes" title="{{ __('characters.actions.create.form.character_type') }}"
             placeholder="{{ __('characters.actions.create.form.placeholder.character_type') }}"
             model="form.characterTypeId" optionId="id" optionLabel="name" />

@@ -72,10 +72,50 @@
             optionImage: null,
             optionLabel: null,
             optionDescription: null,
+            api: null,
+            searchQuery: '',
+            copy: null,
+            handleCopy() {
+                // Ensure the copy of options is only created once
+                if (!this.copy) {
+                    this.copy = [...this.options]; // Create a shallow copy of the original options
+                }
+            },
+            restoreCopy() {
+                // Restore the original options from the copy
+                if (this.copy) {
+                    this.options = [...this.copy];
+                }
+            },
+            fetchFilteredOptions(optionLabel) {
+                if (this.api === '') {
+                    // If no API, use local filtering
+                    this.handleCopy(); // Ensure a copy is made before filtering
+
+                    // Perform the filtering on the copy, not on the original
+                    this.options = this.copy.filter(option =>
+                        option[optionLabel].toLowerCase().includes(this.searchQuery
+                            .toLowerCase())
+                    );
+                } else {
+                    // If using API, fetch results from server
+                    this.handleFetch();
+                }
+            },
+            handleFetch() {
+                fetch(this.api + '?search=' + this.searchQuery)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.options =
+                            data; // Guardamos los resultados filtrados en la variable options
+                    });
+            },
             handleSelect(option) {
                 this.selected = option;
                 this.open = false;
                 this.$wire.set(this.model, option.id);
+                this.restoreCopy();
+                this.searchQuery = '';
             },
             checkIfHasImage() {
                 return this.selected && this.selected.hasOwnProperty('image');
