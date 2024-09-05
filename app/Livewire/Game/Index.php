@@ -110,6 +110,17 @@ class Index extends Component
         }
     }
 
+    public function openSidePanel(): void
+    {
+        $this->dispatch(
+            'openPanel',
+            title: __('games.actions.create.title'),
+            component: 'game.create',
+            icon: 'squares-plus',
+        );
+    }
+
+
     public function render()
     {
         return view('livewire.game.index');

@@ -208,6 +208,7 @@ return [
         'form.weight' => 'weight',
         'form.health' => 'health',
         'form.level' => 'level',
+        'form.date_start' => 'date start',
     ],
 
 ];

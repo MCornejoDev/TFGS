@@ -13,6 +13,12 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'date_start',
+        'comments',
+    ];
+
     protected $casts = [
         'date_start' => 'date',
     ];

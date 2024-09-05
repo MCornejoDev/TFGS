@@ -27,6 +27,21 @@ class GameService
         return $query->orderBy($sortField, $sortDirection)->paginate(10);
     }
 
+    public  static function create(array $data): ?Game
+    {
+        try {
+            $game = Game::create($data);
+
+            $game->users()->attach(Auth::id());
+
+            return $game;
+        } catch (Exception $e) {
+            log_error($e);
+
+            return null;
+        }
+    }
+
     public static function remove(int $id): bool
     {
         try {

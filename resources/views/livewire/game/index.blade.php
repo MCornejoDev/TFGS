@@ -1,7 +1,11 @@
 <div class="space-y-4">
-    <x-livewire.filters.index title="{{ __('games.filters.title') }}" :filters="$this->allFilters()"
-        labelLoading="{{ __('games.filters.actions.loading') }}" labelClear="{{ __('games.filters.actions.clear') }}" />
-
+    <div class="flex items-center justify-end gap-4">
+        <x-livewire.filters.index title="{{ __('games.filters.title') }}" :filters="$this->allFilters()"
+            labelLoading="{{ __('games.filters.actions.loading') }}"
+            labelClear="{{ __('games.filters.actions.clear') }}" />
+        <x-button icon="squares-plus" label="{{ __('games.actions.create.btn') }}"
+            class="!btn !border-base-content/30 !outline-none" wire:click='openSidePanel' />
+    </div>
     <div class="overflow-x-auto">
         <table class="table text-center border border-base-content/30">
             <thead>

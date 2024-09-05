@@ -29,6 +29,32 @@ return [
     ],
 
     'actions' => [
+        'create' => [
+            'title' => 'Crear Partida',
+            'btn' => 'Crear',
+            'form' => [
+                'name' => 'Nombre',
+                'date_start' => 'Fecha de inicio',
+                'comments' => 'Comentarios',
+                'placeholder' => [
+                    'name' => 'Ingrese un nombre',
+                    'date_start' => 'Ingrese una fecha',
+                    'comments' => 'Ingrese un comentario',
+                ],
+                'label' => [
+                    'comments' => 'Comentarios',
+                    'date_start' => 'Fecha de inicio',
+                ],
+                'success' => [
+                    'title' => 'Partida creada correctamente',
+                    'description' => 'La partida ha sido creada correctamente',
+                ],
+                'error' => [
+                    'title' => 'Algo salió mal, inténtalo de nuevo',
+                    'description' => 'La partida no pudo ser creada',
+                ],
+            ],
+        ],
         'delete' => [
             'title' => 'Eliminar Partida',
             'description' => '¿Estás seguro de que quieres eliminar esta partida?',
