@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Enums\Races;
 use Illuminate\Http\Request;
 
-class RaceController extends Controller
+class CharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function races(Request $request)
     {
         return collect(Races::withTranslations())->map(function ($value, $key) {
             return [
