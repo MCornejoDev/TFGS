@@ -9,7 +9,7 @@ return [
         'level' => 'Level',
         'name' => 'Name',
         'nickname' => 'Nickname',
-        'race' => 'Race',
+        'race' => 'Character Race',
         'gender' => 'Gender',
         'character_type' => 'Character Type',
         'armor_weapon' => 'Armor / Weapon',

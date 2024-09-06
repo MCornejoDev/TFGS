@@ -43,8 +43,8 @@ api = '{{ $api }}';">
         <!-- Opciones del dropdown -->
         <div x-show="open" @click.away="open = false"
             class="absolute z-10 w-full mt-1 border rounded-md shadow-lg bg-base-100 border-base-content/30 ">
-            <!-- Campo de búsqueda -->
-            <div class="p-2" x-show="options.length > 5">
+            <!-- Campo de búsqueda x-show="options.length > 5"-->
+            <div class="p-2">
                 <input type="text" x-model="searchQuery" placeholder="{{ __('filters.search') }}"
                     @input.debounce.500="fetchFilteredOptions('{{ $optionLabel }}')"
                     class="w-full px-3 py-2 text-sm font-bold border rounded-md text-base-content bg-base-30 input input-bordered placeholder:text-sm placeholder:font-bold">

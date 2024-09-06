@@ -9,7 +9,7 @@ return [
         'level' => 'Nivel',
         'name' => 'Nombre',
         'nickname' => 'Apodo',
-        'race' => 'Raza',
+        'race' => 'Raza del Personaje',
         'gender' => 'Género',
         'character_type' => 'Tipo de Personaje',
         'armor_weapon' => 'Armadura / Arma',
