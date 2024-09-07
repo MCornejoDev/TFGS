@@ -201,8 +201,7 @@
                 this.$watch('currentYear', this.generateDays);
                 this.handleClickOutside = this.handleClickOutside.bind(this);
                 document.addEventListener('click', this.handleClickOutside);
-                this.monthNames = JSON.parse(monthNames);
-
+                this.monthNames = JSON.parse(monthNames ?? '[]');
             },
 
             get combinedDateTime() {
@@ -210,8 +209,6 @@
             },
 
             get monthYear() {
-                console.log(this.monthNames, this.currentMonth);
-
                 return `${this.monthNames[this.currentMonth]} ${this.currentYear}`;
             },
 
