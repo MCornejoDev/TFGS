@@ -4,6 +4,7 @@ namespace App\Livewire\Game;
 
 use App\Http\Services\GameService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 use WireUi\Traits\WireUiActions;
@@ -11,6 +12,12 @@ use WireUi\Traits\WireUiActions;
 class Index extends Component
 {
     use WithPagination, WireUiActions;
+
+    #[On('refresh')]
+    public function refresh(): void
+    {
+        $this->resetPage();
+    }
 
     public $search = '';
 

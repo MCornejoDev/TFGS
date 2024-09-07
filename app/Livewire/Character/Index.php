@@ -6,6 +6,7 @@ use App\Enums\CharacterTypes;
 use App\Enums\Races;
 use App\Http\Services\CharacterService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 use WireUi\Traits\WireUiActions;
@@ -13,6 +14,12 @@ use WireUi\Traits\WireUiActions;
 class Index extends Component
 {
     use WithPagination, WireUiActions;
+
+    #[On('refresh')]
+    public function refresh(): void
+    {
+        $this->resetPage();
+    }
 
     public string $search = "";
 

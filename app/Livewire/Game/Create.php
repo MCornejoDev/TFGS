@@ -4,6 +4,8 @@ namespace App\Livewire\Game;
 
 use App\Http\Services\GameService;
 use App\Models\Game;
+use App\Models\User;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 use WireUi\Traits\WireUiActions;
 
@@ -15,7 +17,7 @@ class Create extends Component
         'name' => null,
         'date_start' => null,
         'comments' => null,
-        'users' => [],
+        'users' => null,
     ];
 
     public function rules()
@@ -25,6 +27,22 @@ class Create extends Component
             'form.date_start' => 'required',
             'form.comments' => 'required',
         ];
+    }
+
+    public function mount()
+    {
+        $this->resetValidation();
+    }
+
+    #[Computed()]
+    public function users()
+    {
+        return User::select(['id', 'name'])->get()->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+            ];
+        })->sortBy('name')->values();
     }
 
     public function create()
@@ -42,6 +60,7 @@ class Create extends Component
                 'title' => __('games.actions.create.form.success.title'),
                 'description' => __('games.actions.create.form.success.description'),
             ]);
+            $this->dispatch('refresh');
         } else {
             $this->notification()->send([
                 'icon' => 'error',

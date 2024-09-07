@@ -36,10 +36,12 @@ return [
                 'name' => 'Name',
                 'date_start' => 'Date Start',
                 'comments' => 'Comments',
+                'users' => 'Users',
                 'placeholder' => [
                     'name' => 'Enter a name',
                     'date_start' => 'Enter a date',
                     'comments' => 'Enter a comments',
+                    'users' => 'Select one or more users',
                 ],
                 'label' => [
                     'comments' => 'Comments',

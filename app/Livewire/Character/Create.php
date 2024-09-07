@@ -172,6 +172,7 @@ class Create extends Component
                 'title' => __('characters.actions.create.form.success.title'),
                 'description' => __('characters.actions.create.form.success.description'),
             ]);
+            $this->dispatch('refresh');
         } else {
             $this->notification()->send([
                 'icon' => 'error',
