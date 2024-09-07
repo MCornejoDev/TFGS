@@ -1,0 +1,85 @@
+@props([
+    'id' => uniqid(),
+    'model' => null,
+    'placeholder' => null,
+    'date' => false,
+])
+
+@php
+    $monthNames = collect(trans('datetimePicker.months'))->values()->toArray();
+@endphp
+
+<div x-data="datetimePicker()" x-init="init('{{ json_encode($monthNames) }}')" class="relative"
+    data-date="{{ \Carbon\Carbon::parse($date)->format('Y-m-d') }}"
+    data-time="{{ \Carbon\Carbon::parse($date)->format('H:i') }}">
+
+    <!-- Input principal que muestra la fecha y hora -->
+    <button @click="toggleDropdown()" x-ref="button"
+        class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
+           {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
+           border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
+           sm:text-sm">
+        <div class="truncate flex flex-row items-center gap-1.5">
+            <span x-text="combinedDateTime"></span>
+        </div>
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+            <x-icon name="calendar" class="w-5 h-5 text-base-content" />
+        </span>
+    </button>
+
+    <!-- Dropdown de selección de fecha y hora -->
+    <div x-show="open" x-ref="dropdown"
+        class="absolute z-50 w-full p-4 mt-2 border rounded-md shadow-lg bg-base-100 border-base-content/30">
+
+        <!-- Selector de fecha -->
+        <div class="mb-4">
+            <div class="relative">
+                <input type="text" x-model="displayDate" readonly
+                    class="w-full p-2 border rounded-md shadow-lg cursor-pointer bg-base-100 border-base-content/30"
+                    @click="showCalendar = true">
+                <div x-show="showCalendar" @click.away="showCalendar = false"
+                    class="absolute z-10 w-full mt-2 border rounded-md shadow-lg bg-base-100 border-base-content/30">
+                    <div class="p-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <button @click="prevMonth" class="p-1 hover:bg-base-300 hover:text-base-content">
+                                <x-icon name="chevron-left" class="w-5 h-5" />
+                            </button>
+                            <span x-text="monthYear" class="font-semibold"></span>
+                            <button @click="nextMonth" class="p-1 hover:bg-base-300 hover:text-base-content">
+                                <x-icon name="chevron-right" class="w-5 h-5" />
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 font-semibold text-center">
+                            <div>{{ __('datetimePicker.days_short.Sun') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Mon') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Tue') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Wed') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Thu') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Fri') }}</div>
+                            <div>{{ __('datetimePicker.days_short.Sat') }}</div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center">
+                            <template x-for="(day, index) in days" :key="index">
+                                <button x-text="day.date" @click="selectDate(day.date)"
+                                    :class="{
+                                        'text-base-content bg-base-300': day.isSelected,
+                                        'text-base-content hover:bg-base-300 hover:text-base-content':
+                                            !day.isSelected
+                                    }"
+                                    class="p-2 rounded-full cursor-pointer" :disabled="!day.isValid">
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selector de hora -->
+        <div class="mb-4">
+            <label for="time">Hora:</label>
+            <input type="time" x-model="selectedTime"
+                class="w-full p-2 rounded-md shadow-lg cursor-pointer bg-base-100 border-base-content/30">
+        </div>
+    </div>
+</div>
