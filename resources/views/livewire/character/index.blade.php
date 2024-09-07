@@ -71,7 +71,7 @@
                     </tr>
                 @empty
                     <tr class="font-bold border border-base-content/30" wire:loading.remove wire:target="loadRecords">
-                        <td colspan="6" class="py-4 text-center">{{ __('characters.empty') }}</td>
+                        <td colspan="7" class="py-4 text-center">{{ __('characters.empty') }}</td>
                     </tr>
                 @endforelse
             </tbody>
