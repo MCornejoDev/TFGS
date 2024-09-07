@@ -136,6 +136,11 @@
                     .form[dependsOn]);
             },
             setLabel(dependsOn, optionLabel, optionDescription) {
+
+                if (this.selected === null) {
+                    return this.placeholder;
+                }
+
                 if (this.checkIfDependsOn(dependsOn)) {
                     this.oldValue = this.$wire.form[dependsOn];
                     this.selected = null;
