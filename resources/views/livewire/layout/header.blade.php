@@ -16,7 +16,7 @@
                 <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
             </ul>
         </div>
-        <x-logo :width="40" :height="25" class="cursor-pointer" :redirectToHomePage="true" />
+        <x-logo :width="75" :height="25" class="cursor-pointer" :redirectToHomePage="true" />
     </div>
     <div class="hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">

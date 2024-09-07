@@ -18,7 +18,7 @@
 <body class="flex items-center justify-center min-h-screen background">
     <div class="w-full max-w-sm p-8 m-8 text-black bg-white rounded-lg shadow-md">
         <div class="flex flex-col items-center justify-between gap-4 mb-6">
-            <x-logo :width="40" :height="25" />
+            <x-logo :width="100" :height="25" />
             <h2 class="text-2xl font-bold ">{{ config('app.name') }}</h2>
         </div>
 
