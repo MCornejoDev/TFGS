@@ -48,4 +48,6 @@ return [
         'Nov' => 'Nov',
         'Dec' => 'Dec',
     ],
+
+    'apply' => 'Apply',
 ];

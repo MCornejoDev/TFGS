@@ -17,8 +17,6 @@ selectedDate = '{{ parse_date($value, 'Y-m-d', $tz) }}';
 selectedTime = '{{ parse_date($value, 'H:i', $tz) }}';
 generateDays();" class="relative">
 
-
-
     <!-- Botón principal que muestra la fecha y hora seleccionadas -->
     <button @click="toggleDropdown()" x-ref="button"
         class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
@@ -79,14 +77,18 @@ generateDays();" class="relative">
         <!-- Selector de hora -->
         <div class="flex items-center justify-between gap-2">
             <input type="time" x-model="selectedTime"
-                class="w-full p-2 rounded-md shadow-lg cursor-pointer bg-base-100 border-base-content/30">
+                class="w-48 p-2 rounded-md shadow-lg cursor-pointer bg-base-100 border-base-content/30">
             <button @click="setDateTime"
-                class="flex items-center gap-2 p-1 hover:bg-base-300 hover:text-base-content flew-row btn">
+                class="flex items-center w-48 gap-2 p-1 hover:bg-base-300 hover:text-base-content flew-row btn border-base-content/30">
                 <span>
-                    Aplicar
+                    {{ __('datetimePicker.apply') }}
                 </span>
                 <x-icon name="check" class="w-5 h-5" />
             </button>
         </div>
     </div>
+
+    @error($model)
+        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+    @enderror
 </div>
