@@ -182,6 +182,7 @@
         }))
 
         Alpine.data('datetimePicker', () => ({
+            model: null,
             open: false,
             showCalendar: false,
             selectedDate: '',
@@ -192,16 +193,8 @@
             monthNames: [],
             days: [],
 
-            init(monthNames) {
-                this.selectedDate = this.$el.getAttribute('data-date');
-                this.selectedTime = this.$el.getAttribute('data-time');
-                this.displayDate = this.selectedDate || 'Selecciona una fecha';
-                this.generateDays();
-                this.$watch('currentMonth', this.generateDays);
-                this.$watch('currentYear', this.generateDays);
-                this.handleClickOutside = this.handleClickOutside.bind(this);
-                document.addEventListener('click', this.handleClickOutside);
-                this.monthNames = JSON.parse(monthNames ?? '[]');
+            get showDateTime() {
+                console.log(this);
             },
 
             get combinedDateTime() {
@@ -218,7 +211,7 @@
 
             setDateTime() {
                 this.open = false;
-                //this.$wire.set(this.model, this.combinedDateTime);
+                this.$wire.call('setDateTime', this.model, this.combinedDateTime);
             },
 
             selectDate(day) {
@@ -283,17 +276,6 @@
                 }
                 this.generateDays(); // Regenerar los días después de cambiar el mes
             },
-
-            handleClickOutside(event) {
-                if (!this.$refs.dropdown.contains(event.target) && !this.$refs.button.contains(event
-                        .target)) {
-                    this.setDateTime();
-                }
-            },
-
-            $destroy() {
-                document.removeEventListener('click', this.handleClickOutside);
-            }
         }));
     });
 </script>

@@ -3,6 +3,7 @@
 namespace App\Livewire\Game;
 
 use App\Http\Services\GameService;
+use App\Livewire\Traits\DateTime;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -11,7 +12,7 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use WithPagination, WireUiActions;
+    use WithPagination, WireUiActions, DateTime;
 
     #[On('refresh')]
     public function refresh(): void
@@ -56,13 +57,14 @@ class Index extends Component
                 'type' => 'date',
                 'label' => __('games.filters.date_start.label'),
                 'placeholder' => __('games.filters.date_start.placeholder'),
-                'model' => 'date_start',
+                'model' => 'filters.date_start',
             ]
         ];
     }
 
     public function setFilter($key, $value)
     {
+        dump($key);
         $this->filters[$key] = $value;
         $this->resetPage();
     }

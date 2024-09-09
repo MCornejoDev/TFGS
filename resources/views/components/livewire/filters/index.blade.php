@@ -26,20 +26,15 @@
                             @break
 
                             @case('date')
-                                <x-datetime-picker wire:model.live="filters.{{ $filter['model'] }}"
-                                    placeholder="{{ $filter['placeholder'] }}" class="font-bold text-base-content/30"
-                                    class="datePicker" />
+                                <x-livewire.forms.datetime-picker :model="$filter['model']" wire:key="{{ $filter['model'] }}" />
                             @break
 
                             @default
                                 <input type="text" placeholder="{{ $filter['label'] }}"
-                                    class="w-full input input-bordered placeholder:text-sm placeholder:font-bold"
+                                    class="w-full border-base-300 bg-base-300 input input-bordered placeholder:text-sm placeholder:font-bold"
                                     wire:model.live="search" />
                         @endswitch
                     @endforeach
-
-                    {{-- <x-button x-on:click="clearFilters" spinner="$wire.entangle('loading')"
-                        label="{{ $labelClear }}" /> --}}
 
                     <button type="button" class="w-full font-bold btn input-bordered md:w-auto"
                         x-on:click="clearFilters">

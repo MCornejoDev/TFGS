@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,5 +52,14 @@ class User extends Authenticatable
     {
         // Especificar la tabla pivote 'users_games'
         return $this->belongsToMany(Game::class, 'users_games', 'user_id', 'game_id');
+    }
+
+    public function timeZoneLabel(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return str_replace('_', ' ', str_replace('/', ' - ', $this->timezone));
+            },
+        );
     }
 }

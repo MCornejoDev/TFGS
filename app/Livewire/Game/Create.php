@@ -3,6 +3,7 @@
 namespace App\Livewire\Game;
 
 use App\Http\Services\GameService;
+use App\Livewire\Traits\DateTime;
 use App\Models\Game;
 use App\Models\User;
 use Livewire\Attributes\Computed;
@@ -11,7 +12,7 @@ use WireUi\Traits\WireUiActions;
 
 class Create extends Component
 {
-    use WireUiActions;
+    use WireUiActions, DateTime;
 
     public array $form = [
         'name' => null,
@@ -47,6 +48,7 @@ class Create extends Component
 
     public function create()
     {
+        dd($this->form);
         $this->validate();
 
         $response = GameService::create($this->form);

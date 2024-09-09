@@ -1,17 +1,23 @@
 @props([
     'id' => uniqid(),
     'model' => null,
-    'placeholder' => null,
-    'date' => false,
+    'value' => null,
 ])
 
 @php
     $monthNames = collect(trans('datetimePicker.months'))->values()->toArray();
+    $tz = auth()->user()->timezone;
+    $tzLabel = auth()->user()->timeZoneLabel;
 @endphp
 
-<div x-data="datetimePicker()" x-init="init('{{ json_encode($monthNames) }}')" class="relative"
-    data-date="{{ \Carbon\Carbon::parse($date)->format('Y-m-d') }}"
-    data-time="{{ \Carbon\Carbon::parse($date)->format('H:i') }}">
+
+<div x-data="datetimePicker()" x-init="model = '{{ $model }}';
+monthNames = {{ json_encode($monthNames) }};
+selectedDate = '{{ parse_date($value, 'Y-m-d', $tz) }}';
+selectedTime = '{{ parse_date($value, 'H:i', $tz) }}';
+generateDays();" class="relative">
+
+
 
     <!-- Botón principal que muestra la fecha y hora seleccionadas -->
     <button @click="toggleDropdown()" x-ref="button"
@@ -20,7 +26,7 @@
            border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
            sm:text-sm">
         <div class="truncate flex flex-row items-center gap-1.5">
-            <span x-text="combinedDateTime"></span>
+            <span x-text="showDateTime"></span>
         </div>
         <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
             <x-icon name="calendar" class="w-5 h-5 text-base-content" />
@@ -31,6 +37,11 @@
     <div x-show="open" x-ref="dropdown"
         class="absolute z-50 w-full p-4 mt-2 border rounded-md shadow-lg bg-base-100 border-base-content/30">
 
+        <div>
+            <div class="flex items-center justify-center mb-2 font-bold">
+                {{ $tzLabel }}
+            </div>
+        </div>
 
         <div class="p-2">
             <div class="flex items-center justify-between mb-2">
@@ -66,9 +77,16 @@
             </div>
         </div>
         <!-- Selector de hora -->
-        <div>
+        <div class="flex items-center justify-between gap-2">
             <input type="time" x-model="selectedTime"
                 class="w-full p-2 rounded-md shadow-lg cursor-pointer bg-base-100 border-base-content/30">
+            <button @click="setDateTime"
+                class="flex items-center gap-2 p-1 hover:bg-base-300 hover:text-base-content flew-row btn">
+                <span>
+                    Aplicar
+                </span>
+                <x-icon name="check" class="w-5 h-5" />
+            </button>
         </div>
     </div>
 </div>
