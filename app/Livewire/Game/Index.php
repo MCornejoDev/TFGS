@@ -64,7 +64,6 @@ class Index extends Component
 
     public function setFilter($key, $value)
     {
-        dump($key);
         $this->filters[$key] = $value;
         $this->resetPage();
     }

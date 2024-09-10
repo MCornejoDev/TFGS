@@ -48,7 +48,6 @@ class Create extends Component
 
     public function create()
     {
-        dd($this->form);
         $this->validate();
 
         $response = GameService::create($this->form);

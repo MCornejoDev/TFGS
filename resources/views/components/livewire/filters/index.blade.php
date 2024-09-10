@@ -26,7 +26,8 @@
                             @break
 
                             @case('date')
-                                <x-livewire.forms.datetime-picker :model="$filter['model']" wire:key="{{ $filter['model'] }}" />
+                                <x-livewire.forms.datetime-picker :model="$filter['model']" wire:key="{{ $filter['model'] }}"
+                                    placeholder="{{ $filter['placeholder'] }}" />
                             @break
 
                             @default

@@ -2,6 +2,7 @@
     'id' => uniqid(),
     'model' => null,
     'value' => null,
+    'placeholder' => null,
 ])
 
 @php
@@ -12,9 +13,10 @@
 
 
 <div x-data="datetimePicker()" x-init="model = '{{ $model }}';
+placeholder = '{{ $placeholder }}';
 monthNames = {{ json_encode($monthNames) }};
-selectedDate = '{{ parse_date($value, 'Y-m-d', $tz) }}';
-selectedTime = '{{ parse_date($value, 'H:i', $tz) }}';
+selectedDate = '{{ $value ? parse_date($value, 'Y-m-d', $tz) : '' }}';
+selectedTime = '{{ $value ? parse_date($value, 'H:i', $tz) : '' }}';
 generateDays();" class="relative">
 
     <!-- Botón principal que muestra la fecha y hora seleccionadas -->

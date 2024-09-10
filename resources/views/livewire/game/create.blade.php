@@ -10,7 +10,8 @@
 
     <div class="w-full space-y-4">
         <x-livewire.forms.label :label="__('games.actions.create.form.label.date_start')" />
-        <x-livewire.forms.datetime-picker model="form.date_start" value="{{ $this->form['date_start'] }}" />
+        <x-livewire.forms.datetime-picker model="form.date_start" value="{{ $this->form['date_start'] }}"
+            placeholder="{{ __('games.actions.create.form.placeholder.date_start') }}" />
     </div>
 
     <div class="w-full space-y-4">

@@ -183,6 +183,7 @@
 
         Alpine.data('datetimePicker', () => ({
             model: null,
+            placeholder: null,
             open: false,
             showCalendar: false,
             selectedDate: '',
@@ -194,8 +195,15 @@
             days: [],
 
             get showDateTime() {
-                console.log(this);
+
+                if (this.selectedDate === '' && this.selectedTime === '') {
+                    return this.placeholder;
+                }
+
+
+                return this.combinedDateTime;
             },
+
 
             get combinedDateTime() {
                 return this.selectedDate + ' ' + this.selectedTime;
