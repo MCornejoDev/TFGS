@@ -38,7 +38,7 @@
                     @endforeach
 
                     <button type="button" class="w-full font-bold btn input-bordered md:w-auto"
-                        x-on:click="clearFilters">
+                        x-on:click="clearFilters()">
                         <div x-show="loading" class="flex items-center gap-2">
                             <span class="w-5 loading loading-spinner"></span>
                             <span>{{ $labelLoading }}</span>

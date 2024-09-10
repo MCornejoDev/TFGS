@@ -1,5 +1,8 @@
 <script>
     document.addEventListener('alpine:init', () => {
+
+        window.dateTimePicker = {};
+
         Alpine.data('themeSwitcher', () => ({
             theme: null,
 
@@ -35,6 +38,7 @@
                 localStorage.setItem("myTheme", this.theme);
             }
         }));
+
         Alpine.data('filterForm', () => ({
             loading: false,
             filters: {},
@@ -58,6 +62,7 @@
                 this.filters.forEach(filter => {
                     filter.value = "";
                 });
+                window.dateTimePicker.reset();
             }
         }));
 
@@ -200,7 +205,6 @@
                     return this.placeholder;
                 }
 
-
                 return this.combinedDateTime;
             },
 
@@ -284,6 +288,12 @@
                 }
                 this.generateDays(); // Regenerar los días después de cambiar el mes
             },
+
+            reset() {
+                console.log('reset');
+                this.selectedDate = '';
+                this.selectedTime = '';
+            }
         }));
     });
 </script>

@@ -12,7 +12,8 @@
 @endphp
 
 
-<div x-data="datetimePicker()" x-init="model = '{{ $model }}';
+<div x-data="datetimePicker()" x-init="window.dateTimePicker.reset = () => { reset() }
+model = '{{ $model }}';
 placeholder = '{{ $placeholder }}';
 monthNames = {{ json_encode($monthNames) }};
 selectedDate = '{{ $value ? parse_date($value, 'Y-m-d', $tz) : '' }}';
