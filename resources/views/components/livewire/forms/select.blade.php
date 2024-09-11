@@ -15,9 +15,11 @@ model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');
 placeholder = '{{ $placeholder }}';
 api = '{{ $api }}';">
-    <span class="block mb-2 text-sm font-medium text-base-content">
-        {{ $title }}
-    </span>
+    @if ($title)
+        <span class="block mb-2 text-sm font-medium text-base-content">
+            {{ $title }}
+        </span>
+    @endif
 
     <!-- Botón para abrir el dropdown -->
     <div class="relative">

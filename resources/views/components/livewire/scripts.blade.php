@@ -141,10 +141,6 @@
             },
             setLabel(dependsOn, optionLabel, optionDescription) {
 
-                if (this.selected === null) {
-                    return this.placeholder;
-                }
-
                 if (this.checkIfDependsOn(dependsOn)) {
                     this.oldValue = this.$wire.form[dependsOn];
                     this.selected = null;
@@ -155,9 +151,13 @@
                     return this.placeholder;
                 }
 
-                return this.checkIfHasDescription(optionDescription) ? this.selected[optionLabel] +
-                    ' - ' :
-                    this.selected[optionLabel];
+                if (this.checkIfHasDescription(optionDescription)) {
+                    // Mostrar label con descripción
+                    return `${this.selected[optionLabel]} - `;
+                } else {
+                    // Mostrar solo label
+                    return this.selected === null ? this.placeholder : this.selected[optionLabel];
+                }
             },
             checkIfHasDescription(optionDescription) {
                 return this.selected && this.selected.hasOwnProperty(optionDescription);
