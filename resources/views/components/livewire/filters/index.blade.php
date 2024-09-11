@@ -21,8 +21,8 @@
                     @foreach ($filters as $filter)
                         @switch($filter['type'])
                             @case('select')
-                                <x-livewire.filters.select :data="$filter['data']" label="{{ $filter['label'] ?? '' }}"
-                                    filter="{{ $filter['filter'] }}" />
+                                <x-livewire.forms.select :items="$filter['data']" placeholder="{{ $filter['placeholder'] }}"
+                                    model="{{ $filter['filter'] }}" optionId="id" optionLabel="name" isFilter="true" />
                             @break
 
                             @case('date')
@@ -32,7 +32,7 @@
 
                             @default
                                 <input type="text" placeholder="{{ $filter['label'] }}"
-                                    class="w-full border-base-300 bg-base-300 input input-bordered placeholder:text-sm placeholder:font-bold"
+                                    class="w-full border-base-300 bg-base-300 input input-bordered placeholder:text-sm placeholder:font-bold !h-auto"
                                     wire:model.live="search" />
                         @endswitch
                     @endforeach

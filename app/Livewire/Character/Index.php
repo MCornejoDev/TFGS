@@ -61,21 +61,21 @@ class Index extends Component
                 'type' => 'select',
                 'data' => $this->races,
                 'label' => __('characters.filters.races.select'),
-                'placeholder' => __('characters.filters.races.placeholder'),
+                'placeholder' => __('characters.filters.races.select'),
                 'filter' => 'filters.race',
             ],
             [
                 'type' => 'select',
                 'data' => $this->characterTypes,
                 'label' => __('characters.filters.characters_types.select'),
-                'placeholder' => __('characters.filters.characters_types.placeholder'),
+                'placeholder' => __('characters.filters.characters_types.select'),
                 'filter' => 'filters.characterType',
             ],
             [
                 'type' => 'select',
                 'data' => $this->genders,
                 'label' => __('characters.filters.genders.select'),
-                'placeholder' => __('characters.filters.genders.placeholder'),
+                'placeholder' => __('characters.filters.genders.select'),
                 'filter' => 'filters.gender',
             ]
         ];
