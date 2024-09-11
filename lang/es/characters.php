@@ -27,7 +27,7 @@ return [
         'search' => [
             'placeholder' => 'Buscar por nombre, apodo',
         ],
-        'genders' => [
+        'genres' => [
             'select' => 'Seleccione un género',
         ],
         'races' => [
@@ -125,7 +125,7 @@ return [
         ],
     ],
 
-    'genders' => [
+    'genres' => [
         'male' => 'Masculino',
         'female' => 'Femenino',
     ],

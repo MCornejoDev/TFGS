@@ -97,4 +97,20 @@ class CharacterService
             ];
         })->sortBy('name')->values();
     }
+
+    public static function getGenres(): array
+    {
+        return [
+            [
+                'id' => false,
+                'name' => __('characters.genres.male'),
+                'image' => asset('storage/images/genres/male.png'),
+            ],
+            [
+                'id' => true,
+                'name' => __('characters.genres.female'),
+                'image' => asset('storage/images/genres/female.png'),
+            ]
+        ];
+    }
 }

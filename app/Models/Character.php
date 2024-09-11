@@ -86,7 +86,7 @@ class Character extends Model
     protected function gender(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => $value ?  __('characters.genders.female') : __('characters.genders.male'),
+            get: fn(string $value) => $value ?  __('characters.genres.female') : __('characters.genres.male'),
         );
     }
 }

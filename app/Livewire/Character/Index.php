@@ -6,6 +6,7 @@ use App\Enums\CharacterTypes;
 use App\Enums\Races;
 use App\Http\Services\CharacterService;
 use App\Http\Services\RaceService;
+use App\Models\Character;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -73,9 +74,9 @@ class Index extends Component
             ],
             [
                 'type' => 'select',
-                'data' => $this->genders,
-                'label' => __('characters.filters.genders.select'),
-                'placeholder' => __('characters.filters.genders.select'),
+                'data' => $this->genres,
+                'label' => __('characters.filters.genres.select'),
+                'placeholder' => __('characters.filters.genres.select'),
                 'filter' => 'filters.gender',
             ]
         ];
@@ -107,18 +108,9 @@ class Index extends Component
     }
 
     #[Computed()]
-    public function genders()
+    public function genres()
     {
-        return [
-            [
-                'id' => false,
-                'name' => __('characters.genders.male'),
-            ],
-            [
-                'id' => true,
-                'name' => __('characters.genders.female'),
-            ],
-        ];
+        return CharacterService::getGenres();
     }
 
     public function confirm(int $id)

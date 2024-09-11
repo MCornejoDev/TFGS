@@ -94,18 +94,9 @@ class Create extends Component
     }
 
     #[Computed()]
-    public function genders()
+    public function genres()
     {
-        return [
-            [
-                'id' => false,
-                'name' => __('characters.genders.male'),
-            ],
-            [
-                'id' => true,
-                'name' => __('characters.genders.female'),
-            ],
-        ];
+        return CharacterService::getGenres();
     }
 
     #[Computed()]

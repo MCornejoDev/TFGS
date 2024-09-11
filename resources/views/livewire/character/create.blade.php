@@ -26,7 +26,7 @@
     </div>
 
     <div class="grid items-center grid-cols-2 gap-4">
-        <x-livewire.forms.select :items="$this->genders" title="{{ __('characters.actions.create.form.gender') }}"
+        <x-livewire.forms.select :items="$this->genres" title="{{ __('characters.actions.create.form.gender') }}"
             placeholder="{{ __('characters.actions.create.form.placeholder.gender') }}" model="form.gender"
             optionId="id" optionLabel="name" />
         <x-livewire.forms.input :label="__('characters.actions.create.form.age')" :placeholder="__('characters.actions.create.form.placeholder.age')" model="form.age" type="number" />

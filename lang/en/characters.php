@@ -27,7 +27,7 @@ return [
         'search' => [
             'placeholder' => 'Search by name, nickname',
         ],
-        'genders' => [
+        'genres' => [
             'select' => 'Select a gender',
         ],
         'races' => [
@@ -125,7 +125,7 @@ return [
         ],
     ],
 
-    'genders' => [
+    'genres' => [
         'male' => 'Male',
         'female' => 'Female',
     ],
