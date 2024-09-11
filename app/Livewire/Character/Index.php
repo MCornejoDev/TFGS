@@ -81,12 +81,6 @@ class Index extends Component
         ];
     }
 
-    public function setFilter($key, $value)
-    {
-        $this->filters[$key] = $value;
-        $this->resetPage();
-    }
-
     public function clearFilters()
     {
         $this->search = "";

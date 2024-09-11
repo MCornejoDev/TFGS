@@ -41,27 +41,13 @@
 
         Alpine.data('filterForm', () => ({
             loading: false,
-            filters: {},
-            init() {
-                this.loading = false;
-                this.filters = this.$refs.filterForm.querySelectorAll('select,input');
-            },
-            handleSelect(event) {
-                this.$wire.filters[event.target.dataset.filter] = event.target.value;
-                this.$wire.setFilter(event.target.dataset.filter, event.target.value);
-            },
-            clearFilter(filter) {
-                this.$wire.filters[filter] = null;
-                this.$wire.setFilter(filter, null);
-                this.$refs.filterForm.querySelector(`[data-filter="${filter}"]`).value = "";
+            clearFilter(model) {
+                this.$wire.set(model, null);
+                this.$wire.dispatch('resetSelect', model);
             },
             clearFilters() {
-                this.loading = true;
                 this.$wire.clearFilters();
-                this.loading = false;
-                this.filters.forEach(filter => {
-                    filter.value = "";
-                });
+                this.$wire.dispatch('resetAll');
             }
         }));
 
@@ -79,6 +65,17 @@
             api: null,
             searchQuery: '',
             copy: null,
+            init() {
+                this.$wire.on('resetAll', () => {
+                    this.reset(); // Reseteo completo
+                });
+
+                this.$wire.on('resetSelect', (id) => {
+                    if (this.model === id) {
+                        this.reset(); // Reseteo parcial solo para el select correspondiente
+                    }
+                });
+            },
             handleCopy() {
                 // Ensure the copy of options is only created once
                 if (!this.copy) {
@@ -182,7 +179,15 @@
                 if (dependsOn) {
                     return this.$wire.form[dependsOn] === null;
                 }
-            }
+            },
+            reset() {
+                this.open = false;
+                this.selected = null;
+                this.searchQuery = '';
+                this.restoreCopy();
+                this.setDisabled(this
+                    .dependsOn); // Si dependsOn cambia el estado de disabled, lo actualizamos aquí
+            },
         }))
 
         Alpine.data('datetimePicker', () => ({

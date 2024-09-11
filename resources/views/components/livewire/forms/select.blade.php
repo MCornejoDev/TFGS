@@ -45,7 +45,8 @@ api = '{{ $api }}';">
                 </span>
             </button>
             @if ($isFilter)
-                <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter()" />
+                <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter('{{ $model }}')"
+                    x-bind:disabled="!selected" />
             @endif
         </div>
 
