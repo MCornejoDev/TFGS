@@ -2,9 +2,11 @@
 
 namespace App\Http\Services;
 
+use App\Enums\CharacterTypes;
 use App\Models\Character;
 use App\Models\CharacterType;
 use Exception;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class CharacterService
@@ -82,5 +84,17 @@ class CharacterService
 
             return false;
         }
+    }
+
+
+    public static function getCharacterTypes(): Collection
+    {
+        return collect(CharacterTypes::withTranslations())->map(function ($value, $key) {
+            return [
+                'id' => $key,
+                'name' => $value,
+                'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
+            ];
+        })->sortBy('name')->values();
     }
 }

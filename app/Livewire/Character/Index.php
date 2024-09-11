@@ -5,6 +5,7 @@ namespace App\Livewire\Character;
 use App\Enums\CharacterTypes;
 use App\Enums\Races;
 use App\Http\Services\CharacterService;
+use App\Http\Services\RaceService;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -60,19 +61,22 @@ class Index extends Component
                 'type' => 'select',
                 'data' => $this->races,
                 'label' => __('characters.filters.races.select'),
-                'filter' => 'race',
+                'placeholder' => __('characters.filters.races.placeholder'),
+                'filter' => 'filters.race',
             ],
             [
                 'type' => 'select',
                 'data' => $this->characterTypes,
                 'label' => __('characters.filters.characters_types.select'),
-                'filter' => 'characterType',
+                'placeholder' => __('characters.filters.characters_types.placeholder'),
+                'filter' => 'filters.characterType',
             ],
             [
                 'type' => 'select',
                 'data' => $this->genders,
                 'label' => __('characters.filters.genders.select'),
-                'filter' => 'gender',
+                'placeholder' => __('characters.filters.genders.placeholder'),
+                'filter' => 'filters.gender',
             ]
         ];
     }
@@ -99,21 +103,27 @@ class Index extends Component
     #[Computed()]
     public function races()
     {
-        return Races::withTranslations();
+        return RaceService::getRaces();
     }
 
     #[Computed()]
     public function characterTypes()
     {
-        return CharacterTypes::withTranslations();
+        return CharacterService::getCharacterTypes();
     }
 
     #[Computed()]
     public function genders()
     {
         return [
-            false => __('characters.genders.male'),
-            true => __('characters.genders.female'),
+            [
+                'id' => false,
+                'name' => __('characters.genders.male'),
+            ],
+            [
+                'id' => true,
+                'name' => __('characters.genders.female'),
+            ],
         ];
     }
 

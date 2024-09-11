@@ -7,6 +7,8 @@ use App\Enums\CharacterTypes;
 use App\Enums\Races;
 use App\Enums\Weapons;
 use App\Http\Services\CharacterService;
+use App\Http\Services\RaceService;
+use App\Http\Services\WeaponService;
 use App\Models\Character;
 use App\Models\Game;
 use Livewire\Attributes\Computed;
@@ -82,25 +84,13 @@ class Create extends Component
     #[Computed()]
     public function characterTypes()
     {
-        return collect(CharacterTypes::withTranslations())->map(function ($value, $key) {
-            return [
-                'id' => $key,
-                'name' => $value,
-                'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
-            ];
-        })->sortBy('name')->values();
+        return CharacterService::getCharacterTypes();
     }
 
     #[Computed()]
     public function races()
     {
-        return collect(Races::withTranslations())->map(function ($value, $key) {
-            return [
-                'id' => $key,
-                'name' => $value,
-                'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
-            ];
-        })->sortBy('name')->values();
+        return RaceService::getRaces();
     }
 
     #[Computed()]
@@ -121,14 +111,7 @@ class Create extends Component
     #[Computed()]
     public function weapons()
     {
-        $weaponsByCharacterType = $this->form['characterTypeId'] ? Weapons::weaponByCharacterType($this->form['characterTypeId']) : [];
-        return collect($weaponsByCharacterType)->map(function ($weapon) {
-            return [
-                'id' => $weapon->value,
-                'name' => __('characters.weapons.' . snake_lower($weapon->label)),
-                'image' => asset('storage/images/weapons/' . snake_lower($weapon->label) . '.png'),
-            ];
-        })->sortBy('name')->values();
+        return WeaponService::getWeapons($this->form['characterTypeId']);
     }
 
     #[Computed()]
