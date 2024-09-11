@@ -296,7 +296,10 @@
             },
 
             reset() {
-                console.log('reset');
+                day = this.days.find(day => day.isSelected);
+                if (day) {
+                    day.isSelected = false;
+                }
                 this.selectedDate = '';
                 this.selectedTime = '';
             }
