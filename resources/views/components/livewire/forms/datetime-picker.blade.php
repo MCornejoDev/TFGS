@@ -12,7 +12,7 @@
 @endphp
 
 
-<div x-data="datetimePicker()" x-init="window.dateTimePicker.reset = () => { reset() }
+<div x-data="datetimePicker()" x-init="init();
 model = '{{ $model }}';
 placeholder = '{{ $placeholder }}';
 monthNames = {{ json_encode($monthNames) }};

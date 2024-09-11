@@ -62,7 +62,6 @@
                 this.filters.forEach(filter => {
                     filter.value = "";
                 });
-                window.dateTimePicker.reset();
             }
         }));
 
@@ -198,6 +197,13 @@
             currentYear: new Date().getFullYear(),
             monthNames: [],
             days: [],
+
+            init() {
+                // Escuchar el evento emitido por Livewire usando $wire.on
+                this.$wire.on('resetDateTimePicker', () => {
+                    this.reset();
+                });
+            },
 
             get showDateTime() {
 
