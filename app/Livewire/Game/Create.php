@@ -62,6 +62,7 @@ class Create extends Component
                 'description' => __('games.actions.create.form.success.description'),
             ]);
             $this->dispatch('refresh');
+            $this->dispatch('resetAll');
         } else {
             $this->notification()->send([
                 'icon' => 'error',

@@ -112,7 +112,7 @@ class Create extends Component
     #[Computed()]
     public function armorLabel()
     {
-        return __('characters.armors.'.$this->armor->label);
+        return __('characters.armors.' . $this->armor->label);
     }
 
     public function updatedForm($value, $key)
@@ -145,6 +145,7 @@ class Create extends Component
                 'description' => __('characters.actions.create.form.success.description'),
             ]);
             $this->dispatch('refresh');
+            $this->dispatch('resetAll');
         } else {
             $this->notification()->send([
                 'icon' => 'error',
