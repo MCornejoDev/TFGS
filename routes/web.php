@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Livewire\Character\Index as CharacterIndex;
 use App\Livewire\Game\Index as GameIndex;
+use App\Livewire\Tool\Index as ToolIndex;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -16,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/games', GameIndex::class)->name('games.index');
     Route::get('/characters', CharacterIndex::class)->name('characters.index');
 
+    Route::get('/tools', ToolIndex::class)->name('tools.index');
     // Route::get('/crear', [
     //     'as' => 'crear',
     //     'uses' => 'CrearPersonajeController@index'

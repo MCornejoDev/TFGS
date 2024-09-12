@@ -22,3 +22,7 @@ Breadcrumbs::for('characters.index', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('games.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('games.games'), route('games.index'));
 });
+
+Breadcrumbs::for('tools.index', function (BreadcrumbTrail $trail) {
+    $trail->push(__('tools.tools'), route('tools.index'));
+});

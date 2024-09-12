@@ -12,7 +12,8 @@
                             class="w-6 h-6" />{{ __('header.games') }}</a></li>
                 <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
                             class="w-6 h-6" />{{ __('header.characters') }}</a></li>
-                <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
+                <li><a href="{{ route('tools.index') }}" wire:navigate><x-fas-dice
+                            class="w-6 h-6" />{{ __('header.tools') }}</a></li>
                 <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
             </ul>
         </div>
@@ -24,7 +25,8 @@
                         class="w-6 h-6" />{{ __('header.games') }}</a></li>
             <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
                         class="w-6 h-6" />{{ __('header.characters') }}</a></li>
-            <li><a><x-fas-dice class="w-6 h-6" />{{ __('header.tools') }}</a></li>
+            <li><a href="{{ route('tools.index') }}" wire:navigate><x-fas-dice
+                        class="w-6 h-6" />{{ __('header.tools') }}</a></li>
             <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
         </ul>
     </div>

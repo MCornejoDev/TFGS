@@ -340,5 +340,14 @@
                 this.selectedTime = '';
             }
         }));
+
+        Alpine.data('diceRoller', () => ({
+            rollResult: 0,
+            rollDice() {
+                const roller = new DiceRoller();
+                const roll = roller.roll('d2');
+                this.rollResult = roll.total;
+            }
+        }));
     });
 </script>
