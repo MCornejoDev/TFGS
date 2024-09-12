@@ -26,13 +26,13 @@ isMultiple = '{{ $isMultiple }}';">
 
     <!-- Botón para abrir el dropdown -->
     <div class="relative">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 w-80">
             <button @click="open = !open" x-bind:disabled="getDisabled('{{ $dependsOn }}')"
                 x-bind:class="{ 'disabled:opacity-75 cursor-not-allowed': isDisabled }"
                 class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
         {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
         border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
-        sm:text-sm">
+        sm:text-sm w-80">
                 <div class="truncate flex flex-row items-center gap-1.5">
                     @if ($isMultiple)
                         <span x-text="setMultiLabel()" class="truncate border-1"></span>
