@@ -2,11 +2,8 @@
 
 namespace App\Livewire\Character;
 
-use App\Enums\CharacterTypes;
-use App\Enums\Races;
 use App\Http\Services\CharacterService;
 use App\Http\Services\RaceService;
-use App\Models\Character;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -15,7 +12,7 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use WithPagination, WireUiActions;
+    use WireUiActions, WithPagination;
 
     #[On('refresh')]
     public function refresh(): void
@@ -23,7 +20,7 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public string $search = "";
+    public string $search = '';
 
     public $filters = [
         'race' => null,
@@ -32,6 +29,7 @@ class Index extends Component
     ];
 
     public $sortField = 'name';
+
     public $sortDirection = 'asc';
 
     protected $queryString = [
@@ -80,13 +78,13 @@ class Index extends Component
                 'label' => __('characters.filters.genres.select'),
                 'placeholder' => __('characters.filters.genres.select'),
                 'filter' => 'filters.gender',
-            ]
+            ],
         ];
     }
 
     public function clearFilters()
     {
-        $this->search = "";
+        $this->search = '';
         $this->reset();
         $this->resetPage();
     }

@@ -3,7 +3,6 @@
 namespace App\Enums;
 
 use Spatie\Enum\Enum;
-use Str;
 
 /**
  * @method static self human()
@@ -54,7 +53,7 @@ class Races extends Enum
         $translations = [];
 
         foreach ($values as $key => $value) {
-            $translations[$value] = __('characters.races.' . $key);
+            $translations[$value] = __('characters.races.'.$key);
         }
 
         return $translations;

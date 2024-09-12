@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Header extends Component
 {
-
     public function redirectToHomePage()
     {
         redirect()->route('home');
@@ -15,7 +14,7 @@ class Header extends Component
 
     public function logout()
     {
-        (new AuthenticatedSessionController())->destroy(request());
+        (new AuthenticatedSessionController)->destroy(request());
     }
 
     public function render()

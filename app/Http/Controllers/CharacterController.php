@@ -16,7 +16,7 @@ class CharacterController extends Controller
             return [
                 'id' => $key,
                 'name' => $value,
-                'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
+                'image' => asset('storage/images/races/'.Races::lowerCase($key).'.png'),
             ];
         })->when($request->has('search'), function ($collection) use ($request) {
             return $collection->filter(function ($item) use ($request) {

@@ -8,10 +8,9 @@ use App\Models\CharacterType;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
@@ -19,7 +18,7 @@ class IndexTest extends TestCase
 
     protected User $user;
 
-    protected  $characters;
+    protected $characters;
 
     protected function setUp(): void
     {
@@ -44,5 +43,19 @@ class IndexTest extends TestCase
             ->assertViewHas('characters', function () {
                 return count($this->characters) == 10;
             });
+    }
+
+    #[Test]
+    public function can_open_side_panel()
+    {
+        // GIVEN a user is logged in
+        $this->actingAs($this->user);
+
+        // WHEN the user wants to create a new character, clicking the button in the index page
+        Livewire::test(Index::class)
+            // Call the method to open the side panel
+            ->call('openSidePanel')
+            // THEN the event should be dispatched with the correct parameters
+            ->assertDispatched('openPanel');
     }
 }

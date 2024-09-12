@@ -12,7 +12,7 @@ use WireUi\Traits\WireUiActions;
 
 class Create extends Component
 {
-    use WireUiActions, DateTime;
+    use DateTime, WireUiActions;
 
     public array $form = [
         'name' => null,

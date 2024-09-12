@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/races', CharacterController::class . '@races')->name('races');
+Route::get('/races', CharacterController::class.'@races')->name('races');

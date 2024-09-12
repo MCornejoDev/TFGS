@@ -5,11 +5,10 @@ namespace App\Http\Services;
 use App\Models\Game;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class GameService
 {
-    public static function getGames(string $search = "", array $filters = [], string $sortField = 'name', string $sortDirection = 'asc')
+    public static function getGames(string $search = '', array $filters = [], string $sortField = 'name', string $sortDirection = 'asc')
     {
         $query = Game::query();
 
@@ -17,8 +16,8 @@ class GameService
             $query->where('user_id', Auth::id());
         })->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%')
-                    ->orWhere('comments', 'like', '%' . $search . '%');
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('comments', 'like', '%'.$search.'%');
             });
         })->when($filters['date_start'] ?? null, function ($query) use ($filters) {
             $query->where('date_start', '>=', $filters['date_start']);
@@ -27,7 +26,7 @@ class GameService
         return $query->orderBy($sortField, $sortDirection)->paginate(10);
     }
 
-    public  static function create(array $data): ?Game
+    public static function create(array $data): ?Game
     {
         try {
             $game = Game::create($data);

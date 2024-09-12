@@ -19,7 +19,7 @@ return [
     'actions' => [
         'history' => 'History',
         'information' => 'Information',
-        'delete' => 'Delete'
+        'delete' => 'Delete',
     ],
 
     'filters' => [

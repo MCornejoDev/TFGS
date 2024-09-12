@@ -3,7 +3,6 @@
 namespace App\Enums;
 
 use Spatie\Enum\Enum;
-use Str;
 
 /**
  * @method static self heavy_chain_mail()

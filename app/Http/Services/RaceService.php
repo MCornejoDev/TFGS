@@ -13,7 +13,7 @@ class RaceService
             return [
                 'id' => $key,
                 'name' => $value,
-                'image' => asset('storage/images/races/' . Races::lowerCase($key) . '.png'),
+                'image' => asset('storage/images/races/'.Races::lowerCase($key).'.png'),
             ];
         })->sortBy('name')->values();
     }

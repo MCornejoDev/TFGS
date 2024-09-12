@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Auth;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\App;
 
 class Game extends Model
 {
@@ -23,7 +21,6 @@ class Game extends Model
         'date_start' => 'date',
     ];
 
-
     // Definir la relación many-to-many con el modelo User
     public function users()
     {
@@ -31,12 +28,12 @@ class Game extends Model
         return $this->belongsToMany(User::class, 'users_games', 'game_id', 'user_id');
     }
 
-
     protected function dateStart(): Attribute
     {
         return Attribute::make(
             get: function ($value) {
                 $locale = app()->getLocale();
+
                 return match ($locale) {
                     'es' => Carbon::parse($value)->format('d/m/Y'),
                     default => Carbon::parse($value)->format('Y-m-d'),

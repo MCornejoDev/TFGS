@@ -12,8 +12,11 @@ use Livewire\Component;
 final class SidePanel extends Component
 {
     public bool $open = false;
+
     public string $title = 'Default Panel';
+
     public string $component = '';
+
     public string $icon = '';
 
     #[On('openPanel')]

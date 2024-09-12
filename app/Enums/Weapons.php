@@ -3,7 +3,6 @@
 namespace App\Enums;
 
 use Spatie\Enum\Enum;
-use Str;
 
 /**
  * @method static self staff()
@@ -76,11 +75,11 @@ class Weapons extends Enum
         return match ($characterType) {
             CharacterTypes::cleric()->value, CharacterTypes::sorcerer()->value,
             CharacterTypes::wizard()->value, CharacterTypes::druid()->value,
-            CharacterTypes::monk()->value, CharacterTypes::bard()->value => array(self::staff(), self::scepter(), self::wand()),
+            CharacterTypes::monk()->value, CharacterTypes::bard()->value => [self::staff(), self::scepter(), self::wand()],
             CharacterTypes::barbarian()->value, CharacterTypes::warrior()->value,
-            CharacterTypes::paladin()->value => array(self::sword(), self::axe(), self::greatsword(), self::mace(), self::pickaxe(), self::double_swords()),
-            CharacterTypes::ranger()->value  => array(self::bow(), self::crossbow()),
-            CharacterTypes::rogue()->value => array(self::daggers(), self::knives()),
+            CharacterTypes::paladin()->value => [self::sword(), self::axe(), self::greatsword(), self::mace(), self::pickaxe(), self::double_swords()],
+            CharacterTypes::ranger()->value => [self::bow(), self::crossbow()],
+            CharacterTypes::rogue()->value => [self::daggers(), self::knives()],
             default => [],
         };
     }
@@ -90,7 +89,7 @@ class Weapons extends Enum
         $translations = [];
 
         foreach ($characterType as $key => $value) {
-            $translations[$key] = __('characters.weapons.' . snake_lower($value));
+            $translations[$key] = __('characters.weapons.'.snake_lower($value));
         }
 
         return $translations;
@@ -102,7 +101,7 @@ class Weapons extends Enum
         $translations = [];
 
         foreach ($values as $key => $value) {
-            $translations[$value] = __('characters.weapons.' . $key);
+            $translations[$value] = __('characters.weapons.'.$key);
         }
 
         return $translations;

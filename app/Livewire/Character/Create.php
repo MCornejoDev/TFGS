@@ -3,8 +3,6 @@
 namespace App\Livewire\Character;
 
 use App\Enums\Armors;
-use App\Enums\CharacterTypes;
-use App\Enums\Races;
 use App\Enums\Weapons;
 use App\Http\Services\CharacterService;
 use App\Http\Services\RaceService;
@@ -114,7 +112,7 @@ class Create extends Component
     #[Computed()]
     public function armorLabel()
     {
-        return __('characters.armors.' . $this->armor->label);
+        return __('characters.armors.'.$this->armor->label);
     }
 
     public function updatedForm($value, $key)

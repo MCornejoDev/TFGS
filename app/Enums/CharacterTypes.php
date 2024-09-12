@@ -59,7 +59,7 @@ class CharacterTypes extends Enum
         $translations = [];
 
         foreach ($values as $key => $value) {
-            $translations[$value] = __('characters.characters_types.' . $key);
+            $translations[$value] = __('characters.characters_types.'.$key);
         }
 
         return $translations;

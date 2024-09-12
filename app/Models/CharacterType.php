@@ -33,7 +33,7 @@ class CharacterType extends Model
     protected function typeLabel(): Attribute
     {
         return Attribute::make(
-            get: fn() => CharacterTypes::from($this->type)->label,
+            get: fn () => CharacterTypes::from($this->type)->label,
         );
     }
 
@@ -45,7 +45,7 @@ class CharacterType extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/character_types/' . CharacterTypes::lowerCase($this->type) . '.png'),
+            get: fn () => asset('storage/images/character_types/'.CharacterTypes::lowerCase($this->type).'.png'),
         );
     }
 
@@ -57,7 +57,7 @@ class CharacterType extends Model
     protected function weaponLabel(): Attribute
     {
         return Attribute::make(
-            get: fn() => Weapons::from($this->weapon)->label,
+            get: fn () => Weapons::from($this->weapon)->label,
         );
     }
 
@@ -69,7 +69,7 @@ class CharacterType extends Model
     protected function weaponImage(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/weapons/' . Weapons::lowerCase($this->weapon) . '.png'),
+            get: fn () => asset('storage/images/weapons/'.Weapons::lowerCase($this->weapon).'.png'),
         );
     }
 
@@ -81,7 +81,7 @@ class CharacterType extends Model
     protected function armorImage(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/armors/' . Armors::lowerCase($this->armor) . '.png'),
+            get: fn () => asset('storage/images/armors/'.Armors::lowerCase($this->armor).'.png'),
         );
     }
 
@@ -93,7 +93,7 @@ class CharacterType extends Model
     protected function armorLabel(): Attribute
     {
         return Attribute::make(
-            get: fn() => Armors::from($this->armor)->label,
+            get: fn () => Armors::from($this->armor)->label,
         );
     }
 }

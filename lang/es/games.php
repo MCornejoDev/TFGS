@@ -69,7 +69,7 @@ return [
             'error' => [
                 'title' => 'Algo salió mal',
                 'description' => 'Inténtalo de nuevo',
-            ]
+            ],
         ],
     ],
 ];

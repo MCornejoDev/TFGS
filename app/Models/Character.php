@@ -62,7 +62,7 @@ class Character extends Model
     protected function raceLabel(): Attribute
     {
         return Attribute::make(
-            get: fn() => Races::from($this->race)->label,
+            get: fn () => Races::from($this->race)->label,
         );
     }
 
@@ -74,7 +74,7 @@ class Character extends Model
     protected function raceImage(): Attribute
     {
         return Attribute::make(
-            get: fn() => asset('storage/images/races/' . Races::lowerCase($this->race) . '.png'),
+            get: fn () => asset('storage/images/races/'.Races::lowerCase($this->race).'.png'),
         );
     }
 
@@ -86,7 +86,7 @@ class Character extends Model
     protected function gender(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => $value ?  __('characters.genres.female') : __('characters.genres.male'),
+            get: fn (string $value) => $value ? __('characters.genres.female') : __('characters.genres.male'),
         );
     }
 }

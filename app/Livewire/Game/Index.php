@@ -12,7 +12,7 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use WithPagination, WireUiActions, DateTime;
+    use DateTime, WireUiActions, WithPagination;
 
     #[On('refresh')]
     public function refresh(): void
@@ -27,7 +27,9 @@ class Index extends Component
     ];
 
     public $sortField = 'name';
+
     public $sortDirection = 'asc';
+
     public $playersToShow = 1;
 
     protected $queryString = [
@@ -58,14 +60,14 @@ class Index extends Component
                 'label' => __('games.filters.date_start.label'),
                 'placeholder' => __('games.filters.date_start.placeholder'),
                 'model' => 'filters.date_start',
-            ]
+            ],
         ];
     }
 
     public function clearFilters()
     {
         $this->dispatch('resetDateTimePicker');
-        $this->search = "";
+        $this->search = '';
         $this->reset();
         $this->resetPage();
     }
@@ -122,7 +124,6 @@ class Index extends Component
             icon: 'squares-plus',
         );
     }
-
 
     public function render()
     {

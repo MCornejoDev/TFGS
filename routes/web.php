@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Livewire\Game\Index as GameIndex;
 use App\Livewire\Character\Index as CharacterIndex;
+use App\Livewire\Game\Index as GameIndex;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
