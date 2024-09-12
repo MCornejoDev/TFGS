@@ -76,10 +76,11 @@ isMultiple = '{{ $isMultiple }}';">
                 <template x-for="(option, index) in options" :key="option.id + '-' + index">
                     <li x-on:click="handleSelect(option)"
                         :class="{
-                            'text-base-content bg-base-300': selected && selected.id === option.id,
+                            'text-base-content bg-base-300': (selected && selected.id === option.id) || isMultiple &&
+                                selectedMultiple.includes(option),
                             'text-base-content hover:bg-base-300 hover:text-base-content': !(selected && selected
                                 .id ===
-                                option.id)
+                                option.id) || isMultiple && !selectedMultiple.includes(option)
                         }"
                         class="relative py-2 pl-3 cursor-pointer select-none pr-9 hover:text-base-content text-base-content">
                         <div
