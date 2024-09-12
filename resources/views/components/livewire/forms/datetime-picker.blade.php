@@ -35,7 +35,7 @@ generateDays();" class="relative">
     </button>
 
     <!-- Dropdown de selección de fecha y hora, abre directamente con el calendario -->
-    <div x-show="open" x-ref="dropdown"
+    <div x-show="open" @click.away="open = false" x-ref="dropdown"
         class="absolute z-50 w-full p-4 mt-2 border rounded-md shadow-lg bg-base-100 border-base-content/30">
 
         <div>
