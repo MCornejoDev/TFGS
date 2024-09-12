@@ -54,6 +54,8 @@
         Alpine.data('form', () => ({
             open: false,
             options: [],
+            isMultiple: false,
+            selectedMultiple: [],
             selected: null,
             model: null,
             isDisabled: false,
@@ -111,12 +113,37 @@
                             data; // Guardamos los resultados filtrados en la variable options
                     });
             },
+            handleMultiSelect(option) {
+                if (this.selectedMultiple.includes(option)) {
+                    const index = this.selectedMultiple.indexOf(option);
+                    this.selectedMultiple.splice(index, 1);
+                } else {
+                    this.selectedMultiple.push(option);
+                }
+            },
+            getMultiOptions() {
+                return this.selectedMultiple.map(e => {
+                    return e.id
+                });
+            },
             handleSelect(option) {
-                this.selected = option;
-                this.open = false;
-                this.$wire.set(this.model, option.id);
+                if (this.isMultiple) {
+                    this.handleMultiSelect(option);
+                } else {
+                    this.selected = option;
+                    this.open = false;
+                }
+
+                this.$wire.set(this.model, this.isMultiple ? this.getMultiOptions() : option.id);
                 this.restoreCopy();
                 this.searchQuery = '';
+            },
+            setMultiLabel() {
+                if (this.selectedMultiple.length === 0) {
+                    return this.placeholder;
+                }
+                //console.log(this.selectedMultiple, this.optionLabel);
+                return this.selectedMultiple.map(option => option['name']).join(', ');
             },
             checkIfHasImage() {
                 return this.selected && this.selected.hasOwnProperty('image');
@@ -182,7 +209,11 @@
             },
             reset() {
                 this.open = false;
-                this.selected = null;
+                if (this.isMultiple) {
+                    this.selectedMultiple = [];
+                } else {
+                    this.selected = null;
+                }
                 this.searchQuery = '';
                 this.restoreCopy();
                 this.setDisabled(this

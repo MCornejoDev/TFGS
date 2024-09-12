@@ -64,6 +64,7 @@ class Index extends Component
                 'label' => __('characters.filters.races.select'),
                 'placeholder' => __('characters.filters.races.select'),
                 'filter' => 'filters.race',
+                'isMultiple' => true,
             ],
             [
                 'type' => 'select',
@@ -71,6 +72,7 @@ class Index extends Component
                 'label' => __('characters.filters.characters_types.select'),
                 'placeholder' => __('characters.filters.characters_types.select'),
                 'filter' => 'filters.characterType',
+                'isMultiple' => true,
             ],
             [
                 'type' => 'select',

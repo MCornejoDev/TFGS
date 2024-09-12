@@ -23,10 +23,10 @@ class CharacterService
                 });
             })
             ->when($filters['race'], function ($query) use ($filters) {
-                $query->where('race', $filters['race']);
+                $query->whereIn('race', $filters['race']);
             })
             ->when($filters['characterType'], function ($query) use ($filters) {
-                $query->where('character_type_id', $filters['characterType']);
+                $query->whereIn('character_type_id', $filters['characterType']);
             })
             ->when(!is_null($filters['gender']), function ($query) use ($filters) {
                 $query->where('gender', $filters['gender']);

@@ -5,7 +5,7 @@
     <div>
         <x-livewire.forms.select :items="$this->users" title="{{ __('games.actions.create.form.users') }}"
             placeholder="{{ __('games.actions.create.form.placeholder.users') }}" model="form.users" optionId="id"
-            optionLabel="name" />
+            optionLabel="name" isMultiple />
     </div>
 
     <div class="w-full space-y-4">

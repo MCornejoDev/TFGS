@@ -22,7 +22,8 @@
                         @switch($filter['type'])
                             @case('select')
                                 <x-livewire.forms.select :items="$filter['data']" placeholder="{{ $filter['placeholder'] }}"
-                                    model="{{ $filter['filter'] }}" optionId="id" optionLabel="name" isFilter="true" />
+                                    model="{{ $filter['filter'] }}" optionId="id" optionLabel="name" isFilter="true"
+                                    isMultiple="{{ $filter['isMultiple'] ?? false }}" />
                             @break
 
                             @case('date')

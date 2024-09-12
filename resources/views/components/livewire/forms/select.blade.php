@@ -9,13 +9,15 @@
     'dependsOn' => null,
     'api' => null,
     'isFilter' => false,
+    'isMultiple' => false,
 ])
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');
 placeholder = '{{ $placeholder }}';
-api = '{{ $api }}';">
+api = '{{ $api }}';
+isMultiple = '{{ $isMultiple }}';">
     @if ($title)
         <span class="block mb-2 text-sm font-medium text-base-content">
             {{ $title }}
@@ -32,12 +34,16 @@ api = '{{ $api }}';">
         border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
         sm:text-sm">
                 <div class="truncate flex flex-row items-center gap-1.5">
-                    <img :src="setImage()" :alt="setImage()" class="w-6 h-6 rounded-full"
-                        x-show="checkIfHasImage" />
-                    <span
-                        x-text="setLabel('{{ $dependsOn }}','{{ $optionLabel }}','{{ $optionDescription }}')"></span>
-                    <span x-show="checkIfHasDescription('{{ $optionDescription }}')"
-                        x-text="setDescription('{{ $optionDescription }}')"></span>
+                    @if ($isMultiple)
+                        <span x-text="setMultiLabel()" class="truncate border-1"></span>
+                    @else
+                        <img :src="setImage()" :alt="setImage()" class="w-6 h-6 rounded-full"
+                            x-show="checkIfHasImage" />
+                        <span
+                            x-text="setLabel('{{ $dependsOn }}','{{ $optionLabel }}','{{ $optionDescription }}')"></span>
+                        <span x-show="checkIfHasDescription('{{ $optionDescription }}')"
+                            x-text="setDescription('{{ $optionDescription }}')"></span>
+                    @endif
                 </div>
                 <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                     <x-icon name="chevron-down" class="w-5 h-5 text-base-content" x-show="open" />
@@ -45,8 +51,13 @@ api = '{{ $api }}';">
                 </span>
             </button>
             @if ($isFilter)
-                <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter('{{ $model }}')"
-                    x-bind:disabled="!selected" />
+                @if ($isMultiple)
+                    <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter('{{ $model }}')"
+                        x-bind:disabled="!selectedMultiple.length" />
+                @else
+                    <x-mini-button negative icon="x-mark" flat x-on:click="clearFilter('{{ $model }}')"
+                        x-bind:disabled="!selected" />
+                @endif
             @endif
         </div>
 
