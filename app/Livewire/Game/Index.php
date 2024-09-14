@@ -70,6 +70,7 @@ class Index extends Component
         $this->search = '';
         $this->reset();
         $this->resetPage();
+        $this->dispatch('resetAll');
     }
 
     #[Computed()]
