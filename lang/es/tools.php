@@ -2,6 +2,20 @@
 
 return [
     'tools' => 'Herramientas',
-    'dice_roller' => 'Lanzador de dados',
-    'dice_roller_description' => 'Lanza dados con el lanzador de dados',
+
+    'types' => [
+        '6D' => 'Dado 6D',
+        '18D' => 'Dado 18D',
+        '30D' => 'Dado 30D',
+        '60D' => 'Dado 60D',
+        'coin' => 'Moneda',
+    ],
+
+    'dice_roller' => [
+        'title' => 'Lanzador de dados',
+        'placeholder' => 'Selecciona un dado',
+        'actions' => [
+            'roll' => 'Tirar',
+        ],
+    ],
 ];

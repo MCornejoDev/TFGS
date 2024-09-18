@@ -1,7 +1,6 @@
 <div class="flex flex-col space-y-4">
     <x-livewire.forms.input :label="__('games.actions.create.form.name')" :placeholder="__('games.actions.create.form.placeholder.name')" model="form.name" />
 
-    {{-- TODO: Add a multiselect for the users --}}
     <div>
         <x-livewire.forms.select :items="$this->users" title="{{ __('games.actions.create.form.users') }}"
             placeholder="{{ __('games.actions.create.form.placeholder.users') }}" model="form.users" optionId="id"
