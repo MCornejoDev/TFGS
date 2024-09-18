@@ -58,4 +58,40 @@ class IndexTest extends TestCase
             // THEN the event should be dispatched with the correct parameters
             ->assertDispatched('openPanel');
     }
+
+    #[Test]
+    public function can_show_confirm_dialog()
+    {
+        // GIVEN a user is logged
+        $this->actingAs($this->user);
+
+        // WHEN the user wants to delete a character, clicking the button in the index page
+        Livewire::test(Index::class)
+            // Call the method to confirm the deletion of a character
+            ->call('confirm', $this->characters->first()->id)
+            // THEN the event should be dispatched with the correct parameters
+            ->assertDispatched('wireui:confirm-dialog');
+    }
+
+    #[Test]
+    public function can_delete_character()
+    {
+        // GIVEN a user is logged in and there is a character in the database
+        $this->actingAs($this->user);
+
+        $this->assertDatabaseHas('characters', [
+            'id' => $this->characters->first()->id,
+        ]);
+
+        // WHEN the user wants to delete a character, clicking the button in the index page
+        Livewire::test(Index::class)
+            // Call the method to delete the character
+            ->call('remove', $this->characters->first()->id)
+            // THEN the event should be dispatched with the correct parameters
+            ->assertDispatched('wireui:notification');
+
+        $this->assertDatabaseMissing('characters', [
+            'id' => $this->characters->first()->id,
+        ]);
+    }
 }
