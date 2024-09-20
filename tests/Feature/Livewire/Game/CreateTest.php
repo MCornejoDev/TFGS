@@ -45,7 +45,7 @@ class CreateTest extends TestCase
 
         $this->assertDatabaseMissing('games', [
             'name' => $this->game->name,
-            'date_start' => $this->game->date_start,
+            'date_start' => '2024-10-06',
             'comments' => $this->game->comments,
         ]);
 
@@ -53,12 +53,9 @@ class CreateTest extends TestCase
         Livewire::test(Create::class)
             // Call the method to create the game
             ->set('form.name', $this->game->name)
-            ->set('form.date_start',  '2022-01-01')
+            ->set('form.date_start', '2024-10-06')
             ->set('form.comments', $this->game->comments)
-            ->set('form.users', [
-                $this->user->id,
-                User::inRandomOrder()->first()->id,
-            ])
+            ->set('form.users', [$this->user->id])
             ->call('create')
             // THEN the event should be dispatched with the correct parameters
             ->assertDispatched('closePanel')
@@ -68,7 +65,52 @@ class CreateTest extends TestCase
 
         $this->assertDatabaseHas('games', [
             'name' => $this->game->name,
-            'date_start' => $this->game->date_start,
+            'date_start' => '2024-10-06',
+            'comments' => $this->game->comments,
+        ]);
+    }
+
+    #[Test]
+    public function can_not_create_game_with_some_fields_empty()
+    {
+        // GIVEN a user is logged in
+        $this->actingAs($this->user);
+
+        // WHEN the user wants to create a new game, clicking the button in the create page
+        Livewire::test(Create::class)
+            // Call the method to create the game
+            ->set('form.users', [$this->user->id])
+            ->call('create')
+            // THEN the view shows the errors
+            ->assertHasErrors(['form.name', 'form.date_start', 'form.comments']);
+
+        $this->assertDatabaseMissing('games', [
+            'name' => $this->game->name,
+            'date_start' => '2024-10-06',
+            'comments' => $this->game->comments,
+        ]);
+    }
+
+    #[Test]
+    public function can_not_create_game_by_error()
+    {
+        // GIVEN a user is logged in
+        $this->actingAs($this->user);
+
+        // WHEN the user wants to create a new game, clicking the button in the create page
+        Livewire::test(Create::class)
+            // Call the method to create the game
+            ->set('form.name', fake()->word(50))
+            ->set('form.date_start', '2024-10-06')
+            ->set('form.comments', $this->game->comments)
+            ->set('form.users', [$this->user->id])
+            ->call('create')
+            // THEN Something went wrong
+            ->assertDispatched('wireui:notification');
+
+        $this->assertDatabaseMissing('games', [
+            'name' => $this->game->name,
+            'date_start' => '2024-10-06',
             'comments' => $this->game->comments,
         ]);
     }
