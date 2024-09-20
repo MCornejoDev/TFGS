@@ -55,7 +55,7 @@
                             <div class="text-xs cursor-pointer text-base-content/70 tooltip tooltip-left"
                                 data-tip="{{ __('characters.table.nickname') }}">({{ $character->nickname }})</div>
                         </td>
-                        <td class="font-bold">{{ $character->gender }}</td>
+                        <td class="font-bold">{{ $character->genderLabel }}</td>
                         <td>
                             <x-livewire.labels.images :dataTip="__('characters.races.' . snake_lower($character->raceLabel))" :src="$character->raceImage" :alt="__('characters.races.image')" />
                         </td>
