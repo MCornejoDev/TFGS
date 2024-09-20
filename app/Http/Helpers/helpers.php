@@ -25,6 +25,19 @@ if (! function_exists('snake_lower')) {
 if (! function_exists('parse_date')) {
     function parse_date($value, ?string $format = null, ?string $tz = null)
     {
-        return Carbon::parse($value, $tz)->format($format);
+        if (empty($value)) {
+            return '';
+        }
+
+        try {
+            // Intenta parsear la fecha usando Carbon con el timezone si está disponible
+            $date = Carbon::parse($value, $tz);
+
+            // Si el formato es proporcionado, devuelve la fecha formateada
+            return $format ? $date->format($format) : $date;
+        } catch (\Exception $e) {
+            // Si falla al parsear, devuelve un valor predeterminado o maneja el error
+            return '';
+        }
     }
 }

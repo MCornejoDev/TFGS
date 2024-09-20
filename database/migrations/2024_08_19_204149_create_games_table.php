@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name', 40);
-            $table->date('date_start');
+            $table->dateTime('date_start');
             $table->text('comments');
             $table->timestamps();
         });

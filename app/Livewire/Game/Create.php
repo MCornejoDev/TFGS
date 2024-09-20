@@ -27,6 +27,7 @@ class Create extends Component
             'form.name' => 'required',
             'form.date_start' => 'required',
             'form.comments' => 'required',
+            'form.users' => 'required',
         ];
     }
 

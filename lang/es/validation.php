@@ -209,6 +209,7 @@ return [
         'form.health' => 'salud',
         'form.level' => 'nivel',
         'form.date_start' => 'fecha de inicio',
+        'form.users' => 'usuarios',
     ],
 
 ];
