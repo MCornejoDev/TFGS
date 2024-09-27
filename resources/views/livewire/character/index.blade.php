@@ -39,7 +39,8 @@
                     <tr class="border border-base-content/30" wire:loading.remove wire:target="loadRecords">
                         <td class="space-y-2 md:space-x-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
-                            <x-button icon="information-circle" rounded class="bg-base-100" info />
+                            <x-button icon="information-circle" rounded class="bg-base-100" info
+                                href="{{ route('characters.info', ['id' => $character->id]) }}" wire:navigate />
                             <x-button icon="trash" rounded class="bg-base-100" negative
                                 wire:click="confirm({{ $character->id }})" />
                         </td>

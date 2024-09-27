@@ -126,6 +126,8 @@ return [
     ],
 
     'genres' => [
+        'image' => 'Character Type Image',
+
         'male' => 'Male',
         'female' => 'Female',
     ],
@@ -187,4 +189,29 @@ return [
         'daggers' => 'Daggers',
         'knives' => 'Knives',
     ],
+
+    'character' => [
+        'title' => 'Character',
+        'nickname' => 'Nickname',
+        'genre' => 'Gender',
+        'age' => 'Age',
+        'level' => 'Level',
+        'height' => 'Height',
+        'weight' => 'Weight',
+        'personality' => 'Personality',
+
+        'health' => 'Health',
+        'strength' => 'Strength',
+        'dexterity' => 'Dexterity',
+        'constitution' => 'Constitution',
+        'intelligence' => 'Intelligence',
+        'wisdom' => 'Wisdom',
+        'charisma' => 'Charisma',
+
+        'skills' => 'Skills',
+
+        'items' => 'Items',
+
+        'abort' => 'Character not found',
+    ]
 ];

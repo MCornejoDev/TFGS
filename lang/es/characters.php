@@ -126,13 +126,15 @@ return [
     ],
 
     'genres' => [
+        'image' => 'Imagen de Género',
+
         'male' => 'Masculino',
         'female' => 'Femenino',
     ],
 
     'characters_types' => [
         'title' => 'Tipos de Personaje',
-        'image' => 'Imagen de Tipo de Personaje',
+        'image' => 'Imagén de Tipo de Personaje',
 
         'cleric' => 'Clerigo',
         'sorcerer' => 'Hechicero',
@@ -148,6 +150,8 @@ return [
     ],
 
     'races' => [
+        'image' => 'Imagén de la raza',
+
         'human' => 'Humano',
         'elf' => 'Elfo',
         'dwarf' => 'Enano',
@@ -160,6 +164,8 @@ return [
     ],
 
     'armors' => [
+        'image' => 'Imagén de la armadura',
+
         'heavy_chain_mail' => 'Armadura de Malla Pesada',
         'leather_armor' => 'Armadura de Cuero Medio o Pesada',
         'cloth_armor' => 'Armadura de Tela',
@@ -167,6 +173,8 @@ return [
     ],
 
     'weapons' => [
+        'image' => 'Imagén de la armadura',
+
         'title' => 'Arma',
         'staff' => 'Bastón',
         'scepter' => 'Cetro',
@@ -182,4 +190,30 @@ return [
         'daggers' => 'Daga',
         'knives' => 'Cuchillas',
     ],
+
+    'character' => [
+        'title' => 'Personaje',
+        'nickname' => 'Apodo',
+        'genre' => 'Género',
+        'age' => 'Edad',
+        'level' => 'Nivel',
+        'height' => 'Altura',
+        'weight' => 'Peso',
+        'personality' => 'Personalidad',
+
+        'health' => 'Salud',
+        'strength' => 'Fuerza',
+        'dexterity' => 'Destreza',
+        'constitution' => 'Constitución',
+        'intelligence' => 'Inteligencia',
+        'wisdom' => 'Sabiduría',
+        'charisma' => 'Carisma',
+
+        'skills' => 'Habilidades',
+
+        'items' => 'Objetos',
+
+        'abort' => 'Personaje no encontrado',
+
+    ]
 ];
