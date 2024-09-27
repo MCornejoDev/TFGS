@@ -79,6 +79,18 @@ class Character extends Model
     }
 
     /**
+     * Get the image of gender.
+     *
+     * @return string
+     */
+    protected function genderImage(): Attribute
+    {
+        return Attribute::make(
+            get: fn() =>  $this->gender ? asset('storage/images/genres/female.png') : asset('storage/images/genres/male.png'),
+        );
+    }
+
+    /**
      * Get the label of gender.
      *
      * @return string

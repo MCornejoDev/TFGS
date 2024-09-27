@@ -32,7 +32,7 @@ class CharacterFactory extends Factory
             'weight' => $this->faker->randomFloat(2, 1, 200),
             'gender' => $this->faker->boolean,
             'personality' => $this->faker->sentence,
-            'skills' => $this->faker->randomElements(),
+            'skills' => $this->faker->randomElements(['a', 'b', 'c', 'd']),
             'health' => $this->faker->numberBetween(1, 9999),
             'level' => $this->faker->numberBetween(1, 200),
             'strength' => $this->faker->numberBetween(1, 99),

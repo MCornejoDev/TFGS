@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CharacterService
 {
+    public static function getCharacter(int $id): ?Character
+    {
+        return Character::find($id);
+    }
+
     public static function getCharacters(string $search, array $filters, string $sortField = 'name', string $sortDirection = 'asc')
     {
         $query = Character::query();
