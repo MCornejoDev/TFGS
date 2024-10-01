@@ -18,7 +18,7 @@ class CharacterService
 
     public static function getLabels(int $id): array
     {
-        return Character::find(25)
+        return Character::find($id)
             ->history()
             ->select('change_type')
             ->get()
@@ -34,7 +34,7 @@ class CharacterService
 
     public static function getDataSets(int $id): array
     {
-        return Character::find(25)
+        return Character::find($id)
             ->history()
             ->select('change_type', 'new_value')
             ->get()

@@ -64,8 +64,5 @@
             {{ $this->character->items }}
         </div>
     </div>
-
-    <div>
-        <x-livewire.charts.chart :type="$this->chart['type']" :data="$this->chart['data']" />
-    </div>
+    <x-livewire.charts.chart :type="$this->chart['type']" :data="$this->chart['data']" :options="$this->chart['options']" />
 </div>
