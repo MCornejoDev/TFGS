@@ -16,6 +16,39 @@ class CharacterService
         return Character::find($id);
     }
 
+    public static function getLabels(int $id): array
+    {
+        return Character::find(25)
+            ->history()
+            ->select('change_type')
+            ->get()
+            ->groupBy('change_type')
+            ->map(function ($item) {
+                return [
+                    __('characters.character.' . $item->first()->change_type),
+                ];
+            })
+            ->values()
+            ->toArray();
+    }
+
+    public static function getDataSets(int $id): array
+    {
+        return Character::find(25)
+            ->history()
+            ->select('change_type', 'new_value')
+            ->get()
+            ->groupBy('change_type')
+            ->map(function ($item) {
+                return [
+                    'label' =>  __('characters.character.' . $item->first()->change_type),
+                    'data' => $item->pluck('new_value')->toArray(),
+                ];
+            })
+            ->values()
+            ->toArray();
+    }
+
     public static function getCharacters(string $search, array $filters, string $sortField = 'name', string $sortDirection = 'asc')
     {
         $query = Character::query();
