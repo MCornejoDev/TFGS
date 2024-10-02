@@ -25,23 +25,29 @@ class Info extends Component
                 'labels' => CharacterService::getLabels($this->character->id),
                 'datasets' => CharacterService::getDataSets($this->character->id),
             ],
-            'options' => [
-                'maintainAspectRatio' => false,
-                'scales' => [
-                    'y' => [
-                        'stacked' => true,
-                        'grid' => [
-                            'display' => true,
-                            'color' => 'rgba(255,99,132,0.2)',
-                        ],
-                    ],
-                    'x' => [
-                        'grid' => [
-                            'display' => false,
-                        ],
+            'options' => $this->chartOptions,
+        ];
+    }
+
+    #[Computed()]
+    public function chartOptions()
+    {
+        return [
+            'maintainAspectRatio' => false,
+            'scales' => [
+                'y' => [
+                    'stacked' => true,
+                    'grid' => [
+                        'display' => true,
+                        'color' => 'rgba(255,99,132,0.2)',
                     ],
                 ],
-            ]
+                'x' => [
+                    'grid' => [
+                        'display' => false,
+                    ],
+                ],
+            ],
         ];
     }
 

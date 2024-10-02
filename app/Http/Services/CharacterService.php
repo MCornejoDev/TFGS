@@ -18,18 +18,7 @@ class CharacterService
 
     public static function getLabels(int $id): array
     {
-        return Character::find($id)
-            ->history()
-            ->select('change_type')
-            ->get()
-            ->groupBy('change_type')
-            ->map(function ($item) {
-                return [
-                    __('characters.character.' . $item->first()->change_type),
-                ];
-            })
-            ->values()
-            ->toArray();
+        return collect(self::getDataSets($id))->pluck('label')->toArray();
     }
 
     public static function getDataSets(int $id): array

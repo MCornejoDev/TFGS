@@ -11,7 +11,7 @@
                 <x-livewire.labels.images :dataTip="__('characters.armors.' . snake_lower($this->character->characterType->armorLabel))" :src="$this->character->characterType->armorImage" :alt="__('characters.armors.image')" />
                 <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($this->character->characterType->weaponLabel))" :src="$this->character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
             </div>
-            <div class="grid grid-cols-3 gap-4 text-center lg:grid-cols-3 xl:grid-cols-5">
+            <div class="grid grid-cols-3 gap-4 text-center lg:grid-cols-3 xl:grid-cols-6">
                 <div class="space-y-2">
                     <x-livewire.labels.images :title="__('characters.character.genre')" :dataTip="$this->character->genderLabel" :src="$this->character->genderImage"
                         :alt="__('characters.genres.image')" class="!w-12 !h-12" />
@@ -21,6 +21,9 @@
                 </div>
                 <div class="space-y-2">
                     <x-livewire.labels.rounded :title="__('characters.character.level')" :value="$this->character->level" />
+                </div>
+                <div class="space-y-2">
+                    <x-livewire.labels.rounded :title="__('characters.character.health')" :value="$this->character->health" />
                 </div>
                 <div class="space-y-2">
                     <x-livewire.labels.rounded :title="__('characters.character.height')" :value="$this->character->height" />
