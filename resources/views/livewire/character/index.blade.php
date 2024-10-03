@@ -39,7 +39,7 @@
                     <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
                         wire:target="loadRecords">
 
-                        <td class="space-y-2 md:space-x-2">
+                        <td class="space-y-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info
                                 href="{{ route('characters.info', ['id' => $character->id]) }}" wire:navigate />
