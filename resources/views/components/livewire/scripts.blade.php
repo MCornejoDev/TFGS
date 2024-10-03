@@ -396,7 +396,7 @@
                     let platform = this.$refs.platform;
                     let number = Math.floor(Math.random() * 6) + 1;
                     this.applyTransformations(number);
-                    this.
+                    //this.
                     dice.style.transform = this.styles().dice.transform;
                     platform.style.transform = this.styles().platform.transform;
 
@@ -447,6 +447,19 @@
                         break;
                 }
             }
+        }));
+
+        Alpine.data('charts', () => ({
+            config: {
+                type: null,
+                data: null,
+                options: null,
+            },
+            initChart(config) {
+                this.config = config;
+                const ctx = document.getElementById('myChart').getContext('2d');
+                new Chart(ctx, config);
+            },
         }));
     });
 </script>
