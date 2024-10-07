@@ -19,13 +19,16 @@ final class SidePanel extends Component
 
     public string $icon = '';
 
+    public array $params = [];
+
     #[On('openPanel')]
-    public function openPanel(string $title, string $component, string $icon = ''): void
+    public function openPanel(string $title, string $component, string $icon = '', array $params = []): void
     {
         $this->open = true;
         $this->title = $title;
         $this->component = $component;
         $this->icon = $icon;
+        $this->params = $params;
     }
 
     #[On('closePanel')]

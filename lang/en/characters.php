@@ -108,6 +108,10 @@ return [
                 ],
             ],
         ],
+        'update' => [
+            'btn' => 'Update',
+            'title' => 'Update Character',
+        ],
         'delete' => [
             'btn' => 'Delete',
             'title' => 'Delete Character',

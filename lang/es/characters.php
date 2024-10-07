@@ -108,6 +108,10 @@ return [
                 ],
             ],
         ],
+        'update' => [
+            'btn' => 'Actualizar',
+            'title' => 'Actualizar Personaje',
+        ],
         'delete' => [
             'btn' => 'Eliminar',
             'title' => 'Eliminar Personaje',

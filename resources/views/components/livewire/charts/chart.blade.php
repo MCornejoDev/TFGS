@@ -2,6 +2,9 @@
     x-init="config.type = {{ Illuminate\Support\Js::from($type) }};
     config.data = {{ Illuminate\Support\Js::from($data) }};
     config.options = {{ Illuminate\Support\Js::from($options) }};
-    initChart(config);">
+    initChart(config);
+    Livewire.on('chartUpdated', () => {
+        initChart(config);
+    });">
     <canvas id="myChart"></canvas>
 </div>

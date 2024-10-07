@@ -51,6 +51,24 @@ class Info extends Component
         ];
     }
 
+    public function openSidePanel(): void
+    {
+
+        $this->dispatch(
+            'openPanel',
+            title: __('characters.actions.update.title'),
+            component: 'character.update',
+            icon: 'user-plus',
+            params: [
+                'character' => $this->character,
+            ]
+        );
+
+
+        $this->dispatch('chartUpdated');
+    }
+
+
     public function render()
     {
         return view('livewire.character.info');
