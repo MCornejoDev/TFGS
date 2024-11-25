@@ -114,6 +114,17 @@ class CharacterService
         }
     }
 
+    public static function update(int $id, array $data): bool
+    {
+        try {
+            return Character::find($id)->update($data);
+        } catch (Exception $e) {
+            log_error($e);
+
+            return false;
+        }
+    }
+
     public static function getCharacterTypes(): Collection
     {
         return collect(CharacterTypes::withTranslations())->map(function ($value, $key) {

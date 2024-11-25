@@ -111,6 +111,16 @@ return [
         'update' => [
             'btn' => 'Actualizar',
             'title' => 'Actualizar Personaje',
+            'form' => [
+                'success' => [
+                    'title' => 'Personaje actualizado correctamente',
+                    'description' => 'El personaje ha sido actualizado correctamente',
+                ],
+                'error' => [
+                    'title' => 'Algo salió mal, inténtalo de nuevo',
+                    'description' => 'El personaje no pudo ser actualizado',
+                ],
+            ],
         ],
         'delete' => [
             'btn' => 'Eliminar',

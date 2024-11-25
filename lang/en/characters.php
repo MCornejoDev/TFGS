@@ -111,6 +111,16 @@ return [
         'update' => [
             'btn' => 'Update',
             'title' => 'Update Character',
+            'form' => [
+                'success' => [
+                    'title' => 'Character updated successfully',
+                    'description' => 'The character has been updated successfully',
+                ],
+                'error' => [
+                    'title' => 'Something went wrong, try again',
+                    'description' => 'The character could not be updated',
+                ],
+            ],
         ],
         'delete' => [
             'btn' => 'Delete',

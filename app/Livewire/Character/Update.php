@@ -2,10 +2,15 @@
 
 namespace App\Livewire\Character;
 
+use App\Http\Services\CharacterService;
+use App\Models\Character;
 use Livewire\Component;
+use WireUi\Traits\WireUiActions;
 
 class Update extends Component
 {
+    use WireUiActions;
+
     public array $character;
 
     public array $form = [
@@ -58,7 +63,23 @@ class Update extends Component
     public function update()
     {
         $this->validate();
-        $this->dispatch('chartUpdated');
+        $response = CharacterService::update($this->character['id'], $this->form);
+
+        if ($response) {
+            $this->dispatch('closePanel');
+            $this->notification()->send([
+                'icon' => 'success',
+                'title' => __('characters.actions.update.form.success.title'),
+                'description' => __('characters.actions.update.form.success.description'),
+            ]);
+            $this->dispatch('chartUpdated');
+        } else {
+            $this->notification()->send([
+                'icon' => 'error',
+                'title' => __('characters.actions.update.form.error.title'),
+                'description' => __('characters.actions.update.form.error.description'),
+            ]);
+        }
     }
 
     public function render()
