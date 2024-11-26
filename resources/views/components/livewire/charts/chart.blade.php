@@ -3,7 +3,8 @@
     config.data = {{ Illuminate\Support\Js::from($data) }};
     config.options = {{ Illuminate\Support\Js::from($options) }};
     initChart(config);
-    Livewire.on('chartUpdated', () => {
+    Livewire.on('chartInit', () => {
+        console.log(config);
         initChart(config);
     });">
     <canvas id="myChart"></canvas>

@@ -455,11 +455,26 @@
                 data: null,
                 options: null,
             },
+            chartInstance: null, // Añadimos una variable para almacenar la instancia del gráfico
+
             initChart(config) {
-                this.config = config;
+                // Destruir la instancia existente del gráfico, si existe
+                if (this.chartInstance) {
+                    this.chartInstance.destroy();
+                }
+
+                // Obtener el contexto del canvas
                 const ctx = document.getElementById('myChart').getContext('2d');
-                new Chart(ctx, config);
+
+                // Crear una nueva instancia del gráfico y almacenarla
+                this.chartInstance = new Chart(ctx, config);
             },
+
+            updateChart(data) {
+                console.log('updateChart en alpinejs');
+                this.chartInstance.data.datasets.data = data;
+                this.chartInstance.update();
+            }
         }));
     });
 </script>

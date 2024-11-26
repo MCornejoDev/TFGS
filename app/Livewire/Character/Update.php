@@ -80,6 +80,8 @@ class Update extends Component
                 'description' => __('characters.actions.update.form.error.description'),
             ]);
         }
+
+        $this->dispatch('refresh')->to(Info::class);
     }
 
     public function render()

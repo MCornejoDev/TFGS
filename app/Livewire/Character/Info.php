@@ -4,11 +4,17 @@ namespace App\Livewire\Character;
 
 use App\Http\Services\CharacterService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Info extends Component
 {
     public int $id;
+
+    public function mount()
+    {
+        $this->dispatch('chartInit');
+    }
 
     #[Computed()]
     public function character()
@@ -53,7 +59,6 @@ class Info extends Component
 
     public function openSidePanel(): void
     {
-
         $this->dispatch(
             'openPanel',
             title: __('characters.actions.update.title'),
@@ -63,11 +68,13 @@ class Info extends Component
                 'character' => $this->character,
             ]
         );
-
-
-        $this->dispatch('chartUpdated');
     }
 
+    #[On('refresh')]
+    public function refresh(): void
+    {
+        $this->dispatch('chartUpdate', data: $this->chart);
+    }
 
     public function render()
     {
