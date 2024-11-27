@@ -6,6 +6,9 @@
     Livewire.on('chartInit', () => {
         console.log(config);
         initChart(config);
+    });
+    Livewire.on('updatingChart', (chartUpdated) => {
+        updatingChart(chartUpdated);
     });">
     <canvas id="myChart"></canvas>
 </div>

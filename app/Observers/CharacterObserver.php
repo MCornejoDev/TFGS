@@ -90,6 +90,14 @@ class CharacterObserver
                     'previous_value' => 0,
                     'new_value' => $character->wisdom
                 ],
+                [
+                    'character_id' => $character->id,
+                    'game_id' => $character->game_id,
+                    'change_type' => 'charisma',
+                    'description' => 'Created: Charisma',
+                    'previous_value' => 0,
+                    'new_value' => $character->charisma
+                ],
             ];
 
             DB::table('character_histories')->insert($data);
@@ -180,6 +188,14 @@ class CharacterObserver
                     'description' => 'Updated: Wisdom',
                     'previous_value' => $character->getOriginal('wisdom'),
                     'new_value' => $character->wisdom
+                ],
+                [
+                    'character_id' => $character->id,
+                    'game_id' => $character->game_id,
+                    'change_type' => 'charisma',
+                    'description' => 'Updated: Charisma',
+                    'previous_value' => $character->getOriginal('charisma'),
+                    'new_value' => $character->charisma
                 ],
             ];
 

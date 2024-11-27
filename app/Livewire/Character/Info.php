@@ -73,7 +73,8 @@ class Info extends Component
     #[On('refresh')]
     public function refresh(): void
     {
-        $this->dispatch('chartUpdate', data: $this->chart);
+        //TODO: esto no actualiza correctamente (da error max call stack size exceeded)
+        $this->dispatch('updatingChart', $this->chart['data']['datasets']);
     }
 
     public function render()
