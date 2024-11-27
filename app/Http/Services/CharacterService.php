@@ -30,7 +30,7 @@ class CharacterService
             ->groupBy('change_type')
             ->map(function ($item) {
                 return [
-                    'label' =>  __('characters.character.' . $item->first()->change_type),
+                    'label' => __('characters.character.'.$item->first()->change_type),
                     'data' => $item->pluck('new_value')->toArray(),
                 ];
             })
@@ -45,8 +45,8 @@ class CharacterService
         $query->where('user_id', Auth::id())
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($query) use ($search) {
-                    $query->where('name', 'like', '%' . $search . '%')
-                        ->orWhere('nickname', 'like', '%' . $search . '%');
+                    $query->where('name', 'like', '%'.$search.'%')
+                        ->orWhere('nickname', 'like', '%'.$search.'%');
                 });
             })
             ->when($filters['race'], function ($query) use ($filters) {
@@ -131,7 +131,7 @@ class CharacterService
             return [
                 'id' => $key,
                 'name' => $value,
-                'image' => asset('storage/images/character_types/' . CharacterTypes::lowerCase($key) . '.png'),
+                'image' => asset('storage/images/character_types/'.CharacterTypes::lowerCase($key).'.png'),
             ];
         })->sortBy('name')->values();
     }

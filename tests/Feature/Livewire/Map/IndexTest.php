@@ -3,8 +3,6 @@
 namespace Tests\Feature\Livewire\Map;
 
 use App\Livewire\Map\Index;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 

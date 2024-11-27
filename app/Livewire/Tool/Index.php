@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
     public $die;
 
     #[Computed()]
@@ -34,7 +33,7 @@ class Index extends Component
                 'id' => 5,
                 'name' => __('tools.types.coin'),
 
-            ]
+            ],
         ])->sortBy('name')->values();
     }
 

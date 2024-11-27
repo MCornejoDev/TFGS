@@ -16,8 +16,8 @@ class GameService
             $query->where('user_id', Auth::id());
         })->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%')
-                    ->orWhere('comments', 'like', '%' . $search . '%');
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('comments', 'like', '%'.$search.'%');
             });
         })->when($filters['date_start'] ?? null, function ($query) use ($filters) {
             $query->where('date_start', '>=', $filters['date_start']);

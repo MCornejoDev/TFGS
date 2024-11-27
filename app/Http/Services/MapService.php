@@ -13,8 +13,8 @@ class MapService
 
         $query->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%')
-                    ->orWhere('link', 'like', '%' . $search . '%');
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('link', 'like', '%'.$search.'%');
             });
         })->when($filters['extension'], function ($query) use ($filters) {
             $query->whereIn('extension', $filters['extension']);

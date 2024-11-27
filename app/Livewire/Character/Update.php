@@ -3,7 +3,6 @@
 namespace App\Livewire\Character;
 
 use App\Http\Services\CharacterService;
-use App\Models\Character;
 use Livewire\Component;
 use WireUi\Traits\WireUiActions;
 
@@ -25,7 +24,7 @@ class Update extends Component
         'constitution' => null,
         'intelligence' => null,
         'wisdom' => null,
-        'charisma' => null
+        'charisma' => null,
     ];
 
     public function rules()

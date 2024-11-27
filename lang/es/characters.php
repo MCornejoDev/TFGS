@@ -229,5 +229,5 @@ return [
 
         'abort' => 'Personaje no encontrado',
 
-    ]
+    ],
 ];

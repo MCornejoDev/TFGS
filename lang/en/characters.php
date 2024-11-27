@@ -227,5 +227,5 @@ return [
         'items' => 'Items',
 
         'abort' => 'Character not found',
-    ]
+    ],
 ];

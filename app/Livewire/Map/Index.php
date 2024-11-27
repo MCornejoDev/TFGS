@@ -64,7 +64,7 @@ class Index extends Component
             ],
             [
                 'type' => 'select',
-                'data' =>  MapService::getExtensions(),
+                'data' => MapService::getExtensions(),
                 'label' => __('maps.filters.extension.select'),
                 'placeholder' => __('maps.filters.extension.select'),
                 'filter' => 'filters.extension',

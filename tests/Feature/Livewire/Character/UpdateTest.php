@@ -3,8 +3,6 @@
 namespace Tests\Feature\Livewire\Character;
 
 use App\Livewire\Character\Update;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 

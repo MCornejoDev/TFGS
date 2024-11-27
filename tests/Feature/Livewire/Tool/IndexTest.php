@@ -3,8 +3,6 @@
 namespace Tests\Feature\Livewire\Tool;
 
 use App\Livewire\Tool\Index;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;

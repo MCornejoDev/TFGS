@@ -24,7 +24,7 @@ Breadcrumbs::for('characters.info', function (BreadcrumbTrail $trail) {
     $trail->parent('characters.index');
     $character = Character::find(request()->route('id'));
 
-    if (!$character) {
+    if (! $character) {
         return abort(404, __('characters.character.abort'));
     }
 

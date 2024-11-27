@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Livewire\Character;
 
-use App\Http\Services\WeaponService;
 use App\Livewire\Character\Create;
 use App\Models\Character;
 use App\Models\CharacterType;
@@ -56,7 +55,6 @@ class CreateTest extends TestCase
             'game_id' => $this->character->game_id,
             'user_id' => $this->user->id,
         ]);
-
 
         // WHEN the user wants to create a new character, clicking the button in the create page
         Livewire::test(Create::class)

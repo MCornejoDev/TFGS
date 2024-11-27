@@ -4,8 +4,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Livewire\Character\Index as CharacterIndex;
 use App\Livewire\Character\Info as CharacterInfo;
 use App\Livewire\Game\Index as GameIndex;
-use App\Livewire\Tool\Index as ToolIndex;
 use App\Livewire\Map\Index as MapIndex;
+use App\Livewire\Tool\Index as ToolIndex;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
