@@ -14,7 +14,8 @@
                             class="w-6 h-6" />{{ __('header.characters') }}</a></li>
                 <li><a href="{{ route('tools.index') }}" wire:navigate><x-fas-dice
                             class="w-6 h-6" />{{ __('header.tools') }}</a></li>
-                <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
+                <li><a href="{{ route('maps.index') }}" wire:navigate><x-heroicon-o-map
+                            class="w-6 h-6" />{{ __('header.maps') }}</a></li>
             </ul>
         </div>
         <x-logo :width="75" :height="25" class="cursor-pointer" :redirectToHomePage="true" />
@@ -27,7 +28,8 @@
                         class="w-6 h-6" />{{ __('header.characters') }}</a></li>
             <li><a href="{{ route('tools.index') }}" wire:navigate><x-fas-dice
                         class="w-6 h-6" />{{ __('header.tools') }}</a></li>
-            <li><a><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a></li>
+            <li><a href="{{ route('maps.index') }}"><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a>
+            </li>
         </ul>
     </div>
     <div class="navbar-end">

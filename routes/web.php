@@ -5,6 +5,7 @@ use App\Livewire\Character\Index as CharacterIndex;
 use App\Livewire\Character\Info as CharacterInfo;
 use App\Livewire\Game\Index as GameIndex;
 use App\Livewire\Tool\Index as ToolIndex;
+use App\Livewire\Map\Index as MapIndex;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/characters/{id}', CharacterInfo::class)->name('characters.info');
 
     Route::get('/tools', ToolIndex::class)->name('tools.index');
+    Route::get('/maps', MapIndex::class)->name('maps.index');
     // Route::get('/crear', [
     //     'as' => 'crear',
     //     'uses' => 'CrearPersonajeController@index'

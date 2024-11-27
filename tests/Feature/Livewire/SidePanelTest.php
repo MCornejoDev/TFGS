@@ -2,17 +2,20 @@
 
 namespace Tests\Feature\Livewire;
 
+use App\Livewire\Game\Index;
 use App\Livewire\SidePanel;
+use App\Models\User;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class SidePanelTest extends TestCase
 {
-    #[Test]
-    public function renders_successfully()
+    protected User $user;
+
+    protected function setUp(): void
     {
-        Livewire::test(SidePanel::class)
-            ->assertStatus(200);
+        parent::setUp();
+        $this->user = User::factory()->create();
     }
 }

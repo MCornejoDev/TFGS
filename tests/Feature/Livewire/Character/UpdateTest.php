@@ -1,20 +1,19 @@
 <?php
 
-namespace Tests\Feature\Livewire\Tool;
+namespace Tests\Feature\Livewire\Character;
 
-use App\Livewire\Tool\Index;
+use App\Livewire\Character\Update;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
-use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-class IndexTest extends TestCase
+class UpdateTest extends TestCase
 {
-    #[Test]
+    /** @test */
     public function renders_successfully()
     {
-        Livewire::test(Index::class)
+        Livewire::test(Update::class)
             ->assertStatus(200);
     }
 }

@@ -38,3 +38,7 @@ Breadcrumbs::for('games.index', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('tools.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('tools.tools'), route('tools.index'));
 });
+
+Breadcrumbs::for('maps.index', function (BreadcrumbTrail $trail) {
+    $trail->push(__('maps.maps'), route('maps.index'));
+});
