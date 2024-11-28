@@ -28,7 +28,8 @@
                         class="w-6 h-6" />{{ __('header.characters') }}</a></li>
             <li><a href="{{ route('tools.index') }}" wire:navigate><x-fas-dice
                         class="w-6 h-6" />{{ __('header.tools') }}</a></li>
-            <li><a href="{{ route('maps.index') }}"><x-heroicon-o-map class="w-6 h-6" />{{ __('header.maps') }}</a>
+            <li><a href="{{ route('maps.index') }}" wire:navigate><x-heroicon-o-map
+                        class="w-6 h-6" />{{ __('header.maps') }}</a>
             </li>
         </ul>
     </div>
@@ -50,8 +51,9 @@
                             {{ __('auth.darkmode') }}</span>
                     </a>
                 </li>
-                <li><a><x-heroicon-o-user class="w-6 h-6 hover:bg-transparent" />{{ __('header.profile') }}</a></li>
-                <li><a><x-heroicon-o-cog-6-tooth class="w-6 h-6" /> {{ __('header.settings') }}</a></li>
+                <li><a href="{{ route('user.details') }}" wire:navigate><x-heroicon-o-user
+                            class="w-6 h-6 hover:bg-transparent" />{{ __('header.profile') }}</a></li>
+                <li><a><x-heroicon-o-cog-6-tooth class="w-6 h-6" />{{ __('header.settings') }}</a></li>
                 <li><a wire:click='logout'><x-heroicon-o-arrow-right-on-rectangle
                             class="w-6 h-6" />{{ __('header.logout') }}</a></li>
             </ul>

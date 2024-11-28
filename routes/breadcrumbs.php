@@ -42,3 +42,8 @@ Breadcrumbs::for('tools.index', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('maps.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('maps.maps'), route('maps.index'));
 });
+
+Breadcrumbs::for('user.details', function (BreadcrumbTrail $trail) {
+    $trail->push(__('users.details'));
+    $trail->push(Auth::user()->name);
+});

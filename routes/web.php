@@ -6,6 +6,7 @@ use App\Livewire\Character\Info as CharacterInfo;
 use App\Livewire\Game\Index as GameIndex;
 use App\Livewire\Map\Index as MapIndex;
 use App\Livewire\Tool\Index as ToolIndex;
+use App\Livewire\User\Details as UserDetails;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
@@ -100,5 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
     //     'uses' => 'HerramientasController@eliminarCuenta'
     // ]);
 
+
+    Route::get('/user/details', UserDetails::class)->name('user.details');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
