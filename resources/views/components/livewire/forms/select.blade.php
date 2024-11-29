@@ -17,7 +17,8 @@ model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');
 placeholder = '{{ $placeholder }}';
 api = '{{ $api }}';
-isMultiple = '{{ $isMultiple }}';">
+isMultiple = '{{ $isMultiple }}';
+goInit();">
     @if ($title)
         <span class="block mb-2 text-sm font-medium text-base-content">
             {{ $title }}
@@ -29,7 +30,7 @@ isMultiple = '{{ $isMultiple }}';">
         <div class="flex items-center gap-2 {{ $isFilter ? 'w-80' : '' }}">
             <button @click="open = !open" x-bind:disabled="getDisabled('{{ $dependsOn }}')"
                 x-bind:class="{ 'disabled:opacity-75 cursor-not-allowed': isDisabled }"
-                class="relative w-full py-2 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
+                class="relative w-full py-2.5 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
         {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
         border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
         sm:text-sm {{ $isFilter ? 'w-80' : '' }}">

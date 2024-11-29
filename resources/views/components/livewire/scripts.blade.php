@@ -78,6 +78,9 @@
                     }
                 });
             },
+            goInit() {
+                this.selected = this.$wire.get(this.model);
+            },
             handleCopy() {
                 // Ensure the copy of options is only created once
                 if (!this.copy) {
