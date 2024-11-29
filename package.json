@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "sass-migrator": "sass-migrator module --migrate-deps /resources/sass/app.scss"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
@@ -23,6 +24,7 @@
         "chart.js": "^4.4.4",
         "postcss-nesting": "^13.0.0",
         "sass": "^1.77.8",
-        "sass-loader": "^16.0.1"
+        "sass-loader": "^16.0.1",
+        "sass-migrator": "^2.2.1"
     }
 }
