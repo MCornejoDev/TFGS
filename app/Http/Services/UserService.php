@@ -12,4 +12,15 @@ class UserService
     {
         return User::findOrFail($id);
     }
+
+    public static function remove(int $id): bool
+    {
+        try {
+            return User::find($id)->delete();
+        } catch (Exception $e) {
+            log_error($e);
+
+            return false;
+        }
+    }
 }
