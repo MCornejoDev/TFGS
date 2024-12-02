@@ -7,11 +7,12 @@ use Auth;
 use DateTimeZone;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use WireUi\Traits\WireUiActions;
 
 class Details extends Component
 {
-    use WireUiActions;
+    use WireUiActions, WithFileUploads;
 
     public array $form = [
         'name' => null,
@@ -21,12 +22,13 @@ class Details extends Component
         'avatar' => null,
     ];
 
+    public $avatar = null; // This variable is used to the input hidden
+
     public function rules()
     {
         return [
             'form.name' => 'required',
-            'form.password' => 'required',
-            'form.email' => 'required',
+            'form.email' => 'required|email|unique:users,email',
             'form.timezone' => 'required',
             'form.avatar' => 'required',
         ];
@@ -97,6 +99,18 @@ class Details extends Component
                 'description' => __('users.actions.delete.error.description'),
             ]);
         }
+    }
+
+    public function updatedForm($value, $key)
+    {
+        if ($key === 'avatar') {
+            $this->avatar = $this->form[$key]->temporaryUrl();
+        }
+    }
+    public function update()
+    {
+        $this->validate();
+        dd($this->form);
     }
 
     public function render()

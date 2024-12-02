@@ -12,6 +12,7 @@ return [
                 'password' => 'Password',
                 'email' => 'Email',
                 'timezone' => 'Timezone',
+                'avatar' => 'Avatar',
                 'placeholder' => [
                     'name' => 'Username',
                     'password' => 'Password',

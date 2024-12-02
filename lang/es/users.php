@@ -12,6 +12,7 @@ return [
                 'password' => 'Contraseña',
                 'email' => 'Email',
                 'timezone' => 'Zona horaria',
+                'avatar' => 'Avatar',
                 'placeholder' => [
                     'password' => 'Contraseña',
                     'email' => 'Email',
