@@ -3,6 +3,7 @@
 namespace App\Livewire\User;
 
 use App\Http\Services\UserService;
+use App\Livewire\Layout\Header;
 use Auth;
 use DateTimeZone;
 use Livewire\Attributes\Computed;
@@ -28,9 +29,9 @@ class Details extends Component
     {
         return [
             'form.name' => 'required',
-            'form.email' => 'required|email|unique:users,email',
+            'form.email' => 'required|email|unique:users,email,' . $this->user->id,
             'form.timezone' => 'required',
-            'form.avatar' => 'required',
+            'form.avatar' => 'nullable',
         ];
     }
 
@@ -40,10 +41,10 @@ class Details extends Component
         $this->form['name'] = $this->user->name;
         $this->form['email'] = $this->user->email;
         $this->form['timezone'] = [
-            'id' => $this->timezones()->filter(fn($timezone) => $timezone['name'] === $this->user->timezone)->first()['id'],
+            'id' => $this->getTimeZone(name: $this->user->timezone)['id'],
             'name' => $this->user->timezone,
         ];
-        $this->form['avatar'] = $this->user->avatar;
+        $this->avatar = $this->user->avatar;
     }
 
     #[Computed()]
@@ -104,13 +105,44 @@ class Details extends Component
     public function updatedForm($value, $key)
     {
         if ($key === 'avatar') {
-            $this->avatar = $this->form[$key]->temporaryUrl();
+            $this->avatar = $this->form[$key];
+        }
+
+        if ($key === 'timezone') {
+            $this->form['timezone'] = $this->getTimeZone(id: $value);
         }
     }
+
+    private function getTimeZone(?int $id = null, ?string $name = null)
+    {
+        return $this->timezones()->filter(function ($timezone) use ($id, $name) {
+            return ($id !== null && $name !== null && $timezone['id'] === $id && $timezone['name'] === $name) ||
+                ($id !== null && $timezone['id'] === $id) ||
+                ($name !== null && $timezone['name'] === $name);
+        })->first();
+    }
+
     public function update()
     {
         $this->validate();
-        dd($this->form);
+        $response = UserService::update($this->user->id, $this->form);
+
+        if ($response) {
+            $this->notification()->send([
+                'icon' => 'success',
+                'title' => __('users.actions.update.form.success.title'),
+                'description' => __('users.actions.update.form.success.description'),
+            ]);
+            $this->dispatch('refresh')->to(Header::class);
+        } else {
+            $this->notification()->send([
+                'icon' => 'error',
+                'title' => __('users.actions.update.form.error.title'),
+                'description' => __('users.actions.update.form.error.description'),
+            ]);
+        }
+
+        $this->dispatch('refresh');
     }
 
     public function render()

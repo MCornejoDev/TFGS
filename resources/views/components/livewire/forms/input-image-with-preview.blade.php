@@ -6,7 +6,11 @@
 ])
 
 @php
-    $previewImg = is_null($this->avatar) ? asset('storage/images/example_avatar.jpg') : $this->avatar;
+    $previewImg = is_null($this->avatar)
+        ? asset('storage/images/example_avatar.jpg')
+        : (gettype($this->avatar) === 'object'
+            ? $this->avatar->temporaryUrl()
+            : asset('storage/' . $this->avatar));
 @endphp
 
 <div>
