@@ -16,8 +16,8 @@ class GameService
             $query->where('user_id', Auth::id());
         })->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%'.$search.'%')
-                    ->orWhere('comments', 'like', '%'.$search.'%');
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('comments', 'like', '%' . $search . '%');
             });
         })->when($filters['date_start'] ?? null, function ($query) use ($filters) {
             $query->where('date_start', '>=', $filters['date_start']);
@@ -44,7 +44,7 @@ class GameService
     public static function remove(int $id): bool
     {
         try {
-            return Game::find($id)->delete();
+            return Game::findOrFail($id)->delete();
         } catch (Exception $e) {
             log_error($e);
 
