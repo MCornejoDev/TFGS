@@ -40,7 +40,7 @@
                         <td>
                             <div class="flex items-center justify-center -space-x-4">
                                 @foreach ($game->users->take($this->playersToShow) as $user)
-                                    <x-avatar md src="{{ 'https://picsum.photos/200/300?random=' . $user->id }}" />
+                                    <x-avatar md src="{{ $user->avatarImage }}" alt="{{ $user->avatarLabel }}" />
                                 @endforeach
                                 @if ($game->users->count() > $this->playersToShow)
                                     <x-avatar md>

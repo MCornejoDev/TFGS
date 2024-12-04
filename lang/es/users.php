@@ -3,6 +3,10 @@
 return [
     'details' => 'Detalles',
 
+    'avatars' => [
+        'example' => 'Avatar de ejemplo',
+    ],
+
     'actions' => [
         'update' => [
             'title' => 'Actualizar Usuario',

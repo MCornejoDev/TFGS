@@ -62,4 +62,22 @@ class User extends Authenticatable
             },
         );
     }
+
+    public function avatarLabel(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return $this->avatar ? basename($this->avatar) : __('users.avatars.example');
+            },
+        );
+    }
+
+    public function avatarImage(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return $this->avatar ? asset('storage/' . $this->avatar) : asset('storage/images/example_avatar.jpg');
+            },
+        );
+    }
 }
