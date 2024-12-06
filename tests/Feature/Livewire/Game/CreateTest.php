@@ -9,6 +9,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Illuminate\Http\Response;
+
 
 class CreateTest extends TestCase
 {
@@ -34,7 +36,7 @@ class CreateTest extends TestCase
         //WHEN the user visits the create page
         Livewire::test(Create::class)
             //THEN the page should render successfully
-            ->assertStatus(200);
+            ->assertStatus(Response::HTTP_OK);
     }
 
     #[Test]

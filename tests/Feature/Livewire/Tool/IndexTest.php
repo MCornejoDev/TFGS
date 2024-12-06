@@ -6,6 +6,7 @@ use App\Livewire\Tool\Index;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Illuminate\Http\Response;
 
 class IndexTest extends TestCase
 {
@@ -13,6 +14,6 @@ class IndexTest extends TestCase
     public function renders_successfully()
     {
         Livewire::test(Index::class)
-            ->assertStatus(200);
+            ->assertStatus(Response::HTTP_OK);
     }
 }

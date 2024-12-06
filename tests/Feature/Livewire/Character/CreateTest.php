@@ -11,6 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Illuminate\Http\Response;
 
 class CreateTest extends TestCase
 {
@@ -39,7 +40,7 @@ class CreateTest extends TestCase
         //WHEN the user visits the create page
         Livewire::test(Create::class)
             //THEN the page should render successfully
-            ->assertStatus(200);
+            ->assertStatus(Response::HTTP_OK);
     }
 
     #[Test]
@@ -148,7 +149,7 @@ class CreateTest extends TestCase
         // WHEN the user wants to create a new character, clicking the button in the create page
         Livewire::test(Create::class)
             // Call the method to create the character
-            ->set('form.gameId', $this->character->game_id)
+            ->set('form.gameId', 999999999)
             ->set('form.characterTypeId', $this->character->character_type_id)
             ->set('form.weaponId', $this->character->characterType->weapon)
             ->set('form.armorId', $this->character->characterType->armor)
@@ -159,12 +160,12 @@ class CreateTest extends TestCase
             ->set('form.name', $this->character->name)
             ->set('form.nickname', $this->character->nickname)
             ->set('form.personality', $this->character->personality)
-            ->set('form.skills', '')
+            ->set('form.skills', '121212121212')
             ->set('form.strength', $this->character->strength)
             ->set('form.dexterity', $this->character->dexterity)
             ->set('form.constitution', $this->character->constitution)
             ->set('form.intelligence', $this->character->intelligence)
-            ->set('form.wisdom', fake()->numberBetween(100000000, 100000000))
+            ->set('form.wisdom', 'asass')
             ->set('form.charisma', $this->character->charisma)
             ->set('form.height', $this->character->height)
             ->set('form.weight', $this->character->weight)
