@@ -4,6 +4,7 @@ namespace App\Livewire\Game;
 
 use App\Http\Services\GameService;
 use App\Livewire\Traits\DateTime;
+use App\Livewire\Traits\ResetsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -12,7 +13,7 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use DateTime, WireUiActions, WithPagination;
+    use DateTime, WireUiActions, WithPagination, ResetsPage;
 
     #[On('refresh')]
     public function refresh(): void

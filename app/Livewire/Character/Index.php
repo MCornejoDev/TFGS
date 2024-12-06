@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Character;
 
+use App\Livewire\Traits\ResetsPage;
 use App\Http\Services\CharacterService;
 use App\Http\Services\RaceService;
 use Livewire\Attributes\Computed;
@@ -12,7 +13,7 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
-    use WireUiActions, WithPagination;
+    use WireUiActions, WithPagination, ResetsPage;
 
     #[On('refresh')]
     public function refresh(): void
