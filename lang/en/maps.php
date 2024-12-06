@@ -15,6 +15,23 @@ return [
     'actions' => [
         'history' => 'History',
         'information' => 'Information',
+        'create' => [
+            'btn' => 'Create',
+            'form' => [
+                'name' => 'Name',
+                'link' => 'Link',
+                'extension' => 'Extension',
+                'submit' => 'Create',
+                'success' => [
+                    'title' => 'Map created',
+                    'description' => 'The map has been created successfully',
+                ],
+                'error' => [
+                    'title' => 'Error creating the map',
+                    'description' => 'There was an error creating the map',
+                ],
+            ],
+        ],
         'delete' => 'Delete',
     ],
 

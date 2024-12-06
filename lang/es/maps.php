@@ -9,12 +9,29 @@ return [
         'name' => 'Nombre',
         'link' => 'Enlace',
         'extension' => 'Extensión',
-        'action' => 'Acciones',
+        'actions' => 'Acciones',
     ],
 
     'actions' => [
         'history' => 'Historial',
         'information' => 'Información',
+        'create' => [
+            'btn' => 'Crear',
+            'form' => [
+                'name' => 'Nombre',
+                'link' => 'Enlace',
+                'extension' => 'Extensión',
+                'submit' => 'Crear',
+                'success' => [
+                    'title' => 'Mapa creado',
+                    'description' => 'El mapa ha sido creado exitosamente',
+                ],
+                'error' => [
+                    'title' => 'Error al crear el mapa',
+                    'description' => 'Hubo un error al crear el mapa',
+                ],
+            ],
+        ],
         'delete' => 'Borrar',
     ],
 

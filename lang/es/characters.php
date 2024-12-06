@@ -13,7 +13,7 @@ return [
         'gender' => 'Género',
         'character_type' => 'Tipo de Personaje',
         'armor_weapon' => 'Armadura / Arma',
-        'action' => 'Acciones',
+        'actions' => 'Acciones',
     ],
 
     'actions' => [
