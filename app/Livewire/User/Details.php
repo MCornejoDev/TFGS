@@ -5,8 +5,10 @@ namespace App\Livewire\User;
 use App\Http\Services\UserService;
 use App\Livewire\Layout\Header;
 use Auth;
+use Carbon\Carbon;
 use DateTimeZone;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use WireUi\Traits\WireUiActions;
@@ -51,6 +53,12 @@ class Details extends Component
     public function user()
     {
         return UserService::getUser(Auth::id());
+    }
+
+    #[Computed()]
+    public function userTimeZone()
+    {
+        return (new Carbon(timezone: $this->user->timezone))->toDateTimeString();
     }
 
     #[Computed()]
@@ -134,6 +142,7 @@ class Details extends Component
                 'description' => __('users.actions.update.form.success.description'),
             ]);
             $this->dispatch('refresh')->to(Header::class);
+            $this->dispatch('refresh')->to(Details::class);
         } else {
             $this->notification()->send([
                 'icon' => 'error',
@@ -141,9 +150,10 @@ class Details extends Component
                 'description' => __('users.actions.update.form.error.description'),
             ]);
         }
-
-        $this->dispatch('refresh');
     }
+
+    #[On('refresh')]
+    public function refresh() {}
 
     public function render()
     {

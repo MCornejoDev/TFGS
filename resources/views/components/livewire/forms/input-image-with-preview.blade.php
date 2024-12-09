@@ -17,7 +17,7 @@
     <label for="input-{{ $id }}"
         class="block mb-2 text-sm font-medium text-base-content">{{ $label }}</label>
 
-    <img src="{{ $previewImg }}" alt="{{ $alt }}" class="w-64 h-64 rounded-full cursor-pointer"
+    <img src="{{ $previewImg }}" alt="{{ $alt }}" class="w-40 h-40 rounded-full cursor-pointer"
         @click="$refs.fileInput.click()" />
 
     <input type="file" wire:model="form.{{ $model }}" x-ref="fileInput" class="hidden"
