@@ -4,7 +4,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "sass-migrator": "sass-migrator module --migrate-deps /resources/sass/app.scss"
+        "sass-migrator": "sass-migrator module --migrate-deps /var/www/html/resources/sass/app.scss"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
