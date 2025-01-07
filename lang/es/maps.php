@@ -32,7 +32,20 @@ return [
                 ],
             ],
         ],
-        'delete' => 'Borrar',
+        'delete' => [
+            'title' => 'Eliminar mapa',
+            'description' => '¿Estás seguro de que quieres eliminar este mapa?',
+            'accept' => 'Eliminar',
+            'reject' => 'Cancelar',
+            'success' => [
+                'title' => 'Mapa eliminado',
+                'description' => 'El mapa ha sido eliminado exitosamente',
+            ],
+            'error' => [
+                'title' => 'Error al eliminar el mapa',
+                'description' => 'Hubo un error al eliminar el mapa',
+            ],
+        ],
     ],
 
     'filters' => [

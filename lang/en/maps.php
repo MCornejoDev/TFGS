@@ -32,7 +32,20 @@ return [
                 ],
             ],
         ],
-        'delete' => 'Delete',
+        'delete' => [
+            'title' => 'Delete map',
+            'description' => 'Are you sure you want to delete this map?',
+            'accept' => 'Delete',
+            'reject' => 'Cancel',
+            'success' => [
+                'title' => 'Map deleted',
+                'description' => 'The map has been deleted successfully',
+            ],
+            'error' => [
+                'title' => 'Error deleting the map',
+                'description' => 'There was an error deleting the map',
+            ],
+        ],
     ],
 
     'filters' => [

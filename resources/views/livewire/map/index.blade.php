@@ -29,7 +29,8 @@
                     <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
                         wire:target="loadRecords">
                         <td class="space-y-2">
-
+                            <x-button icon="trash" rounded class="bg-base-100" negative
+                                wire:click="confirm({{ $map->id }})" />
                         </td>
                         <td class="font-bold">{{ $map->name }}</td>
                         <td class="font-bold">{{ $map->link }}</td>
