@@ -5,6 +5,7 @@ namespace App\Livewire\Map;
 use App\Http\Services\MapService;
 use App\Livewire\Traits\DateTime;
 use App\Livewire\Traits\ResetsPage;
+use App\Models\Map;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -14,6 +15,8 @@ use WireUi\Traits\WireUiActions;
 class Index extends Component
 {
     use DateTime, WireUiActions, WithPagination, ResetsPage;
+
+    public Map $map;
 
     #[On('refresh')]
     public function refresh(): void
@@ -130,11 +133,17 @@ class Index extends Component
     // {
     //     $this->dispatch(
     //         'openPanel',
-    //         title: __('games.actions.create.title'),
-    //         component: 'game.create',
+    //         title: __('maps.actions.create.title'),
+    //         component: 'map.create',
     //         icon: 'squares-plus',
     //     );
     // }
+
+    public function previewMap(int $id)
+    {
+        $this->map = MapService::getMapById($id);
+        $this->dispatch('loadModal');
+    }
 
     public function render()
     {

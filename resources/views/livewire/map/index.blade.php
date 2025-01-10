@@ -1,4 +1,4 @@
-<div class="space-y-4">
+<div class="space-y-4" x-data="modals()">
     <div class="flex items-center justify-end gap-4">
         <x-livewire.filters.index title="{{ __('maps.filters.title') }}" :filters="$this->allFilters()"
             labelLoading="{{ __('maps.filters.actions.loading') }}" labelClear="{{ __('maps.filters.actions.clear') }}" />
@@ -29,6 +29,8 @@
                     <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
                         wire:target="loadRecords">
                         <td class="space-y-2">
+                            <x-button icon="eye" rounded class="bg-base-100" primary
+                                wire:click="previewMap({{ $map->id }})" />
                             <x-button icon="trash" rounded class="bg-base-100" negative
                                 wire:click="confirm({{ $map->id }})" />
                         </td>
@@ -45,4 +47,10 @@
         </table>
     </div>
     <x-livewire.pagination :items="$this->maps" :count="$this->maps->count()" />
+
+    <x-modal name="simpleModal">
+        <x-card title="{{ $this->map->name ?? '' }}">
+            <img src="{{ $this->map->link ?? '' }}" alt="{{ $this->map->name ?? '' }}" class="w-full" />
+        </x-card>
+    </x-modal>
 </div>

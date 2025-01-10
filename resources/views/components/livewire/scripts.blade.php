@@ -498,5 +498,13 @@
                 this.chartInstance.update();
             }
         }));
+
+        Alpine.data('modals', () => ({
+            init() {
+                this.$wire.on('loadModal', () => {
+                    $openModal('simpleModal')
+                });
+            },
+        }));
     });
 </script>

@@ -24,6 +24,11 @@ class MapService
         return $query->orderBy($sortField, $sortDirection)->paginate(8);
     }
 
+    public static function getMapById(int $id): Map
+    {
+        return Map::findOrFail($id);
+    }
+
     public static function getExtensions(): Collection
     {
         $extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
