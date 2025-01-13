@@ -30,7 +30,8 @@
                         wire:target="loadRecords">
                         <td class="space-y-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
-                            <x-button icon="information-circle" rounded class="bg-base-100" info />
+                            <x-button icon="information-circle" rounded class="bg-base-100" info
+                                href="{{ route('games.info', ['id' => $game->id]) }}" wire:navigate />
                             <x-button icon="trash" rounded class="bg-base-100" negative
                                 wire:click="confirm({{ $game->id }})" />
                         </td>

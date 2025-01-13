@@ -26,6 +26,11 @@ class GameService
         return $query->orderBy($sortField, $sortDirection)->paginate(10);
     }
 
+    public static function getGameById(int $id): ?Game
+    {
+        return Game::findOrFail($id);
+    }
+
     public static function create(array $data): ?Game
     {
         try {

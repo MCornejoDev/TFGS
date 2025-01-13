@@ -72,4 +72,8 @@ return [
             ],
         ],
     ],
+
+    'game' => [
+        'abort' => 'Game not found',
+    ],
 ];

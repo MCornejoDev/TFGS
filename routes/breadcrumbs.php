@@ -6,6 +6,7 @@
 // this import. This is nice for IDE syntax and refactoring.
 
 use App\Models\Character;
+use App\Models\Game;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
 //  with `$trail`. This is nice for IDE type checking and completion.
@@ -33,6 +34,17 @@ Breadcrumbs::for('characters.info', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('games.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('games.games'), route('games.index'));
+});
+
+Breadcrumbs::for('games.info', function (BreadcrumbTrail $trail) {
+    $trail->parent('games.index');
+    $game = Game::find(request()->route('id'));
+
+    if (! $game) {
+        return abort(404, __('games.game.abort'));
+    }
+
+    $trail->push($game->name, route('games.info', $game->id));
 });
 
 Breadcrumbs::for('tools.index', function (BreadcrumbTrail $trail) {
