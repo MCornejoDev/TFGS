@@ -13,7 +13,7 @@
     @endif
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+    <link rel="shortcut icon" href="{{ asset('storage/images/favicon.png') }}" type="image/png" sizes="128x128">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

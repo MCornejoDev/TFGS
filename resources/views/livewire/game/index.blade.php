@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody wire:init="loadRecords">
-                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('games.filters.actions.loading')" />
+                <x-livewire.tables.trloading wire-target="loadRecords" :label="__('games.filters.actions.loading')" :colspan="5" />
                 @forelse ($this->games as $game)
                     <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
                         wire:target="loadRecords">
