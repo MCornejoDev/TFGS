@@ -80,7 +80,7 @@ class Index extends Component
     #[Computed()]
     public function maps()
     {
-        return MapService::getMaps($this->search, $this->filters, $this->sortField, $this->sortDirection);
+        return MapService::getMaps($this->search, $this->filters, $this->sortField, $this->sortDirection)->paginate(8);
     }
 
     public function confirm(int $id)

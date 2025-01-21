@@ -21,7 +21,7 @@ class MapService
             $query->whereIn('extension', $filters['extension']);
         });
 
-        return $query->orderBy($sortField, $sortDirection)->paginate(8);
+        return $query->orderBy($sortField, $sortDirection);
     }
 
     public static function getMapById(int $id): Map

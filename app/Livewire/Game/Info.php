@@ -18,6 +18,11 @@ class Info extends Component
 
     public int $id;
 
+    protected $queryString = [
+        'characterPage' => ['except' => 1],
+    ];
+
+
     #[On('refresh')]
     public function refresh(): void
     {
@@ -52,7 +57,7 @@ class Info extends Component
     {
         return $this->game->characters()
             ->orderBy($this->sortField, $this->sortDirection)
-            ->paginate(5);
+            ->paginate(5, ['*'], 'characterPageName');
     }
 
     public function render()

@@ -86,7 +86,7 @@ class Index extends Component
     #[Computed()]
     public function characters()
     {
-        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection);
+        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection)->paginate(8);
     }
 
     #[Computed()]

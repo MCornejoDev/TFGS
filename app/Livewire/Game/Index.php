@@ -68,7 +68,8 @@ class Index extends Component
     #[Computed()]
     public function games()
     {
-        return GameService::getGames($this->search, $this->filters, $this->sortField, $this->sortDirection);
+        return GameService::getGames($this->search, $this->filters, $this->sortField, $this->sortDirection)
+            ->paginate(8);
     }
 
     public function confirm(int $id)

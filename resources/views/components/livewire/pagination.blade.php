@@ -3,5 +3,5 @@
         $items->count() <= $count,
 ]) --}}
 <div>
-    {{ $items->links('livewire::daisyui') }}
+    {{ $items->links('livewire::daisyui', ['pageName' => $items->getPageName()]) }}
 </div>

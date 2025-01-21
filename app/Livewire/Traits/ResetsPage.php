@@ -6,11 +6,13 @@ trait ResetsPage
 {
     public function updatedSearch()
     {
+        $this->resetCustomPages();
         $this->resetPage();
     }
 
     public function updatedFilters()
     {
+        $this->resetCustomPages();
         $this->resetPage();
     }
 
@@ -19,7 +21,15 @@ trait ResetsPage
         $this->dispatch('resetDateTimePicker');
         $this->search = '';
         $this->reset();
-        $this->resetPage($this->paginators);
+        $this->resetCustomPages();
+        $this->resetPage();
         $this->dispatch('resetAll');
+    }
+
+    public function resetCustomPages()
+    {
+        foreach ($this->paginators as $key => $paginators) {
+            $this->resetPage($key);
+        }
     }
 }

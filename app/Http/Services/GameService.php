@@ -23,7 +23,7 @@ class GameService
             $query->where('date_start', '>=', $filters['date_start']);
         });
 
-        return $query->orderBy($sortField, $sortDirection)->paginate(10);
+        return $query->orderBy($sortField, $sortDirection);
     }
 
     public static function getGameById(int $id): ?Game

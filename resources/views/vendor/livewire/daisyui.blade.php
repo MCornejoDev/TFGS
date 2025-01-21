@@ -7,13 +7,15 @@
                     {!! __('pagination.previous') !!}
                 </button>
             @else
-                <button wire:click="previousPage" wire:loading.attr="disabled" class="join-item btn">
+                <button wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                    class="join-item btn">
                     {!! __('pagination.previous') !!}
                 </button>
             @endif
 
             @if ($paginator->hasMorePages())
-                <button wire:click="nextPage" wire:loading.attr="disabled" class="ml-3 join-item btn">
+                <button wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                    class="ml-3 join-item btn">
                     {!! __('pagination.next') !!}
                 </button>
             @else
@@ -48,7 +50,8 @@
                         {!! __('pagination.previous') !!}
                     </button>
                 @else
-                    <button wire:click="previousPage" wire:loading.attr="disabled" class="join-item btn">
+                    <button wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                        class="join-item btn">
                         {!! __('pagination.previous') !!}
                     </button>
                 @endif
@@ -66,7 +69,8 @@
                             @if ($page == $paginator->currentPage())
                                 <button class="join-item btn btn-active">{{ $page }}</button>
                             @else
-                                <button wire:click="gotoPage({{ $page }})" class="join-item btn">
+                                <button wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')"
+                                    class="join-item btn">
                                     {{ $page }}
                                 </button>
                             @endif
@@ -76,7 +80,8 @@
 
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
-                    <button wire:click="nextPage" wire:loading.attr="disabled" class="join-item btn">
+                    <button wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                        class="join-item btn">
                         {!! __('pagination.next') !!}
                     </button>
                 @else

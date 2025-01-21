@@ -59,7 +59,7 @@ class CharacterService
                 $query->where('gender', $filters['gender']);
             });
 
-        return $query->orderBy($sortField, $sortDirection)->paginate(8);
+        return $query->orderBy($sortField, $sortDirection);
     }
 
     public static function create(array $data): ?Character
