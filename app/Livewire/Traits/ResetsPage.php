@@ -13,4 +13,13 @@ trait ResetsPage
     {
         $this->resetPage();
     }
+
+    public function clearFilters()
+    {
+        $this->dispatch('resetDateTimePicker');
+        $this->search = '';
+        $this->reset();
+        $this->resetPage($this->paginators);
+        $this->dispatch('resetAll');
+    }
 }

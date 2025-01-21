@@ -65,15 +65,6 @@ class Index extends Component
         ];
     }
 
-    public function clearFilters()
-    {
-        $this->dispatch('resetDateTimePicker');
-        $this->search = '';
-        $this->reset();
-        $this->resetPage();
-        $this->dispatch('resetAll');
-    }
-
     #[Computed()]
     public function games()
     {
