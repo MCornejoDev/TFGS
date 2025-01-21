@@ -28,6 +28,11 @@ class Game extends Model
         return $this->belongsToMany(User::class, 'users_games', 'game_id', 'user_id');
     }
 
+    public function characters()
+    {
+        return $this->hasMany(Character::class);
+    }
+
     protected function dateStart(): Attribute
     {
         return Attribute::make(
