@@ -68,6 +68,8 @@ class Index extends Component
     #[Computed()]
     public function games()
     {
+        //TODAVIA HAY QUE AÑADIR QUE EL ADMIN PUEDA VER TODAS LAS PARTIDAS
+
         return GameService::getGames($this->search, $this->filters, $this->sortField, $this->sortDirection)
             ->paginate(8);
     }

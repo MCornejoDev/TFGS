@@ -7,6 +7,7 @@ return [
 
     'table' => [
         'name' => 'Name',
+        'description' => 'Description',
         'date_start' => 'Date Start',
         'comments' => 'Comments',
         'users' => 'Players in the game',
@@ -34,16 +35,19 @@ return [
             'btn' => 'Create',
             'form' => [
                 'name' => 'Name',
+                'description' => 'Description',
                 'date_start' => 'Date Start',
                 'comments' => 'Comments',
                 'users' => 'Users',
                 'placeholder' => [
                     'name' => 'Enter a name',
+                    'description' => 'Enter a description',
                     'date_start' => 'Enter a date',
                     'comments' => 'Enter a comments',
                     'users' => 'Select one or more users',
                 ],
                 'label' => [
+                    'description' => 'Description',
                     'comments' => 'Comments',
                     'date_start' => 'Date Start',
                 ],

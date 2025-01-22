@@ -7,6 +7,7 @@ return [
 
     'table' => [
         'name' => 'Nombre',
+        'description' => 'Descripción',
         'date_start' => 'Fecha de inicio',
         'comments' => 'Comentarios',
         'users' => 'Jugadores en la partida',

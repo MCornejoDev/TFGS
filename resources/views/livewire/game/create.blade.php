@@ -1,6 +1,12 @@
 <div class="flex flex-col space-y-4">
     <x-livewire.forms.input :label="__('games.actions.create.form.name')" :placeholder="__('games.actions.create.form.placeholder.name')" model="form.name" />
 
+    <div class="w-full space-y-4">
+        <x-livewire.forms.label :label="__('games.actions.create.form.label.description')" />
+        <textarea class="w-full placeholder:font-bold textarea textarea-bordered bg-base-300"
+            placeholder="{{ __('games.actions.create.form.placeholder.description') }}" wire:model="form.description"></textarea>
+    </div>
+
     <div>
         <x-livewire.forms.select :items="$this->users" title="{{ __('games.actions.create.form.users') }}"
             placeholder="{{ __('games.actions.create.form.placeholder.users') }}" model="form.users" optionId="id"

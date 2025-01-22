@@ -14,6 +14,9 @@
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
                         <x-livewire.tables.theading :label="__('games.table.name')" id="name" />
                     </th>
+                    <th class="font-bold cursor-pointer text-md" wire:click="sortBy('description')">
+                        <x-livewire.tables.theading :label="__('games.table.description')" id="description" />
+                    </th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('date_start')">
                         <x-livewire.tables.theading :label="__('games.table.date_start')" id="date_start" />
                     </th>
@@ -36,6 +39,7 @@
                                 wire:click="confirm({{ $game->id }})" />
                         </td>
                         <td>{{ $game->name }}</td>
+                        <td>{{ $game->description }}</td>
                         <td>{{ $game->date_start }}</td>
                         <td>{{ $game->comments }}</td>
                         <td>

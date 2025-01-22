@@ -16,6 +16,7 @@ class Create extends Component
 
     public array $form = [
         'name' => null,
+        'description' => null,
         'date_start' => null,
         'comments' => null,
         'users' => null,
@@ -25,6 +26,7 @@ class Create extends Component
     {
         return [
             'form.name' => 'required',
+            'form.description' => 'required',
             'form.date_start' => 'required',
             'form.comments' => 'required',
             'form.users' => 'required',

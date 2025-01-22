@@ -18,6 +18,7 @@ class GameFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
+            'description' => $this->faker->sentence,
             'date_start' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'comments' => $this->faker->sentence,
         ];
