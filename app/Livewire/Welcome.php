@@ -3,31 +3,42 @@
 namespace App\Livewire;
 
 use App\Http\Services\CharacterService;
+use App\Http\Services\GameService;
+use App\Models\Character;
+use App\Models\User;
+use Auth;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Welcome extends Component
 {
-    public string $search = '';
+    #[Computed()]
+    public function user()
+    {
+        return Auth::user();
+    }
 
-    public $filters = [
-        'race' => null,
-        'characterType' => null,
-        'gender' => null,
-    ];
-
-    public $sortField = 'name';
-
-    public $sortDirection = 'asc';
-
-    protected $queryString = [
-        'search' => ['except' => ''],
-    ];
+    #[Computed()]
+    public function games()
+    {
+        return $this->user->games();
+    }
 
     #[Computed()]
     public function characters()
     {
-        return CharacterService::getCharacters($this->search, $this->filters, $this->sortField, $this->sortDirection);
+        return Character::with('characterType')
+            ->where('user_id', $this->user->id)
+            ->orderBy('id', 'desc')
+            ->take(6)
+            ->get();
+    }
+
+    #[Computed()]
+    public function charactersCount()
+    {
+        return $this->games->withCount('characters')->get()->sum('characters_count');
     }
 
     public function render()

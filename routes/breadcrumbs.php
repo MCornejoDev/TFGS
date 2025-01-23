@@ -18,6 +18,7 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('characters.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('characters.characters'), route('characters.index'));
 });
 
@@ -33,6 +34,7 @@ Breadcrumbs::for('characters.info', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('games.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('games.games'), route('games.index'));
 });
 
@@ -48,14 +50,17 @@ Breadcrumbs::for('games.info', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('tools.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('tools.tools'), route('tools.index'));
 });
 
 Breadcrumbs::for('maps.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('maps.maps'), route('maps.index'));
 });
 
 Breadcrumbs::for('user.details', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
     $trail->push(__('users.details'));
     $trail->push(Auth::user()->name);
 });
