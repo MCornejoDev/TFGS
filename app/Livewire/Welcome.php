@@ -22,7 +22,10 @@ class Welcome extends Component
     #[Computed()]
     public function games()
     {
-        return $this->user->games();
+        return $this->user->games()
+            ->orderBy('id', 'desc')
+            ->take(6)
+            ->get();;
     }
 
     #[Computed()]
@@ -38,7 +41,10 @@ class Welcome extends Component
     #[Computed()]
     public function charactersCount()
     {
-        return $this->games->withCount('characters')->get()->sum('characters_count');
+        return $this->user->games()
+            ->withCount('characters')
+            ->get()
+            ->sum('characters_count');
     }
 
     public function render()

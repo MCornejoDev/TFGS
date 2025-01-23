@@ -2,6 +2,7 @@
 
 return [
     'details' => 'Details',
+    'user' => 'User',
 
     'avatars' => [
         'example' => 'Example Avatar',

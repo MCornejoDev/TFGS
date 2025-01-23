@@ -14,14 +14,16 @@
                 <div class="p-6 rounded-lg shadow bg-base">
                     <div class="flex items-center justify-between">
                         <h3 class="text-xl font-bold ">{{ __('home.games.active') }}</h3>
-                        <x-heroicon-s-arrow-right-circle class="w-8 h-8" />
+                        <x-heroicon-s-arrow-right-circle class="w-8 h-8 cursor-pointer"
+                            href="{{ route('games.index') }}" wire:navigate />
                     </div>
-                    <p class="mt-4 text-4xl font-semibold ">{{ $this->games->count() }}</p>
+                    <p class="mt-4 text-4xl font-semibold ">{{ $this->user->games->count() }}</p>
                 </div>
                 <div class="p-6 rounded-lg shadow bg-base">
                     <div class="flex items-center justify-between">
                         <h3 class="text-xl font-bold ">{{ __('home.characters.created') }}</h3>
-                        <x-heroicon-s-arrow-right-circle class="w-8 h-8" />
+                        <x-heroicon-s-arrow-right-circle class="w-8 h-8 cursor-pointer"
+                            href="{{ route('characters.index') }}" wire:navigate />
                     </div>
                     <p class="mt-4 text-4xl font-semibold ">
                         {{ $this->charactersCount }}</p>
@@ -29,7 +31,8 @@
                 <div class="p-6 rounded-lg shadow bg-base">
                     <div class="flex items-center justify-between">
                         <h3 class="text-xl font-bold ">{{ __('home.maps.designed') }}</h3>
-                        <x-heroicon-s-arrow-right-circle class="w-8 h-8" />
+                        <x-heroicon-s-arrow-right-circle class="w-8 h-8 cursor-pointer" href="{{ route('maps.index') }}"
+                            wire:navigate />
                     </div>
                     <p class="mt-4 text-4xl font-semibold ">5</p>
                 </div>
@@ -39,7 +42,7 @@
             <div class="mb-12">
                 <h3 class="mb-6 text-2xl font-bold ">{{ __('home.games.newly_created') }}</h3>
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    @foreach ($this->games()->take(3)->get() as $game)
+                    @foreach ($this->games as $game)
                         <div class="gap-4 p-6 rounded-lg shadow bg-base">
                             <h4 class="text-xl font-bold ">{{ $game->name }}</h4>
                             <p class="mt-2 text-secondary-500">{{ $game->description }}</p>
