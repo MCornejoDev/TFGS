@@ -59,6 +59,11 @@ Breadcrumbs::for('maps.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('maps.maps'), route('maps.index'));
 });
 
+Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('users.users'), route('users.index'));
+});
+
 Breadcrumbs::for('user.details', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(__('users.user'));

@@ -10,6 +10,32 @@ return [
         'example' => 'Example Avatar',
     ],
 
+    'empty' => 'No users found',
+
+    'table' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'timezone' => 'Timezone',
+        'avatar' => 'Avatar',
+        'is_admin' => 'Is Admin',
+        'actions' => 'Actions',
+    ],
+
+    'filters' => [
+        'title' => 'Filters',
+        'search' => [
+            'placeholder' => 'Search by name, email',
+        ],
+        'is_admin' => [
+            'label' => 'Is Admin',
+            'placeholder' => 'Is Admin',
+        ],
+        'actions' => [
+            'loading' => 'Loading...',
+            'clear' => 'Clear',
+        ],
+    ],
+
     'actions' => [
         'update' => [
             'title' => 'Update User',

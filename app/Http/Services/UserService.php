@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Storage;
 
 class UserService
 {
+    public static function getUsers(string $search, array $filters, string $sortField, string $sortDirection)
+    {
+        $query = User::query();
+
+        $query->when($search, function ($query) use ($search) {
+            $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        })->when($filters['is_admin'], function ($query) use ($filters) {
+            $query->where('is_admin', $filters['is_admin']);
+        });
+
+        return $query->orderBy($sortField, $sortDirection);
+    }
+
     public static function getUser(int $id): ?User
     {
         try {

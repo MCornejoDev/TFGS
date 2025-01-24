@@ -11,6 +11,32 @@ return [
         'example' => 'Avatar de ejemplo',
     ],
 
+    'empty' => 'No se encontraron usuarios',
+
+    'table' => [
+        'name' => 'Nombre',
+        'email' => 'Email',
+        'timezone' => 'Zona horaria',
+        'avatar' => 'Avatar',
+        'is_admin' => 'Es administrador',
+        'actions' => 'Acciones',
+    ],
+
+    'filters' => [
+        'title' => 'Filtros',
+        'search' => [
+            'placeholder' => 'Buscar por nombre, email',
+        ],
+        'is_admin' => [
+            'label' => 'Es administrador',
+            'placeholder' => 'Es administrador',
+        ],
+        'actions' => [
+            'loading' => 'Cargando...',
+            'clear' => 'Limpiar',
+        ],
+    ],
+
     'actions' => [
         'update' => [
             'title' => 'Actualizar Usuario',
