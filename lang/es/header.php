@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'users' => 'Usuarios',
     'games' => 'Partidas',
     'characters' => 'Personajes',
     'tools' => 'Herramientas',

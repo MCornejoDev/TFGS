@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'users' => 'Users',
     'games' => 'Games',
     'characters' => 'Characters',
     'tools' => 'Tools',

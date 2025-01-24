@@ -7,6 +7,7 @@ use App\Livewire\Game\Index as GameIndex;
 use App\Livewire\Game\Info as GameInfo;
 use App\Livewire\Map\Index as MapIndex;
 use App\Livewire\Tool\Index as ToolIndex;
+use App\Livewire\User\Index as UserIndex;
 use App\Livewire\User\Details as UserDetails;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tools', ToolIndex::class)->name('tools.index');
     Route::get('/maps', MapIndex::class)->name('maps.index');
 
-    Route::get('/user/details', UserDetails::class)->name('user.details');
+    Route::get('/users', UserIndex::class)->name('users.index')->can('viewUsers');
+    Route::get('/user/details', UserDetails::class)->name('user.details'); //The user can see his own details or the admin user can see the details of any user
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });

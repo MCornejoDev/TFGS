@@ -8,6 +8,10 @@
                 </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                @can('viewUsers')
+                    <li><a href="{{ route('users.index') }}" wire:navigate><x-heroicon-s-user-group
+                                class="w-6 h-6" />{{ __('header.users') }}</a></li>
+                @endcan
                 <li><a href="{{ route('games.index') }}" wire:navigate><x-heroicon-o-list-bullet
                             class="w-6 h-6" />{{ __('header.games') }}</a></li>
                 <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
@@ -22,6 +26,10 @@
     </div>
     <div class="hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
+            @can('viewUsers')
+                <li><a href="{{ route('users.index') }}" wire:navigate><x-heroicon-s-user-group
+                            class="w-6 h-6" />{{ __('header.users') }}</a></li>
+            @endcan
             <li><a href="{{ route('games.index') }}" wire:navigate><x-heroicon-o-list-bullet
                         class="w-6 h-6" />{{ __('header.games') }}</a></li>
             <li><a href="{{ route('characters.index') }}" wire:navigate><x-heroicon-o-users
