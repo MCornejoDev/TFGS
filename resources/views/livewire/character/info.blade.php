@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-    <div class="items-center gap-12 p-8 pt-0 space-y-4 text-center border border-base-content/30" x-data="{ show: false }"
+    <div class="items-center gap-12 p-8 pt-0 space-y-4 text-center rounded shadow bg-base" x-data="{ show: false }"
         x-on:mouseover="show=true" x-on:mouseleave="show=false">
         <div class="flex items-center justify-end pt-2">
             <x-icon name="pencil" class="w-5 h-5 cursor-pointer" x-show="show" outline wire:click='openSidePanel' />
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="p-8 pt-0 space-y-4 border border-base-content/30 lg:text-center" x-data="{ show: false }"
+    <div class="p-8 pt-0 space-y-4 rounded shadow bg-base lg:text-center" x-data="{ show: false }"
         x-on:mouseover="show=true" x-on:mouseleave="show=false">
         <div class="flex items-center justify-end pt-2">
             <x-icon name="pencil" class="w-5 h-5 cursor-pointer" x-show="show" outline wire:click='openSidePanel' />

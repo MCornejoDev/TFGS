@@ -10,6 +10,7 @@
     'api' => null,
     'isFilter' => false,
     'isMultiple' => false,
+    'class' => null,
 ])
 
 <div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
@@ -33,7 +34,7 @@ goInit();">
                 class="relative w-full py-2.5 pl-3 pr-10 text-left border rounded-md shadow-sm cursor-pointer
         {{ $errors->has($model) ? 'border-red-500 ' : 'border-base-300 bg-base-300' }}
         border-base-300 bg-base-300 focus:outline-none focus:ring-1 focus:ring-base-300 focus:border-base-300
-        sm:text-sm {{ $isFilter ? 'w-80' : '' }}">
+        sm:text-sm {{ $isFilter ? 'w-80' : '' }} {{ $class }}">
                 <div class="truncate flex flex-row items-center gap-1.5">
                     @if ($isMultiple)
                         <span x-text="setMultiLabel()" class="truncate border-1"></span>
