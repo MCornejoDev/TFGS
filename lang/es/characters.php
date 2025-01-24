@@ -150,7 +150,7 @@ return [
         'title' => 'Tipos de Personaje',
         'image' => 'Imagén de Tipo de Personaje',
 
-        'cleric' => 'Clerigo',
+        'cleric' => 'Clérigo',
         'sorcerer' => 'Hechicero',
         'wizard' => 'Mago',
         'druid' => 'Druida',
