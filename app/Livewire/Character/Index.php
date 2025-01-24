@@ -154,6 +154,11 @@ class Index extends Component
         );
     }
 
+    private function getTranslation($keyPart, $keyValue)
+    {
+        return __($keyPart . snake_lower($keyValue));
+    }
+
     public function render()
     {
         return view('livewire.character.index');

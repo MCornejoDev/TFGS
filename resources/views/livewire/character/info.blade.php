@@ -12,11 +12,15 @@
                     <div>{{ $this->character->nickname }}</div>
                 </div>
                 <div class="text-center">
-                    <x-livewire.labels.images :dataTip="__(
-                        'characters.characters_types.' . snake_lower($this->character->characterType->typeLabel),
+                    <x-livewire.labels.images :dataTip="$this->getTranslation(
+                        'characters.characters_types.',
+                        $this->character->characterType->typeLabel,
                     )" :src="$this->character->characterType->image" :alt="__('characters.characters_types.image')" />
-                    <x-livewire.labels.images :dataTip="__('characters.armors.' . snake_lower($this->character->characterType->armorLabel))" :src="$this->character->characterType->armorImage" :alt="__('characters.armors.image')" />
-                    <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($this->character->characterType->weaponLabel))" :src="$this->character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
+                    <x-livewire.labels.images :dataTip="$this->getTranslation('characters.armors.', $this->character->characterType->armorLabel)" :src="$this->character->characterType->armorImage" :alt="__('characters.armors.image')" />
+                    <x-livewire.labels.images :dataTip="$this->getTranslation(
+                        'characters.weapons.',
+                        $this->character->characterType->weaponLabel,
+                    )" :src="$this->character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
                 </div>
                 <div class="grid grid-cols-3 gap-4 text-center lg:grid-cols-3 xl:grid-cols-6">
                     <div class="space-y-2">
@@ -81,5 +85,7 @@
             </div>
         </div>
     </div>
-    <x-livewire.charts.chart :type="$this->chart['type']" :data="$this->chart['data']" :options="$this->chart['options']" />
+    <div class="col-span-2">
+        <x-livewire.charts.chart :type="$this->chart['type']" :data="$this->chart['data']" :options="$this->chart['options']" />
+    </div>
 </div>

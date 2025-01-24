@@ -39,6 +39,7 @@ class Info extends Component
     public function chartOptions()
     {
         return [
+            'responsive' => true,
             'maintainAspectRatio' => false,
             'scales' => [
                 'y' => [
@@ -75,6 +76,11 @@ class Info extends Component
     {
         //TODO: esto no actualiza correctamente (da error max call stack size exceeded)
         $this->dispatch('updatingChart', $this->chart['data']['datasets']);
+    }
+
+    private function getTranslation($keyPart, $keyValue)
+    {
+        return __($keyPart . snake_lower($keyValue));
     }
 
     public function render()
