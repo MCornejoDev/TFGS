@@ -7,9 +7,9 @@
     </div>
 
     <div class="space-y-4 overflow-x-auto">
-        <table class="table text-center border border-base-content/30">
+        <table class="table text-center shadow bg-base">
             <thead>
-                <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
+                <tr class="" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('maps.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
                         <x-livewire.tables.theading :label="__('maps.table.name')" id="name" />
@@ -26,8 +26,7 @@
                 <x-livewire.tables.trloading wire-target="loadRecords" :label="__('maps.filters.actions.loading')" :colspan="7" />
 
                 @forelse ($this->maps as $map)
-                    <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
-                        wire:target="loadRecords">
+                    <tr class="table-row" wire:loading.class="hidden" wire:target="loadRecords">
                         <td class="space-y-2">
                             <x-button icon="eye" rounded class="bg-base-100" primary
                                 wire:click="previewMap({{ $map->id }})" />
@@ -39,7 +38,7 @@
                         <td class="font-bold">{{ $map->extension }}</td>
                     </tr>
                 @empty
-                    <tr class="font-bold border border-base-content/30" wire:loading.remove wire:target="loadRecords">
+                    <tr class="font-bold" wire:loading.remove wire:target="loadRecords">
                         <td colspan="7" class="py-4 text-center">{{ __('maps.empty') }}</td>
                     </tr>
                 @endforelse

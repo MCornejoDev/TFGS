@@ -7,9 +7,9 @@
             class="!btn !border-base-content/30 !outline-none" wire:click='openSidePanel' />
     </div>
     <div class="overflow-x-auto">
-        <table class="table text-center border border-base-content/30">
+        <table class="table text-center shadow bg-base">
             <thead>
-                <tr class="border border-base-content/30" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
+                <tr class="" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('games.table.actions') }}</th>
                     <th class="font-bold cursor-pointer text-md" wire:click="sortBy('name')">
                         <x-livewire.tables.theading :label="__('games.table.name')" id="name" />
@@ -29,8 +29,7 @@
             <tbody wire:init="loadRecords">
                 <x-livewire.tables.trloading wire-target="loadRecords" :label="__('games.filters.actions.loading')" :colspan="6" />
                 @forelse ($this->games as $game)
-                    <tr class="table-row border border-base-content/30" wire:loading.class="hidden"
-                        wire:target="loadRecords">
+                    <tr class="table-row" wire:loading.class="hidden" wire:target="loadRecords">
                         <td class="space-y-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info
@@ -58,7 +57,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr class="font-bold border border-base-content/30" wire:loading.remove wire:target="loadRecords">
+                    <tr class="font-bold" wire:loading.remove wire:target="loadRecords">
                         <td colspan="6" class="py-4 text-center">{{ __('games.empty') }}</td>
                     </tr>
                 @endforelse
