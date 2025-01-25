@@ -78,7 +78,7 @@ class Info extends Component
         $this->dispatch('updatingChart', $this->chart['data']['datasets']);
     }
 
-    private function getTranslation($keyPart, $keyValue)
+    public function getTranslation($keyPart, $keyValue)
     {
         return __($keyPart . snake_lower($keyValue));
     }
