@@ -13,6 +13,7 @@ return [
         'gender' => 'Gender',
         'character_type' => 'Character Type',
         'armor_weapon' => 'Armor / Weapon',
+        'user' => 'Username',
         'actions' => 'Actions',
     ],
 
