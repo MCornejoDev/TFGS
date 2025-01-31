@@ -6,6 +6,7 @@ use App\Http\Services\CharacterService;
 use App\Http\Services\GameService;
 use App\Livewire\Traits\ResetsPage;
 use App\Models\Character;
+use Auth;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -56,6 +57,9 @@ class Info extends Component
     public function characters()
     {
         return $this->game->characters()
+            ->when(!Auth::user()->is_admin, function ($query) {
+                return $query->where('user_id', Auth::user()->id);
+            })
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate(5, ['*'], 'characterPageName');
     }

@@ -1,9 +1,29 @@
-<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-    <div class="items-center gap-12 p-8 pt-0 space-y-4 text-center rounded shadow bg-base">
-
+<div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr]">
+    <!-- Información del juego -->
+    <div class="flex flex-col p-6 space-y-4 text-white rounded-lg shadow-md bg-base md:h-full">
+        <div class="flex flex-col gap-4">
+            <div>
+                <span class="font-bold text-base-content/70">{{ __('games.table.name') }}: </span>
+                <span class="text-base-content/70">{{ $this->game->name }}</span>
+            </div>
+            <div>
+                <span class="font-bold text-base-content/70">{{ __('games.table.date_start') }}: </span>
+                <span class="text-base-content/70">{{ $this->game->date_start }}</span>
+            </div>
+            <div>
+                <span class="font-bold text-base-content/70">{{ __('games.table.description') }}: </span>
+                <span class="text-base-content/70">{{ $this->game->description }}</span>
+            </div>
+            <div>
+                <span class="font-bold text-base-content/70">{{ __('games.table.comments') }}: </span>
+                <span class="text-base-content/70">{{ $this->game->comments }}</span>
+            </div>
+        </div>
     </div>
-    <div>
-        <table class="table text-center rounded shadow bg-base">
+
+    <!-- Tabla de personajes -->
+    <div class="flex-grow space-y-4 overflow-auto">
+        <table class="table w-full text-center rounded shadow bg-base">
             <thead>
                 <tr class="" x-data="{ 'sortDirection': $wire.entangle('sortDirection'), 'sortField': $wire.entangle('sortField') }">
                     <th class="font-bold text-md">{{ __('characters.table.actions') }}</th>
@@ -31,7 +51,6 @@
                 <x-livewire.tables.trloading wire-target="loadRecords" :label="__('characters.filters.actions.loading')" :colspan="7" />
                 @forelse ($this->characters as $character)
                     <tr class="table-row" wire:loading.class="hidden" wire:target="loadRecords">
-
                         <td class="space-y-2">
                             <x-button icon="information-circle" rounded class="bg-base-100" info
                                 href="{{ route('characters.info', ['id' => $character->id]) }}" wire:navigate />
@@ -61,10 +80,8 @@
                             <x-livewire.labels.images :dataTip="__('characters.weapons.' . snake_lower($character->characterType->weaponLabel))" :src="$character->characterType->weaponImage" :alt="__('characters.weapons.image')" />
                         </td>
                         <td>
-                            <x-avatar md src="{{ $character->user->avatarImage }}"
-                                alt="{{ $character->user->avatarLabel }}" />
+                            <x-livewire.labels.images :dataTip="$character->user->name" :src="$character->user->avatarImage" :alt="$character->user->avatarLabel" />
                         </td>
-
                     </tr>
                 @empty
                     <tr class="font-bold" wire:loading.remove wire:target="loadRecords">
@@ -75,5 +92,4 @@
         </table>
         <x-livewire.pagination :items="$this->characters" />
     </div>
-
 </div>

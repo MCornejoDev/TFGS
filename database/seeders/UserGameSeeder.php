@@ -14,25 +14,25 @@ class UserGameSeeder extends Seeder
      */
     public function run(): void
     {
-        $userId = User::where('name', 'Test User')->first()->id;
+        $userAdminId = User::where('is_admin', true)->first()->id;
         $games = Game::all();
         $userGames = [];
-        $userGames2 = [];
 
         foreach ($games as $game) {
             $userGames[] = [
-                'user_id' => $userId,
+                'user_id' => $userAdminId,
                 'game_id' => $game->id,
             ];
-            $userGames2[] = [
+
+            $userGames[] = [
                 'user_id' => User::inRandomOrder()
-                    ->where('name', '!=', 'Test User')
+                    ->where('is_admin', false)
                     ->first()
                     ->id,
                 'game_id' => $game->id,
             ];
         }
+
         DB::table('users_games')->insert($userGames);
-        DB::table('users_games')->insert($userGames2);
     }
 }
