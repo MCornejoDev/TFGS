@@ -16,6 +16,7 @@ return [
     'table' => [
         'name' => 'Nombre',
         'email' => 'Email',
+        'email_verified' => 'Email Verificado',
         'timezone' => 'Zona horaria',
         'avatar' => 'Avatar',
         'is_admin' => 'Es administrador',

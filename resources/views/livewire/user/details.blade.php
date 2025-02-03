@@ -3,7 +3,11 @@
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
             <x-livewire.forms.input :label="__('users.actions.update.form.name')" :placeholder="__('users.actions.update.form.placeholder.name')" model="form.name" class="!bg-base-100" />
             <x-livewire.forms.input :label="__('users.actions.update.form.email')" :placeholder="__('users.actions.update.form.placeholder.email')" model="form.email" :type="'email'"
-                class="!bg-base-100" />
+                class="!bg-base-100" :icon="[
+                    'value' => 'heroicon-s-check-circle',
+                    'class' => 'w-5 h-5 text-green-500',
+                    'data-tip' => __('users.table.email_verified'),
+                ]" />
             <x-livewire.forms.select :items="$this->timezones"
                 title="{{ __('users.actions.update.form.timezone') . ' : ' . $this->userTimeZone }}"
                 placeholder="{{ __('users.actions.update.form.placeholder.timezones') }}" model="form.timezone"

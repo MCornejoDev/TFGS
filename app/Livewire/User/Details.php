@@ -23,6 +23,7 @@ class Details extends Component
         'email' => null,
         'timezone' => null,
         'avatar' => null,
+        'email_verified_at' => null,
     ];
 
     public $avatar = null; // This variable is used to the input hidden
@@ -34,6 +35,7 @@ class Details extends Component
             'form.email' => 'required|email|unique:users,email,' . $this->user->id,
             'form.timezone' => 'required',
             'form.avatar' => 'nullable',
+            'form.email_verified_at' => 'nullable',
         ];
     }
 
@@ -47,6 +49,7 @@ class Details extends Component
             'name' => $this->user->timezone,
         ];
         $this->avatar = $this->user->avatar;
+        $this->form['email_verified_at'] = $this->user->email_verified_at;
     }
 
     #[Computed()]
