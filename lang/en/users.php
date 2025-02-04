@@ -16,6 +16,7 @@ return [
         'name' => 'Name',
         'email' => 'Email',
         'email_verified' => 'Email Verified',
+        'email_not_verified' => 'Email Not Verified',
         'timezone' => 'Timezone',
         'avatar' => 'Avatar',
         'is_admin' => 'Is Admin',
@@ -47,6 +48,7 @@ return [
                 'email' => 'Email',
                 'timezone' => 'Timezone',
                 'avatar' => 'Avatar',
+                'verify_email' => 'Verify Email',
                 'placeholder' => [
                     'name' => 'Username',
                     'password' => 'Password',

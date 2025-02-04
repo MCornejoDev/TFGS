@@ -17,6 +17,7 @@ return [
         'name' => 'Nombre',
         'email' => 'Email',
         'email_verified' => 'Email Verificado',
+        'email_not_verified' => 'Email No Verificado',
         'timezone' => 'Zona horaria',
         'avatar' => 'Avatar',
         'is_admin' => 'Es administrador',
@@ -48,6 +49,7 @@ return [
                 'email' => 'Email',
                 'timezone' => 'Zona horaria',
                 'avatar' => 'Avatar',
+                'verify_email' => 'Verificar Email',
                 'placeholder' => [
                     'password' => 'Contraseña',
                     'email' => 'Email',

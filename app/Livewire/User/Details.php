@@ -75,6 +75,20 @@ class Details extends Component
         })->sortBy('name')->values();
     }
 
+    #[Computed()]
+    public function emailVerifiedIcon()
+    {
+        return $this->user->email_verified_at ? [
+            'value' => 'heroicon-s-check-circle',
+            'class' => 'w-5 h-5 text-green-500',
+            'data-tip' => __('users.table.email_verified'),
+        ] : [
+            'value' => 'heroicon-s-x-circle',
+            'class' => 'w-5 h-5 text-red-500',
+            'data-tip' => __('users.table.email_not_verified'),
+        ];
+    }
+
     public function confirm()
     {
         $this->dialog()->confirm([

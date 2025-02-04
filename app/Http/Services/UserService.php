@@ -55,12 +55,16 @@ class UserService
                 if ($user->avatar) {
                     Storage::disk('public')->delete($user->avatar);
                 }
-                $user->avatar = self::storeAvatar($data['avatar']);
+                $user->avatar = self::storeAvatar('images/avatars', $data['avatar']);
             }
 
             $user->name = $data['name'];
             $user->email = $data['email'];
             $user->timezone = $data['timezone']['name'];
+
+            if ($data['email_verified_at']) {
+                $user->email_verified_at = now();
+            }
 
             return $user->save();
         } catch (Exception $e) {
@@ -70,9 +74,9 @@ class UserService
         }
     }
 
-    public static function storeAvatar(UploadedFile $avatar): string
+    public static function storeAvatar(string $path, UploadedFile $avatar): string
     {
         $filename = uniqid() . '.' . $avatar->extension();
-        return Storage::disk('public')->putFileAs('images/avatars', $avatar,  $filename);
+        return Storage::disk('public')->putFileAs($path, $avatar,  $filename);
     }
 }
