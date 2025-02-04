@@ -14,7 +14,11 @@
         'flex items-center mb-2 gap-1' => $icon,
         'block mb-2' => !$icon,
     ])>{{ $label }} @if ($icon)
-            <span class="tooltip" data-tip="{{ $icon['data-tip'] }}">@svg($icon['value'], $icon['class'])</span>
+            @if (Arr::has($icon, 'data-tip'))
+                <span class="tooltip" data-tip="{{ $icon['data-tip'] }}">@svg($icon['value'], $icon['class'])</span>
+            @else
+                <span>@svg($icon['value'], $icon['class'])</span>
+            @endif
         @endif
     </label>
     <input type="{{ $type ?? 'text' }}" placeholder="{{ $placeholder }}"
