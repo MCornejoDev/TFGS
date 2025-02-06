@@ -39,6 +39,26 @@ return [
     ],
 
     'actions' => [
+        'create' => [
+            'title' => 'Create User',
+            'btn' => 'Create',
+            'form' => [
+                'name' => 'Name',
+                'email' => 'Email',
+                'timezone' => 'Timezone',
+                'avatar' => 'Avatar',
+                'placeholder' => [
+                    'name' => 'Username',
+                    'email' => 'Email',
+                    'timezones' => 'Timezones',
+                    'avatar' => 'Avatar',
+                    'password' => 'Password',
+                    'password_confirmation' => 'Password Confirmation',
+                    'verify_email' => 'Verify Email',
+                    'verify_email_message' => 'Verify Email Message',
+                ],
+            ],
+        ],
         'update' => [
             'title' => 'Update User',
             'btn' => 'Update',

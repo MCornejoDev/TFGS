@@ -4,7 +4,9 @@ namespace App\Http\Services;
 
 use App\Models\Map;
 use Exception;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Storage;
 
 class MapService
 {
@@ -27,6 +29,28 @@ class MapService
     public static function getMapById(int $id): Map
     {
         return Map::findOrFail($id);
+    }
+
+    public static function create(array $data): ?Map
+    {
+        try {
+            $originalName = pathinfo($data['image']->getClientOriginalName(), PATHINFO_FILENAME);
+            $filename = $originalName . '_' . uniqid() . '.' . $data['image']->getClientOriginalExtension();
+            $link = Storage::disk('public')->putFileAs('maps', $data['image'], $filename);
+
+            $game = Map::create([
+                'name' => $data['name'] ?? $originalName,
+                'filename' => $filename,
+                'link' => $link,
+                'extension' =>  $data['image']->extension(),
+            ]);
+
+            return $game;
+        } catch (Exception $e) {
+            log_error($e);
+
+            return null;
+        }
     }
 
     public static function getExtensions(): Collection

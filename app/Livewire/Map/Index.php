@@ -14,6 +14,8 @@ use WireUi\Traits\WireUiActions;
 
 class Index extends Component
 {
+    //TODO : PODEMOS AÑADIR LA OPCIÓN DE IMPORTAR MAPAS O INLCUSO DE AÑADIR UN DISEÑADOR DE MAPAS INTERACTIVO
+
     use DateTime, WireUiActions, WithPagination, ResetsPage;
 
     public Map $map;
@@ -80,6 +82,8 @@ class Index extends Component
     #[Computed()]
     public function maps()
     {
+        //TODAVIA HAY QUE AÑADIR QUE EL ADMIN PUEDA VER TODAS LOS MAPAS
+
         return MapService::getMaps($this->search, $this->filters, $this->sortField, $this->sortDirection)->paginate(8);
     }
 
@@ -120,19 +124,20 @@ class Index extends Component
         }
     }
 
-    // public function openSidePanel(): void
-    // {
-    //     $this->dispatch(
-    //         'openPanel',
-    //         title: __('maps.actions.create.title'),
-    //         component: 'map.create',
-    //         icon: 'squares-plus',
-    //     );
-    // }
+    public function openSidePanel(): void
+    {
+        $this->dispatch(
+            'openPanel',
+            title: __('maps.actions.create.title'),
+            component: 'map.create',
+            icon: 'squares-plus',
+        );
+    }
 
     public function previewMap(int $id)
     {
         $this->map = MapService::getMapById($id);
+        dd($this->map);
         $this->dispatch('loadModal');
     }
 

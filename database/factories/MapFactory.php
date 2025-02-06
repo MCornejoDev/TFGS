@@ -18,6 +18,7 @@ class MapFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
+            'filename' => $this->faker->word(),
             'link' => $this->faker->url,
             'extension' => $this->faker->randomElement(['jpg', 'png', 'gif']),
         ];

@@ -210,6 +210,12 @@ return [
         'form.level' => 'level',
         'form.date_start' => 'date start',
         'form.users' => 'users',
+        'form.image' => 'image',
     ],
+
+    'inputs' => [
+        'uploading' => 'Uploading...',
+        'removing' => 'Removing...',
+    ]
 
 ];

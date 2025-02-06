@@ -16,12 +16,16 @@ return [
         'history' => 'History',
         'information' => 'Information',
         'create' => [
+            'title' => 'Create Map',
             'btn' => 'Create',
             'form' => [
                 'name' => 'Name',
                 'link' => 'Link',
                 'extension' => 'Extension',
-                'submit' => 'Create',
+                'placeholder' => [
+                    'name' => 'Map name',
+                    'link' => 'Select a map',
+                ],
                 'success' => [
                     'title' => 'Map created',
                     'description' => 'The map has been created successfully',

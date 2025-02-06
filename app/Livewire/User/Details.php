@@ -34,7 +34,7 @@ class Details extends Component
             'form.name' => 'required',
             'form.email' => 'required|email|unique:users,email,' . $this->user->id,
             'form.timezone' => 'required',
-            'form.avatar' => 'nullable',
+            'form.avatar' => 'nullable|image',
             'form.email_verified_at' => 'nullable',
         ];
     }
