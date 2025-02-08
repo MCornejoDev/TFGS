@@ -142,7 +142,7 @@ class Index extends Component
             component: 'map.update',
             icon: 'map',
             params: [
-                'map' => MapService::getMapById($id),
+                'id' => $id,
             ]
         );
     }
