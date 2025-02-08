@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/races', CharacterController::class.'@races')->name('races');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/races', CharacterController::class . '@races')->name('races');
+});
