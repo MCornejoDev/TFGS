@@ -36,6 +36,27 @@ return [
                 ],
             ],
         ],
+        'update' => [
+            'title' => 'Actualizar mapa',
+            'btn' => 'Actualizar',
+            'form' => [
+                'name' => 'Nombre',
+                'link' => 'Enlace',
+                'extension' => 'Extensión',
+                'placeholder' => [
+                    'name' => 'Nombre del mapa',
+                    'link' => 'Selecciona un mapa',
+                ],
+                'success' => [
+                    'title' => 'Mapa actualizado',
+                    'description' => 'El mapa ha sido actualizado exitosamente',
+                ],
+                'error' => [
+                    'title' => 'Error al actualizar el mapa',
+                    'description' => 'Hubo un error al actualizar el mapa',
+                ],
+            ],
+        ],
         'delete' => [
             'title' => 'Eliminar mapa',
             'description' => '¿Estás seguro de que quieres eliminar este mapa?',

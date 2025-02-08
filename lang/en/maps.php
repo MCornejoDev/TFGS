@@ -36,6 +36,27 @@ return [
                 ],
             ],
         ],
+        'update' => [
+            'title' => 'Update Map',
+            'btn' => 'Update',
+            'form' => [
+                'name' => 'Name',
+                'link' => 'Link',
+                'extension' => 'Extension',
+                'placeholder' => [
+                    'name' => 'Map name',
+                    'link' => 'Select a map',
+                ],
+                'success' => [
+                    'title' => 'Map updated',
+                    'description' => 'The map has been updated successfully',
+                ],
+                'error' => [
+                    'title' => 'Error updating the map',
+                    'description' => 'There was an error updating the map',
+                ],
+            ],
+        ],
         'delete' => [
             'title' => 'Delete map',
             'description' => 'Are you sure you want to delete this map?',

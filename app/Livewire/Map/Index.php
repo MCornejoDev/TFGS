@@ -130,14 +130,26 @@ class Index extends Component
             'openPanel',
             title: __('maps.actions.create.title'),
             component: 'map.create',
-            icon: 'squares-plus',
+            icon: 'map',
+        );
+    }
+
+    public function updateMap(int $id)
+    {
+        $this->dispatch(
+            'openPanel',
+            title: __('maps.actions.update.title'),
+            component: 'map.update',
+            icon: 'map',
+            params: [
+                'map' => MapService::getMapById($id),
+            ]
         );
     }
 
     public function previewMap(int $id)
     {
         $this->map = MapService::getMapById($id);
-        dd($this->map);
         $this->dispatch('loadModal');
     }
 
