@@ -36,7 +36,7 @@ class MapService
         try {
             $originalName = pathinfo($data['image']->getClientOriginalName(), PATHINFO_FILENAME);
             $filename = $originalName . '_' . uniqid() . '.' . $data['image']->getClientOriginalExtension();
-            $link = Storage::disk('public')->putFileAs('maps', $data['image'], $filename);
+            $link = Storage::disk('public')->putFileAs('images/maps', $data['image'], $filename);
 
             $game = Map::create([
                 'name' => $data['name'] ?? $originalName,
