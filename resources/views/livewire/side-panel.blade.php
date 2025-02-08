@@ -43,7 +43,7 @@
                         </header>
                         <article class="relative flex-1 px-4 mt-6 sm:px-6">
                             @if ($component)
-                                @livewire($component, $params)
+                                @livewire($component, $params, key($componentKey))
                             @else
                                 <div class="absolute inset-0 px-4 sm:px-6">
                                     <div class="h-full border-2 border-gray-200 border-dashed" aria-hidden="true"></div>
