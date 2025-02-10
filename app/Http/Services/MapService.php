@@ -36,7 +36,7 @@ class MapService
         try {
             $originalName = pathinfo($data['image']->getClientOriginalName(), PATHINFO_FILENAME);
             $filename = $originalName . '_' . uniqid() . '.' . $data['image']->getClientOriginalExtension();
-            $link = Storage::disk('public')->putFileAs('images/maps', $data['image'], $filename);
+            $link = store_file('images/maps', $data['image'], $filename);
 
             $game = Map::create([
                 'name' => $data['name'] ?? $originalName,
@@ -50,6 +50,32 @@ class MapService
             log_error($e);
 
             return null;
+        }
+    }
+
+    public static function updateMap(int $id, array $data): bool
+    {
+        try {
+            $map = Map::findOrFail($id);
+
+            if ($data['image'] instanceof UploadedFile) {
+                if ($map->link) {
+                    Storage::disk('public')->delete($map->link);
+                }
+                $originalName = pathinfo($data['image']->getClientOriginalName(), PATHINFO_FILENAME);
+                $filename = $originalName . '_' . uniqid() . '.' . $data['image']->getClientOriginalExtension();
+            }
+
+            $map->name = $data['name'];
+            $map->filename = $filename;
+            $map->link = store_file('images/maps', $data['image'], $filename);
+            $map->extension =  $data['image']->extension();
+
+            return $map->save();
+        } catch (Exception $e) {
+            log_error($e);
+
+            return false;
         }
     }
 

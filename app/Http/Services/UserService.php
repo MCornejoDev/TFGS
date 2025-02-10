@@ -55,7 +55,8 @@ class UserService
                 if ($user->avatar) {
                     Storage::disk('public')->delete($user->avatar);
                 }
-                $user->avatar = self::storeAvatar('images/avatars', $data['avatar']);
+                $filename = uniqid() . '.' . $data['avatar']->extension();
+                $user->avatar = store_file('images/avatars', $data['avatar'], $filename);
             }
 
             $user->name = $data['name'];
@@ -72,11 +73,5 @@ class UserService
 
             return false;
         }
-    }
-
-    public static function storeAvatar(string $path, UploadedFile $avatar): string
-    {
-        $filename = uniqid() . '.' . $avatar->extension();
-        return Storage::disk('public')->putFileAs($path, $avatar,  $filename);
     }
 }

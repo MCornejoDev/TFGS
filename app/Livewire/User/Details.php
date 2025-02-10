@@ -109,9 +109,9 @@ class Details extends Component
 
     public function remove(int $id)
     {
-        $result = UserService::remove($id);
+        $response = UserService::remove($id);
 
-        if ($result) {
+        if ($response) {
             $this->notification()->send([
                 'icon' => 'success',
                 'title' => __('users.actions.delete.success.title'),

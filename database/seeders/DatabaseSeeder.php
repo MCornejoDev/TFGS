@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'is_admin' => true,
+            'email_verified_at' => now(),
+            'timezone' => 'Europe/Madrid',
         ]);
 
         $this->call([

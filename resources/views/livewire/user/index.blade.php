@@ -48,7 +48,7 @@
                             <div class="flex items-center justify-center gap-2 -space-x-4">
                                 {{ $user->email }}
                                 @if ($user->email_verified_at)
-                                    <span class="tooltip" data-tip="{{ __('users.table.email_verified') }}>">
+                                    <span class="tooltip" data-tip="{{ __('users.table.email_verified') }}">
                                         <x-heroicon-s-check-circle class="w-6 h-6 text-green-500" />
                                     </span>
                                 @endif
