@@ -15,8 +15,9 @@
                     <h3 class="text-lg font-semibold truncate text-base-content">
                         {{ $map->name }}
                     </h3>
-                    <p class="text-sm text-gray-400 truncate">{{ $map->link }}</p>
-                    <p class="mt-1 text-xs text-gray-500">{{ __('maps.table.extension') }}: {{ $map->extension }}</p>
+                    <p class="text-sm truncate text-base-content">{{ $map->link }}</p>
+                    <p class="mt-1 text-xs text-base-content">{{ __('maps.table.extension') }}: {{ $map->extension }}
+                    </p>
 
                     <div class="flex items-center justify-between mt-4">
                         <x-button icon="arrow-up-circle" rounded wire:click="updateMap({{ $map->id }})" primary />
@@ -26,7 +27,7 @@
                 </div>
             </div>
         @empty
-            <div class="py-4 text-center text-gray-400 col-span-full">
+            <div class="py-4 text-center text-base-content col-span-full">
                 {{ __('maps.empty') }}
             </div>
         @endforelse
@@ -34,7 +35,10 @@
     <x-livewire.pagination :items="$this->maps" :count="$this->maps->count()" />
 
     <x-modal name="simpleModal" class="!shadow !bg-base !text-base-content">
-        <x-card title="{{ $this->map->name ?? '' }}" class="!shadow !bg-base !text-base-content">
+        <x-card class="!shadow !bg-base">
+            <x-slot name="title" class="!text-base-content">
+                {{ $this->map->name ?? '' }}
+            </x-slot>
             <img src="{{ $this->map->picture ?? '' }}" alt="{{ $this->map->name ?? '' }}" class="w-full rounded-lg" />
         </x-card>
     </x-modal>
