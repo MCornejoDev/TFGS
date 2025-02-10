@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
@@ -39,5 +40,12 @@ if (! function_exists('parse_date')) {
             // Si falla al parsear, devuelve un valor predeterminado o maneja el error
             return '';
         }
+    }
+}
+
+if (!function_exists('store_file')) {
+    function store_file(string $path, UploadedFile $file, string $filename)
+    {
+        return Storage::disk('public')->putFileAs($path, $file,  $filename);
     }
 }
