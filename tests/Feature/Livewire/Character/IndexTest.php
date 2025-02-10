@@ -8,6 +8,7 @@ use App\Models\CharacterType;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Collection;
 use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -18,7 +19,7 @@ class IndexTest extends TestCase
 
     protected User $user;
 
-    protected $characters;
+    protected Collection $characters;
 
     protected function setUp(): void
     {
@@ -41,7 +42,7 @@ class IndexTest extends TestCase
             //THEN the page should render successfully with the characters
             ->assertStatus(200)
             ->assertViewHas('characters', function () {
-                return count($this->characters) == 10;
+                return $this->characters->count() == 10;
             });
     }
 

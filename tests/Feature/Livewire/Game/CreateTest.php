@@ -55,6 +55,7 @@ class CreateTest extends TestCase
         Livewire::test(Create::class)
             // Call the method to create the game
             ->set('form.name', $this->game->name)
+            ->set('form.description', $this->game->description)
             ->set('form.date_start', '2024-10-06')
             ->set('form.comments', $this->game->comments)
             ->set('form.users', [$this->user->id])
@@ -103,6 +104,7 @@ class CreateTest extends TestCase
         Livewire::test(Create::class)
             // Call the method to create the game
             ->set('form.name', fake()->word(50))
+            ->set('form.description', fake()->sentence(50))
             ->set('form.date_start', '2024-10-06')
             ->set('form.comments', $this->game->comments)
             ->set('form.users', [$this->user->id])
