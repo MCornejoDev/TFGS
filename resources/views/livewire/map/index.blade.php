@@ -9,7 +9,14 @@
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         @forelse ($this->maps as $map)
             <div class="overflow-hidden transition-transform transform shadow-lg bg-base rounded-xl hover:scale-105">
-                <img src="{{ $map->picture }}" alt="{{ $map->name }}" class="object-cover w-full h-40">
+                @if ($map->hasPicture())
+                    <img loading="lazy" src="{{ $map->picture }}" alt="{{ $map->name }}"
+                        class="object-cover w-full h-40">
+                @else
+                    <div class="flex items-center justify-center w-full h-40 bg-base-content/10">
+                        {{ __('maps.table.not-image-available') }}
+                    </div>
+                @endif
 
                 <div class="p-4">
                     <h3 class="text-lg font-semibold truncate text-base-content">
@@ -39,7 +46,14 @@
             <x-slot name="title" class="!text-base-content">
                 {{ $this->map->name ?? '' }}
             </x-slot>
-            <img src="{{ $this->map->picture ?? '' }}" alt="{{ $this->map->name ?? '' }}" class="w-full rounded-lg" />
+            @if ($map->hasPicture())
+                <img src="{{ $this->map->picture ?? '' }}" alt="{{ $this->map->name ?? '' }}"
+                    class="w-full rounded-lg" />
+            @else
+                <div class="flex items-center justify-center w-full h-40 text-base-content">
+                    {{ __('maps.table.not-image-available') }}
+                </div>
+            @endif
         </x-card>
     </x-modal>
 </div>

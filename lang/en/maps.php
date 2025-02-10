@@ -10,6 +10,7 @@ return [
         'link' => 'Link',
         'extension' => 'Extension',
         'actions' => 'Actions',
+        'not-image-available' => 'Not Image Available',
     ],
 
     'actions' => [
