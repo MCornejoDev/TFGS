@@ -46,7 +46,7 @@
             <x-slot name="title" class="!text-base-content">
                 {{ $this->map->name ?? '' }}
             </x-slot>
-            @if ($map->hasPicture())
+            @if ($this->map && $this->map->hasPicture())
                 <img src="{{ $this->map->picture ?? '' }}" alt="{{ $this->map->name ?? '' }}"
                     class="w-full rounded-lg" />
             @else

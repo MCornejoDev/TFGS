@@ -18,7 +18,7 @@ class Index extends Component
 
     use DateTime, WireUiActions, WithPagination, ResetsPage;
 
-    public Map $map;
+    public ?Map $map = null;
 
     #[On('refresh')]
     public function refresh(): void
