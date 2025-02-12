@@ -20,7 +20,7 @@ class InfoTest extends TestCase
 
     private Game $game;
 
-    protected Collection $characters;
+    protected $characters;
 
     protected User $user;
 
