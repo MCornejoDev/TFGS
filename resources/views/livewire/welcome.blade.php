@@ -34,7 +34,7 @@
                         <x-heroicon-s-arrow-right-circle class="w-8 h-8 cursor-pointer" href="{{ route('maps.index') }}"
                             wire:navigate />
                     </div>
-                    <p class="mt-4 text-4xl font-semibold ">5</p>
+                    <p class="mt-4 text-4xl font-semibold ">{{ $this->maps->count() }}</p>
                 </div>
             </div>
 

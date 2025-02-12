@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Game::class, 'users_games', 'user_id', 'game_id');
     }
 
+    public function maps()
+    {
+        return $this->hasMany(Map::class);
+    }
+
     public function timeZoneLabel(): Attribute
     {
         return Attribute::make(

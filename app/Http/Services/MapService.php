@@ -6,6 +6,7 @@ use App\Models\Map;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 
 class MapService
@@ -14,7 +15,9 @@ class MapService
     {
         $query = Map::query();
 
-        $query->when($search, function ($query) use ($search) {
+        $query->whereHas('user', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('link', 'like', '%' . $search . '%');
@@ -39,6 +42,7 @@ class MapService
             $link = store_file('images/maps', $data['image'], $filename);
 
             $game = Map::create([
+                'user_id' => Auth::id(),
                 'name' => $data['name'] ?? $originalName,
                 'filename' => $filename,
                 'link' => $link,

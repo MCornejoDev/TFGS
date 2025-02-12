@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Services\CharacterService;
 use App\Http\Services\GameService;
 use App\Models\Character;
+use App\Models\Map;
 use App\Models\User;
 use Auth;
 use Livewire\Attributes\Computed;
@@ -45,6 +46,12 @@ class Welcome extends Component
             ->withCount('characters')
             ->get()
             ->sum('characters_count');
+    }
+
+    #[Computed()]
+    public function maps()
+    {
+        return Map::where('user_id', $this->user->id);
     }
 
     public function render()

@@ -12,11 +12,17 @@ class Map extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'filename',
         'link',
         'extension',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * Get the image of map.
