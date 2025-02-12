@@ -11,7 +11,8 @@
         {{ $label }}
     </label>
 
-    <div class="flex items-center w-full gap-2">
+    <div
+        class="flex items-center w-full gap-2 hover:border hover:border-base-content hover:rounded-lg hover:bg-base-300">
         <div @click="$refs.fileInput.click()" @class([
             'flex items-center justify-center w-full h-12 px-4 rounded-lg shadow cursor-pointer bg-base',
             'border-2 border-red-500' => $errors->has('form.' . $model),

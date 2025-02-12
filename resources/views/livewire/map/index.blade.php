@@ -3,7 +3,8 @@
         <x-livewire.filters.index title="{{ __('maps.filters.title') }}" :filters="$this->allFilters()"
             labelLoading="{{ __('maps.filters.actions.loading') }}" labelClear="{{ __('maps.filters.actions.clear') }}" />
         <x-button icon="map" label="{{ __('maps.actions.create.btn') }}"
-            class="!btn !border-base-content/30 !outline-none" wire:click='openSidePanel' />
+            class="!btn !border-base-content/30 !outline-none hover:bg-base/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base"
+            wire:click='openSidePanel' />
     </div>
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
