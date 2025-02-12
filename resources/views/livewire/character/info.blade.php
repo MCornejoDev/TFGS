@@ -3,7 +3,7 @@
         <div class="items-center col-span-2 gap-6 p-6 pt-0 space-y-6 text-center rounded-lg shadow-lg bg-base md:col-span-1"
             x-data="{ show: false }" x-on:mouseover="show=true" x-on:mouseleave="show=false">
             <div class="flex items-center justify-end pt-2">
-                <x-icon name="pencil" class="w-5 h-5 text-white transition cursor-pointer hover:text-blue-400"
+                <x-icon name="pencil" class="w-5 h-5 transition cursor-pointer text-base-content hover:text-blue-400"
                     x-show="show" outline wire:click="openSidePanel" />
             </div>
 
@@ -14,8 +14,8 @@
                 </div>
 
                 <div class="space-y-4 text-center">
-                    <h2 class="text-lg font-semibold text-white">{{ __('characters.character.nickname') }}</h2>
-                    <p class="text-white">{{ $this->character->nickname }}</p>
+                    <h2 class="text-lg font-semibold text-base-content">{{ __('characters.character.nickname') }}</h2>
+                    <p class="text-base-content">{{ $this->character->nickname }}</p>
                     <div class="flex justify-center space-x-2">
                         <x-livewire.labels.images :dataTip="$this->getTranslation(
                             'characters.characters_types.',
@@ -50,8 +50,9 @@
                 </div>
 
                 <div class="space-y-4 text-center sm:col-span-2">
-                    <h2 class="text-lg font-semibold text-white">{{ __('characters.character.personality') }}</h2>
-                    <p class="text-sm text-white">{{ $this->character->personality }}</p>
+                    <h2 class="text-lg font-semibold text-base-content">{{ __('characters.character.personality') }}
+                    </h2>
+                    <p class="text-sm text-base-content">{{ $this->character->personality }}</p>
                 </div>
             </div>
         </div>
@@ -59,7 +60,7 @@
         <div class="col-span-2 p-6 pt-0 space-y-6 rounded-lg shadow-lg bg-base md:col-span-1" x-data="{ show: false }"
             x-on:mouseover="show=true" x-on:mouseleave="show=false">
             <div class="flex items-center justify-end pt-2">
-                <x-icon name="pencil" class="w-5 h-5 text-white transition cursor-pointer hover:text-blue-400"
+                <x-icon name="pencil" class="w-5 h-5 transition cursor-pointer text-base-content hover:text-blue-400"
                     x-show="show" outline wire:click="openSidePanel" />
             </div>
 
@@ -73,19 +74,19 @@
             </div>
 
             <div>
-                <h2 class="text-lg font-semibold text-white">{{ __('characters.character.skills') }}</h2>
+                <h2 class="text-lg font-semibold text-base-content">{{ __('characters.character.skills') }}</h2>
                 <div class="flex flex-wrap gap-2">
                     @foreach ($this->character->skills as $skill)
                         <span
-                            class="px-3 py-1 text-sm font-medium text-white bg-gray-700 rounded-full shadow">{{ $loop->iteration }}º:
+                            class="px-3 py-1 text-sm font-medium rounded-full shadow bg-base text-base-content">{{ $loop->iteration }}º:
                             {{ $skill }}</span>
                     @endforeach
                 </div>
             </div>
 
             <div>
-                <h2 class="text-lg font-semibold text-white">{{ __('characters.character.items') }}</h2>
-                <p class="text-sm text-white">{{ $this->character->items }}</p>
+                <h2 class="text-lg font-semibold text-base-content">{{ __('characters.character.items') }}</h2>
+                <p class="text-sm text-base-content">{{ $this->character->items }}</p>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_2fr]">
     <!-- Información del juego -->
-    <div class="flex flex-col p-6 space-y-4 text-white rounded-lg shadow-md bg-base md:h-fit">
+    <div class="flex flex-col p-6 space-y-4 rounded-lg shadow-md text-base-content bg-base md:h-fit">
         <div class="flex flex-col gap-4">
             <div>
                 <span class="font-bold text-base-content/70">{{ __('games.table.name') }}: </span>

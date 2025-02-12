@@ -29,7 +29,7 @@
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium">{{ __('auth.mail') }}</label>
                 <input id="email" name="email" type="email" required autofocus
-                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-base focus:border-base sm:text-sm"
                     value="{{ old('email') }}" />
                 @error('email')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -40,16 +40,16 @@
             <div class="mb-6">
                 <label for="password" class="block text-sm font-medium">{{ __('auth.pass') }}</label>
                 <input id="password" name="password" type="password" required
-                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                    class="block w-full px-3 py-2 mt-1 font-semibold border rounded-md shadow-sm focus:outline-none focus:ring-base focus:border-base sm:text-sm" />
                 @error('password')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Remember Me -->
-            <div class="flex items-center mb-6">
+            <div class="flex items-center mb-6 font-semibold">
                 <input id="remember_me" name="remember" type="checkbox"
-                    class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                    class="w-4 h-4 text-base rounded focus:ring-base focus:border-base">
                 <label for="remember_me" class="block ml-2 text-sm ">
                     {{ __('auth.remember') }}
                 </label>
@@ -58,7 +58,7 @@
             <!-- Submit Button -->
             <div>
                 <button type="submit"
-                    class="w-full px-4 py-2 font-bold text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="w-full px-4 py-2 font-bold rounded-md !border-base-content/30 shadow-sm text-white bg-base hover:bg-base/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base-content/70">
                     {{ __('header.login') }}
                 </button>
             </div>
