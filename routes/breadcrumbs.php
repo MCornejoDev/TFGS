@@ -64,7 +64,7 @@ Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail) {
     $trail->push(__('users.users'), route('users.index'));
 });
 
-Breadcrumbs::for('user.details', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('user.info', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(__('users.user'));
     $trail->push(Auth::user()->name);

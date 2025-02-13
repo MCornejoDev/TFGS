@@ -37,7 +37,7 @@
                         <td class="space-y-2">
                             <x-button icon="chart-bar" rounded class="bg-base-100" primary />
                             <x-button icon="information-circle" rounded class="bg-base-100" info
-                                href="{{ route('user.details', ['id' => $user->id]) }}" wire:navigate />
+                                href="{{ route('user.info', ['id' => $user->id]) }}" wire:navigate />
                             <x-button icon="trash" rounded class="bg-base-100" negative
                                 wire:click="confirm({{ $user->id }})" />
                         </td>

@@ -13,7 +13,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use WireUi\Traits\WireUiActions;
 
-class Details extends Component
+class Info extends Component
 {
     use WireUiActions, WithFileUploads;
 
@@ -159,7 +159,7 @@ class Details extends Component
                 'description' => __('users.actions.update.form.success.description'),
             ]);
             $this->dispatch('refresh')->to(Header::class);
-            $this->dispatch('refresh')->to(Details::class);
+            $this->dispatch('refresh')->to(Info::class);
         } else {
             $this->notification()->send([
                 'icon' => 'error',
@@ -174,6 +174,6 @@ class Details extends Component
 
     public function render()
     {
-        return view('livewire.user.details');
+        return view('livewire.user.info');
     }
 }

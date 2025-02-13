@@ -58,7 +58,7 @@
                             {{ __('auth.darkmode') }}</span>
                     </a>
                 </li>
-                <li><a href="{{ route('user.details') }}" wire:navigate><x-heroicon-o-user
+                <li><a href="{{ route('user.info') }}" wire:navigate><x-heroicon-o-user
                             class="w-6 h-6 hover:bg-transparent" />{{ __('header.profile') }}</a></li>
                 <li><a><x-heroicon-o-cog-6-tooth class="w-6 h-6" />{{ __('header.settings') }}</a></li>
                 <li><a wire:click='logout'><x-heroicon-o-arrow-right-on-rectangle

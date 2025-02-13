@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Livewire\User;
 
-use App\Livewire\User\Details;
+use App\Livewire\User\Info;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
@@ -10,7 +10,7 @@ use Livewire\Livewire;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-class DetailsTest extends TestCase
+class InfoTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -29,7 +29,7 @@ class DetailsTest extends TestCase
         $this->actingAs($this->user);
 
         // WHEN the user visits the details page
-        Livewire::test(Details::class)
+        Livewire::test(Info::class)
             // THEN the page should render successfully
             ->assertStatus(Response::HTTP_OK);
     }
