@@ -129,7 +129,7 @@ class Index extends Component
         $this->dispatch(
             'openPanel',
             title: __('maps.actions.create.title'),
-            component: 'map.create',
+            component: Create::class,
             icon: 'map',
         );
     }
@@ -139,7 +139,7 @@ class Index extends Component
         $this->dispatch(
             'openPanel',
             title: __('maps.actions.update.title'),
-            component: 'map.update',
+            component: Update::class,
             icon: 'map',
             params: [
                 'id' => $id,

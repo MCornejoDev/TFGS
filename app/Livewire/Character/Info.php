@@ -63,7 +63,7 @@ class Info extends Component
         $this->dispatch(
             'openPanel',
             title: __('characters.actions.update.title'),
-            component: 'character.update',
+            component: Update::class,
             icon: 'user-plus',
             params: [
                 'character' => $this->character,

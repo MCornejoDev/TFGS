@@ -149,7 +149,7 @@ class Index extends Component
         $this->dispatch(
             'openPanel',
             title: __('characters.actions.create.title'),
-            component: 'character.create',
+            component: Create::class,
             icon: 'user-plus',
         );
     }

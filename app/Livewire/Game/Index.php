@@ -116,7 +116,7 @@ class Index extends Component
         $this->dispatch(
             'openPanel',
             title: __('games.actions.create.title'),
-            component: 'game.create',
+            component: Create::class,
             icon: 'squares-plus',
         );
     }

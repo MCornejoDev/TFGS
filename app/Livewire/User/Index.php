@@ -59,6 +59,17 @@ class Index extends Component
             ->paginate(8);
     }
 
+
+    public function openSidePanel(): void
+    {
+        $this->dispatch(
+            'openPanel',
+            title: __('users.actions.create.title'),
+            component: Create::class,
+            icon: 'user-plus',
+        );
+    }
+
     public function render()
     {
         return view('livewire.user.index');
