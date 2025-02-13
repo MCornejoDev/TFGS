@@ -4,8 +4,7 @@
             labelLoading="{{ __('games.filters.actions.loading') }}"
             labelClear="{{ __('games.filters.actions.clear') }}" />
         <x-button icon="squares-plus" label="{{ __('games.actions.create.btn') }}"
-            class="!btn !border-base-content/30 !outline-none hover:bg-base/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base"
-            wire:click='openSidePanel' />
+            class="!btn !border-base-content/30 !outline-none !ring-base-content/30" wire:click='openSidePanel' />
     </div>
     <div class="overflow-x-auto">
         <table class="table text-center shadow bg-base">

@@ -9,7 +9,7 @@
 
     <div x-data="{ open: false }" class="relative">
         <x-button @click="open = !open" icon="funnel" label="{{ $title }}"
-            class="!btn !border-base-content/30 !outline-none hover:bg-base/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base" />
+            class="!btn !border-base-content/30 !outline-none !ring-base-content/30" />
 
         <div x-show="open" @click.away="open = false"
             class="absolute right-0 z-10 mt-2 border rounded shadow-lg w-72 bg-base-100 md:w-96 border-base-content/30">

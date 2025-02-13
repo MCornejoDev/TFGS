@@ -4,8 +4,7 @@
             labelLoading="{{ __('users.filters.actions.loading') }}"
             labelClear="{{ __('users.filters.actions.clear') }}" />
         <x-button icon="user-plus" label="{{ __('users.actions.create.btn') }}"
-            class="!btn !border-base-content/30 !outline-none hover:bg-base/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base"
-            wire:click='openSidePanel' />
+            class="!btn !border-base-content/30 !outline-none !ring-base-content/30" wire:click='openSidePanel' />
     </div>
 
     <div class="space-y-4 overflow-x-auto">
