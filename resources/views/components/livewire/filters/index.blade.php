@@ -31,6 +31,11 @@
                                     placeholder="{{ $filter['placeholder'] }}" />
                             @break
 
+                            @case('checkbox')
+                                <x-livewire.forms.checkbox :model="$filter['model']" label="{{ $filter['placeholder'] }}"
+                                    model="{{ $filter['filter'] }}" />
+                            @break
+
                             @default
                                 <input type="text" placeholder="{{ $filter['label'] }}"
                                     class="w-full border-base-300 bg-base-300 input input-bordered placeholder:text-sm placeholder:font-bold !h-auto"

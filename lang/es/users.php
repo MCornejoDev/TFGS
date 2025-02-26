@@ -4,7 +4,7 @@ return [
     'users' => 'Usuarios',
 
 
-    'details' => 'Detalles',
+    'info' => 'Información',
     'user' => 'Usuario',
 
     'avatars' => [
@@ -40,6 +40,33 @@ return [
     ],
 
     'actions' => [
+        'create' => [
+            'title' => 'Crear Usuario',
+            'btn' => 'Crear',
+            'form' => [
+                'name' => 'Nombre',
+                'password' => 'Contraseña',
+                'email' => 'Email',
+                'timezone' => 'Zona horaria',
+                'avatar' => 'Avatar',
+                'verify_email' => 'Verificar Email',
+                'placeholder' => [
+                    'password' => 'Contraseña',
+                    'email' => 'Email',
+                    'name' => 'Nombre de usuario',
+                    'timezones' => 'Zonas horarias',
+                    'avatar' => 'Avatar',
+                ],
+                'success' => [
+                    'title' => 'Usuario creado',
+                    'description' => 'El usuario ha sido creado correctamente.',
+                ],
+                'error' => [
+                    'title' => 'Error al crear el usuario',
+                    'description' => 'El usuario no ha podido ser creado.',
+                ],
+            ],
+        ],
         'update' => [
             'title' => 'Actualizar Usuario',
             'btn' => 'Actualizar',

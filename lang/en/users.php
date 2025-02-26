@@ -3,7 +3,7 @@
 return [
     'users' => 'Users',
 
-    'details' => 'Details',
+    'info' => 'Information',
     'user' => 'User',
 
     'avatars' => [
@@ -56,6 +56,14 @@ return [
                     'password_confirmation' => 'Password Confirmation',
                     'verify_email' => 'Verify Email',
                     'verify_email_message' => 'Verify Email Message',
+                ],
+                'success' => [
+                    'title' => 'User created',
+                    'description' => 'The user has been created successfully.',
+                ],
+                'error' => [
+                    'title' => 'Error creating user',
+                    'description' => 'The user could not be created.',
                 ],
             ],
         ],

@@ -49,7 +49,13 @@ class Index extends Component
     #[Computed()]
     public function allFilters()
     {
-        return [];
+        return [
+            [
+                'type' => 'text',
+                'label' => __('users.filters.search.placeholder'),
+            ]
+            // TODO : AÑADIR LOS FILTROS FALTANTES : IS_ADMIN, TIMEZONE
+        ];
     }
 
     #[Computed()]

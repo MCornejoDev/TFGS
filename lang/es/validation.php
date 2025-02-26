@@ -211,6 +211,8 @@ return [
         'form.date_start' => 'fecha de inicio',
         'form.users' => 'usuarios',
         'form.image' => 'imagen',
+        'form.email' => 'email',
+        'form.timezone' => 'zona horaria',
     ],
 
     'inputs' => [
