@@ -19,6 +19,11 @@
                     this.applyTheme(this.theme);
                     localStorage.setItem("myTheme", this.theme);
                 }
+
+                //Esto se aplica para que el tema se actualice cuando se cambie de página
+                document.addEventListener('livewire:navigated', () => {
+                    this.applyTheme(this.theme);
+                })
             },
 
             getTheme() {
