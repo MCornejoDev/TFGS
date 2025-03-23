@@ -17,7 +17,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
 
-// For admin middlewares
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', Welcome::class)->name('home');
     Route::get('/games', GameIndex::class)->name('games.index');
