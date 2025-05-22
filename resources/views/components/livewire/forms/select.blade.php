@@ -13,7 +13,7 @@
     'class' => null,
 ])
 
-<div x-data="form()" x-init="options = JSON.parse('{{ json_encode($items) }}');
+<div x-data="select()" x-init="options = JSON.parse('{{ json_encode($items) }}');
 model = '{{ $model }}';
 setDisabled('{{ $dependsOn }}');
 placeholder = '{{ $placeholder }}';
