@@ -1,5 +1,5 @@
 <div class="flex flex-col space-y-4">
-    <x-livewire.forms.input-file :label="__('users.actions.update.form.avatar')" type="file" model="avatar" class="p-0" :placeholder="__('user.actions.create.form.placeholder.avatar')" />
+    <x-livewire.forms.input-file :label="__('users.actions.update.form.avatar')" type="file" model="avatar" class="p-0" :placeholder="__('users.actions.create.form.placeholder.avatar')" />
 
     <x-livewire.forms.input :label="__('users.actions.update.form.name')" :placeholder="__('users.actions.update.form.placeholder.name')" model="form.name" />
     <x-livewire.forms.input :label="__('users.actions.update.form.email')" :placeholder="__('users.actions.update.form.placeholder.email')" model="form.email" :type="'email'" />
